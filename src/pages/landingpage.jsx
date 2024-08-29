@@ -7,54 +7,55 @@ import Drone5 from '../assets/Drone-img/Drone5.jpg';
 
 const drones = [
   {
-    name: 'Dr Drone Pro',
+    name: 'DJI Mavic Air 2',
     image: Drone1,
-    description: 'Advanced drone with 4K camera and long flight time.',
+    description: 'Expertly maintained DJI Mavic Air 2, with personalized training on advanced features and ongoing support to ensure optimal performance.',
     price: '$999',
   },
   {
-    name: 'Dr Drone Mini',
+    name: 'DJI Mini 2',
     image: Drone2,
-    description: 'Compact and portable drone for everyday use.',
+    description: 'Well-maintained DJI Mini 2, perfect for everyday use. Includes expert guidance on operation and maintenance for a smooth and reliable experience.',
     price: '$499',
   },
   {
-    name: 'Dr Drone Max',
+    name: 'Autel EVO Lite+',
     image: Drone3,
-    description: 'High-end drone with enhanced features and extra battery.',
+    description: 'High-performance Autel EVO Lite+, maintained to the highest standards. Comes with detailed tutorials on usage and maintenance to enhance its capabilities.',
     price: '$1499',
   },
   {
-    name: 'Dr Drone Air',
+    name: 'Skydio 2',
     image: Drone4,
-    description: 'Lightweight drone with easy handling and smart flight modes.',
+    description: 'Lightweight Skydio 2, expertly serviced and supported. Enjoy comprehensive training on its smart flight modes and maintenance to ensure top performance.',
     price: '$699',
   },
   {
-    name: 'Dr Drone Zoom',
+    name: 'DJI Phantom 4 Pro V2.0',
     image: Drone5,
-    description: 'Drone with optical zoom for detailed aerial shots.',
+    description: 'Precision-engineered DJI Phantom 4 Pro V2.0 with high-resolution optical zoom. Includes personalized training sessions for effective operation and maintenance.',
     price: '$1199',
   },
   {
-    name: 'Dr Drone Racer',
+    name: 'Hubsan Zino Pro Plus',
     image: Drone1,
-    description: 'Speedy drone designed for racing enthusiasts.',
+    description: 'Speedy Hubsan Zino Pro Plus, maintained with care. Comes with expert tutorials on its use and upkeep to ensure high performance and reliability.',
     price: '$799',
   },
   {
-    name: 'Dr Drone Explore',
+    name: 'DJI Air 2S',
     image: Drone3,
-    description: 'Durable drone with extended range for exploration.',
+    description: 'Durable DJI Air 2S, with extended range and thorough maintenance. Includes in-depth training on its features and maintenance for extensive operations.',
     price: '$899',
   },
   {
-    name: 'Dr Drone Fold',
+    name: 'Parrot Anafi',
     image: Drone4,
-    description: 'Foldable drone for easy transport and storage.',
+    description: 'Foldable Parrot Anafi, maintained for optimal convenience. Enjoy our expert training on operation and maintenance to maximize its potential.',
     price: '$549',
   },
 ];
+
 
 const sectionStyle = {
   backgroundColor: '  #097C7C ', 
