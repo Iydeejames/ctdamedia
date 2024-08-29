@@ -217,10 +217,12 @@ const LandingPage = () => {
         <div className="container mx-auto flex flex-col items-center text-center">
           <h2 className="text-2xl font-bold mb-8">About Dr. Drone</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-          Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and Procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
-Mission Statement: At Dr. Drone Nig Ltd, our mission is to elevate the performance of your drones to new heights. We are dedicated to ensuring precision, reliability, and the seamless operation of your unmanned aerial vehicles (UAVs), empowering businesses and individuals to reach their full aerial potential.
+  Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
+  <br /><br />
+  <span className="font-semibold block">Mission Statement:</span>
+  At Dr. Drone Nig Ltd, our mission is to elevate the performance of your drones to new heights. We are dedicated to ensuring precision, reliability, and the seamless operation of your unmanned aerial vehicles (UAVs), empowering businesses and individuals to reach their full aerial potential.
+</p>
 
-          </p>
           <Link to="/certification">
   <button
     className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300"
