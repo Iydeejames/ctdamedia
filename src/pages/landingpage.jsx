@@ -100,7 +100,7 @@ const LandingPage = () => {
   return (
     <div className=''>
       {/* Hero Section */}
-      <section className="w-full bg-[#097C7C]" style={{ ...sectionStyle, padding: '160px 0' }}>
+      <section className="w-full bg-[#097C7C] mt-16" style={{ ...sectionStyle, padding: '160px 0' }}>
   <style>
     {fadeInKeyframes}
   </style>
