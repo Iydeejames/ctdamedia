@@ -9,6 +9,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
 
   return (
     <header className="bg-white w-full p-4 shadow-md fixed top-0 left-0 z-50">
