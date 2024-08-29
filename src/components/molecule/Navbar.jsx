@@ -23,14 +23,14 @@ const Navbar = () => {
 
         {/* Hamburger icon for small screens */}
         <div className="block lg:hidden">
-          <button onClick={toggleMenu} className="text-[#0CAFFF]">
+          <button onClick={toggleMenu} className="text-[#007791]">
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
-          <ul className="flex space-x-6 font-bold text-[#0CAFFF] ">
+          <ul className="flex space-x-6 font-bold text-[#007791] ">
             <li><Link to="/" className="hover:text-black transition duration-300">Home</Link></li>
             <li><Link to="/pricing" className="hover:text-black transition duration-300">Training</Link></li>
             <li><Link to="/shop" className="hover:text-black transition duration-300">Shop</Link></li>
@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
           <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50 lg:hidden">
-            <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#0CAFFF]">
+            <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#007791]">
               <FaTimes size={24} />
             </button>
             <nav>
