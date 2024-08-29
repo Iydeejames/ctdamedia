@@ -143,45 +143,55 @@ const LandingPage = () => {
   <div className="container mx-auto text-center">
     <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      {/* Comprehensive Drone Maintenance */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="flex justify-center mb-4">
-          <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M14 2H6a1 1 0 00-1 1v14a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1zM6 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V2a2 2 0 00-2-2H6z" /></svg>
+          <i className="fas fa-tools text-red-500 text-4xl"></i>
         </div>
         <h3 className="text-2xl font-semibold mb-4">Comprehensive Drone Maintenance</h3>
         <p className="text-gray-600">
           Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
         </p>
       </div>
+      
+      {/* Innovative Drone Procurement */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="flex justify-center mb-4">
-          <svg className="w-12 h-12 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1a9 9 0 00-9 9v4.6l-1.3 1.3a1 1 0 001.4 1.4L2 15.4V14a7 7 0 117 7h.6l1.3 1.3a1 1 0 001.4-1.4L14 20.6V19a9 9 0 00-9-9z" /></svg>
+          <i className="fas fa-box text-red-500 text-4xl"></i>
         </div>
         <h3 className="text-2xl font-semibold mb-4">Innovative Drone Procurement</h3>
         <p className="text-gray-600">
           Access the latest in drone technology and equipment with our specialized procurement services.
         </p>
       </div>
+      
+      {/* Seamless Drone Integration */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="flex justify-center mb-4">
-          <svg className="w-12 h-12 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M6.293 9.293a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" /></svg>
+          <i className="fas fa-network-wired text-red-500 text-4xl"></i>
         </div>
         <h3 className="text-2xl font-semibold mb-4">Seamless Drone Integration</h3>
         <p className="text-gray-600">
           Benefit from smooth and efficient integration of drones into your operations with our expert support.
         </p>
       </div>
+      
+      {/* Pilot Training */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="flex justify-center mb-4">
-          <svg className="w-12 h-12 text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 5a3 3 0 00-3 3v1a3 3 0 003 3 3 3 0 003-3V8a3 3 0 00-3-3zM5 8a5 5 0 015-5 5 5 0 015 5v1a5 5 0 01-5 5 5 5 0 01-5-5V8z" /></svg>
+          <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
         </div>
         <h3 className="text-2xl font-semibold mb-4">Pilot Training</h3>
         <p className="text-gray-600">
           Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
         </p>
       </div>
+      
     </div>
   </div>
 </section>
+
 
 
       {/* Drone Models Section */}
