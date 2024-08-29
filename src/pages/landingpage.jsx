@@ -251,28 +251,28 @@ const LandingPage = () => {
           <h2 className="text-2xl font-bold mb-12">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="bg-[#0CAFFF] p-8 rounded-lg shadow-lg">
-              <blockquote className="text-white mb-4">
+              <blockquote className="text-black mb-4">
                 "The Dr Drone Pro has exceeded all my expectations. The 4K camera quality and flight stability are phenomenal!"
               </blockquote>
-              <cite className="font-semibold text-white">John Doe</cite>
+              <cite className="font-semibold text-black">John Doe</cite>
             </div>
             <div className="bg-[#0CAFFF] p-8 rounded-lg shadow-lg">
-              <blockquote className="text-white mb-4">
+              <blockquote className="text-black mb-4">
                 "I love the ease of use and the advanced features. DroneX is definitely worth every penny!"
               </blockquote>
-              <cite className="font-semibold text-white">Jane Smith</cite>
+              <cite className="font-semibold text-black">Jane Smith</cite>
             </div>
             <div className="bg-[#0CAFFF] p-8 rounded-lg shadow-lg">
-              <blockquote className="text-white mb-4">
+              <blockquote className="text-black mb-4">
                 "From setup to flight, everything has been smooth and enjoyable. The DroneX Max is a game-changer!"
               </blockquote>
-              <cite className="font-semibold text-white">Alice Johnson</cite>
+              <cite className="font-semibold text-black">Alice Johnson</cite>
             </div>
             <div className="bg-[#0CAFFF] p-8 rounded-lg shadow-lg">
-              <blockquote className="text-white mb-4">
+              <blockquote className="text-black mb-4">
                 "The Dr Drone Air is perfect for my needs. Its compact size and advanced features are just what I was looking for."
               </blockquote>
-              <cite className="font-semibold text-white">Robert Lee</cite>
+              <cite className="font-semibold text-black">Robert Lee</cite>
             </div>
           </div>
         </div>
