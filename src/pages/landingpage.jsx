@@ -90,7 +90,7 @@ const fadeInKeyframes = `
 `;
 
 const words = [
-  'Unleash', 'the', 'Future', 'with', 'Dr', 'Drone',
+  'Unleash', 'the', 'Future', 'with', 'Dr.', 'Drone',
 ];
 
 const LandingPage = () => {
@@ -115,13 +115,19 @@ const LandingPage = () => {
         ))}
       </h1>
       <p className="mt-6 text-lg lg:text-xl text-gray-300 text-center">
-        Discover the cutting-edge technology of Dr Drone. Our drones offer unmatched performance,
-        stunning visuals, and advanced features to elevate your aerial experience.
+        Welcome to Dr. Drone Ltd, your trusted partner in the skies!
       </p>
       <div className="mt-8 text-center">
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
-          Learn More
-        </button>
+      <button
+  className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
+  style={{
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+  }}
+>
+  Learn More
+</button>
+
+
       </div>
     </div>
   </div>
