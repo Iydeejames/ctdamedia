@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/landingpage';
 import Footer from './components/molecule/Footer';
 import Navbar from './components/molecule/Navbar';
-import Profile from './pages/profile';
+import Profile from './pages/Profile';
 
 const Layout = ({ children }) => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
     <Router>
       <Routes>
       <Route path="/" element={<Layout><LandingPage /></Layout>} />   
-        <Route path="/profile" element={<Layout><Profile /></Layout>} />
+        <Route path="/Profile" element={<Layout><Profile /></Layout>} />
       </Routes>
     </Router>
   );
