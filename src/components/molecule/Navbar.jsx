@@ -23,19 +23,19 @@ const Navbar = () => {
 
         {/* Hamburger icon for small screens */}
         <div className="block lg:hidden">
-          <button onClick={toggleMenu} className="text-gray-800">
+          <button onClick={toggleMenu} className="text-[#0CAFFF]">
             {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
 
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
-          <ul className="flex space-x-6 font-bold">
-            <li><Link to="/" className="text-gray-800 hover:text-blue-400 transition duration-300">Home</Link></li>
-            <li><Link to="/pricing" className="text-gray-800 hover:text-blue-400 transition duration-300">Training</Link></li>
-            <li><Link to="/shop" className="text-gray-800 hover:text-blue-400 transition duration-300">Shop</Link></li>
-            <li><Link to="/repair" className="text-gray-800 hover:text-blue-400 transition duration-300">Drone repair services</Link></li>
-            <li><Link to="/contact" className="text-gray-800 hover:text-blue-400 transition duration-300">Contact</Link></li>
+          <ul className="flex space-x-6 font-bold text-[#0CAFFF] ">
+            <li><Link to="/" className="hover:text-black transition duration-300">Home</Link></li>
+            <li><Link to="/pricing" className="hover:text-black transition duration-300">Training</Link></li>
+            <li><Link to="/shop" className="hover:text-black transition duration-300">Shop</Link></li>
+            <li><Link to="/repair" className="hover:text-black transition duration-300">Drone repair services</Link></li>
+            <li><Link to="/contact" className="hover:text-black transition duration-300">Contact</Link></li>
           </ul>
         </nav>
 
