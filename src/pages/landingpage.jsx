@@ -95,37 +95,39 @@ const words = [
 
 const LandingPage = () => {
   return (
-    <div className="">
+    <div >
       {/* Hero Section */}
-      <section style={sectionStyle}>
-      <style>
-        {fadeInKeyframes}
-      </style>
-      <div className="container mx-auto px-6 lg:px-16 flex flex-col items-center">
-        <div style={cardStyle}>
-          <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-            {words.map((word, index) => (
-              <span
-                key={index}
-                className="slide-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {word}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-6 text-lg lg:text-xl text-gray-300">
-            Discover the cutting-edge technology of Dr Drone. Our drones offer unmatched performance,
-            stunning visuals, and advanced features to elevate your aerial experience.
-          </p>
-          <div className="mt-8">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
-              Learn More
-            </button>
-          </div>
-        </div>
+      <section className="w-full bg-blue-500 overflow-x-hidden" style={sectionStyle}>
+  <style>
+    {fadeInKeyframes}
+  </style>
+  <div className="flex flex-col items-center px-6 lg:px-16">
+    <div style={cardStyle} className="w-full max-w-none">
+      <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-center text-white">
+        {words.map((word, index) => (
+          <span
+            key={index}
+            className="slide-in"
+            style={{ animationDelay: `${index * 0.2}s` }}
+          >
+            {word}
+          </span>
+        ))}
+      </h1>
+      <p className="mt-6 text-lg lg:text-xl text-gray-300 text-center">
+        Discover the cutting-edge technology of Dr Drone. Our drones offer unmatched performance,
+        stunning visuals, and advanced features to elevate your aerial experience.
+      </p>
+      <div className="mt-8 text-center">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
+          Learn More
+        </button>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
 
 
       {/* Features Section */}
