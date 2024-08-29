@@ -187,12 +187,11 @@ const LandingPage = () => {
           <h2 className="text-4xl font-bold mb-12">Explore Our Drone Models</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {drones.map((drone, index) => (
-              <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src={drone.image} alt={drone.name} className="w-full h-64 object-cover"/>
+              <div key={index} className="bg-white text-[#097C7C] shadow-lg rounded-lg overflow-hidden">
+                <img src={drone.image} alt={drone.name} className="w-full  h-64 object-cover"/>
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-2">{drone.name}</h3>
-                  <p className="text-gray-600 mb-4">{drone.description}</p>
-                  <div className="text-lg font-bold text-blue-500">{drone.price}</div>
+                  <p className="text-gray-600 mb-4 text-[#097C7C]">{drone.description}</p>
                 </div>
               </div>
             ))}
@@ -207,9 +206,14 @@ const LandingPage = () => {
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             At Dr Drone, we are dedicated to delivering the highest quality drones with the latest technology. Our mission is to enhance your aerial photography and exploration experiences with cutting-edge innovation and superior performance.
           </p>
-          <button className="bg-blue-500 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-400 transition duration-300">
-            Learn More
-          </button>
+          <button
+  className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
+  style={{
+    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+  }}
+>
+  Learn More
+</button>
         </div>
       </section>
 
