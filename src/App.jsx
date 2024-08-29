@@ -2,7 +2,7 @@ import './App.css';
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import landingPage from './pages/landingPage';
+import LandingPage from './pages/landingpage';
 import Footer from './components/molecule/Footer';
 import Navbar from './components/molecule/Navbar';
 import Profile from './pages/profile';
@@ -27,7 +27,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout><landingPage /></Layout>} />  
+      <Route path="/" element={<Layout><LandingPage /></Layout>} />   
         <Route path="/profile" element={<Layout><Profile /></Layout>} />
       </Routes>
     </Router>
