@@ -97,7 +97,7 @@ const LandingPage = () => {
   return (
     <div >
       {/* Hero Section */}
-      <section className="w-full bg-[  #097C7C ] " style={sectionStyle}>
+      <section className="w-full bg-[#097C7C]" style={{ ...sectionStyle, padding: '160px 0' }}>
   <style>
     {fadeInKeyframes}
   </style>
@@ -118,20 +118,19 @@ const LandingPage = () => {
         Welcome to Dr. Drone Ltd, your trusted partner in the skies!
       </p>
       <div className="mt-8 text-center">
-      <button
-  className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
-  style={{
-    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-  }}
->
-  Learn More
-</button>
-
-
+        <button
+          className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
+          style={{
+            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+          }}
+        >
+          Learn More
+        </button>
       </div>
     </div>
   </div>
 </section>
+
 
 
 
