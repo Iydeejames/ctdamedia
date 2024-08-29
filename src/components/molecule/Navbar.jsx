@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
           <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50 lg:hidden">
-            <button onClick={toggleMenu} className="absolute top-4 right-4 text-gray-800">
+            <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#0CAFFF]">
               <FaTimes size={24} />
             </button>
             <nav>
