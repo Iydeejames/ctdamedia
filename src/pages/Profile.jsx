@@ -1,7 +1,7 @@
 
 const Profile = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#097C7C] to-white p-6 mt-16">
+    <div className="min-h-screen bg-gradient-to-br from-[#0CAFFF] to-white p-6 mt-16">
       <header className="text-white py-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold">Dr. Drone Nig Ltd</h1>
@@ -86,7 +86,7 @@ const Profile = () => {
               <span className="font-semibold">Phone:</span> 09080006600, 07033805523
             </li>
             <li>
-              <span className="font-semibold">Website:</span> <a href="#" className="text-[#097C7C] hover:underline">Dr. Drone Nig Ltd - Elevating Drones, Elevating Expectations</a>
+              <span className="font-semibold">Website:</span> <a href="#" className="text-[#0CAFFF] hover:underline">Dr. Drone Nig Ltd - Elevating Drones, Elevating Expectations</a>
             </li>
           </ul>
         </section>
