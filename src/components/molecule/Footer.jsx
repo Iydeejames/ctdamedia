@@ -68,7 +68,7 @@ const Footer = () => {
 
             {/* Center Content */}
             <div className="flex items-center text-black space-x-2">
-              <span>We are powered by</span>
+             
               <img
                 src={DroneLogo}
                 alt="Drone Logo"
