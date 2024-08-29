@@ -96,7 +96,7 @@ const words = [
 
 const LandingPage = () => {
   return (
-    <div >
+    <div className=''>
       {/* Hero Section */}
       <section className="w-full bg-[#097C7C]" style={{ ...sectionStyle, padding: '160px 0' }}>
   <style>
@@ -137,7 +137,7 @@ const LandingPage = () => {
 
 
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16 pl-4 pr-4">
   <div className="container mx-auto text-center">
     <h2 className="text-4xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -183,7 +183,7 @@ const LandingPage = () => {
 
 
       {/* Drone Models Section */}
-      <section className="py-16">
+      <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-12">Explore Our Drone Models</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -201,7 +201,7 @@ const LandingPage = () => {
       </section>
 
       {/* About Us Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gray-100 pl-4 pr-4">
         <div className="container mx-auto flex flex-col items-center text-center">
           <h2 className="text-4xl font-bold mb-8">About Dr Drone</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
