@@ -5,12 +5,15 @@ import Drone2 from '../assets/Drone-img/Drone2.jpg';
 import Drone3 from '../assets/Drone-img/Drone3.jpg';
 import Drone4 from '../assets/Drone-img/Drone4.jpg';
 import Drone5 from '../assets/Drone-img/Drone5.jpg';
+import Drone6 from '../assets/Drone-img/Drone6.jpg';
+import Drone7 from '../assets/Drone-img/Drone7.jpg';
+import Drone8 from '../assets/Drone-img/Drone8.jpg';
 
 
 const drones = [
   {
     name: 'DJI Mavic Air 2',
-    image: Drone1,
+    image: Drone7,
     description: 'Expertly maintained DJI Mavic Air 2, with personalized training on advanced features and ongoing support to ensure optimal performance.',
     price: '$999',
   },
@@ -40,19 +43,19 @@ const drones = [
   },
   {
     name: 'Hubsan Zino Pro Plus',
-    image: Drone1,
+    image: Drone6,
     description: 'Speedy Hubsan Zino Pro Plus, maintained with care. Comes with expert tutorials on its use and upkeep to ensure high performance and reliability.',
     price: '$799',
   },
   {
     name: 'DJI Air 2S',
-    image: Drone3,
+    image: Drone1,
     description: 'Durable DJI Air 2S, with extended range and thorough maintenance. Includes in-depth training on its features and maintenance for extensive operations.',
     price: '$899',
   },
   {
     name: 'Parrot Anafi',
-    image: Drone4,
+    image: Drone8,
     description: 'Foldable Parrot Anafi, maintained for optimal convenience. Enjoy our expert training on operation and maintenance to maximize its potential.',
     price: '$549',
   },
@@ -100,7 +103,7 @@ const LandingPage = () => {
   return (
     <div className=''>
       {/* Hero Section */}
-      <section className="w-full bg-[#097C7C] mt-16" style={{ ...sectionStyle, padding: '160px 0' }}>
+      <section className="w-full bg-[#097C7C] mt-10" style={{ ...sectionStyle, padding: '160px 0' }}>
   <style>
     {fadeInKeyframes}
   </style>
