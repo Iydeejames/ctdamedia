@@ -204,10 +204,12 @@ const LandingPage = () => {
         <div className="container mx-auto flex flex-col items-center text-center">
           <h2 className="text-4xl font-bold mb-8">About Dr Drone</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            At Dr Drone, we are dedicated to delivering the highest quality drones with the latest technology. Our mission is to enhance your aerial photography and exploration experiences with cutting-edge innovation and superior performance.
+          Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and Procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
+Mission Statement: At Dr. Drone Nig Ltd, our mission is to elevate the performance of your drones to new heights. We are dedicated to ensuring precision, reliability, and the seamless operation of your unmanned aerial vehicles (UAVs), empowering businesses and individuals to reach their full aerial potential.
+
           </p>
           <button
-  className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
+  className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-md transition duration-300"
   style={{
     clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
   }}
