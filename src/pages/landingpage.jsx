@@ -103,7 +103,16 @@ const LandingPage = () => {
   return (
     <div className=''>
       {/* Hero Section */}
-      <section className="w-full bg-[#097C7C] mt-10" style={{ ...sectionStyle, padding: '160px 0' }}>
+      <section
+  className="w-full mt-16"
+  style={{
+    ...sectionStyle,
+    padding: '200px 0', // Increased padding for more height
+    backgroundImage: `url(${Drone8})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center'
+  }}
+>
   <style>
     {fadeInKeyframes}
   </style>
@@ -124,19 +133,17 @@ const LandingPage = () => {
         Welcome to Dr. Drone Ltd, your trusted partner in the skies!
       </p>
       <div className="mt-8 text-center">
-      <a href="/profile" className="inline-block">
-  <button
-    className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
-  >
-    Learn More
-  </button>
-</a>
-
+        <a href="/profile" className="inline-block">
+          <button
+            className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
+          >
+            Learn More
+          </button>
+        </a>
       </div>
     </div>
   </div>
 </section>
-
 
 
 
