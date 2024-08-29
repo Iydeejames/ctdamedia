@@ -1,7 +1,7 @@
 
 const Profile = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#097C7C] to-white p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#097C7C] to-white p-6 mt-16">
       <header className="text-white py-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold">Dr. Drone Nig Ltd</h1>
