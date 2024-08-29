@@ -2,7 +2,7 @@ import DroneLogo from "../../assets/logo/Drone-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="text-white py-8 border-t border-white">
+    <footer className="text-white py-8 border-t border-white -mt-8">
       {/* Top Section (Black Background) */}
       <div className="bg-black text-white py-8 px-4 md:px-8 w-full">
         <div className="container mx-auto px-4 md:px-8">
@@ -60,7 +60,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section (White Background) */}
-      <div className="bg-[#FFFFFF] w-full">
+      <div className="bg-white w-full">
         <div className="container mx-auto px-4 md:px-8 py-4">
           <div className="flex items-center justify-center">
             {/* Left Line */}
@@ -68,7 +68,6 @@ const Footer = () => {
 
             {/* Center Content */}
             <div className="flex items-center text-black space-x-2">
-             
               <img
                 src={DroneLogo}
                 alt="Drone Logo"
