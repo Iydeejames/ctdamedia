@@ -56,22 +56,77 @@ const drones = [
   },
 ];
 
+const sectionStyle = {
+  backgroundColor: '#1F2937', // Equivalent to bg-gray-900
+  color: '#FFFFFF', // Equivalent to text-white
+  paddingTop: '6rem', // Equivalent to py-24
+  paddingBottom: '6rem', // Equivalent to py-24
+};
+
+const cardStyle = {
+  width: '100%',
+  maxWidth: 'none', // Remove max-width restriction
+  textAlign: 'center',
+};
+
+const fadeInKeyframes = `
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in {
+    display: inline-block;
+    opacity: 0;
+    animation: slideIn 1.5s ease-in-out forwards;
+    margin-right: 0.5rem; /* Adjust spacing between words */
+  }
+`;
+
+const words = [
+  'Unleash', 'the', 'Future', 'with', 'Dr', 'Drone',
+];
+
 const LandingPage = () => {
   return (
-    <div className="bg-white text-gray-800 min-h-screen flex flex-col">
+    <div className="">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-500 to-teal-500 text-white py-24 px-4 md:px-8 lg:px-16">
-        <div className="absolute inset-0 bg-[url('/path/to/your/hero-image.jpg')] bg-cover bg-center opacity-60"></div>
-        <div className="relative container mx-auto flex flex-col items-center text-center z-10">
-          <h1 className="text-5xl font-extrabold mb-6">Unleash the Future with Dr Drone</h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Discover the cutting-edge technology of Dr Drone. Our drones offer unmatched performance, stunning visuals, and advanced features to elevate your aerial experience.
+      <section style={sectionStyle}>
+      <style>
+        {fadeInKeyframes}
+      </style>
+      <div className="container mx-auto px-6 lg:px-16 flex flex-col items-center">
+        <div style={cardStyle}>
+          <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+            {words.map((word, index) => (
+              <span
+                key={index}
+                className="slide-in"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {word}
+              </span>
+            ))}
+          </h1>
+          <p className="mt-6 text-lg lg:text-xl text-gray-300">
+            Discover the cutting-edge technology of Dr Drone. Our drones offer unmatched performance,
+            stunning visuals, and advanced features to elevate your aerial experience.
           </p>
-          <button className="bg-white text-blue-700 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300">
-            Get Started
-          </button>
+          <div className="mt-8">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300">
+              Learn More
+            </button>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
+
 
       {/* Features Section */}
       <section className="py-16">
