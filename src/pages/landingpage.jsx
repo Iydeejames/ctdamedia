@@ -211,7 +211,7 @@ const LandingPage = () => {
           <h2 className="text-3xl font-bold mb-12">Explore Our Drone Models</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {drones.map((drone, index) => (
-              <div key={index} className="bg-white text-[#0CAFFF] shadow-lg rounded-lg overflow-hidden">
+              <div key={index} className="bg-white text-[#000000]] shadow-lg rounded-lg overflow-hidden">
                 <img src={drone.image} alt={drone.name} className="w-full  h-64 object-cover"/>
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-2">{drone.name}</h3>
