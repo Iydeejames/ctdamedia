@@ -137,48 +137,49 @@ const LandingPage = () => {
 
       {/* Features Section */}
       <section className="py-16">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">Features You'll Love</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M14 2H6a1 1 0 00-1 1v14a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1zM6 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V2a2 2 0 00-2-2H6z" /></svg>
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">4K Camera</h3>
-              <p className="text-gray-600">
-                Capture high-definition aerial footage with our 4K camera, ensuring every detail is crystal clear.
-              </p>
-            </div>
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1a9 9 0 00-9 9v4.6l-1.3 1.3a1 1 0 001.4 1.4L2 15.4V14a7 7 0 117 7h.6l1.3 1.3a1 1 0 001.4-1.4L14 20.6V19a9 9 0 00-9-9z" /></svg>
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Intelligent Flight Modes</h3>
-              <p className="text-gray-600">
-                Choose from various flight modes to capture stunning footage with ease and precision.
-              </p>
-            </div>
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M6.293 9.293a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" /></svg>
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Easy Setup</h3>
-              <p className="text-gray-600">
-                Set up your drone effortlessly with our user-friendly interface and intuitive controls.
-              </p>
-            </div>
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <svg className="w-12 h-12 text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 5a3 3 0 00-3 3v1a3 3 0 003 3 3 3 0 003-3V8a3 3 0 00-3-3zM5 8a5 5 0 015-5 5 5 0 015 5v1a5 5 0 01-5 5 5 5 0 01-5-5V8z" /></svg>
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Advanced GPS</h3>
-              <p className="text-gray-600">
-                Utilize advanced GPS technology for precise navigation and reliable tracking.
-              </p>
-            </div>
-          </div>
+  <div className="container mx-auto text-center">
+    <h2 className="text-4xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="flex justify-center mb-4">
+          <svg className="w-12 h-12 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M14 2H6a1 1 0 00-1 1v14a1 1 0 001 1h8a1 1 0 001-1V3a1 1 0 00-1-1zM6 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V2a2 2 0 00-2-2H6z" /></svg>
         </div>
-      </section>
+        <h3 className="text-2xl font-semibold mb-4">Comprehensive Drone Maintenance</h3>
+        <p className="text-gray-600">
+          Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
+        </p>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="flex justify-center mb-4">
+          <svg className="w-12 h-12 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 1a9 9 0 00-9 9v4.6l-1.3 1.3a1 1 0 001.4 1.4L2 15.4V14a7 7 0 117 7h.6l1.3 1.3a1 1 0 001.4-1.4L14 20.6V19a9 9 0 00-9-9z" /></svg>
+        </div>
+        <h3 className="text-2xl font-semibold mb-4">Innovative Drone Procurement</h3>
+        <p className="text-gray-600">
+          Access the latest in drone technology and equipment with our specialized procurement services.
+        </p>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="flex justify-center mb-4">
+          <svg className="w-12 h-12 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M6.293 9.293a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" /></svg>
+        </div>
+        <h3 className="text-2xl font-semibold mb-4">Seamless Drone Integration</h3>
+        <p className="text-gray-600">
+          Benefit from smooth and efficient integration of drones into your operations with our expert support.
+        </p>
+      </div>
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+        <div className="flex justify-center mb-4">
+          <svg className="w-12 h-12 text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 5a3 3 0 00-3 3v1a3 3 0 003 3 3 3 0 003-3V8a3 3 0 00-3-3zM5 8a5 5 0 015-5 5 5 0 015 5v1a5 5 0 01-5 5 5 5 0 01-5-5V8z" /></svg>
+        </div>
+        <h3 className="text-2xl font-semibold mb-4">Precision and Reliability</h3>
+        <p className="text-gray-600">
+          Trust in our dedication to ensuring precise, reliable, and efficient operation of your UAVs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Drone Models Section */}
       <section className="py-16">
