@@ -61,7 +61,7 @@ const Footer = () => {
 
       {/* Bottom Section (White Background) */}
       <div className="bg-white w-full">
-        <div className="container mx-auto px-4 md:px-8 py-4">
+        <div className="container mx-auto px-4 md:px-8 -pb-[4] pt-2">
           <div className="flex items-center justify-center">
             {/* Left Line */}
             <div className="flex-grow border-t border-black mr-4"></div>
