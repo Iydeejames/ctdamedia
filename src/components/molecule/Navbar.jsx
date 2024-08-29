@@ -34,7 +34,7 @@ const Navbar = () => {
             <li><Link to="/" className="text-gray-800 hover:text-blue-400 transition  duration-300">Home</Link></li>
             <li><Link to="/pricing" className="text-gray-800 hover:text-blue-400 transition duration-300">Training</Link></li>
             <li><Link to="/shop" className="text-gray-800 hover:text-blue-400 transition duration-300">Shop</Link></li>
-            <li><Link to="/features" className="text-gray-800 hover:text-blue-400 transition duration-300">Drone repair services</Link></li>
+            <li><Link to="/repair" className="text-gray-800 hover:text-blue-400 transition duration-300">Drone repair services</Link></li>
             <li><Link to="/contact" className="text-gray-800 hover:text-blue-400 transition duration-300">Contact</Link></li>
           </ul>
         </nav>
@@ -48,8 +48,9 @@ const Navbar = () => {
             <nav>
               <ul className="flex flex-col space-y-6">
                 <li><Link to="/" className="text-black text-2xl" onClick={toggleMenu}>Home</Link></li>
-                <li><Link to="/features" className="text-black text-2xl" onClick={toggleMenu}>Features</Link></li>
-                <li><Link to="/pricing" className="text-black text-2xl" onClick={toggleMenu}>Tutorials</Link></li>
+                <li><Link to="/training" className="text-black text-2xl" onClick={toggleMenu}>Training</Link></li>
+                <li><Link to="/shop" className="text-black text-2xl" onClick={toggleMenu}>Shop</Link></li>
+                <li><Link to="/repair" className="text-black text-2xl" onClick={toggleMenu}>Drone repair services</Link></li>
                 <li><Link to="/contact" className="text-black text-2xl" onClick={toggleMenu}>Contact</Link></li>
               </ul>
             </nav>
