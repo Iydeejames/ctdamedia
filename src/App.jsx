@@ -1,10 +1,11 @@
 import './App.css';
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import LandingPage from './pages/landingpage';
+import LandingPage from './pages/LandingPage';
 import Footer from './components/molecule/Footer';
 import Navbar from './components/molecule/Navbar';
+import Profile from './pages/profile';
 
 const Layout = ({ children }) => {
   return (
@@ -18,7 +19,6 @@ const Layout = ({ children }) => {
   );
 };
 
-
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -28,7 +28,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Layout><LandingPage /></Layout>} />  
-        {/* Define other routes here if needed */}
+        <Route path="/profile" element={<Layout><Profile /></Layout>} />
       </Routes>
     </Router>
   );

@@ -119,14 +119,14 @@ const LandingPage = () => {
         Welcome to Dr. Drone Ltd, your trusted partner in the skies!
       </p>
       <div className="mt-8 text-center">
-        <button
-          className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition duration-300"
-          style={{
-            clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-          }}
-        >
-          Learn More
-        </button>
+      <a href="/profile" className="inline-block">
+  <button
+    className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
+  >
+    Learn More
+  </button>
+</a>
+
       </div>
     </div>
   </div>
@@ -210,13 +210,11 @@ Mission Statement: At Dr. Drone Nig Ltd, our mission is to elevate the performan
 
           </p>
           <button
-  className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-md transition duration-300"
-  style={{
-    clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-  }}
+  className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300"
 >
   Learn More
 </button>
+
         </div>
       </section>
 
