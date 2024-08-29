@@ -221,7 +221,7 @@ Mission Statement: At Dr. Drone Nig Ltd, our mission is to elevate the performan
       {/* Testimonials Section */}
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">What Our Clients Say</h2>
+          <h2 className="text-2xl font-bold mb-12">What Our Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="bg-[#097C7C] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
