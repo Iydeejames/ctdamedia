@@ -6,6 +6,7 @@ import LandingPage from './pages/landingpage';
 import Footer from './components/molecule/Footer';
 import Navbar from './components/molecule/Navbar';
 import Profile from './pages/Profile';
+import Certification from './pages/certification';
 
 const Layout = ({ children }) => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
       <Routes>
       <Route path="/" element={<Layout><LandingPage /></Layout>} />   
         <Route path="/Profile" element={<Layout><Profile /></Layout>} />
+        <Route path="/Certification" element={<Layout><Certification/></Layout>} />
       </Routes>
     </Router>
   );
