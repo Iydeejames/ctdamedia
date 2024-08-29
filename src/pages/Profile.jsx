@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Profile = () => {
   return (
@@ -41,7 +40,7 @@ const Profile = () => {
             </li>
             <li>
               <h3 className="font-semibold">Advanced Diagnostics and Upgrades:</h3>
-              <p>Stay ahead of the curve with our state-of-the-art diagnostic tools and upgrade services. We analyze your drone's performance metrics, recommend improvements, and implement upgrades to keep your fleet equipped with the latest technology and capabilities.</p>
+              <p>Stay ahead of the curve with our state-of-the-art diagnostic tools and upgrade services. We analyze your drones performance metrics, recommend improvements, and implement upgrades to keep your fleet equipped with the latest technology and capabilities.</p>
             </li>
             <li>
               <h3 className="font-semibold">Training and Consultation:</h3>
