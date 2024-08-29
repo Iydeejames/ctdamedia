@@ -28,9 +28,19 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Full-screen overlay menu */}
+        {/* Regular navigation menu for large screens */}
+        <nav className="hidden lg:flex lg:space-x-6">
+          <ul className="flex space-x-6">
+            <li><Link to="/" className="text-gray-800 hover:text-blue-400 transition duration-300">Home</Link></li>
+            <li><Link to="/features" className="text-gray-800 hover:text-blue-400 transition duration-300">Features</Link></li>
+            <li><Link to="/pricing" className="text-gray-800 hover:text-blue-400 transition duration-300">Tutorials</Link></li>
+            <li><Link to="/contact" className="text-gray-800 hover:text-blue-400 transition duration-300">Contact</Link></li>
+          </ul>
+        </nav>
+
+        {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50">
+          <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50 lg:hidden">
             <button onClick={toggleMenu} className="absolute top-4 right-4 text-gray-800">
               <FaTimes size={24} />
             </button>
