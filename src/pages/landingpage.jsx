@@ -195,7 +195,7 @@ const LandingPage = () => {
       {/* About Us Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto flex flex-col items-center text-center">
-          <h2 className="text-4xl font-bold mb-8">About DroneX</h2>
+          <h2 className="text-4xl font-bold mb-8">About Dr Drone</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             At Dr Drone, we are dedicated to delivering the highest quality drones with the latest technology. Our mission is to enhance your aerial photography and exploration experiences with cutting-edge innovation and superior performance.
           </p>
