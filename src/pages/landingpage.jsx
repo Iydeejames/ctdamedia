@@ -129,13 +129,13 @@ const LandingPage = () => {
           </span>
         ))}
       </h1>
-      <p className="mt-6 text-lg lg:text-xl text-gray-300 text-center">
+      <p className="mt-6 text-lg lg:text-xl text-white text-center">
         Welcome to Dr. Drone Ltd, your trusted partner in the skies!
       </p>
       <div className="mt-8 text-center">
         <a href="/profile" className="inline-block">
           <button
-            className="bg-black hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
+            className="bg-red-600 hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-full transition duration-300"
           >
             Learn More
           </button>
@@ -144,6 +144,7 @@ const LandingPage = () => {
     </div>
   </div>
 </section>
+
 
 
 
