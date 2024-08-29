@@ -174,9 +174,9 @@ const LandingPage = () => {
         <div className="flex justify-center mb-4">
           <svg className="w-12 h-12 text-teal-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 5a3 3 0 00-3 3v1a3 3 0 003 3 3 3 0 003-3V8a3 3 0 00-3-3zM5 8a5 5 0 015-5 5 5 0 015 5v1a5 5 0 01-5 5 5 5 0 01-5-5V8z" /></svg>
         </div>
-        <h3 className="text-2xl font-semibold mb-4">Precision and Reliability</h3>
+        <h3 className="text-2xl font-semibold mb-4">Pilot Training</h3>
         <p className="text-gray-600">
-          Trust in our dedication to ensuring precise, reliable, and efficient operation of your UAVs.
+          Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
         </p>
       </div>
     </div>
