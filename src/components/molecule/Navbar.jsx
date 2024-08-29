@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import DroneLogo from "../../assets/logo/Drone-logo.png";
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Importing hamburger and close icons
@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-white w-full p-4 shadow-md">
+    <header className="bg-white w-full p-4 shadow-md fixed top-0 left-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img
@@ -30,8 +30,8 @@ const Navbar = () => {
 
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
-          <ul className="flex space-x-6 font-bold ">
-            <li><Link to="/" className="text-gray-800 hover:text-blue-400 transition  duration-300">Home</Link></li>
+          <ul className="flex space-x-6 font-bold">
+            <li><Link to="/" className="text-gray-800 hover:text-blue-400 transition duration-300">Home</Link></li>
             <li><Link to="/pricing" className="text-gray-800 hover:text-blue-400 transition duration-300">Training</Link></li>
             <li><Link to="/shop" className="text-gray-800 hover:text-blue-400 transition duration-300">Shop</Link></li>
             <li><Link to="/repair" className="text-gray-800 hover:text-blue-400 transition duration-300">Drone repair services</Link></li>
