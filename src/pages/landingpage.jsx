@@ -57,8 +57,8 @@ const drones = [
 ];
 
 const sectionStyle = {
-  backgroundColor: '#1F2937', // Equivalent to bg-gray-900
-  color: '#FFFFFF', // Equivalent to text-white
+  backgroundColor: '  #097C7C ', 
+  color: '#FFFFFF', 
   paddingTop: '6rem', // Equivalent to py-24
   paddingBottom: '6rem', // Equivalent to py-24
 };
@@ -97,7 +97,7 @@ const LandingPage = () => {
   return (
     <div >
       {/* Hero Section */}
-      <section className="w-full bg-blue-500 overflow-x-hidden" style={sectionStyle}>
+      <section className="w-full bg-[  #097C7C ] " style={sectionStyle}>
   <style>
     {fadeInKeyframes}
   </style>
