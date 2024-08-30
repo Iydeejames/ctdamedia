@@ -20,9 +20,9 @@ const drones = [
     price: '$999',
   },
   {
-    name: 'DJI Mini 2',
+    name: 'WingtraOne',
     image: Drone2,
-    description: 'Well-maintained DJI Mini 2, perfect for everyday use. Includes expert guidance on operation and maintenance for a smooth and reliable experience.',
+    description: 'The WingtraOne mapping drone’s unique set of features empowers you to minimize your time flying and get more work done. Fly at 16 m/s (36 mph) for up to 59 minutes per flight for large coverage, with 61 MP WingtraOne can fly higher than drones limited to 20 MP cameras, so you capture more ground and more detail with every picture and a larger area per flight.',
     price: '$499',
   },
   {
@@ -220,7 +220,7 @@ const LandingPage = () => {
                 <img src={drone.image} alt={drone.name} className="w-full  h-64 object-cover"/>
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold mb-2">{drone.name}</h3>
-                  <p className="text-gray-600 mb-4 text-[#000000]">{drone.description}</p>
+                  <p className="text-gray-600 mb-4 text-sm text-[#000000]">{drone.description}</p>
                 </div>
               </div>
             ))}
