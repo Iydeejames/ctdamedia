@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -28,12 +28,12 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#007791] py-12 px-6 sm:px-12">
+    <div className="min-h-screen bg-[#007791] py-12 px-6 mt-16 sm:px-12">
       <div className="container mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-5xl font-extrabold text-white">Contact Us</h1>
-          <p className="text-gray-200 mt-4">We'd love to hear from you! Let us know how we can assist you.</p>
+          <p className="text-gray-200 text-xl mt-4">We'd love to hear from you! Let us know how we can assist you.</p>
         </header>
 
         {/* Main Content */}
