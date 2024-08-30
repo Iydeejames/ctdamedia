@@ -29,6 +29,7 @@ const Navbar = () => {
           </button>
         </div>
 
+
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
           <ul className="flex space-x-6 font-bold text-[#007791] ">
