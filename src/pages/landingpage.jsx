@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 import Drone1 from '../assets/Drone-img/Drone1.jpg';
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
@@ -8,13 +9,14 @@ import Drone5 from '../assets/Drone-img/Drone5.jpg';
 import Drone6 from '../assets/Drone-img/Drone6.jpg';
 import Drone7 from '../assets/Drone-img/Drone7.jpg';
 import Drone8 from '../assets/Drone-img/Drone8.jpg';
-
+import Drone9 from '../assets/Drone-img/Drone9.jpg';
+import Drone11 from '../assets/Drone-img/Drone11.jpg';
 
 const drones = [
   {
-    name: 'DJI Mavic Air 2',
+    name: 'M350 RTK',
     image: Drone7,
-    description: 'Expertly maintained DJI Mavic Air 2, with personalized training on advanced features and ongoing support to ensure optimal performance.',
+    description: '',
     price: '$999',
   },
   {
@@ -62,138 +64,134 @@ const drones = [
 ];
 
 
-const sectionStyle = {
-  backgroundColor: '  ##FFFFFF ', 
-  color: '#FFFFFF', 
-  paddingTop: '6rem', // Equivalent to py-24
-  paddingBottom: '6rem', // Equivalent to py-24
-};
-
 const cardStyle = {
   width: '100%',
   maxWidth: 'none', // Remove max-width restriction
   textAlign: 'center',
 };
 
-const fadeInKeyframes = `
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .slide-in {
-    display: inline-block;
-    opacity: 0;
-    animation: slideIn 1.5s ease-in-out forwards;
-    margin-right: 0.5rem; /* Adjust spacing between words */
-  }
-`;
-
 const words = [
   'Unleash', 'the', 'Future', 'with', 'Dr.', 'Drone',
 ];
 
+const ImageSliderSection = () => {
+  const [backgroundImage, setBackgroundImage] = useState(Drone9);
+
+  useEffect(() => {
+    const images = [Drone9, Drone11];
+    let index = 0;
+
+    const interval = setInterval(() => {
+      index = (index + 1) % images.length;
+      setBackgroundImage(images[index]);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, []);
+
+  const sliderSectionStyle = {
+    position: 'relative',
+    padding: '220px 0',
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'background-image 4s ease-in-out', // Smooth transition between images
+  };
+
+  const overlayStyle = {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay with 50% opacity
+    zIndex: 1,
+  };
+
+  return (
+    <section style={sliderSectionStyle}>
+      <div style={overlayStyle}></div> {/* Dark opacity overlay */}
+      <div className="flex flex-col items-center px-6 lg:px-16 relative z-10">
+        <div style={cardStyle} className="w-full max-w-none">
+          <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-center text-white">
+            {words.map((word, index) => (
+              <span
+                key={index}
+                className="slide-in inline-block mx-2"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {word}
+              </span>
+            ))}
+          </h1>
+          <p className="mt-6 text-lg lg:text-xl text-white text-center">
+            Welcome to Dr. Drone Ltd, your trusted partner in the skies!
+          </p>
+          <div className="mt-8 text-center">
+            <a href="/profile" className="inline-block">
+              <button className="bg-red-600 hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-full transition duration-300">
+                Learn More
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const LandingPage = () => {
   return (
     <div className=''>
-      {/* Hero Section */}
-      <section
-  className="w-full mt-16"
-  style={{
-    ...sectionStyle,
-    padding: '200px 0', // Increased padding for more height
-    backgroundImage: `url(${Drone8})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center'
-  }}
->
-  <style>
-    {fadeInKeyframes}
-  </style>
-  <div className="flex flex-col items-center px-6 lg:px-16">
-    <div style={cardStyle} className="w-full max-w-none">
-      <h1 className="text-4xl lg:text-5xl font-bold leading-tight text-center text-white">
-        {words.map((word, index) => (
-          <span
-            key={index}
-            className="slide-in"
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            {word}
-          </span>
-        ))}
-      </h1>
-      <p className="mt-6 text-lg lg:text-xl text-white text-center">
-        Welcome to Dr. Drone Ltd, your trusted partner in the skies!
-      </p>
-      <div className="mt-8 text-center">
-        <a href="/profile" className="inline-block">
-          <button
-            className="bg-red-600 hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-full transition duration-300"
-          >
-            Learn More
-          </button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
+      <ImageSliderSection />
 
       {/* Features Section */}
       <section className="py-16 pl-4 pr-4">
-  <div className="container mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      {/* Comprehensive Drone Maintenance */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <div className="flex justify-center mb-4">
-          <i className="fas fa-tools text-red-500 text-4xl"></i>
-        </div>
-        <h3 className="text-2xl font-semibold mb-4">Comprehensive Drone Maintenance</h3>
-        <p className="text-gray-600">
-          Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
-        </p>
-      </div>
-      
-      {/* Innovative Drone Procurement */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <div className="flex justify-center mb-4">
-          <i className="fas fa-box text-red-500 text-4xl"></i>
-        </div>
-        <h3 className="text-2xl font-semibold mb-4">Innovative Drone Procurement</h3>
-        <p className="text-gray-600">
-          Access the latest in drone technology and equipment with our specialized procurement services.
-        </p>
-      </div>
-      
-      {/* Seamless Drone Integration */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <div className="flex justify-center mb-4">
-          <i className="fas fa-network-wired text-red-500 text-4xl"></i>
-        </div>
-        <h3 className="text-2xl font-semibold mb-4">Seamless Drone Integration</h3>
-        <p className="text-gray-600">
-          Benefit from smooth and efficient integration of drones into your operations with our expert support.
-        </p>
-      </div>
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            {/* Comprehensive Drone Maintenance */}
+            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Comprehensive Drone Maintenance/Repairs</h3>
+              <p className="text-gray-600">
+                Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
+              </p>
+            </div>
+            
+            {/* Innovative Drone Procurement */}
+            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-box text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Procurement Services</h3>
+              <p className="text-gray-600">
+                Access the latest in drone technology and equipment with our specialized procurement services.
+              </p>
+            </div>
+            
+            {/* Seamless Drone Integration */}
+            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-network-wired text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Consultancy Services</h3>
+              <p className="text-gray-600">
+                At Dr. Drone, we offer our professional services to help you make informed and innovative UAV related decisions.
+              </p>
+            </div>
+            
       
       {/* Pilot Training */}
       <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
         <div className="flex justify-center mb-4">
           <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
         </div>
-        <h3 className="text-2xl font-semibold mb-4">Pilot Training</h3>
+        <h3 className="text-2xl font-semibold mb-4">Pilot Training Program</h3>
         <p className="text-gray-600">
           Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
         </p>
