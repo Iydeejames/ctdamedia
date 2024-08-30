@@ -83,7 +83,13 @@ const ImageSliderSection = () => {
 
     const interval = setInterval(() => {
       index = (index + 1) % images.length;
-      setBackgroundImage(images[index]);
+
+      // Preload the next image before setting it as the background
+      const img = new Image();
+      img.src = images[index];
+      img.onload = () => {
+        setBackgroundImage(images[index]);
+      };
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
@@ -140,6 +146,7 @@ const ImageSliderSection = () => {
     </section>
   );
 };
+
 
 const LandingPage = () => {
   return (

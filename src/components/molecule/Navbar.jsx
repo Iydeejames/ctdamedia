@@ -18,7 +18,7 @@ const Navbar = () => {
           <img
             src={DroneLogo}
             alt="Drone Logo"
-            className="h-20 w-26 object-contain"
+            className="h-20 w-28 object-contain"
           />
         </div>
 
