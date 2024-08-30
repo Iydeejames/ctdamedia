@@ -12,9 +12,7 @@ const Footer = () => {
               <h4 className="font-bold mb-4">About</h4>
               <ul>
                 <li><a href="#about-us" className="hover:underline">About Us</a></li>
-                <li><a href="#partners" className="hover:underline">Partners</a></li>
                 <li><a href="#gallery" className="hover:underline">Gallery</a></li>
-                <li><a href="#my-account" className="hover:underline">My Account</a></li>
                 <li><a href="#privacy-policy" className="hover:underline">Privacy Policy</a></li>
                 <li><a href="#terms-conditions" className="hover:underline">Terms & Conditions</a></li>
                 <li><a href="#contact-us" className="hover:underline">Contact Us</a></li>
@@ -25,14 +23,11 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4">Customer Service</h4>
               <ul>
-                <li><a href="#drone-shop" className="hover:underline">Drone Shop</a></li>
                 <li><a href="#hire-drone-pilot" className="hover:underline">Hire a Drone Pilot</a></li>
                 <li><a href="#become-drone-pilot" className="hover:underline">Become a Drone Pilot</a></li>
                 <li><a href="#drone-services" className="hover:underline">Drone Services</a></li>
                 <li><a href="#drone-repair-service" className="hover:underline">Drone Repair Service</a></li>
-                <li><a href="#applications" className="hover:underline">Applications</a></li>
-                <li><a href="#drone-buying-guides" className="hover:underline">Drone Buying Guides</a></li>
-                <li><a href="#resellers-distributors" className="hover:underline">Resellers and Distributors</a></li>
+               {/* <li><a href="#drone-buying-guides" className="hover:underline">Drone Buying Guides</a></li> */}
               </ul>
             </div>
 
@@ -41,6 +36,12 @@ const Footer = () => {
               <h4 className="font-bold mb-4">Contacts</h4>
               <ul>
                 <li>+234 7039 4859 98</li>
+                <li>+234 7033 8055 23</li>
+              </ul>
+
+              <h4 className="font-bold mb-4">Email Us</h4>
+              <ul>
+                <li>+234 9080 0066 00</li>
                 <li>+234 7033 8055 23</li>
               </ul>
             </div>
