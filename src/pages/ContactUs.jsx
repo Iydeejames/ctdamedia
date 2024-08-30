@@ -28,71 +28,74 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-[#007791] py-12 px-6 sm:px-12">
+      <div className="container mx-auto">
         {/* Header */}
-        <header className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-[#007791]">Contact Us</h1>
-          <p className="text-gray-600 mt-2">Get in touch with us for drone maintenance, pilot training, consultancy services, and more.</p>
+        <header className="text-center mb-12">
+          <h1 className="text-5xl font-extrabold text-white">Contact Us</h1>
+          <p className="text-gray-200 mt-4">We'd love to hear from you! Let us know how we can assist you.</p>
         </header>
 
         {/* Main Content */}
-        <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#007791] mb-4">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Drop Us a Message</h2>
               <form onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700">Name</label>
+                    <label htmlFor="name" className="block text-gray-600 font-medium">Name</label>
                     <input
                       type="text"
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
+                      placeholder="Enter your full name"
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-gray-700">Email</label>
+                    <label htmlFor="email" className="block text-gray-600 font-medium">Email</label>
                     <input
                       type="email"
                       id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
+                      placeholder="Enter your email address"
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-gray-700">Phone</label>
+                    <label htmlFor="phone" className="block text-gray-600 font-medium">Phone</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
+                      placeholder="Enter your phone number"
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-gray-700">Service Interested In</label>
+                    <label htmlFor="service" className="block text-gray-600 font-medium">Service Interested In</label>
                     <select
                       id="service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
                       required
                     >
-                      <option value="">Select a service</option>
+                      <option value="" disabled>Select a service</option>
                       <option value="droneMaintenance">Drone Maintenance</option>
                       <option value="pilotTraining">Pilot Training</option>
                       <option value="consultancy">Consultancy Services</option>
@@ -100,15 +103,15 @@ const ContactUs = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="question" className="block text-gray-700">How can we assist you?</label>
+                    <label htmlFor="question" className="block text-gray-600 font-medium">How can we assist you?</label>
                     <select
                       id="question"
                       name="question"
                       value={formData.question}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
                     >
-                      <option value="">Select a question</option>
+                      <option value="" disabled>Select a question</option>
                       <option value="generalInquiry">General Inquiry</option>
                       <option value="technicalSupport">Technical Support</option>
                       <option value="pricing">Pricing</option>
@@ -116,20 +119,21 @@ const ContactUs = () => {
                     </select>
                   </div>
 
-                  <div className="col-span-2">
-                    <label htmlFor="message" className="block text-gray-700">Message</label>
+                  <div>
+                    <label htmlFor="message" className="block text-gray-600 font-medium">Message</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg"
-                      rows="4"
+                      placeholder="Write your message here..."
+                      className="mt-2 block w-full px-5 py-3 border border-gray-300 rounded-lg focus:ring-[#007791] focus:border-[#007791]"
+                      rows="5"
                       required
                     ></textarea>
                   </div>
 
-                  <div className="col-span-2 flex items-center">
+                  <div className="flex items-center">
                     <input
                       type="checkbox"
                       id="subscribe"
@@ -138,16 +142,16 @@ const ContactUs = () => {
                       onChange={handleChange}
                       className="mr-2"
                     />
-                    <label htmlFor="subscribe" className="text-gray-700">Subscribe to our newsletter</label>
+                    <label htmlFor="subscribe" className="text-gray-600">Subscribe to our newsletter</label>
                   </div>
                 </div>
 
-                <div className="mt-6 flex justify-center">
+                <div className="mt-8 flex justify-center">
                   <button
                     type="submit"
-                    className="px-6 py-2 bg-[#007791] text-white font-semibold rounded-lg hover:bg-[#005f6f] transition duration-300"
+                    className="px-8 py-3 bg-[#007791] text-white font-semibold rounded-lg hover:bg-[#005f6f] transition duration-300"
                   >
-                    Send
+                    Send Message
                   </button>
                 </div>
 
@@ -160,9 +164,9 @@ const ContactUs = () => {
             </div>
 
             {/* Contact Information */}
-            <div>
-              <h2 className="text-2xl font-semibold text-[#007791] mb-4">Contact Information</h2>
-              <ul className="space-y-4">
+            <div className="bg-[#f3f4f6] p-6 rounded-lg shadow-inner">
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+              <ul className="space-y-4 text-gray-700">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                   <span className="ml-4">123 Drone St, Sky City, SC 12345</span>
@@ -176,23 +180,28 @@ const ContactUs = () => {
                   <span className="ml-4">info@calldrone.com</span>
                 </li>
               </ul>
+
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold text-gray-800 mb-4">Business Hours</h3>
+                <p className="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                <p className="text-gray-600">Sat: 10:00 AM - 4:00 PM</p>
+                <p className="text-gray-600">Sun: Closed</p>
+              </div>
             </div>
           </div>
 
           {/* Map Section */}
-          <div className="mt-10">
-            <h2 className="text-2xl font-semibold text-[#007791] mb-4">Find Us on the Map</h2>
-            <div className="aspect-w-16 aspect-h-9">
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Us on the Map</h2>
+            <div className="rounded-lg overflow-hidden shadow-lg">
               <iframe
                 title="Company Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.980467354476!2d-122.4194186846819!3d37.77492927975859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808fc03a7a07%3A0x56b38f283826ce77!2sSan%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v1623307411206!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509615!2d144.9630575155059!3d-37.8141077797516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43b1d28d33%3A0x4a2b9e2c8c3d58b5!2s123%20Drone%20St%2C%20Sky%20City%2C%20SC%2012345!5e0!3m2!1sen!2sus!4v1619182173624!5m2!1sen!2sus"
                 width="100%"
-                height="100%"
-                frameBorder="0"
-                style={{ border: 0 }}
-                allowFullScreen
-                aria-hidden="false"
-                tabIndex="0"
+                height="450"
+                allowFullScreen=""
+                loading="lazy"
+                className="border-0"
               ></iframe>
             </div>
           </div>
