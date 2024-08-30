@@ -1,5 +1,11 @@
+import {  useEffect } from 'react';
 
 const Profile = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#007791] to-white p-6 mt-16">
       <header className="text-white py-8">
