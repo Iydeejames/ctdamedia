@@ -39,7 +39,7 @@ const Footer = () => {
                 <li>+234 7033 8055 23</li>
               </ul>
 
-              <h4 className="font-bold mt-4">Email Us</h4>
+              <h4 className="font-bold mt-4 mb-2">Email Us</h4>
                 <p>drdronenigltd@gmail.com</p>
             </div>
 
