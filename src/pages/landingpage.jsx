@@ -16,7 +16,7 @@ const drones = [
   {
     name: 'M350 RTK',
     image: Drone7,
-    description: '',
+    description: 'The DJI Matrice 350 RTK is built to handle demanding professional missions in harsh environments. With 03 enterprice transmission uses a four-antenna system for control and live data feeds up to 12.4 miles away. The motor of the drone is capable of horizontal speeds up to 52mph',
     price: '$999',
   },
   {
