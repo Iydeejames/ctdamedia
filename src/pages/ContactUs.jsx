@@ -24,7 +24,7 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    // Add form submission logic here
+
   };
 
   return (
@@ -169,11 +169,11 @@ const ContactUs = () => {
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">123 Drone St, Sky City, SC 12345</span>
+                  <span className="ml-4">3 Emmanuel Bassey Avenue,  Uyo, Nigeria</span>
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">+1 (234) 567-8901</span>
+                  <span className="ml-4">+234 9080 0066 001</span>
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
