@@ -118,7 +118,7 @@ const ImageSliderSection = () => {
             {words.map((word, index) => (
               <span
                 key={index}
-                className="slide-in inline-block mx-2"
+                className="slide-in inline-block mx-1"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {word}
