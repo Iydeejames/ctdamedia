@@ -35,15 +35,12 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4">Contacts</h4>
               <ul>
-                <li>+234 7039 4859 98</li>
-                <li>+234 7033 8055 23</li>
-              </ul>
-
-              <h4 className="font-bold mb-4">Email Us</h4>
-              <ul>
                 <li>+234 9080 0066 00</li>
                 <li>+234 7033 8055 23</li>
               </ul>
+
+              <h4 className="font-bold mt-4">Email Us</h4>
+                <p>drdronenigltd@gmail.com</p>
             </div>
 
             {/* Address Section */}
