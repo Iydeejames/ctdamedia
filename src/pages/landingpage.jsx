@@ -63,7 +63,7 @@ const drones = [
 
 
 const sectionStyle = {
-  backgroundColor: '  #007791 ', 
+  backgroundColor: '  ##FFFFFF ', 
   color: '#FFFFFF', 
   paddingTop: '6rem', // Equivalent to py-24
   paddingBottom: '6rem', // Equivalent to py-24
