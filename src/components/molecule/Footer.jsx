@@ -41,7 +41,7 @@ const Footer = () => {
               <h4 className="font-bold mb-4">Contacts</h4>
               <ul>
                 <li>+234 7039 4859 98</li>
-                <li>+234 7039 4859 98</li>
+                <li>+234 7033 8055 23</li>
               </ul>
             </div>
 

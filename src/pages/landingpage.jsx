@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Drone1 from '../assets/Drone-img/Drone1.jpg';
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
