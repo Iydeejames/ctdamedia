@@ -4,7 +4,7 @@ const ContactUs = () => {
      useEffect(() => {
           window.scrollTo(0, 0);
         }, []);
-        
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -177,7 +177,8 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">+234 9080 0066 001</span>
+                  <span className="ml-4">+234 9080 0066 00</span> 
+                  <span className="ml-4">+234 7033 8055 23</span> 
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
