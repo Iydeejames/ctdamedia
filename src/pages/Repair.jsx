@@ -87,7 +87,14 @@ const Repair = () => {
              <li>Remote control</li>
              <li>Gimbal and camera</li>
            </ul>
-           <p className="text-gray-600">Send a copy of the waybill document to <strong>Drdronenigltd@gmail.com</strong> for easy tracking. Our agent will coordinate the best shipping channel.</p>
+           <p className="text-gray-600">
+  Send a copy of the waybill document to<br></br>
+  <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-blue-600 hover:underline mr-2">
+    Drdronenigltd@gmail.com
+  </a> 
+  for easy tracking. Our agent will coordinate the best shipping channel.
+</p>
+
          </div>
    
          {/* Contact Section */}
