@@ -100,7 +100,13 @@ const Repair = () => {
          {/* Contact Section */}
          <div className="bg-[#007791] text-white p-6 rounded-lg shadow-md mt-10 text-center">
            <h2 className="text-2xl font-semibold mb-4">Need Assistance?</h2>
-           <p className="text-lg">If you have any questions or concerns about your repair, please contact our support team at <strong>Drdronenigltd@gmail.com</strong>.</p>
+           <p className="text-lg">
+  If you have any questions or concerns about your repair, please contact our support team at 
+  <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-red-500 hover:underline">
+    Drdronenigltd@gmail.com
+  </a>.
+</p>
+
          </div>
    
          {/* Modal Section */}
