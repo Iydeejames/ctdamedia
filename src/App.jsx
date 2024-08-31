@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Certification from './pages/certification';  
 import ContactUs from './pages/ContactUs';
 import Repair from './pages/Repair';
+import Training from './pages/Training';
 
 const Layout = ({ children }) => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/Certification" element={<Layout><Certification/></Layout>} />
         <Route path="/ContactUs" element={<Layout><ContactUs/></Layout>} />
         <Route path="/Repair" element={<Layout><Repair/></Layout>} />
+        <Route path="/Training" element={<Layout><Training/></Layout>} />
       </Routes>
     </Router>
   );
