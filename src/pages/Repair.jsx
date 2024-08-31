@@ -12,7 +12,7 @@ const Repair = () => {
      };
    
      return (
-       <div className="min-h-screen bg-white text-gray-800 p-6">
+       <div className="min-h-screen bg-white text-gray-800 mt-24 p-6">
          {/* Header Section */}
          <div className="bg-[#007791] p-8 rounded-lg shadow-md text-center mb-10">
            <h1 className="text-4xl font-bold text-white mb-4">Drone Repair Services</h1>
