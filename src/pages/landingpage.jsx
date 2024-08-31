@@ -64,9 +64,10 @@ const drones = [
 ];
 
 
+
 const cardStyle = {
   width: '100%',
-  maxWidth: 'none', // Remove max-width restriction
+  maxWidth: 'none',
   textAlign: 'center',
 };
 
@@ -75,25 +76,41 @@ const words = [
 ];
 
 const ImageSliderSection = () => {
-  const images = [Drone9, Drone11];
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [backgroundImage, setBackgroundImage] = useState(Drone9);
+  const [isSliding, setIsSliding] = useState(false);
 
   useEffect(() => {
+    const images = [Drone9, Drone11];
+    let index = 0;
+
     const interval = setInterval(() => {
-      setActiveImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setIsSliding(true); // Start sliding out
+
+      setTimeout(() => {
+        index = (index + 1) % images.length;
+
+        // Preload the next image
+        const img = new Image();
+        img.src = images[index];
+        img.onload = () => {
+          setBackgroundImage(images[index]); // Update to the new image
+          setIsSliding(false); // End sliding
+        };
+      }, 500); // Wait for the slide-out animation before changing the image
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, [images.length]);
+  }, []);
 
   const sliderSectionStyle = {
     position: 'relative',
     padding: '220px 0',
-    backgroundImage: `url(${images[activeImageIndex]})`,
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    transition: 'opacity 2s ease-in-out', // Smooth transition for background image
-    opacity: 1,
+    animationName: isSliding ? 'slideOutLeft' : 'slideInRight',
+    animationDuration: isSliding ? '0.5s' : '0.5s',
+    animationFillMode: 'forwards',
   };
 
   const overlayStyle = {
@@ -103,21 +120,47 @@ const ImageSliderSection = () => {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay with 50% opacity
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     zIndex: 1,
   };
 
   return (
     <section style={sliderSectionStyle}>
-      <div style={overlayStyle}></div> {/* Dark opacity overlay */}
+      <style>{`
+        @keyframes slideInRight {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slideOutLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
+      <div style={overlayStyle}></div>
       <div className="flex flex-col items-center px-6 lg:px-16 relative z-10">
-        <div className="w-full max-w-none">
+        <div style={cardStyle} className="w-full max-w-none">
           <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-center text-white">
-            {/* Your existing sliding text */}
-            Welcome to Dr. Drone Ltd
+            {words.map((word, index) => (
+              <span
+                key={index}
+                className="slide-in inline-block mx-1"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {word}
+              </span>
+            ))}
           </h1>
           <p className="mt-6 text-lg lg:text-xl text-white text-center">
-            Your trusted partner in the skies!
+            Welcome to Dr. Drone Ltd, your trusted partner in the skies!
           </p>
           <div className="mt-8 text-center">
             <a href="/profile" className="inline-block">
@@ -131,7 +174,6 @@ const ImageSliderSection = () => {
     </section>
   );
 };
-
 
 const LandingPage = () => {
   return (
