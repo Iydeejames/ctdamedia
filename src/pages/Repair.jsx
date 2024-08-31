@@ -15,7 +15,7 @@ const Repair = () => {
        <div className="min-h-screen bg-white text-gray-800 mt-24 p-6">
          {/* Header Section */}
          <div className="bg-[#007791] p-8 rounded-lg shadow-md text-center mb-10">
-           <h1 className="text-4xl font-bold text-white mb-4">Drone Repair Services</h1>
+           <h1 className="text-2xl lg:text-4xl font-bold text-white mb-4">Drone Repair Services</h1>
            <p className="text-lg text-white">Reliable, professional, and budget-friendly drone consultancy, maintenance, and repair services.</p>
          </div>
    
@@ -66,7 +66,7 @@ const Repair = () => {
    
          {/* Schedule Repair Section */}
          <div className="bg-[#007791] text-white p-8 rounded-lg shadow-md mt-10 text-center">
-           <h2 className="text-3xl font-semibold mb-4">How to Schedule a Repair</h2>
+           <h2 className="text-2xl font-semibold mb-4">How to Schedule a Repair</h2>
            <p className="text-lg mb-4">Fill out the <strong>Repair Form</strong> below with your details and issue description. Our technical expert will reach out to you shortly.</p>
            <button
              className="bg-white text-[#007791] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200"

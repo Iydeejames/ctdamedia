@@ -36,7 +36,7 @@ const ContactUs = () => {
       <div className="container mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-md lg:text-3xl text-white">Contact Us</h1>
+          <h1 className="text-5xl font-semibold text-md lg:text-3xl text-white">Contact Us</h1>
           <p className="text-gray-200 lg:text-xl text-xs mt-4">We would love to hear from you! Let us know how we can assist you.</p>
         </header>
 
