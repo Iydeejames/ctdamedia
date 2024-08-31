@@ -93,19 +93,19 @@ const ImageSliderSection = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     overflow: 'hidden', // Prevent any overflow from showing
+    transition: 'background-image 0.4s ease-in-out', // Faster transition
   };
 
   const slidingImageStyle = {
     position: 'absolute',
     top: 0,
-    left: currentImageIndex % 2 === 0 ? '100%' : '-100%',
+    left: '100%',
     width: '100%',
     height: '100%',
     backgroundImage: `url(${images[(currentImageIndex + 1) % images.length]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    transition: 'left 1s ease-in-out',
-    left: '0',
+    transition: 'left 0.4s ease-in-out', // Faster transition
   };
 
   const overlayStyle = {
