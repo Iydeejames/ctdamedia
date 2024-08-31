@@ -8,7 +8,7 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#007791] to-white p-6 mt-16">
-      <header className="text-white py-8">
+      <header className="text-black py-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold">Dr. Drone Nig Ltd</h1>
           <p className="text-xl mt-2">Elevating Performance, Ensuring Precision</p>
@@ -18,24 +18,24 @@ const Profile = () => {
       <main className="max-w-4xl mx-auto py-12 px-6 rounded-lg shadow-md">
         {/* Introduction */}
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4 text-white">Introduction</h2>
-          <p className="text-white">
+          <h2 className="text-3xl font-semibold mb-4 text-black">Introduction</h2>
+          <p className="text-black">
             Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
           </p>
         </section>
         
         {/* Mission Statement */}
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4 text-white">Mission Statement</h2>
-          <p className="text-white">
+          <h2 className="text-3xl font-semibold mb-4 text-black">Mission Statement</h2>
+          <p className="text-black">
             At Dr. Drone Nig Ltd, our mission is to elevate the performance of your drones to new heights. We are dedicated to ensuring precision, reliability, and the seamless operation of your unmanned aerial vehicles (UAVs), empowering businesses and individuals to reach their full aerial potential.
           </p>
         </section>
 
         {/* Key Services */}
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4 text-white">Key Services</h2>
-          <ul className="list-disc list-inside space-y-4 text-white">
+          <h2 className="text-3xl font-semibold mb-4 text-black">Key Services</h2>
+          <ul className="list-disc list-inside space-y-4 text-black">
             <li>
               <h3 className="font-semibold">Comprehensive Maintenance Programs:</h3>
               <p>We offer tailor-made maintenance programs designed to keep your drone fleet in optimal condition. Our proactive approach includes regular check-ups, diagnostics, and preventive measures, ensuring that potential issues are identified and addressed before they become critical.</p>
@@ -57,8 +57,8 @@ const Profile = () => {
 
         {/* Why Choose Us */}
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4 text-white">Why Choose Dr. Drone Nig Ltd</h2>
-          <ul className="list-disc list-inside space-y-4 text-white">
+          <h2 className="text-3xl font-semibold mb-4 text-black">Why Choose Dr. Drone Nig Ltd</h2>
+          <ul className="list-disc list-inside space-y-4 text-black">
             <li>
               <h3 className="font-semibold">Expertise and Innovation:</h3>
               <p>Our team consists of seasoned professionals with extensive experience in drone technology. We stay ahead of the curve, incorporating the latest innovations and best practices into our maintenance protocols.</p>
@@ -80,11 +80,11 @@ const Profile = () => {
 
         {/* Contact Us */}
         <section>
-          <h2 className="text-3xl font-semibold mb-4 text-white">Contact Us</h2>
-          <p className="text-white mb-4">
+          <h2 className="text-3xl font-semibold mb-4 text-black">Contact Us</h2>
+          <p className="text-black mb-4">
             Elevate your drone operations with precision and reliability. For inquiries, maintenance plans, or emergency services, contact Dr. Drone Nig Ltd at:
           </p>
-          <ul className="list-none space-y-2 text-white">
+          <ul className="list-none space-y-2 text-black">
             <li>
               <span className="font-semibold">Email:</span> drdronenigltd@gmail.com
             </li>
