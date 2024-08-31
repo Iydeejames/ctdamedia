@@ -56,7 +56,7 @@ const Training= () => {
                 Ready to begin your training journey? Reach out to us to learn more and schedule your training session.
               </p>
               <Link
-                to="/contact-us"
+                to="/ContactUs"
                 className="bg-white text-[#007791] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition duration-200"
               >
                 Contact Us
