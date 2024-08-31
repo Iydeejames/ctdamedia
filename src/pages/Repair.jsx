@@ -67,7 +67,7 @@ const Repair = () => {
          {/* Schedule Repair Section */}
          <div className="bg-[#007791] text-white p-8 rounded-lg shadow-md mt-10 text-center">
            <h2 className="text-3xl font-semibold mb-4">How to Schedule a Repair</h2>
-           <p className="text-lg mb-4">Fill out the <strong>"Repair Form"</strong> below with your details and issue description. Our technical expert will reach out to you shortly.</p>
+           <p className="text-lg mb-4">Fill out the <strong>Repair Form</strong> below with your details and issue description. Our technical expert will reach out to you shortly.</p>
            <button
              className="bg-white text-[#007791] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200"
              onClick={openModal}

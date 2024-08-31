@@ -6,10 +6,7 @@ const Training= () => {
           <div className="min-h-screen mt-16 bg-gray-100 text-gray-800 p-8">
             {/* Header Section */}
             <div className="bg-[#007791] p-12 rounded-lg shadow-lg text-center mb-12">
-              <h1 className="text-xl lg:text-4xl font-extrabold text-white mb-6">Drone Training & Certification</h1>
-              <p className="text-lg text-gray-200">
-                Elevate your skills with our top-notch drone training programs. Suitable for enthusiasts and professionals alike, our courses cover all aspects of drone operation and maintenance.
-              </p>
+              <h1 className="text-xl lg:text-4xl font-extrabold text-white ">Drone Training & Certification</h1>
             </div>
       
             {/* Training Information Section */}
@@ -45,7 +42,7 @@ const Training= () => {
                 </div>
               </div>
               <p className="text-gray-700 mt-6">
-                Whether you're just starting out or looking to enhance your skills, our training programs are designed to meet your needs and help you excel in the field of drone technology.
+                Whether you are just starting out or looking to enhance your skills, our training programs are designed to meet your needs and help you excel in the field of drone technology.
               </p>
             </div>
       

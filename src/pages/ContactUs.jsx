@@ -36,8 +36,8 @@ const ContactUs = () => {
       <div className="container mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold text-white">Contact Us</h1>
-          <p className="text-gray-200 text-xl mt-4">We would love to hear from you! Let us know how we can assist you.</p>
+          <h1 className="text-5xl font-extrabold text-md lg:text-3xl text-white">Contact Us</h1>
+          <p className="text-gray-200 lg:text-xl text-xs mt-4">We would love to hear from you! Let us know how we can assist you.</p>
         </header>
 
         {/* Main Content */}
@@ -169,7 +169,7 @@ const ContactUs = () => {
 
             {/* Contact Information */}
             <div className="bg-[#f3f4f6] p-6 rounded-lg shadow-inner">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+              <p className="text-sm lg:text-3xl font-bold text-gray-800 mb-6">Get in Touch</p>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -177,8 +177,7 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">+234 9080 0066 00</span> 
-                  <span className="ml-4">+234 7033 8055 23</span> 
+                  <span className="ml-4">+2349080006600  +2347033805523</span> 
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
