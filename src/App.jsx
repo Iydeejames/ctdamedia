@@ -8,6 +8,7 @@ import Navbar from './components/molecule/Navbar';
 import Profile from './pages/Profile';
 import Certification from './pages/certification';  
 import ContactUs from './pages/ContactUs';
+import Repair from './pages/Repair';
 
 const Layout = ({ children }) => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/Profile" element={<Layout><Profile /></Layout>} />
         <Route path="/Certification" element={<Layout><Certification/></Layout>} />
         <Route path="/ContactUs" element={<Layout><ContactUs/></Layout>} />
+        <Route path="/Repair" element={<Layout><Repair/></Layout>} />
       </Routes>
     </Router>
   );
