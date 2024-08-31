@@ -37,7 +37,7 @@ const ContactUs = () => {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-5xl font-extrabold text-white">Contact Us</h1>
-          <p className="text-gray-200 text-xl mt-4">We'd love to hear from you! Let us know how we can assist you.</p>
+          <p className="text-gray-200 text-xl mt-4">We would love to hear from you! Let us know how we can assist you.</p>
         </header>
 
         {/* Main Content */}

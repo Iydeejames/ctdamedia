@@ -75,33 +75,25 @@ const words = [
 ];
 
 const ImageSliderSection = () => {
-  const [backgroundImage, setBackgroundImage] = useState(Drone9);
+  const images = [Drone9, Drone11];
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
-    const images = [Drone9, Drone11];
-    let index = 0;
-
     const interval = setInterval(() => {
-      index = (index + 1) % images.length;
-
-      // Preload the next image before setting it as the background
-      const img = new Image();
-      img.src = images[index];
-      img.onload = () => {
-        setBackgroundImage(images[index]);
-      };
+      setActiveImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
-  }, []);
+  }, [images.length]);
 
   const sliderSectionStyle = {
     position: 'relative',
     padding: '220px 0',
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${images[activeImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    transition: 'background-image 4s ease-in-out', // Smooth transition between images
+    transition: 'opacity 2s ease-in-out', // Smooth transition for background image
+    opacity: 1,
   };
 
   const overlayStyle = {
@@ -119,20 +111,13 @@ const ImageSliderSection = () => {
     <section style={sliderSectionStyle}>
       <div style={overlayStyle}></div> {/* Dark opacity overlay */}
       <div className="flex flex-col items-center px-6 lg:px-16 relative z-10">
-        <div style={cardStyle} className="w-full max-w-none">
+        <div className="w-full max-w-none">
           <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-center text-white">
-            {words.map((word, index) => (
-              <span
-                key={index}
-                className="slide-in inline-block mx-1"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {word}
-              </span>
-            ))}
+            {/* Your existing sliding text */}
+            Welcome to Dr. Drone Ltd
           </h1>
           <p className="mt-6 text-lg lg:text-xl text-white text-center">
-            Welcome to Dr. Drone Ltd, your trusted partner in the skies!
+            Your trusted partner in the skies!
           </p>
           <div className="mt-8 text-center">
             <a href="/profile" className="inline-block">
