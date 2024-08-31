@@ -1,12 +1,17 @@
-
+import {  useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Training= () => {
+
+     useEffect(() => {
+          window.scrollTo(0, 0);
+        }, []);
+
      return (
           <div className="min-h-screen mt-16 bg-gray-100 text-gray-800 p-8">
             {/* Header Section */}
-            <div className="bg-[#007791] p-12 rounded-lg shadow-lg text-center mb-12">
-              <h1 className="text-xl lg:text-4xl font-extrabold text-white ">Drone Training & Certification</h1>
+            <div className="bg-[#007791] p-12 rounded-lg shadow-lg text-center mb-2">
+              <h1 className="text-xl lg:text-4xl font-bold text-white ">Drone Training & Certification</h1>
             </div>
       
             {/* Training Information Section */}
