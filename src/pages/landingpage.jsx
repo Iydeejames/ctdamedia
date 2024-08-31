@@ -26,15 +26,15 @@ const drones = [
     price: '$499',
   },
   {
-    name: 'Autel EVO Lite+',
+    name: 'Deltaquad Evo',
     image: Drone3,
-    description: 'High-performance Autel EVO Lite+, maintained to the highest standards. Comes with detailed tutorials on usage and maintenance to enhance its capabilities.',
+    description: 'DeltaQuad’s Evo, offers advanced features and exceptional performance. With over 4 hours of flight time, up to 270 km range, dual payload bays, and high-quality composites, it provides versatility and superior functionality.',
     price: '$1499',
   },
   {
-    name: 'Skydio 2',
+    name: 'Autel Dragonfish Pro',
     image: Drone4,
-    description: 'Lightweight Skydio 2, expertly serviced and supported. Enjoy comprehensive training on its smart flight modes and maintenance to ensure top performance.',
+    description: 'The Dragonfishs unique tilt-rotor design simplifies operation while maximizing performance and efficiency. With no complicated moving parts, the Dragonfish is modular, waterproof, smart, and reliable. With 158 minutes Longest flight time with load, 3 minutes Quick assembly, 4K 50x Highest optical zoom, 108km/h Max speed, 18.6 miles Transmission range, 5s System boot and self check.',
     price: '$699',
   },
   {
