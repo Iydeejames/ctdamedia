@@ -64,7 +64,6 @@ const drones = [
 ];
 
 
-
 const cardStyle = {
   width: '100%',
   maxWidth: 'none',
@@ -76,27 +75,12 @@ const words = [
 ];
 
 const ImageSliderSection = () => {
-  const [backgroundImage, setBackgroundImage] = useState(Drone9);
-  const [isSliding, setIsSliding] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [Drone9, Drone11];
 
   useEffect(() => {
-    const images = [Drone9, Drone11];
-    let index = 0;
-
     const interval = setInterval(() => {
-      setIsSliding(true); // Start sliding out
-
-      setTimeout(() => {
-        index = (index + 1) % images.length;
-
-        // Preload the next image
-        const img = new Image();
-        img.src = images[index];
-        img.onload = () => {
-          setBackgroundImage(images[index]); // Update to the new image
-          setIsSliding(false); // End sliding
-        };
-      }, 500); // Wait for the slide-out animation before changing the image
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
@@ -105,12 +89,23 @@ const ImageSliderSection = () => {
   const sliderSectionStyle = {
     position: 'relative',
     padding: '220px 0',
-    backgroundImage: `url(${backgroundImage})`,
+    backgroundImage: `url(${images[currentImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    animationName: isSliding ? 'slideOutLeft' : 'slideInRight',
-    animationDuration: isSliding ? '0.5s' : '0.5s',
-    animationFillMode: 'forwards',
+    overflow: 'hidden', // Prevent any overflow from showing
+  };
+
+  const slidingImageStyle = {
+    position: 'absolute',
+    top: 0,
+    left: currentImageIndex % 2 === 0 ? '100%' : '-100%',
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url(${images[(currentImageIndex + 1) % images.length]})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    transition: 'left 1s ease-in-out',
+    left: '0',
   };
 
   const overlayStyle = {
@@ -146,6 +141,7 @@ const ImageSliderSection = () => {
         }
       `}</style>
       <div style={overlayStyle}></div>
+      <div style={slidingImageStyle}></div>
       <div className="flex flex-col items-center px-6 lg:px-16 relative z-10">
         <div style={cardStyle} className="w-full max-w-none">
           <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-center text-white">
