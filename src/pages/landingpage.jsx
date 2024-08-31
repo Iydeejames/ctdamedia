@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import Drone1 from '../assets/Drone-img/Drone1.jpg';
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
 import Drone3 from '../assets/Drone-img/Drone3.jpg';
 import Drone4 from '../assets/Drone-img/Drone4.jpg';
@@ -11,6 +10,7 @@ import Drone7 from '../assets/Drone-img/Drone7.jpg';
 import Drone8 from '../assets/Drone-img/Drone8.jpg';
 import Drone9 from '../assets/Drone-img/Drone9.jpg';
 import Drone11 from '../assets/Drone-img/Drone11.jpg';
+import Drone18 from '../assets/Drone-img/Drone18.jpg';
 
 const drones = [
   {
@@ -38,27 +38,27 @@ const drones = [
     price: '$699',
   },
   {
-    name: 'DJI Phantom 4 Pro V2.0',
+    name: 'DJI Mavic 3 Multispectral',
     image: Drone5,
-    description: 'Precision-engineered DJI Phantom 4 Pro V2.0 with high-resolution optical zoom. Includes personalized training sessions for effective operation and maintenance.',
+    description: 'The Mavic 3M is ideal for many industries including agriculture, surveying, and inspection. In agriculture, multispectral cameras are essential for judging accurate vegetation and crop health. When surveying, the RGB sensor, RTK module, and Mavic 3Ms omnidirectional wide-FOV sensors allow for centimeter-level accuracy, even for terrain following on steep-slope landscapes.',
     price: '$1199',
   },
   {
-    name: 'Hubsan Zino Pro Plus',
+    name: 'DJI Agras T50',
     image: Drone6,
-    description: 'Speedy Hubsan Zino Pro Plus, maintained with care. Comes with expert tutorials on its use and upkeep to ensure high performance and reliability.',
+    description: 'DJI AGRAS T50 elevates drone agricultural operations to new heights. It inherits a powerful coaxial twin-rotor propulsion system and a split-type torque resistant structure for next level stability when carrying 40 kg spraying[1] or 50 kg spreading[1] payloads.',
     price: '$799',
   },
   {
-    name: 'DJI Air 2S',
-    image: Drone1,
-    description: 'Durable DJI Air 2S, with extended range and thorough maintenance. Includes in-depth training on its features and maintenance for extensive operations.',
+    name: 'DJI FlyCart 30 Delivery Drone',
+    image: Drone18,
+    description: 'The DJI FlyCart 30 is a delivery drone with large payload capacity, long operation range, and intelligent features. DJI FlyCart 30 supports two modes of transportation: Cargo mode and Winch mode - enabling the drone to meet a range of delivery needs.Carry up to 30kg (with dual batteries) and cover up to 16km with a full payload.',
     price: '$899',
   },
   {
-    name: 'Parrot Anafi',
+    name: 'SwellPro Fisherman MAX (FD2) Heavy Lift Fishing Drone',
     image: Drone8,
-    description: 'Foldable Parrot Anafi, maintained for optimal convenience. Enjoy our expert training on operation and maintenance to maximize its potential.',
+    description: 'This is Fisherman Max. The newest member in SwellPro drone fishing fleet, and the most powerful one. It’s the fishing drone that anglers all over the world have been waiting for 7.7 LBS / 3.5 KG Bait Capacity: Live video feed for Increasing bait cast accuracy without using a phone.1 MILE / 1.5 KM Casting Range: Cast baits far out into the ocean without using a kayak, Foldable Design: Super easy to carry to the beach, IP67 Waterproof: 100% waterproof aircraft and splash-proof remote controller, Level 6 Wind Resistance: Hover and fly stably in strong winds with high-thrust motors.',
     price: '$549',
   },
 ];
