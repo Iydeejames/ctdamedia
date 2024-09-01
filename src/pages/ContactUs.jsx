@@ -198,15 +198,15 @@ const ContactUs = () => {
           <div className="mt-16">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Us on the Map</h2>
             <div className="rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                title="Company Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509615!2d144.9630575155059!3d-37.8141077797516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43b1d28d33%3A0x4a2b9e2c8c3d58b5!2s123%20Drone%20St%2C%20Sky%20City%2C%20SC%2012345!5e0!3m2!1sen!2sus!4v1619182173624!5m2!1sen!2sus"
-                width="100%"
-                height="450"
-                allowFullScreen=""
-                loading="lazy"
-                className="border-0"
-              ></iframe>
+            <iframe
+  title="Company Location"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5590912397454!2d7.925458214761894!3d5.004154197929409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d0294412f03c3%3A0x3ddcb70b1c85f7a6!2sEmmanuel%20Bassey%20Ave%2C%20Uyo!5e0!3m2!1sen!2sng!4v1693574350284!5m2!1sen!2sng"
+  width="100%"
+  height="450"
+  allowFullScreen=""
+  loading="lazy"
+  className="border-0"
+></iframe>
             </div>
           </div>
         </div>
