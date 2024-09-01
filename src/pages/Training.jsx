@@ -21,25 +21,25 @@ const Training= () => {
                 Our comprehensive training programs include:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md border border-[#007791]">
+                <div className="p-6 rounded-lg shadow-md border border-[#007791]">
                   <h3 className="text-xl font-semibold text-[#007791] mb-4">Drone Basics</h3>
                   <p className="text-gray-600">
                     Learn the fundamentals of drone operation, including flight techniques and safety protocols.
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md border border-[#007791]">
+                <div className="p-6 rounded-lg shadow-md border border-[#007791]">
                   <h3 className="text-xl font-semibold text-[#007791] mb-4">Advanced Flight Techniques</h3>
                   <p className="text-gray-600">
                     Master advanced flight maneuvers and gain proficiency in controlling complex drone systems.
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md border border-[#007791]">
+                <div className="p-6 rounded-lg shadow-md border border-[#007791]">
                   <h3 className="text-xl font-semibold text-[#007791] mb-4">Drone Maintenance</h3>
                   <p className="text-gray-600">
                     Understand the essential maintenance tasks to keep your drone in top condition.
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-md border border-[#007791]">
+                <div className="p-6 rounded-lg shadow-md border border-[#007791]">
                   <h3 className="text-xl font-semibold text-[#007791] mb-4">Aerial Photography</h3>
                   <p className="text-gray-600">
                     Learn techniques for capturing stunning aerial photographs and videos.
