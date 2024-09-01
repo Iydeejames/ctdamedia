@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Repair = () => {
+     useEffect(() => {
+          window.scrollTo(0, 0);
+        }, []);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
