@@ -58,7 +58,7 @@ const drones = [
   {
     name: 'SwellPro Fisherman MAX (FD2) Heavy Lift Fishing Drone',
     image: Drone8,
-    description: 'This is Fisherman Max. The newest member in SwellPro drone fishing fleet, and the most powerful one. It’s the fishing drone that anglers all over the world have been waiting for 7.7 LBS / 3.5 KG Bait Capacity: Live video feed for Increasing bait cast accuracy without using a phone.1 MILE / 1.5 KM Casting Range.',
+    description: 'Fisherman Max is the newest member in SwellPro drone fishing fleet, and the most powerful one. It’s the fishing drone that anglers all over the world have been waiting for 7.7 LBS / 3.5 KG Bait Capacity.',
     price: '$549',
   },
 ];
