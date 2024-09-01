@@ -15,7 +15,7 @@ const Training= () => {
             </div>
       
             {/* Training Information Section */}
-            <div className="bg-white p-8 rounded-lg shadow-lg border border-[#007791] mb-12">
+            <div className="p-8 rounded-lg shadow-lg mb-12">
               <h2 className="text-xl lg:text-4xl font-semibold text-[#007791] mb-6">Explore Our Training Programs</h2>
               <p className="text-gray-700 mb-6">
                 Our comprehensive training programs include:
