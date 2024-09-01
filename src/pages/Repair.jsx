@@ -89,7 +89,7 @@ const Repair = () => {
         </ul>
         <p className="text-gray-700">
           Send a copy of the waybill document to
-          <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-blue-600 hover:underline ml-1">
+          <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-blue-600 hover:underline ml-1 mr-1">
             Drdronenigltd@gmail.com
           </a> 
           for easy tracking. Our agent will coordinate the best shipping channel.
@@ -101,7 +101,7 @@ const Repair = () => {
         <h2 className="text-3xl font-bold mb-6">Need Assistance?</h2>
         <p className="text-lg">
           If you have any questions or concerns about your repair, please contact our support team at 
-          <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-red-500 hover:underline ml-1">
+          <a href="mailto:Drdronenigltd@gmail.com" className="font-semibold text-red-500 hover:underline ml-1 ">
             Drdronenigltd@gmail.com
           </a>.
         </p>
