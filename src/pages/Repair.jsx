@@ -15,8 +15,8 @@ const Repair = () => {
     <div className="min-h-screen bg-white text-gray-800 mt-24 p-6">
       {/* Header Section */}
       <header className="bg-[#007791] p-10 rounded-lg shadow-md text-center mb-12">
-        <h1 className="text-3xl lg:text-5xl font-extrabold text-white mb-6">Drone Repair Services</h1>
-        <p className="text-xl text-white">Reliable, professional, and budget-friendly drone consultancy, maintenance, and repair services.</p>
+        <h1 className="text-3xl lg:text-5xl font-semibold text-white mb-6">Drone Repair Services</h1>
+        <p className="text-sm lg:text-xl text-white">Reliable, professional, and budget-friendly drone consultancy, maintenance, and repair services.</p>
       </header>
 
       {/* Main Content Section */}
