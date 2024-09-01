@@ -40,19 +40,19 @@ const drones = [
   {
     name: 'DJI Mavic 3 Multispectral',
     image: Drone5,
-    description: 'The Mavic 3M is ideal for many industries including agriculture, surveying, and inspection. In agriculture, multispectral cameras are essential for judging accurate vegetation and crop health. When surveying, the RGB sensor, RTK module, and Mavic 3Ms omnidirectional wide-FOV sensors allow for centimeter-level accuracy, even for terrain following on steep-slope landscapes.',
+    description: 'The Mavic 3M is ideal for many industries including agriculture, surveying, and inspection. In agriculture, multispectral cameras are essential for judging accurate vegetation and crop health.',
     price: '$1199',
   },
   {
     name: 'DJI Agras T50',
     image: Drone6,
-    description: 'DJI AGRAS T50 elevates drone agricultural operations to new heights. It inherits a powerful coaxial twin-rotor propulsion system and a split-type torque resistant structure for next level stability when carrying 40 kg spraying[1] or 50 kg spreading[1] payloads.',
+    description: 'DJI AGRAS T50 elevates drone agricultural operations to new heights. It inherits a powerful coaxial twin-rotor propulsion system and a split-type torque resistant structure for next level stability when carrying 40 kg',
     price: '$799',
   },
   {
     name: 'DJI FlyCart 30 Delivery Drone',
     image: Drone18,
-    description: 'The DJI FlyCart 30 is a delivery drone with large payload capacity, long operation range, and intelligent features. DJI FlyCart 30 supports two modes of transportation: Cargo mode and Winch mode - enabling the drone to meet a range of delivery needs.Carry up to 30kg (with dual batteries) and cover up to 16km with a full payload.',
+    description: 'The DJI FlyCart 30 is a delivery drone with large payload capacity, long operation range, and intelligent features. It supports two modes of transportation: Cargo mode and Winch mode Carry up to 30kg and cover up to 16km with a full payload.',
     price: '$899',
   },
   {
