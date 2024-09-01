@@ -13,14 +13,17 @@ const Navbar = () => {
 
   return (
     <header className="bg-white w-full p-4 shadow-md fixed top-0 left-0 z-50">
+      
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
+        <Link to="/">
           <img
             src={DroneLogo}
             alt="Drone Logo"
             className="h-20 w-28 object-contain"
           />
-        </div>
+        
+        </Link></div>
 
         {/* Hamburger icon for small screens */}
         <div className="block lg:hidden">
