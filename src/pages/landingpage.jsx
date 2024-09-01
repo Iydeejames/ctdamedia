@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 import { useEffect, useState } from 'react';
 
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
