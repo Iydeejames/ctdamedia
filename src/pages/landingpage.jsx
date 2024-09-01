@@ -22,7 +22,7 @@ const drones = [
   {
     name: 'WingtraOne',
     image: Drone2,
-    description: 'The WingtraOne mapping drone’s unique set of features empowers you to minimize your time flying and get more work done. Fly at 16 m/s (36 mph) for up to 59 minutes per flight for large coverage, with 61 MP WingtraOne can fly higher than drones limited to 20 MP cameras, so you capture more ground and more detail with every picture and a larger area per flight.',
+    description: 'The WingtraOne mapping drone’s unique set of features empowers you to minimize your time flying and get more work done. Fly at 16 m/s (36 mph) for up to 59 minutes per flight for large coverage, with 61 MP WingtraOne can fly higher than drones limited to 20 MP cameras.',
     price: '$499',
   },
   {
@@ -34,7 +34,7 @@ const drones = [
   {
     name: 'Autel Dragonfish Pro',
     image: Drone4,
-    description: 'The Dragonfishs unique tilt-rotor design simplifies operation while maximizing performance and efficiency. With no complicated moving parts, the Dragonfish is modular, waterproof, smart, and reliable. With 158 minutes Longest flight time with load, 3 minutes Quick assembly, 4K 50x Highest optical zoom, 108km/h Max speed, 18.6 miles Transmission range, 5s System boot and self check.',
+    description: 'The Dragonfishs unique tilt-rotor design simplifies operation while maximizing performance and efficiency. With no complicated moving parts, the Dragonfish is modular, waterproof, smart, and reliable. With 158 minutes Longest flight time with load.',
     price: '$699',
   },
   {
@@ -58,7 +58,7 @@ const drones = [
   {
     name: 'SwellPro Fisherman MAX (FD2) Heavy Lift Fishing Drone',
     image: Drone8,
-    description: 'This is Fisherman Max. The newest member in SwellPro drone fishing fleet, and the most powerful one. It’s the fishing drone that anglers all over the world have been waiting for 7.7 LBS / 3.5 KG Bait Capacity: Live video feed for Increasing bait cast accuracy without using a phone.1 MILE / 1.5 KM Casting Range: Cast baits far out into the ocean without using a kayak, Foldable Design: Super easy to carry to the beach, IP67 Waterproof: 100% waterproof aircraft and splash-proof remote controller, Level 6 Wind Resistance: Hover and fly stably in strong winds with high-thrust motors.',
+    description: 'This is Fisherman Max. The newest member in SwellPro drone fishing fleet, and the most powerful one. It’s the fishing drone that anglers all over the world have been waiting for 7.7 LBS / 3.5 KG Bait Capacity: Live video feed for Increasing bait cast accuracy without using a phone.1 MILE / 1.5 KM Casting Range.',
     price: '$549',
   },
 ];
@@ -280,27 +280,27 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
-                "The Dr Drone Pro has exceeded all my expectations. The 4K camera quality and flight stability are phenomenal!"
+                "I needed someone reliable to fix my gimbal after previous worst experience. I google search and Dr Drone was suggested by Google. I contacted him and I must confess the service and swift response was top notch. My gimbal works perfectly after the fix it."
               </blockquote>
-              <cite className="font-semibold text-white">John Doe</cite>
+              <cite className="font-semibold text-white">Omosanjo Adebowale</cite>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
-                "I love the ease of use and the advanced features. DroneX is definitely worth every penny!"
+                "I’m really happy with their service! My Mini 3 pro crashed which led to the Gimbal being stuck. I sent it to them, they narrowed down the issue and it's fixed. Completely recommend"
               </blockquote>
-              <cite className="font-semibold text-white">Jane Smith</cite>
+              <cite className="font-semibold text-white">Ekuma Inieke</cite>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
-                "From setup to flight, everything has been smooth and enjoyable. The DroneX Max is a game-changer!"
+                "This has to count as one of the most pleasant customer experiences I've had this year. Speedy, expert and courteous service in restoring my crashed drone. I can state that they truly lived to their name - Dr Drone.Reasonably priced too."
               </blockquote>
-              <cite className="font-semibold text-white">Alice Johnson</cite>
+              <cite className="font-semibold text-white">Abdulrehim Umarn</cite>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
-                "The Dr Drone Air is perfect for my needs. Its compact size and advanced features are just what I was looking for."
+                "He is very good trust me, My drone couldn’t be fixed in my state I had to send it to him and he was transparent about the whole process kudos to him."
               </blockquote>
-              <cite className="font-semibold text-white">Robert Lee</cite>
+              <cite className="font-semibold text-white">Chukwuemeka Onah Johnson</cite>
             </div>
           </div>
         </div>
