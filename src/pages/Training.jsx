@@ -11,7 +11,7 @@ const Training= () => {
           <div className="min-h-screen mt-16 bg-gray-100 text-gray-800 p-8">
             {/* Header Section */}
             <div className=" p-12 rounded-lg text-center ">
-              <h1 className="text-xl lg:text-4xl font-bold text-[#007791] ">Drone Training & Certification</h1>
+              <h1 className="text-xl lg:text-4xl font-bold whitespace-nowrap text-[#007791] ">Drone Training & Certification</h1>
             </div>
       
             {/* Training Information Section */}
