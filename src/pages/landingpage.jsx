@@ -179,7 +179,7 @@ const LandingPage = () => {
       {/* Features Section */}
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone </h2>
+          <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             {/* Comprehensive Drone Maintenance */}
