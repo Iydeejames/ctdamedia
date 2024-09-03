@@ -292,9 +292,9 @@ const LandingPage = () => {
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
-                "This has to count as one of the most pleasant customer experiences I've had this year. Speedy, expert and courteous service in restoring my crashed drone. I can state that they truly lived to their name - Dr Drone.Reasonably priced too."
+                "Thank you guys for making me a certified pilot and for fixing my drone on time and delivering to me as promised. Miss you guys especially my instructor, touch and sweet lol"
               </blockquote>
-              <cite className="font-semibold text-white">Abdulrehim Umarn</cite>
+              <cite className="font-semibold text-white">Kemi Feyishara Adekunle</cite>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-4">
