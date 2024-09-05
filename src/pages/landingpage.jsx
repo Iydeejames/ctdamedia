@@ -95,8 +95,8 @@ const ImageSliderSection = () => {
     backgroundImage: `url(${images[currentImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    overflow: 'hidden', // Prevent any overflow from showing
-    transition: 'background-image 0.4s ease-in-out', // Faster transition
+    overflow: 'hidden',
+    transition: 'background-image 0.1s ease-in-out', // Faster transition
   };
 
   const slidingImageStyle = {
@@ -108,7 +108,7 @@ const ImageSliderSection = () => {
     backgroundImage: `url(${images[(currentImageIndex + 1) % images.length]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    transition: 'left 0.4s ease-in-out', // Faster transition
+    transition: 'left 0.1s ease-in-out', // Faster transition
   };
 
   const overlayStyle = {
