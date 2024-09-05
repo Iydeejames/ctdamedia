@@ -42,13 +42,13 @@ const Navbar = () => {
 
         {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white w-1/2 left-0 top-0 flex flex-col items-start justify-start z-50 lg:hidden">
+          <div className="fixed inset-0 bg-[#007791] w-1/2 left-0 top-0 flex flex-col items-start justify-start z-50 lg:hidden">
             <nav className="mt-16 pl-8">
-              <ul className="flex flex-col space-y-4 list-disc text-[#007791] marker:text-[#007791]">
+              <ul className="flex flex-col space-y-4 list-disc text-white marker:text-white">
                 <li>
                   <Link
                     to="/"
-                    className="text-[#007791] text-sm"
+                    className="text-white font-bold text-sm"
                     onClick={toggleMenu}
                   >
                     Home
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/Training"
-                    className="text-[#007791] text-sm"
+                    className="text-white font-bold text-sm"
                     onClick={toggleMenu}
                   >
                     Training
@@ -66,7 +66,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/Repair"
-                    className="text-[#007791] text-sm"
+                    className="text-white font-bold text-sm"
                     onClick={toggleMenu}
                   >
                     Drone repair services
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/ContactUs"
-                    className="text-[#007791] text-sm"
+                    className="text-white font-bold text-sm"
                     onClick={toggleMenu}
                   >
                     Contact
