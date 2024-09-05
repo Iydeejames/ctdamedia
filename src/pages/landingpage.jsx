@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
 import Drone3 from '../assets/Drone-img/Drone3.jpg';
@@ -62,6 +62,9 @@ const drones = [
     price: '$549',
   },
 ];
+
+
+
 
 
 const cardStyle = {
