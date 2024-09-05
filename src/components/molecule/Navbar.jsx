@@ -9,21 +9,19 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
 
   return (
     <header className="bg-white w-full p-4 shadow-md fixed top-0 left-0 z-50">
-      
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
-        <Link to="/">
-          <img
-            src={DroneLogo}
-            alt="Drone Logo"
-            className="h-20 w-28 object-contain"
-          />
-        
-        </Link></div>
+          <Link to="/">
+            <img
+              src={DroneLogo}
+              alt="Drone Logo"
+              className="h-20 w-28 object-contain"
+            />
+          </Link>
+        </div>
 
         {/* Hamburger icon for small screens */}
         <div className="block lg:hidden">
@@ -32,13 +30,11 @@ const Navbar = () => {
           </button>
         </div>
 
-
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
-          <ul className="flex space-x-6 font-bold text-[#007791] ">
+          <ul className="flex space-x-6 font-bold text-[#007791]">
             <li><Link to="/" className="hover:text-black transition duration-300">Home</Link></li>
             <li><Link to="/Training" className="hover:text-black transition duration-300">Training</Link></li>
-            {/*<li><Link to="/shop" className="hover:text-black transition duration-300">Shop</Link></li>*/}
             <li><Link to="/Repair" className="hover:text-black transition duration-300">Drone repair services</Link></li>
             <li><Link to="/ContactUs" className="hover:text-black transition duration-300">Contact</Link></li>
           </ul>
@@ -46,16 +42,45 @@ const Navbar = () => {
 
         {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50 lg:hidden">
-            <button onClick={toggleMenu} className="absolute top-4 right-4 text-[#007791]">
-              <FaTimes size={24} />
-            </button>
-            <nav>
-              <ul className="flex flex-col space-y-6">
-                <li><Link to="/" className="text-black text-2xl" onClick={toggleMenu}>Home</Link></li>
-                <li><Link to="/Training" className="text-black text-2xl" onClick={toggleMenu}>Training</Link></li>
-                <li><Link to="/Repair" className="text-black text-2xl" onClick={toggleMenu}>Drone repair services</Link></li>
-                <li><Link to="/ContactUs" className="text-black text-2xl" onClick={toggleMenu}>Contact</Link></li>
+          <div className="fixed inset-0 bg-white w-1/2 left-0 top-0 flex flex-col items-start justify-center z-50 lg:hidden">
+            <nav className="mt-4 pl-8">
+              <ul className="flex flex-col space-y-4 list-disc">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-[#007791] text-xs"
+                    onClick={toggleMenu}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Training"
+                    className="text-[#007791] text-xs"
+                    onClick={toggleMenu}
+                  >
+                    Training
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/Repair"
+                    className="text-[#007791] text-xs"
+                    onClick={toggleMenu}
+                  >
+                    Drone repair services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/ContactUs"
+                    className="text-[#007791] text-xs"
+                    onClick={toggleMenu}
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>
