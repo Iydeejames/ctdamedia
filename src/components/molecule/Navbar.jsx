@@ -48,7 +48,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/"
-                    className="text-[#007791] text-xs"
+                    className="text-[#007791] text-sm"
                     onClick={toggleMenu}
                   >
                     Home
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/Training"
-                    className="text-[#007791] text-xs"
+                    className="text-[#007791] text-sm"
                     onClick={toggleMenu}
                   >
                     Training
@@ -66,7 +66,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/Repair"
-                    className="text-[#007791] text-xs"
+                    className="text-[#007791] text-sm"
                     onClick={toggleMenu}
                   >
                     Drone repair services
@@ -75,7 +75,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/ContactUs"
-                    className="text-[#007791] text-xs"
+                    className="text-[#007791] text-sm"
                     onClick={toggleMenu}
                   >
                     Contact
