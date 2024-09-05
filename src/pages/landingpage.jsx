@@ -74,7 +74,7 @@ const cardStyle = {
 };
 
 const words = [
-  'Unleash', 'the', 'Future', 'with', 'Dr.', 'Drone',
+  ' Fly', 'Confidently', 'with', 'Dr.', 'Drone',      
 ];
 
 const ImageSliderSection = () => {
@@ -158,8 +158,8 @@ const ImageSliderSection = () => {
               </span>
             ))}
           </h1>
-          <p className="mt-6 text-lg lg:text-xl text-white text-center">
-            Welcome to Dr. Drone Ltd, your trusted partner in the skies!
+          <p className="mt-6 text-sm lg:text-xl text-white text-center">
+          Expert Repairs || Reliable Maintenance || Consultancy Services || Professional Pilot Training
           </p>
           <div className="mt-8 text-center">
             <a href="/profile" className="inline-block">
