@@ -84,7 +84,7 @@ const ImageSliderSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
+    }, 8000); // Change image every 5 seconds
 
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
@@ -96,7 +96,7 @@ const ImageSliderSection = () => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     overflow: 'hidden',
-    transition: 'background-image 0.1s ease-in-out', // Faster transition
+    transition: 'background-image 0.4s ease-in-out', // Faster transition
   };
 
   const slidingImageStyle = {
@@ -108,7 +108,7 @@ const ImageSliderSection = () => {
     backgroundImage: `url(${images[(currentImageIndex + 1) % images.length]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    transition: 'left 0.1s ease-in-out', // Faster transition
+    transition: 'left 0.4s ease-in-out', // Faster transition
   };
 
   const overlayStyle = {
