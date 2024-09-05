@@ -182,7 +182,7 @@ const LandingPage = () => {
       {/* Features Section */}
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
+          <h2 className="text-2xl lg:text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
             {/* Comprehensive Drone Maintenance */}
@@ -190,7 +190,7 @@ const LandingPage = () => {
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-4xl"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Comprehensive Drone Maintenance/Repairs</h3>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Comprehensive Drone Maintenance/Repairs</h3>
               <p className="text-gray-600">
                 Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
               </p>
@@ -201,7 +201,7 @@ const LandingPage = () => {
               <div className="flex justify-center mb-4">
                 <i className="fas fa-box text-red-500 text-4xl"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Procurement Services</h3>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Procurement Services</h3>
               <p className="text-gray-600">
                 Access the latest in drone technology and equipment with our specialized procurement services.
               </p>
@@ -212,7 +212,7 @@ const LandingPage = () => {
               <div className="flex justify-center mb-4">
                 <i className="fas fa-network-wired text-red-500 text-4xl"></i>
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Consultancy Services</h3>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Consultancy Services</h3>
               <p className="text-gray-600">
                 At Dr. Drone, we offer our professional services to help you make informed and innovative UAV related decisions.
               </p>
@@ -224,7 +224,7 @@ const LandingPage = () => {
         <div className="flex justify-center mb-4">
           <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
         </div>
-        <h3 className="text-2xl font-semibold mb-4">Pilot Training Program</h3>
+        <h3 className="text-xl lg:text-2xl font-semibold mb-4">Pilot Training Program</h3>
         <p className="text-gray-600">
           Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
         </p>
@@ -239,13 +239,13 @@ const LandingPage = () => {
       {/* Drone Models Section */}
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Explore Our Drone Models</h2>
+          <h2 className="text-xl lg:text-3xl font-bold mb-12">Explore Our Drone Models</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {drones.map((drone, index) => (
               <div key={index} className="bg-white text-[#000000]] shadow-lg rounded-lg overflow-hidden">
                 <img src={drone.image} alt={drone.name} className="w-full  h-64 object-cover"/>
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold mb-2">{drone.name}</h3>
+                  <h3 className="text-xl lg:text-2xl font-semibold mb-2">{drone.name}</h3>
                   <p className="text-gray-600 mb-4 text-sm text-[#000000]">{drone.description}</p>
                 </div>
               </div>
