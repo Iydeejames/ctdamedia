@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
-     useEffect(() => {
-          window.scrollTo(0, 0);
-        }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,6 +30,24 @@ const ContactUs = () => {
     e.preventDefault();
     setSubmitted(true);
 
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
+        alert('Message sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          question: '',
+          message: '',
+          subscribe: false,
+        });
+        setSubmitted(false);
+      }, (error) => {
+        console.error('Error:', error);
+        alert('Failed to send message.');
+        setSubmitted(false);
+      });
   };
 
   return (
@@ -173,41 +192,31 @@ const ContactUs = () => {
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">3 Emmanuel Bassey Avenue,  Uyo, Nigeria</span>
+                  <span className="ml-4">3 Emmanuel Bassey Avenue, Uyo, Nigeria</span>
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">+2349080006600  +2347033805523</span> 
+                  <span className="ml-4">+2349080006600 +2347033805523</span>
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">drdronenigltd@gmail.com</span>
+                  <span className="ml-4">info@paddyng.com</span>
                 </li>
               </ul>
-
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">Business Hours</h3>
-                <p className="text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                <p className="text-gray-600">Sat: 10:00 AM - 4:00 PM</p>
-                <p className="text-gray-600">Sun: Closed</p>
-              </div>
             </div>
           </div>
 
-          {/* Map Section */}
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Find Us on the Map</h2>
-            <div className="rounded-lg overflow-hidden shadow-lg">
+          {/* Map */}
+          <div className="mt-12">
             <iframe
-  title="Company Location"
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.5590912397454!2d7.925458214761894!3d5.004154197929409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x105d0294412f03c3%3A0x3ddcb70b1c85f7a6!2sEmmanuel%20Bassey%20Ave%2C%20Uyo!5e0!3m2!1sen!2sng!4v1693574350284!5m2!1sen!2sng"
-  width="100%"
-  height="450"
-  allowFullScreen=""
-  loading="lazy"
-  className="border-0"
-></iframe>
-            </div>
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8302890165716!2d7.8037156145355915!3d5.042185397507198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103028ba04662e4d%3A0x7dcd334d52dc5f82!2sEmmanuel%20Bassey%20Avenue%2C%20Uyo%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1692120992365!5m2!1sen!2sus"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
