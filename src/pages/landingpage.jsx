@@ -159,7 +159,7 @@ const ImageSliderSection = () => {
             ))}
           </h1>
           <p className="mt-6 text-sm lg:text-xl text-white text-center">
-          Expert Repairs || Reliable Maintenance || Consultancy Services || Professional Pilot Training
+          Procurement Services || Reliable Maintenance || Consultancy Services || Professional Pilot Training
           </p>
           <div className="mt-8 text-center">
             <a href="/profile" className="inline-block">
