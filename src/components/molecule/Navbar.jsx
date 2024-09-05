@@ -42,9 +42,9 @@ const Navbar = () => {
 
         {/* Full-screen overlay menu for small screens */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-white w-1/2 left-0 top-0 flex flex-col items-start justify-center z-50 lg:hidden">
-            <nav className="mt-4 pl-8">
-              <ul className="flex flex-col space-y-4 list-disc">
+          <div className="fixed inset-0 bg-white w-1/2 left-0 top-0 flex flex-col items-start justify-start z-50 lg:hidden">
+            <nav className="mt-16 pl-8">
+              <ul className="flex flex-col space-y-4 list-disc text-[#007791] marker:text-[#007791]">
                 <li>
                   <Link
                     to="/"
