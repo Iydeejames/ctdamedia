@@ -26,8 +26,6 @@ const ContactUs = () => {
     });
   };
 
-  emailjs.init('7bdgQK-aVX7N_91GU');  // Initialize EmailJS with your user ID
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -36,9 +34,8 @@ const ContactUs = () => {
       'service_n25hdlj',        // Service ID
       'template_qs478y9',       // Template ID
       e.target,                 // The form
-      '7bdgQK-aVX7N_91GU'   // User ID (Public Key)
+      '7bdgQK-aVX7N_91GU'      // User ID (Public Key)
     )
-    
       .then((result) => {
         alert('Message sent successfully!');
         setFormData({
@@ -215,16 +212,18 @@ const ContactUs = () => {
           </div>
 
           {/* Map */}
-          <div className="mt-12">
+          <div className="mt-16 relative">
+          <figcaption className="mt-2 text-center font-bold m-4 text-black text-xl lg:text-3xl">Our Location</figcaption>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8302890165716!2d7.8037156145355915!3d5.042185397507198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103028ba04662e4d%3A0x7dcd334d52dc5f82!2sEmmanuel%20Bassey%20Avenue%2C%20Uyo%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1692120992365!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.537366710295!2d7.885353615891919!3d5.040861696289244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103a1f8cfa15a3af%3A0x1cf41939cbd8c27f!2s3%20Emmanuel%20Bassey%20Avenue%2C%20Uyo%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1692125829776!5m2!1sen!2sus"
               width="100%"
-              height="450"
+              height="400"
+              className="rounded-lg shadow-md"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+            
           </div>
         </div>
       </div>
