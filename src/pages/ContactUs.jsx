@@ -26,11 +26,19 @@ const ContactUs = () => {
     });
   };
 
+  emailjs.init('7bdgQK-aVX7N_91GU');  // Initialize EmailJS with your user ID
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_PUBLIC_KEY')
+    emailjs.sendForm(
+      'service_n25hdlj',        // Service ID
+      'template_qs478y9',       // Template ID
+      e.target,                 // The form
+      '7bdgQK-aVX7N_91GU'   // User ID (Public Key)
+    )
+    
       .then((result) => {
         alert('Message sent successfully!');
         setFormData({
@@ -200,7 +208,7 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">info@paddyng.com</span>
+                  <span className="ml-4">drdronenigltd@gmail.com</span>
                 </li>
               </ul>
             </div>
