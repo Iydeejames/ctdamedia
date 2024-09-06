@@ -185,7 +185,7 @@ const ContactUs = () => {
 
                 {submitted && (
                   <div className="mt-4 text-center text-green-600">
-                    <p>Your message has been successfully delivered!</p>
+                   
                   </div>
                 )}
               </form>
