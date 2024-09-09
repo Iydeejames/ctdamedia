@@ -31,10 +31,10 @@ const ContactUs = () => {
     setSubmitted(true);
 
     emailjs.sendForm(
-      'service_n25hdlj',        // Service ID
-      'template_qs478y9',       // Template ID
+      'service_4abvziw',        // Service ID
+      'template_4bf77bv',       // Template ID
       e.target,                 // The form
-      '7bdgQK-aVX7N_91GU'      // User ID (Public Key)
+      'S63NpzSMYLcC1unEL'      // User ID (Public Key)
     )
       .then((result) => {
         alert('Message sent successfully!');
