@@ -1,11 +1,18 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com'; // Import EmailJS
 
 const Repair = () => {
-     useEffect(() => {
-          window.scrollTo(0, 0);
-        }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    droneModel: '',
+    issueDescription: '',
+  });
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,6 +20,26 @@ const Repair = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.send('service_ba7qfcg', 'template_5sw6rzu', formData, 'S63NpzSMYLcC1unEL')
+      .then((response) => {
+        console.log('Success:', response);
+        alert('Your repair request has been sent successfully!');
+        closeModal();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Failed to send the request. Please try again later.');
+      });
   };
 
   return (
@@ -122,11 +149,14 @@ const Repair = () => {
               &times;
             </button>
             <h2 className="text-2xl font-bold text-[#007791] mb-6">Repair Form</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-gray-700 font-medium mb-2">Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007791]"
                   placeholder="Your Name"
                 />
@@ -135,6 +165,9 @@ const Repair = () => {
                 <label className="block text-gray-700 font-medium mb-2">Email</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007791]"
                   placeholder="Your Email"
                 />
@@ -143,6 +176,9 @@ const Repair = () => {
                 <label className="block text-gray-700 font-medium mb-2">Drone Model</label>
                 <input
                   type="text"
+                  name="droneModel"
+                  value={formData.droneModel}
+                  onChange={handleChange}
                   className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007791]"
                   placeholder="Drone Model"
                 />
@@ -150,6 +186,9 @@ const Repair = () => {
               <div>
                 <label className="block text-gray-700 font-medium mb-2">Issue Description</label>
                 <textarea
+                  name="issueDescription"
+                  value={formData.issueDescription}
+                  onChange={handleChange}
                   className="w-full p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#007791]"
                   placeholder="Describe the issue in detail"
                   rows="4"
@@ -170,4 +209,3 @@ const Repair = () => {
 };
 
 export default Repair;
-
