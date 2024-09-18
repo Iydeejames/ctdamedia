@@ -7,7 +7,7 @@ const Footer = () => {
       {/* Top Section (Black Background) */}
       <div className="bg-black text-white py-8 px-4 md:px-8 w-full">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
             {/* About Section */}
             <div>
               <h4 className="font-bold mb-4">About</h4>
@@ -41,19 +41,6 @@ const Footer = () => {
 
               <h4 className="font-bold mt-4 mb-2">Email Us</h4>
               <p>drdronenigltd@gmail.com</p>
-
-              {/* Social Media Icons */}
-              <div className="flex space-x-4 mt-4">
-                <a href="https://www.facebook.com/+2347072261883" target="_blank" rel="noopener noreferrer" className="text-blue-600">
-                  <FaFacebookF size={24} />
-                </a>
-                <a href="https://www.instagram.com/drdronehq?igsh=MXFtYTgyN3ZnNDl0Zg==" target="_blank" rel="noopener noreferrer" className="text-pink-600">
-                  <FaInstagram size={24} />
-                </a>
-                <a href="https://wa.me/2347072261883" target="_blank" rel="noopener noreferrer" className="text-green-500">
-                  <FaWhatsapp size={24} />
-                </a>
-              </div>
             </div>
 
             {/* Address Section */}
@@ -65,6 +52,22 @@ const Footer = () => {
                 Uyo, Nigeria<br />
                 12345 ZIP Code
               </address>
+            </div>
+
+            {/* Our Socials Section */}
+            <div>
+              <h4 className="font-bold mb-4">Our Socials</h4>
+              <div className="flex space-x-4">
+                <a href="https://www.facebook.com/+2347072261883" target="_blank" rel="noopener noreferrer" className="text-blue-600">
+                  <FaFacebookF size={24} />
+                </a>
+                <a href="https://www.instagram.com/drdronehq?igsh=MXFtYTgyN3ZnNDl0Zg==" target="_blank" rel="noopener noreferrer" className="text-pink-600">
+                  <FaInstagram size={24} />
+                </a>
+                <a href="https://wa.me/2347072261883" target="_blank" rel="noopener noreferrer" className="text-green-500">
+                  <FaWhatsapp size={24} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
