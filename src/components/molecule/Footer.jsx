@@ -59,13 +59,13 @@ const Footer = () => {
               <h4 className="font-bold mb-4">Our Socials</h4>
               <div className="flex space-x-4">
                 <a href="https://www.facebook.com/+2347072261883" target="_blank" rel="noopener noreferrer" className="text-blue-600">
-                  <FaFacebookF size={24} />
+                  <FaFacebookF size={22} />
                 </a>
                 <a href="https://www.instagram.com/drdronehq?igsh=MXFtYTgyN3ZnNDl0Zg==" target="_blank" rel="noopener noreferrer" className="text-pink-600">
-                  <FaInstagram size={24} />
+                  <FaInstagram size={22} />
                 </a>
                 <a href="https://wa.me/2347072261883" target="_blank" rel="noopener noreferrer" className="text-green-500">
-                  <FaWhatsapp size={24} />
+                  <FaWhatsapp size={22} />
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@ const Footer = () => {
 
       {/* Bottom Section (White Background) */}
       <div className="bg-white w-full">
-        <div className="container mx-auto px-4 md:px-8 -pb-[4] pt-2">
+        <div className="container mx-auto px-4 md:px-8 -pb-[4] pt-6">
           <div className="flex items-center justify-center">
             {/* Left Line */}
             <div className="flex-grow border-t border-black mr-4"></div>
