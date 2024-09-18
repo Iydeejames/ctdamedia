@@ -35,8 +35,8 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4">Contacts</h4>
               <ul>
-                <li>+234 9080 0066 00</li>
-                <li>+234 7033 8055 23</li>
+                <li>+234 7072 2618 83</li>
+                <li>+234 8025 2918 63</li>
               </ul>
 
               <h4 className="font-bold mt-4 mb-2">Email Us</h4>
