@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
 import Drone3 from '../assets/Drone-img/Drone3.jpg';
@@ -259,13 +259,12 @@ const LandingPage = () => {
         <div className="container mx-auto flex flex-col items-center text-center">
           <h2 className="text-2xl font-bold mb-8">About Dr. Drone</h2>
           <p className="text-sm lg:text-md mb-8 max-w-2xl mx-auto">
-  Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
-</p>
+             Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
+          </p>
 
-       {/*   <Link to="/certification">
+       {/*<Link to="/certification">
   <button
-    className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300"
-  >
+    className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300">
     Learn More
   </button>
 </Link> */}

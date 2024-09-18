@@ -77,7 +77,7 @@ const Training = () => {
 
         {/* Redesigned Training Information Section */}
         <section className="py-16 bg-gradient-to-b from-white to-gray-100">
-          <h2 className="text-center text-2xl lg:text-5xl font-semibold text-[#007791] mb-12 animate-slide-in">
+          <h2 className="text-center text-2xl lg:text-4xl font-semibold text-[#007791] mb-12 animate-slide-in">
             Explore Our Training Programs
           </h2>
 
@@ -130,7 +130,7 @@ const Training = () => {
             </p>
             <Link
               to="/ContactUs"
-              className="inline-block bg-white text-[#007791] px-4 py-2 rounded-full font-semibold hover:bg-gray-100 transition duration-200 shadow-lg"
+              className="inline-block bg-white text-[#007791] px-4 py-2 rounded-full font-semibold hover:bg-gray-200 transition duration-200 shadow-lg"
             >
               Contact Us
             </Link>
