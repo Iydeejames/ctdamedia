@@ -1,4 +1,5 @@
 import DroneLogo from "../../assets/logo/Drone-logo.png";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -27,7 +28,6 @@ const Footer = () => {
                 <li><a href="#become-drone-pilot" className="hover:underline">Become a Drone Pilot</a></li>
                 <li><a href="#drone-services" className="hover:underline">Drone Services</a></li>
                 <li><a href="#drone-repair-service" className="hover:underline">Drone Repair Service</a></li>
-               {/* <li><a href="#drone-buying-guides" className="hover:underline">Drone Buying Guides</a></li> */}
               </ul>
             </div>
 
@@ -40,7 +40,20 @@ const Footer = () => {
               </ul>
 
               <h4 className="font-bold mt-4 mb-2">Email Us</h4>
-                <p>drdronenigltd@gmail.com</p>
+              <p>drdronenigltd@gmail.com</p>
+
+              {/* Social Media Icons */}
+              <div className="flex space-x-4 mt-4">
+                <a href="https://www.facebook.com/+2347072261883" target="_blank" rel="noopener noreferrer" className="text-blue-600">
+                  <FaFacebookF size={24} />
+                </a>
+                <a href="https://www.instagram.com/drdronehq?igsh=MXFtYTgyN3ZnNDl0Zg==" target="_blank" rel="noopener noreferrer" className="text-pink-600">
+                  <FaInstagram size={24} />
+                </a>
+                <a href="https://wa.me/2347072261883" target="_blank" rel="noopener noreferrer" className="text-green-500">
+                  <FaWhatsapp size={24} />
+                </a>
+              </div>
             </div>
 
             {/* Address Section */}
