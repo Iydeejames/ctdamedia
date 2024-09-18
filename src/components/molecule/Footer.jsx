@@ -40,7 +40,7 @@ const Footer = () => {
               </ul>
 
               <h4 className="font-bold mt-4 mb-2">Email Us</h4>
-              <p>drdronenigltd@gmail.com</p>
+              <p>info@drdrone.ng</p>
             </div>
 
             {/* Address Section */}
@@ -50,7 +50,7 @@ const Footer = () => {
                 3 Emmanuel Bassey,<br />
                 Avenue,<br />
                 Uyo, Nigeria<br />
-                12345 ZIP Code
+                520102 ZIP Code
               </address>
             </div>
 
