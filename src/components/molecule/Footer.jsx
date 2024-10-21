@@ -58,9 +58,9 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4">Our Socials</h4>
               <div className="flex space-x-4">
-                <a href="https://www.facebook.com/+2347072261883" target="_blank" rel="noopener noreferrer" className="text-blue-600">
-                  <FaFacebookF size={22} />
-                </a>
+              <a href="https://web.facebook.com/profile.php?id=61565898366337" target="_blank" rel="noopener noreferrer" className="text-blue-600">
+      <FaFacebookF size={22} />
+    </a>
                 <a href="https://www.instagram.com/drdronehq?igsh=MXFtYTgyN3ZnNDl0Zg==" target="_blank" rel="noopener noreferrer" className="text-pink-600">
                   <FaInstagram size={22} />
                 </a>

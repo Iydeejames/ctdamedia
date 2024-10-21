@@ -31,10 +31,10 @@ const ContactUs = () => {
     setSubmitted(true);
 
     emailjs.sendForm(
-      'service_4abvziw',        // Service ID
-      'template_4bf77bv',       // Template ID
+      'service_8ydryxn',        // Service ID
+      'template_jiae8jr',       // Template ID
       e.target,                 // The form
-      'S63NpzSMYLcC1unEL'      // User ID (Public Key)
+      'P9eIxcX-REViB7axt'      // User ID (Public Key)
     )
       .then((result) => {
         alert('Message sent successfully!');
@@ -205,7 +205,7 @@ const ContactUs = () => {
                 </li>
                 <li className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#007791]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                  <span className="ml-4">drdronenigltd@gmail.com</span>
+                  <span className="ml-4">info@drdrone.ng</span>
                 </li>
               </ul>
             </div>
