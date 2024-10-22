@@ -132,7 +132,7 @@ const Repair = () => {
         <h2 className="text-3xl font-bold mb-6">Need Assistance?</h2>
         <p className="text-lg">
           If you have any questions or concerns about your repair, please contact our support team at 
-          <a href="mailto:support@drdrone.ng" className="font-semibold text-red-500 hover:underline ml-1 ">
+          <a href="mailto:support@drdrone.ng" className="font-semibold text-red-300 hover:underline ml-1 ">
           support@drdrone.ng
           </a>.
         </p>
