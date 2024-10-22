@@ -30,7 +30,7 @@ const Repair = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs.send('service_ba7qfcg', 'template_5sw6rzu', formData, 'S63NpzSMYLcC1unEL')
+    emailjs.send('service_iusvqft', 'template_bvvqj6f', formData, 'XVl4kSVRbtlqjEOtB')
       .then((response) => {
         console.log('Success:', response);
         alert('Your repair request has been sent successfully!');
