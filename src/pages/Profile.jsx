@@ -20,7 +20,7 @@ const Profile = () => {
         <section className="mb-8">
           <h2 className="text-2xl lg:text-3xl font-semibold mb-4 text-black">Introduction</h2>
           <p className="text-black">
-            Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, we take pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
+            Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, Dr Drone takes pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
           </p>
         </section>
         
