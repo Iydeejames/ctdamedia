@@ -229,6 +229,51 @@ const LandingPage = () => {
           Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
         </p>
       </div>
+
+                  {/* Innovative Technology */}
+                  <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Innovative Technology</h3>
+              <p className="text-gray-600">
+              We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
+              </p>
+            </div>
+
+                        {/* Expert Team */}
+                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Expert Team</h3>
+              <p className="text-gray-600">
+              Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
+              </p>
+            </div>
+
+                        {/* Tailored Solutions */}
+                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Tailored Solutions</h3>
+              <p className="text-gray-600">
+              We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
+              </p>
+            </div>
+
+                        {/* Safety & Compliance */}
+                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-4xl"></i>
+              </div>
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Safety & Compliance</h3>
+              <p className="text-gray-600">
+              We prioritize safety and compliance, ensuring that all our operations meet regulatory standards and industry best practices.
+Whether you're looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
+              </p>
+            </div>
       
     </div>
   </div>
