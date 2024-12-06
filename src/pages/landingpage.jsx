@@ -176,108 +176,117 @@ const ImageSliderSection = () => {
 
 const LandingPage = () => {
   return (
-    <div className=''>
+    <div className="">
       <ImageSliderSection />
-
+      
       {/* Features Section */}
-      <section className="py-16 pl-4 pr-4">
+      <section className="py-16 bg-gray-100 overflow-hidden">
         <div className="container mx-auto text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-12">Why Choose Dr. Drone Nig Ltd</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            {/* Comprehensive Drone Maintenance */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+          <h2 className="text-2xl lg:text-3xl font-bold mb-12">
+            Why Choose Dr. Drone Nig Ltd
+          </h2>
+          <div className="relative flex overflow-hidden">
+            <div className="flex w-full animate-scroll-left space-x-8">
+              {/* Card 1 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-tools text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Comprehensive Drone Maintenance/Repairs
+                </h3>
+                <p className="text-gray-600">
+                  Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
+                </p>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Comprehensive Drone Maintenance/Repairs</h3>
-              <p className="text-gray-600">
-                Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
-              </p>
-            </div>
-            
-            {/* Innovative Drone Procurement */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-box text-red-500 text-4xl"></i>
+              {/* Card 2 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-box text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Procurement Services
+                </h3>
+                <p className="text-gray-600">
+                  Access the latest in drone technology and equipment with our specialized procurement services.
+                </p>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Procurement Services</h3>
-              <p className="text-gray-600">
-                Access the latest in drone technology and equipment with our specialized procurement services.
-              </p>
-            </div>
-            
-            {/* Seamless Drone Integration */}
-            <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-network-wired text-red-500 text-4xl"></i>
+              {/* Card 3 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-network-wired text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Consultancy Services
+                </h3>
+                <p className="text-gray-600">
+                  At Dr. Drone, we offer our professional services to help you make informed and innovative UAV-related decisions.
+                </p>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Consultancy Services</h3>
-              <p className="text-gray-600">
-                At Dr. Drone, we offer our professional services to help you make informed and innovative UAV related decisions.
-              </p>
+              {/* Card 4 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Pilot Training Program
+                </h3>
+                <p className="text-gray-600">
+                  Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
+                </p>
+              </div>
+              {/* Card 5 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-cogs text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Innovative Technology
+                </h3>
+                <p className="text-gray-600">
+                  We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
+                </p>
+              </div>
+              {/* Card 6 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-users text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Expert Team
+                </h3>
+                <p className="text-gray-600">
+                  Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
+                </p>
+              </div>
+              {/* Card 7 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-lightbulb text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Tailored Solutions
+                </h3>
+                <p className="text-gray-600">
+                  We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
+                </p>
+              </div>
+              {/* Card 8 */}
+              <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+                <div className="flex justify-center mb-4">
+                  <i className="fas fa-shield-alt text-red-500 text-4xl"></i>
+                </div>
+                <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+                  Safety & Compliance
+                </h3>
+                <p className="text-gray-600">
+                  We prioritize safety and compliance, ensuring that all our operations meet regulatory standards and industry best practices.
+                </p>
+              </div>
             </div>
-            
-      
-      {/* Pilot Training */}
-      <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-        <div className="flex justify-center mb-4">
-          <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
+          </div>
         </div>
-        <h3 className="text-xl lg:text-2xl font-semibold mb-4">Pilot Training Program</h3>
-        <p className="text-gray-600">
-          Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
-        </p>
-      </div>
-
-                  {/* Innovative Technology */}
-                  <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Innovative Technology</h3>
-              <p className="text-gray-600">
-              We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
-              </p>
-            </div>
-
-                        {/* Expert Team */}
-                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Expert Team</h3>
-              <p className="text-gray-600">
-              Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
-              </p>
-            </div>
-
-                        {/* Tailored Solutions */}
-                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Tailored Solutions</h3>
-              <p className="text-gray-600">
-              We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
-              </p>
-            </div>
-
-                        {/* Safety & Compliance */}
-                        <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
-              </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">Safety & Compliance</h3>
-              <p className="text-gray-600">
-              We prioritize safety and compliance, ensuring that all our operations meet regulatory standards and industry best practices.
-Whether you're looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
-              </p>
-            </div>
-      
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
