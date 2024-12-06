@@ -186,13 +186,28 @@ const LandingPage = () => {
             Why Choose Dr. Drone Nig Ltd
           </h2>
           <div
-            className="flex flex-wrap justify-center gap-8 px-4 py-4 scrollbar-hide"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4 py-4"
             style={{
               scrollBehavior: "smooth",
             }}
           >
+
+                        {/* Card 5 */}
+                        <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
+              <div className="flex justify-center mb-4">
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
+              </div>
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
+              Drone Service Providers (DSPs) 
+              </h3>
+              <p className="text-gray-600 text-sm">
+              We offer specialized services using drones  (UAVs) to meet industry-specific needs. These services leverage drone technology to perform tasks efficiently, safely, and cost-effectively
+              </p>
+            </div>
+
+            
             {/* Card 1 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -205,7 +220,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-box text-red-500 text-3xl"></i>
               </div>
@@ -218,7 +233,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-network-wired text-red-500 text-3xl"></i>
               </div>
@@ -231,7 +246,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-graduation-cap text-red-500 text-3xl"></i>
               </div>
@@ -243,21 +258,10 @@ const LandingPage = () => {
               </p>
             </div>
 
-            {/* Card 5 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
-              <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-3xl"></i>
-              </div>
-              <h3 className="text-lg lg:text-xl font-semibold mb-4">
-                Innovative Technology
-              </h3>
-              <p className="text-gray-600 text-sm">
-                We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
-              </p>
-            </div>
+
 
             {/* Card 6 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -270,7 +274,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 7 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -283,7 +287,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 8 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
