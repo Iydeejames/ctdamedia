@@ -192,105 +192,105 @@ const LandingPage = () => {
             }}
           >
             {/* Card 1 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Comprehensive Drone Maintenance/Repairs
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-box text-red-500 text-4xl"></i>
+                <i className="fas fa-box text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Procurement Services
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 Access the latest in drone technology and equipment with our specialized procurement services.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-network-wired text-red-500 text-4xl"></i>
+                <i className="fas fa-network-wired text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Consultancy Services
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 At Dr. Drone, we offer our professional services to help you make informed and innovative UAV-related decisions.
               </p>
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-graduation-cap text-red-500 text-4xl"></i>
+                <i className="fas fa-graduation-cap text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Pilot Training Program
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
               </p>
             </div>
 
             {/* Card 5 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Innovative Technology
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
               </p>
             </div>
 
             {/* Card 6 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Expert Team
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
               </p>
             </div>
 
             {/* Card 7 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Tailored Solutions
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
               </p>
             </div>
 
             {/* Card 8 */}
-            <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-4xl"></i>
+                <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4">
+              <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Safety & Compliance
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm">
                 We prioritize safety and compliance, ensuring that all our operations meet regulatory standards and industry best practices.
               </p>
             </div>
