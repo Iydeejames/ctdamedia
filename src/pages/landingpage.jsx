@@ -181,7 +181,7 @@ const LandingPage = () => {
       
       {/* Features Section */}
       <section className="py-16 bg-gray-100 overflow-hidden">
-        <div className="container mx-auto text-center">
+        <div className="text-center">
           <h2 className="text-2xl lg:text-3xl font-bold mb-12">
             Why Choose Dr. Drone Nig Ltd
           </h2>
@@ -199,6 +199,7 @@ const LandingPage = () => {
                   Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
                 </p>
               </div>
+
               {/* Card 2 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
@@ -211,6 +212,7 @@ const LandingPage = () => {
                   Access the latest in drone technology and equipment with our specialized procurement services.
                 </p>
               </div>
+
               {/* Card 3 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
@@ -223,6 +225,7 @@ const LandingPage = () => {
                   At Dr. Drone, we offer our professional services to help you make informed and innovative UAV-related decisions.
                 </p>
               </div>
+
               {/* Card 4 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
@@ -235,10 +238,11 @@ const LandingPage = () => {
                   Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
                 </p>
               </div>
+
               {/* Card 5 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
-                  <i className="fas fa-cogs text-red-500 text-4xl"></i>
+                  <i className="fas fa-tools text-red-500 text-4xl"></i>
                 </div>
                 <h3 className="text-xl lg:text-2xl font-semibold mb-4">
                   Innovative Technology
@@ -247,10 +251,11 @@ const LandingPage = () => {
                   We utilize the latest UAV technology, providing high-performance drones and sensors to meet your unique operational needs.
                 </p>
               </div>
+
               {/* Card 6 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
-                  <i className="fas fa-users text-red-500 text-4xl"></i>
+                  <i className="fas fa-tools text-red-500 text-4xl"></i>
                 </div>
                 <h3 className="text-xl lg:text-2xl font-semibold mb-4">
                   Expert Team
@@ -259,10 +264,11 @@ const LandingPage = () => {
                   Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
                 </p>
               </div>
+
               {/* Card 7 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
-                  <i className="fas fa-lightbulb text-red-500 text-4xl"></i>
+                  <i className="fas fa-tools text-red-500 text-4xl"></i>
                 </div>
                 <h3 className="text-xl lg:text-2xl font-semibold mb-4">
                   Tailored Solutions
@@ -271,10 +277,11 @@ const LandingPage = () => {
                   We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
                 </p>
               </div>
+
               {/* Card 8 */}
               <div className="bg-white feature-card p-6 rounded-lg shadow-lg min-w-[300px]">
                 <div className="flex justify-center mb-4">
-                  <i className="fas fa-shield-alt text-red-500 text-4xl"></i>
+                  <i className="fas fa-tools text-red-500 text-4xl"></i>
                 </div>
                 <h3 className="text-xl lg:text-2xl font-semibold mb-4">
                   Safety & Compliance
