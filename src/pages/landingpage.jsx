@@ -186,13 +186,13 @@ const LandingPage = () => {
             Why Choose Dr. Drone Nig Ltd
           </h2>
           <div
-            className="flex overflow-x-auto space-x-8 px-4 py-4 scrollbar-hide"
+            className="flex flex-wrap justify-center gap-8 px-4 py-4 scrollbar-hide"
             style={{
               scrollBehavior: "smooth",
             }}
           >
             {/* Card 1 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -205,7 +205,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-box text-red-500 text-3xl"></i>
               </div>
@@ -218,7 +218,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-network-wired text-red-500 text-3xl"></i>
               </div>
@@ -231,7 +231,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-graduation-cap text-red-500 text-3xl"></i>
               </div>
@@ -244,7 +244,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 5 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -257,7 +257,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 6 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -270,7 +270,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 7 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
@@ -283,7 +283,7 @@ const LandingPage = () => {
             </div>
 
             {/* Card 8 */}
-            <div className="bg-white feature-card p-4 rounded-lg shadow-lg min-w-[250px]">
+            <div className="bg-white feature-card p-4 rounded-lg shadow-lg w-full sm:w-[280px] md:w-[300px] lg:w-[300px] h-auto">
               <div className="flex justify-center mb-4">
                 <i className="fas fa-tools text-red-500 text-3xl"></i>
               </div>
