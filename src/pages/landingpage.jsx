@@ -11,7 +11,7 @@ import Drone8 from '../assets/Drone-img/Drone8.jpg';
 import Drone9 from '../assets/Drone-img/Drone9.jpg';
 import Drone11 from '../assets/Drone-img/Drone11.jpg';
 import Drone18 from '../assets/Drone-img/Drone18.jpg';
-import AboutMainImage from '../assets/Drone-img/Drone7.jpg';
+import AboutMainImage from '../assets/Drone-img/Drone2.jpg';
 import AboutSecondaryImage from '../assets/Drone-img/Drone18.jpg';
 
 
@@ -398,13 +398,14 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* About Us Section */}
+      {/* About Us Section
       <section className="py-16 bg-gray-100 pl-4 pr-4">
         <div className="container mx-auto flex flex-col items-center text-center">
           <h2 className="text-2xl font-bold mb-8">About Dr. Drone</h2>
           <p className="text-sm lg:text-md mb-8 max-w-2xl mx-auto">
              Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, Dr Drone Nig Ltd takes pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
           </p>
+ */}
 
        {/*<Link to="/certification">
   <button
@@ -413,8 +414,7 @@ const LandingPage = () => {
   </button>
 </Link> */}
 
-        </div>
-      </section>
+      
 
       {/* Testimonials Section */}
       <section className="py-16 pl-4 pr-4">
