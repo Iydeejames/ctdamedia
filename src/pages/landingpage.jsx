@@ -349,7 +349,7 @@ const LandingPage = () => {
         </ul>
         <div className="bg-primary flex items-center p-4 mt-5 rounded-lg">
           <div className="flex items-center justify-center bg-white rounded-full w-14 h-14">
-            <i className="fa fa-phone-alt text-primary text-2xl"></i>
+            <i className="fa fa-phone-alt text-[#007791] text-2xl"></i>
           </div>
           <div className="ml-4">
             <p className="text-[#007791] text-lg font-medium">Contact Us 24/7</p>
