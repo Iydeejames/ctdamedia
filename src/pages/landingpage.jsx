@@ -353,7 +353,7 @@ const LandingPage = () => {
           </div>
           <div className="ml-4">
             <p className="text-white text-lg font-medium">Contact Us 24/7</p>
-            <h3 className="text-secondary text-xl font-bold">+234 908 000 6600</h3>
+            <h3 className="text-secondary text-xl font-bold">+234 7072 2618 83</h3>
           </div>
         </div>
       </div>
