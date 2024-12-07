@@ -308,7 +308,7 @@ const LandingPage = () => {
 
 
  {/* About Section */}
- <section className="container-xxl py-5 bg-[#b8d7de]">
+ <section className="container-xxl py-5 bg-[rgb(225,240,242)]">
   <div className="container mx-auto px-6 lg:px-12">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left Column - Text */}
