@@ -11,8 +11,8 @@ import Drone8 from '../assets/Drone-img/Drone8.jpg';
 import Drone9 from '../assets/Drone-img/Drone9.jpg';
 import Drone11 from '../assets/Drone-img/Drone11.jpg';
 import Drone18 from '../assets/Drone-img/Drone18.jpg';
-import AboutMainImage from '../assets/Drone-img/Drone2.jpg';
-import AboutSecondaryImage from '../assets/Drone-img/Drone18.jpg';
+import AboutMainImage from '../assets/Drone-img/Drone7.jpg';
+import AboutSecondaryImage from '../assets/Drone-img/Drone9.jpg';
 
 
 const drones = [
@@ -313,14 +313,14 @@ const LandingPage = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left Column - Text */}
       <div className="flex flex-col justify-center">
-        <h6 className="text-secondary uppercase text-sm font-bold mb-2">About Us</h6>
-        <h1 className="text-2xl lg:text-3xl font-bold mb-4">
+        <h6 className="text-secondary text-[#007791] uppercase text-sm font-bold mb-2">About Us</h6>
+        <h1 className="text-2xl lg:text-3xl text-[#007791] font-bold mb-4">
           Dr Drone Nig. Ltd 
         </h1>
         <p className="text-gray-700 mb-4">
           At Dr Drone, we specialize in providing innovative Unmanned Aerial Vehicle (UAV) services that deliver unmatched precision, efficiency, and safety. With a diverse range of offerings, we are transforming industries with our state-of-the-art drone technology and expert solutions.
         </p>
-        <h3 className="text-2xl lg:text-3xl font-bold mb-4">Our Services:</h3>
+        <h3 className="text-2xl text-[#007791] lg:text-3xl font-bold mb-4">Our Services:</h3>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
           <li className="flex items-start">
             <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Surveillance
@@ -352,8 +352,8 @@ const LandingPage = () => {
             <i className="fa fa-phone-alt text-primary text-2xl"></i>
           </div>
           <div className="ml-4">
-            <p className="text-white text-lg font-medium">Contact Us 24/7</p>
-            <h3 className="text-secondary text-xl font-bold">+234 7072 2618 83</h3>
+            <p className="text-[#007791] text-lg font-medium">Contact Us 24/7</p>
+            <h3 className="text-[#007791] text-xl font-bold">+234 7072 2618 83</h3>
           </div>
         </div>
       </div>
