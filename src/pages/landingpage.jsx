@@ -313,7 +313,7 @@ const LandingPage = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left Column - Text */}
       <div className="flex flex-col justify-center">
-        <h6 className="text-secondary text-[#007791] uppercase text-sm font-bold mb-2">About Us</h6>
+        <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2">What We Offer At</h6>
         <h1 className="text-2xl lg:text-3xl text-[#007791] font-bold mb-4">
           Dr Drone Nig. Ltd 
         </h1>
