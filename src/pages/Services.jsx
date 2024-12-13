@@ -82,11 +82,7 @@ const Services = () => {
           alt="About Us"
           className="w-3/4 h-auto mx-auto object-cover  shadow-lg"
         />
-        <img
-          src={AboutSecondaryImage}
-          alt="About Detail"
-          className="absolute bottom-4 right-4 w-1/2 h-1/2 object-cover bg-[rgb(225,240,242)] p-2  border-4 border-[rgb(225,240,242)]"
-        />
+       
       </div>
     </div>
   </div>
