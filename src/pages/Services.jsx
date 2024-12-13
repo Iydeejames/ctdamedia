@@ -12,39 +12,56 @@ const Services = () => {
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {/* Left Column - Text */}
     <div className="flex flex-col justify-center">
-      <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2">What We Offer At</h6>
+      <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2"></h6>
       <h1 className="text-2xl lg:text-3xl text-[#007791] font-bold mb-4">
-        Dr Drone Nig. Ltd 
+        Welcome! 
       </h1>
       <p className="text-gray-700 mb-4">
-        We specialize in providing innovative Unmanned Aerial Vehicle (UAV) services that deliver unmatched precision, efficiency, and safety. With a diverse range of offerings, we are transforming industries with our state-of-the-art drone technology and expert solutions.
+      Whether you're looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
+      Let’s innovate together and take your business to new heights with our cutting-edge drone services.
       </p>
       <h3 className="text-2xl text-[#007791] lg:text-3xl font-bold mb-4">Our Services:</h3>
       <ul className="list-disc list-inside text-gray-700 space-y-2">
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Surveillance
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1  mr-2"></i>Surveillance:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Mapping & Surveying
+        <p>We offer comprehensive aerial surveillance services for security, monitoring, and data collection. Our drones provide real-time insights, delivering critical information for law enforcement, military, and private sectors.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Mapping & Surveying:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Precision Agriculture
+        <p>Our advanced drones equipped with high-precision sensors and cameras create detailed, accurate maps for land surveying, construction projects, and environmental monitoring. We help organizations make informed decisions through high-quality geospatial data.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Precision Agriculture:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Facility Inspection
+        <p>By leveraging drones for aerial pesticides and herbicides spraying, seeds and fertilizer spreading, crop monitoring and analysis, we help farmers optimize crop yields, improve resource management, and implement precision agriculture techniques. Our UAVs provide actionable insights into soil health, irrigation, and pest control.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Facility Inspection:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Search & Rescue Missions
+        <p>Our UAVs offer efficient and safe inspection services for infrastructure such as well heads, power lines, bridges, telecommunications towers and other core infrastructures. With high-resolution imaging and thermal scanning, we help reduce downtime and prevent costly repairs.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Search & Rescue Missions:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Pilot Training Program
+        <p>In emergencies, time is critical. Our drones are deployed in search and rescue operations to provide aerial views in difficult-to-reach areas, helping locate missing persons and assess hazardous situations quickly and effectively.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Pilot Training Program:
         </li>
-        <li className="flex items-start">
-          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Maintenance Program
+        <p>We offer comprehensive UAV training programs that equip aspiring pilots with the skills, certifications, and safety protocols necessary to operate drones professionally. Our hands-on approach ensures thorough understanding and readiness for real-world flight operations.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
+          <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Maintenance Program:
         </li>
-        <li className="flex items-start">
+        <p>Our specialized maintenance services keep UAV fleets operating at peak performance. From routine check-ups to advanced repairs, we ensure that every drone is in top condition, reducing downtime and ensuring the safety of operations.
+        </p>
+        <li className="flex items-start text-[#007791] font-bold">
           <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Procurement & Consultancy Services
         </li>
+        <p>We assist businesses in selecting, acquiring, and integrating UAV technology tailored to their needs. Our consultancy services provide expert advice on drone selection, regulations, and best practices, helping companies navigate the rapidly evolving UAV landscape.
+        </p>
       </ul>
       <div className="bg-primary flex items-center p-4 mt-5 rounded-lg">
         <div className="flex items-center justify-center bg-white rounded-full w-14 h-14">
