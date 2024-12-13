@@ -36,7 +36,7 @@ const Navbar = () => {
             <li><Link to="/" className="hover:text-black text-lg transition duration-300">Home</Link></li>
             <li><Link to="/Services" className="hover:text-black text-lg transition duration-300">Services</Link></li>
             <li><Link to="/Training" className="hover:text-black text-lg transition duration-300">Training</Link></li>
-            <li><Link to="/Repair" className="hover:text-black text-lg transition duration-300">Drone repair services</Link></li>
+            <li><Link to="/Repair" className="hover:text-black text-lg transition duration-300">Drone repair</Link></li>
             <li><Link to="/ContactUs" className="hover:text-black text-lg transition duration-300">Contact</Link></li>
           </ul>
         </nav>
@@ -80,7 +80,7 @@ const Navbar = () => {
                   className="text-white font-bold text-sm"
                   onClick={toggleMenu}
                 >
-                  Drone repair services
+                  Drone repair
                 </Link>
               </li>
               <li>
