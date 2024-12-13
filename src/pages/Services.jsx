@@ -13,8 +13,8 @@ const Services = () => {
     {/* Left Column - Text */}
     <div className="flex flex-col justify-center">
       <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2"></h6>
-      <h1 className="text-2xl lg:text-3xl text-[#007791] font-bold mb-4">
-        Welcome! 
+      <h1 className="text-2xl font-mono lg:text-3xl text-[#007791] font-bold mb-4">
+        Did You Know? 
       </h1>
       <p className="text-gray-700 mb-4">
       Whether you're looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
