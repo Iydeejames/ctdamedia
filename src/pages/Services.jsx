@@ -7,8 +7,8 @@ const Services = () => {
        <div className="">
 
 
-<section className="container-xxl py-5 bg-[rgb(225,240,242)]">
-<div className="container mx-auto px-6 lg:px-12">
+<section className="container-xxl py-5  bg-[rgb(225,240,242)]">
+<div className="container mx-auto px-6 mt-28 lg:px-12">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {/* Left Column - Text */}
     <div className="flex flex-col justify-center">
