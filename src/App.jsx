@@ -10,6 +10,7 @@ import Certification from './pages/certification';
 import ContactUs from './pages/ContactUs';
 import Repair from './pages/Repair';
 import Training from './pages/Training';
+import Services from './pages/Services';
 
 const Layout = ({ children }) => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/ContactUs" element={<Layout><ContactUs/></Layout>} />
         <Route path="/Repair" element={<Layout><Repair/></Layout>} />
         <Route path="/Training" element={<Layout><Training/></Layout>} />
+        <Route path="/Services" element={<Layout><Services/></Layout>} />
       </Routes>
     </Router>
   );

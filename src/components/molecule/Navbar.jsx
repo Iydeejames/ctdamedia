@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav className="hidden lg:flex lg:space-x-6">
           <ul className="flex space-x-6 font-bold text-[#007791]">
             <li><Link to="/" className="hover:text-black transition duration-300">Home</Link></li>
-            <li><Link to="/Service" className="hover:text-black transition duration-300">Services</Link></li>
+            <li><Link to="/Services" className="hover:text-black transition duration-300">Services</Link></li>
             <li><Link to="/Training" className="hover:text-black transition duration-300">Training</Link></li>
             <li><Link to="/Repair" className="hover:text-black transition duration-300">Drone repair services</Link></li>
             <li><Link to="/ContactUs" className="hover:text-black transition duration-300">Contact</Link></li>
@@ -58,7 +58,7 @@ const Navbar = () => {
               </li>
               <li>
               <Link
-                  to="/Service"
+                  to="/Services"
                   className="text-white font-bold text-sm"
                   onClick={toggleMenu}
                 >

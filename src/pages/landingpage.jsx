@@ -318,7 +318,7 @@ const LandingPage = () => {
           Dr Drone Nig. Ltd 
         </h1>
         <p className="text-gray-700 mb-4">
-          At Dr Drone, we specialize in providing innovative Unmanned Aerial Vehicle (UAV) services that deliver unmatched precision, efficiency, and safety. With a diverse range of offerings, we are transforming industries with our state-of-the-art drone technology and expert solutions.
+          We specialize in providing innovative Unmanned Aerial Vehicle (UAV) services that deliver unmatched precision, efficiency, and safety. With a diverse range of offerings, we are transforming industries with our state-of-the-art drone technology and expert solutions.
         </p>
         <h3 className="text-2xl text-[#007791] lg:text-3xl font-bold mb-4">Our Services:</h3>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
