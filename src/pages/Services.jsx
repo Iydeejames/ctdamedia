@@ -1,5 +1,5 @@
-import AboutMainImage from '../assets/Drone-img/Drone7.jpg';
-import AboutSecondaryImage from '../assets/Drone-img/Drone9.jpg';
+import Drone19 from '../assets/Drone-img/Drone7.jpg';
+import Drone19 from '../assets/Drone-img/Drone9.jpg';
 
 
 const Services = () => {
@@ -78,11 +78,15 @@ const Services = () => {
     <div className="relative min-h-[500px] pt-4">
       <div className="relative h-full">
         <img
-          src={AboutMainImage}
+          src={Drone19}
           alt="About Us"
           className="w-3/4 h-auto mx-auto object-cover  shadow-lg"
         />
-       
+        <img
+          src={Drone20}
+          alt="About Detail"
+          className="absolute bottom-4 right-4 w-1/2 h-1/2 object-cover bg-[rgb(225,240,242)] p-2  border-4 border-[rgb(225,240,242)]"
+        />
       </div>
     </div>
   </div>
