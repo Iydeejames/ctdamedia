@@ -13,7 +13,7 @@ const Services = () => {
     {/* Left Column - Text */}
     <div className="flex flex-col justify-center">
       <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2"></h6>
-      <h1 className="text-2xl font-mono lg:text-3xl text-[#007791] font-bold mb-4">
+      <h1 className="text-2xl font-mono lg:text-3xl text-[#007791] font-bold mb-4 ring-4">
         Did You Know? 
       </h1>
       <p className="text-gray-700 mb-4">
