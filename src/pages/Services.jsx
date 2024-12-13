@@ -76,18 +76,18 @@ const Services = () => {
     
     {/* Right Column - Images */}
     <div className="relative min-h-[500px] pt-4 flex justify-center items-center">
-  {/* Main Image */}
-  <div className="relative">
+  <div className="relative max-w-[90%] mx-auto">
+    {/* Main Image */}
     <img
       src={Drone19}
       alt="About Us"
-      className="w-[80%] rounded-lg shadow-2xl object-cover transition-transform duration-300 hover:scale-105"
+      className="w-full h-[60vh] rounded-lg shadow-2xl object-cover transition-transform duration-300 hover:scale-105"
     />
     {/* Overlay Image */}
     <img
       src={Drone20}
       alt="About Detail"
-      className="absolute bottom-4 left-4 w-[40%] rounded-xl object-cover bg-[rgb(225,240,242)] p-2 border-[4px] border-[rgb(225,240,242)] shadow-lg transition-transform duration-300 hover:rotate-3 hover:scale-110"
+      className="absolute -bottom-6 -left-6 w-[45%] h-auto rounded-xl object-cover bg-[rgb(225,240,242)] p-2 border-[4px] border-[rgb(225,240,242)] shadow-lg transition-transform duration-300 hover:rotate-3 hover:scale-110"
     />
   </div>
 </div>
