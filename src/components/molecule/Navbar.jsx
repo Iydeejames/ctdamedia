@@ -33,11 +33,11 @@ const Navbar = () => {
         {/* Regular navigation menu for large screens */}
         <nav className="hidden lg:flex lg:space-x-6">
           <ul className="flex space-x-6 font-bold text-[#007791]">
-            <li><Link to="/" className="hover:text-black transition duration-300">Home</Link></li>
-            <li><Link to="/Services" className="hover:text-black transition duration-300">Services</Link></li>
-            <li><Link to="/Training" className="hover:text-black transition duration-300">Training</Link></li>
-            <li><Link to="/Repair" className="hover:text-black transition duration-300">Drone repair services</Link></li>
-            <li><Link to="/ContactUs" className="hover:text-black transition duration-300">Contact</Link></li>
+            <li><Link to="/" className="hover:text-black text-lg transition duration-300">Home</Link></li>
+            <li><Link to="/Services" className="hover:text-black text-lg transition duration-300">Services</Link></li>
+            <li><Link to="/Training" className="hover:text-black text-lg transition duration-300">Training</Link></li>
+            <li><Link to="/Repair" className="hover:text-black text-lg transition duration-300">Drone repair services</Link></li>
+            <li><Link to="/ContactUs" className="hover:text-black text-lg transition duration-300">Contact</Link></li>
           </ul>
         </nav>
 
