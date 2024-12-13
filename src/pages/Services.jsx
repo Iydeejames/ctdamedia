@@ -1,5 +1,5 @@
-import Drone19 from '../assets/Drone-img/Drone7.jpg';
-import Drone19 from '../assets/Drone-img/Drone9.jpg';
+import Drone19 from '../assets/Drone-img/Drone19.jpg';
+import Drone20 from '../assets/Drone-img/Drone20.jpg';
 
 
 const Services = () => {
@@ -80,7 +80,7 @@ const Services = () => {
         <img
           src={Drone19}
           alt="About Us"
-          className="w-3/4 h-auto mx-auto object-cover  shadow-lg"
+          className="w-6/8 h-4/8 mx-auto object-cover  shadow-lg"
         />
         <img
           src={Drone20}
