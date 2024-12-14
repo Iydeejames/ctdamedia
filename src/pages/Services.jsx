@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
+
 import Drone19 from '../assets/Drone-img/Drone19.jpg';
 import Drone20 from '../assets/Drone-img/Drone20.jpg';
 
 
 const Services = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
      return (
        <div className="">
 
