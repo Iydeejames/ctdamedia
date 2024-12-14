@@ -47,8 +47,8 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4">Address</h4>
               <address>
-                3 Emmanuel Bassey,<br />
-                Avenue,<br />
+                13 Paulinus Urua,<br />
+                Street,<br />
                 Uyo, Nigeria<br />
                 520102 ZIP Code
               </address>
