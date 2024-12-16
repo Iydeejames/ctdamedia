@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 const Training = () => {
   useEffect(() => {
@@ -67,13 +69,17 @@ const Training = () => {
       <div className="min-h-screen mt-16 bg-gray-100 text-gray-800">
         {/* Header Section */}
         <header className="relative w-full h-[50vh] flex flex-col justify-center items-center bg-[#007791] text-white">
-          <h1 className="text-2xl lg:text-5xl font-bold mb-4 animate-fade-in-down">
-            Drone Training & Certification
-          </h1>
-          <p className="text-lg lg:text-xl animate-fade-in-up">
-            Elevate your skills in the world of drones.
-          </p>
-        </header>
+  <h1 className="text-2xl lg:text-5xl font-bold mb-4 animate-fade-in-down">
+    Drone Training & Certification
+  </h1>
+  <p className="text-lg lg:text-xl animate-fade-in-up">
+    Elevate your skills in the world of drones.
+  </p>
+  <FontAwesomeIcon
+    icon={faRocket}
+    className="text-4xl lg:text-6xl mt-6 animate-fade-in"
+  />
+</header>
 
         {/* Redesigned Training Information Section */}
         <section className="py-16 bg-gradient-to-b from-white to-gray-100">
