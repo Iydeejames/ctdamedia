@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import ScrollSection from "../components/reusables/ScrollSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 
 
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
@@ -204,7 +206,7 @@ const LandingPage = () => {
                         {/* Card 5 */}
                         <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
-                <i className="fas fa-tools text-red-500 text-3xl"></i>
+              <FontAwesomeIcon icon={faRocket} className="text-3xl text-red-500"/>
               </div>
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
               Drone Service Providers (DSPs) 
