@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { useEffect, useState } from 'react';
+import ScrollSection from "../components/reusables/ScrollSection";
+
 
 import Drone2 from '../assets/Drone-img/Drone2.jpg';
 import Drone3 from '../assets/Drone-img/Drone3.jpg';
@@ -127,6 +129,7 @@ const ImageSliderSection = () => {
   };
 
   return (
+    <ScrollSection>
     <section style={sliderSectionStyle}>
       <style>{`
         @keyframes slideInRight {
@@ -175,6 +178,7 @@ const ImageSliderSection = () => {
         </div>
       </div>
     </section>
+    </ScrollSection>
   );
 };
 
@@ -184,6 +188,7 @@ const LandingPage = () => {
       <ImageSliderSection />
       
       {/* Features Section */}
+      <ScrollSection>
       <section className="py-16 bg-gray-100">
         <div className="text-center">
           <h2 className="text-2xl lg:text-3xl font-bold mb-12">
@@ -305,10 +310,12 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      </ScrollSection>
 
 
 
  {/* About Section */}
+ <ScrollSection>
  <section className="container-xxl py-5 bg-[rgb(225,240,242)]">
   <div className="container mx-auto px-6 lg:px-12">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -377,11 +384,13 @@ const LandingPage = () => {
     </div>
   </div>
 </section>
+</ScrollSection>
 
 
 
 
       {/* Drone Models Section */}
+    
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
           <h2 className="text-xl lg:text-3xl font-bold mb-12">Explore Our Drone Models</h2>
@@ -398,26 +407,11 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* About Us Section
-      <section className="py-16 bg-gray-100 pl-4 pr-4">
-        <div className="container mx-auto flex flex-col items-center text-center">
-          <h2 className="text-2xl font-bold mb-8">About Dr. Drone</h2>
-          <p className="text-sm lg:text-md mb-8 max-w-2xl mx-auto">
-             Welcome to Dr. Drone Nig Ltd, your trusted partner in the skies. As a premier drone maintenance and procurement company in Nigeria, Dr Drone Nig Ltd takes pride in our commitment to excellence, innovation, and reliability. Dr. Drone Nig Ltd is here to redefine the standards of drone care, providing comprehensive solutions to keep your UAV fleet soaring with unparalleled efficiency.
-          </p>
- */}
-
-       {/*<Link to="/certification">
-  <button
-    className="bg-red-600 hover:bg-black text-white font-semibold py-3 px-6 rounded-full transition duration-300">
-    Learn More
-  </button>
-</Link> */}
-
+    
       
 
       {/* Testimonials Section */}
+      <ScrollSection>
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl font-bold mb-12">What Our Clients Say</h2>
@@ -449,6 +443,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      </ScrollSection>
 
 
     </div>
