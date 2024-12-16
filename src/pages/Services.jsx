@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 import { useEffect } from 'react';
 
 import Drone19 from '../assets/Drone-img/Drone19.jpg';
@@ -22,7 +23,7 @@ const Services = () => {
         Did You Know? 
       </h1>
       <p className=" mb-4 text-[#000000] text-sm">
-      Whether you're looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
+      Whether you are looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
       Let’s innovate together and take your business to new heights with our cutting-edge drone services.
       </p>
       <h3 className="text-2xl text-[#007791] font-mono lg:text-3xl font-bold mb-4 mt-4 ring-4">Our Services:</h3>

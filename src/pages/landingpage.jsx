@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 
 import { useEffect, useState } from 'react';
 
@@ -435,7 +436,7 @@ const LandingPage = () => {
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
               <blockquote className="text-white mb-2">
-                "Thank you guys for making me a certified pilot and for fixing my drone on time and delivering to me as promised. Miss you guys especially my instructor, touch and sweet lol"
+                "Thank you guys for making me a certified pilot and for fixing my drone on time and delivering to me as promised. Miss you guys especially my instructor, touch and sweet lol"
               </blockquote>
               <cite className="font-semibold text-white">Kemi Feyishara Adekunle</cite>
             </div>

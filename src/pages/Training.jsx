@@ -116,7 +116,7 @@ const Training = () => {
           </div>
 
           <p className="text-center text-md mt-12 px-8 leading-relaxed text-gray-700 animate-fade-in">
-            Whether you're just starting out or looking to enhance your skills, our training programs are designed to help you excel in the field of drone technology.
+            Whether you are just starting out or looking to enhance your skills, our training programs are designed to help you excel in the field of drone technology.
           </p>
         </section>
 
