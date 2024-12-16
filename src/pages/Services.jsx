@@ -13,21 +13,23 @@ const Services = () => {
      return (
        <div className="">
 
-<ScrollSection>
+
 <section className="container-xxl py-5  bg-[rgb(225,240,242)]">
 <div className="container mx-auto px-6 mt-28 lg:px-12">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
     {/* Left Column - Text */}
     <div className="flex flex-col justify-center">
       <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2"></h6>
+      <ScrollSection>
       <h1 className="text-2xl font-mono lg:text-3xl text-[#007791] font-bold mb-4 ring-4">
         Did You Know? 
-      </h1>
+      </h1></ScrollSection>
       <p className=" mb-4 text-[#000000] text-sm">
       Whether you are looking to streamline operations with drone data, enhance safety with UAV inspections, or train your team to operate drones effectively, Dr Drone Nig. Ltd is your trusted partner in UAV solutions.
       Let’s innovate together and take your business to new heights with our cutting-edge drone services.
       </p>
-      <h3 className="text-2xl text-[#007791] font-mono lg:text-3xl font-bold mb-4 mt-4 ring-4">Our Services:</h3>
+      <ScrollSection>
+      <h3 className="text-2xl text-[#007791] font-mono lg:text-3xl font-bold mb-4 mt-4 ring-4">Our Services:</h3></ScrollSection>
       <ul className="list-disc list-inside text-gray-700 space-y-2">
         <li className="flex items-start text-[#007791] font-bold mt-4">
           <i className="fa fa-check text-[#000000] mt-1  mr-2"></i>Surveillance:
@@ -102,7 +104,7 @@ const Services = () => {
   </div>
 </div>
 </section>
-</ScrollSection>
+
 
   </div>
 )};
