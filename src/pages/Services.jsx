@@ -1,5 +1,6 @@
 /* eslint-disable no-irregular-whitespace */
 import { useEffect } from 'react';
+import ScrollSection from "../components/reusables/ScrollSection";
 
 import Drone19 from '../assets/Drone-img/Drone19.jpg';
 import Drone20 from '../assets/Drone-img/Drone20.jpg';
@@ -12,7 +13,7 @@ const Services = () => {
      return (
        <div className="">
 
-
+<ScrollSection>
 <section className="container-xxl py-5  bg-[rgb(225,240,242)]">
 <div className="container mx-auto px-6 mt-28 lg:px-12">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -101,7 +102,7 @@ const Services = () => {
   </div>
 </div>
 </section>
-
+</ScrollSection>
 
   </div>
 )};

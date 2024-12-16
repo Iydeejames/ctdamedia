@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const ScrollSection = ({ children, animation, className }) => {
@@ -8,7 +7,7 @@ const ScrollSection = ({ children, animation, className }) => {
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.5, // Reduce the duration for a quicker effect
+        duration: 1, // Reduce the duration for a quicker effect
         ease: [0.42, 0, 0.58, 1], // Use a custom cubic bezier for smoothness
       },
     },
