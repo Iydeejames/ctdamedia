@@ -204,19 +204,20 @@ const LandingPage = () => {
             }}
           >
 
-                        {/* Card 5 */}
-                        <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
+              {/* Card 0 */}
+              <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
               <div className="flex justify-center mb-4">
               <FontAwesomeIcon icon={faRocket} className="text-3xl text-red-500"/>
               </div>
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
               Drone Service Providers (DSPs) 
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
               We offer specialized services using drones  (UAVs) to meet industry-specific needs. These services leverage drone technology to perform tasks efficiently, safely, and cost-effectively
               </p>
+              </ScrollSection>
             </div>
-
 
             {/* Card 1 */}
             <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
@@ -226,9 +227,11 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Comprehensive Drone Maintenance/Repairs
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 Ensure the optimal performance of your UAV fleet with our thorough and reliable maintenance services.
               </p>
+              </ScrollSection>
             </div>
 
             {/* Card 2 */}
@@ -239,9 +242,11 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Procurement Services
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 Access the latest in drone technology and equipment with our specialized procurement services.
               </p>
+              </ScrollSection>
             </div>
 
             {/* Card 3 */}
@@ -252,10 +257,13 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Consultancy Services
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 At Dr. Drone, we offer our professional services to help you make informed and innovative UAV-related decisions.
               </p>
+              </ScrollSection>
             </div>
+
 
             {/* Card 4 */}
             <div className="bg-white feature-card p-4 rounded-lg shadow-lg">
@@ -265,11 +273,12 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Pilot Training Program
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 Take flight with our expert Pilot Training program. Join us today to begin your journey to the skies!
               </p>
+              </ScrollSection>
             </div>
-
 
 
             {/* Card 6 */}
@@ -280,9 +289,11 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Expert Team
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 Our team consists of experienced pilots, engineers, and consultants who are passionate about UAV technology and its transformative potential across industries.
               </p>
+              </ScrollSection>
             </div>
 
             {/* Card 7 */}
@@ -293,9 +304,11 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Tailored Solutions
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 We understand that every industry has its unique requirements, and we provide customized drone services that drive real value for our clients.
               </p>
+              </ScrollSection>
             </div>
 
             {/* Card 8 */}
@@ -306,9 +319,11 @@ const LandingPage = () => {
               <h3 className="text-lg lg:text-xl font-semibold mb-4">
                 Safety & Compliance
               </h3>
+              <ScrollSection>
               <p className="text-gray-600 text-sm">
                 We prioritize safety and compliance, ensuring that all our operations meet regulatory standards and industry best practices.
               </p>
+              </ScrollSection>
             </div>
           </div>
         </div>
@@ -318,20 +333,26 @@ const LandingPage = () => {
 
 
  {/* About Section */}
- <ScrollSection>
  <section className="container-xxl py-5 bg-[rgb(225,240,242)]">
   <div className="container mx-auto px-6 lg:px-12">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left Column - Text */}
       <div className="flex flex-col justify-center">
+      <ScrollSection>
         <h6 className="text-secondary text-[#007791]  text-sm font-bold mb-2">What We Offer At</h6>
         <h1 className="text-2xl lg:text-3xl text-[#007791] font-bold mb-4">
           Dr Drone Nig. Ltd 
         </h1>
+        </ScrollSection>
+        <ScrollSection>
         <p className="text-gray-700 mb-4">
           We specialize in providing innovative Unmanned Aerial Vehicle (UAV) services that deliver unmatched precision, efficiency, and safety. With a diverse range of offerings, we are transforming industries with our state-of-the-art drone technology and expert solutions.
         </p>
+        </ScrollSection>
+        <ScrollSection>
         <h3 className="text-2xl text-[#007791] lg:text-3xl font-bold mb-4">Our Services:</h3>
+        </ScrollSection>
+        <ScrollSection>
         <ul className="list-disc list-inside text-gray-700 space-y-2">
           <li className="flex items-start">
             <i className="fa fa-check text-green-500 mt-1 mr-2"></i>Surveillance
@@ -358,14 +379,17 @@ const LandingPage = () => {
             <i className="fa fa-check text-green-500 mt-1 mr-2"></i>UAV Procurement & Consultancy Services
           </li>
         </ul>
+        </ScrollSection>
         <div className="bg-primary flex items-center p-4 mt-5 rounded-lg">
           <div className="flex items-center justify-center bg-white rounded-full w-14 h-14">
             <i className="fa fa-phone-alt text-green-500 text-2xl"></i>
           </div>
+          <ScrollSection>
           <div className="ml-4">
             <p className="text-[#007791] text-lg font-medium">Contact Us 24/7</p>
             <h3 className="text-[#007791] text-xl font-bold">+234 7072 2618 83</h3>
           </div>
+          </ScrollSection>
         </div>
       </div>
       
@@ -387,8 +411,6 @@ const LandingPage = () => {
     </div>
   </div>
 </section>
-</ScrollSection>
-
 
 
 
