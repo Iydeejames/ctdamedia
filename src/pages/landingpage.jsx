@@ -126,61 +126,69 @@ const ImageSliderSection = () => {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     zIndex: 1,
   };
 
   return (
     <ScrollSection>
-    <section style={sliderSectionStyle}>
-      <style>{`
-        @keyframes slideInRight {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(0);
-          }
+  <section style={sliderSectionStyle}>
+    <style>{`
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(100%);
         }
+        100% {
+          transform: translateX(0);
+        }
+      }
 
-        @keyframes slideOutLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
+      @keyframes slideOutLeft {
+        0% {
+          transform: translateX(0);
         }
-      `}</style>
-      <div style={overlayStyle}></div>
-      <div style={slidingImageStyle}></div>
-      <div className="flex flex-col items-center px-6 lg:px-16 relative z-10">
-        <div style={cardStyle} className="w-full max-w-none">
-          <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-center text-white">
-            {words.map((word, index) => (
-              <span
-                key={index}
-                className="slide-in inline-block mx-1"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                {word}
-              </span>
-            ))}
-          </h1>
-          <p className="mt-6 text-sm lg:text-xl text-white text-center">
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    `}</style>
+    <div style={overlayStyle}></div>
+    <div style={slidingImageStyle}></div>
+    <div className="flex flex-col items-start px-6 lg:px-16 relative z-10">
+      <div style={cardStyle} className="w-full max-w-none">
+        <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-left text-white">
+          {words.map((word, index) => (
+            <span
+              key={index}
+              className="slide-in inline-block mx-1"
+              style={{ 
+                animationDelay: `${index * 0.2}s`,
+                color: 
+                  word === 'Drone' || 
+                  word === 'Procurement' || 
+                  word === 'Fly' || 
+                  word === 'Dr.' ? '#dc2626' : 'inherit' // Highlight 'Fly' and 'Dr.' in red as well
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </h1>
+        <p className="mt-6 text-sm lg:text-xl text-white text-left">
           Drone Service Provider || Procurement Services || Reliable Maintenance || Professional Pilot Training
-          </p>
-          <div className="mt-8 text-center">
-            <a href="/profile" className="inline-block">
-              <button className="bg-red-600 hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-full transition duration-300">
-                About Us
-              </button>
-            </a>
-          </div>
+        </p>
+        <div className="mt-8 text-left">
+          <a href="/profile" className="inline-block">
+            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-md transition duration-300">
+              About Us
+            </button>
+          </a>
         </div>
       </div>
-    </section>
-    </ScrollSection>
+    </div>
+  </section>
+</ScrollSection>
+
   );
 };
 
