@@ -194,7 +194,10 @@ const ImageSliderSection = () => {
         </p>
         <div className="mt-8 text-left">
           <a href="/profile" className="inline-block">
-            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]">
+            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]"
+                    style={{
+                      clipPath: 'polygon(50% 0%, 81% 5%, 100% 0, 100% 100%, 80% 95%, 50% 100%, 20% 95%, 0 100%, 0 0, 23% 5%)'
+                    }}>
               About Us
             </button>
           </a>
@@ -203,6 +206,7 @@ const ImageSliderSection = () => {
     </div>
   </section>
 </ScrollSection>
+
 
 
 
