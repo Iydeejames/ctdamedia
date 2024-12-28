@@ -131,7 +131,7 @@ const ImageSliderSection = () => {
   };
 
   return (
-    <ScrollSection>
+<ScrollSection>
   <section style={sliderSectionStyle}>
     <style>{`
       @keyframes slideInRight {
@@ -149,6 +149,21 @@ const ImageSliderSection = () => {
         }
         100% {
           transform: translateX(-100%);
+        }
+      }
+
+      @keyframes buttonPulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
         }
       }
     `}</style>
@@ -179,7 +194,7 @@ const ImageSliderSection = () => {
         </p>
         <div className="mt-8 text-left">
           <a href="/profile" className="inline-block">
-            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-3 px-6 rounded-md transition duration-300">
+            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]">
               About Us
             </button>
           </a>
@@ -188,6 +203,8 @@ const ImageSliderSection = () => {
     </div>
   </section>
 </ScrollSection>
+
+
 
   );
 };
