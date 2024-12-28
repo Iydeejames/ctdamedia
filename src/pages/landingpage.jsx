@@ -436,39 +436,45 @@ const LandingPage = () => {
       
 
       {/* Testimonials Section */}
-      <ScrollSection>
       <section className="py-16 pl-4 pr-4">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl font-bold mb-12">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 text-xs md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:text-lg text-xs md:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="bg-[#007791] p-6 rounded-lg shadow-lg">
+            <ScrollSection>
               <blockquote className="text-white mb-2">
                 "I needed someone reliable to fix my gimbal after previous worst experience. I google search and Dr Drone was suggested by Google. I contacted him and I must confess the service and swift response was top notch. My gimbal works perfectly after the fix it."
               </blockquote>
               <cite className="font-semibold text-white">Omosanjo Adebowale</cite>
+              </ScrollSection>
             </div>
             <div className="bg-[#007791] p-6 rounded-lg shadow-lg">
+            <ScrollSection>
               <blockquote className="text-white mb-2">
                 "I’m really happy with their service! My Mini 3 pro crashed which led to the Gimbal being stuck. I sent it to them, they narrowed down the issue and it's fixed. Completely recommend"
               </blockquote>
               <cite className="font-semibold text-white">Ekuma Inieke</cite>
+              </ScrollSection>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
+            <ScrollSection>
               <blockquote className="text-white mb-2">
                 "Thank you guys for making me a certified pilot and for fixing my drone on time and delivering to me as promised. Miss you guys especially my instructor, touch and sweet lol"
               </blockquote>
               <cite className="font-semibold text-white">Kemi Feyishara Adekunle</cite>
+              </ScrollSection>
             </div>
             <div className="bg-[#007791] p-8 rounded-lg shadow-lg">
+            <ScrollSection>
               <blockquote className="text-white mb-2">
                 "He is very good trust me, My drone couldn’t be fixed in my state I had to send it to him and he was transparent about the whole process kudos to him."
               </blockquote>
               <cite className="font-semibold text-white">Chukwuemeka Onah Johnson</cite>
+              </ScrollSection>
             </div>
           </div>
         </div>
       </section>
-      </ScrollSection>
 
 
     </div>
