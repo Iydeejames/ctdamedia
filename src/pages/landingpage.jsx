@@ -101,7 +101,7 @@ const ImageSliderSection = () => {
 
   const sliderSectionStyle = {
     position: 'relative',
-    padding: '230px 0',
+    padding: '250px 0',
     backgroundImage: `url(${images[currentImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
