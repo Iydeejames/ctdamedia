@@ -101,7 +101,7 @@ const ImageSliderSection = () => {
 
   const sliderSectionStyle = {
     position: 'relative',
-    padding: '220px 0',
+    padding: '230px 0',
     backgroundImage: `url(${images[currentImageIndex]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -173,7 +173,7 @@ const ImageSliderSection = () => {
     <div style={slidingImageStyle}></div>
     <div className="flex flex-col items-start px-6 lg:px-16 relative z-10">
       <div style={cardStyle} className="w-full max-w-none">
-      <h1 className="text-2xl lg:text-5xl mt-6 font-bold leading-tight text-left text-white">
+      <h1 className="text-2xl lg:text-5xl mt-8 font-bold leading-tight text-left text-white">
           {words.map((word, index) => (
             <span
               key={index}
