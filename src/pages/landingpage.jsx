@@ -82,7 +82,8 @@ const cardStyle = {
 };
 
 const words = [
-  ' Fly', 'Confidently', 'with', 'Dr.', 'Drone',      
+  //' Fly', 'Confidently', 'with', 'Dr.', 'Drone',   
+  'Dr.', 'Drone', '–', 'Your', 'Trusted', 'Partner', 'for',  'Professional', 'Solutions!',   
 ];
 
 const ImageSliderSection = () => {
@@ -171,7 +172,7 @@ const ImageSliderSection = () => {
     <div style={slidingImageStyle}></div>
     <div className="flex flex-col items-start px-6 lg:px-16 relative z-10">
       <div style={cardStyle} className="w-full max-w-none">
-        <h1 className="text-3xl lg:text-6xl mt-16 font-bold leading-tight text-left text-white">
+      <h1 className="text-2xl lg:text-5xl mt-16 font-bold leading-tight text-left text-white">
           {words.map((word, index) => (
             <span
               key={index}
@@ -180,18 +181,19 @@ const ImageSliderSection = () => {
                 animationDelay: `${index * 0.2}s`,
                 color: 
                   word === 'Drone' || 
-                  word === 'Procurement' || 
+                  word === 'Dr.' || 
                   word === 'Fly' || 
-                  word === 'Dr.' ? '#dc2626' : 'inherit' // Highlight 'Fly' and 'Dr.' in red as well
+                  word === 'Trusted' ? '#dc2626' : 'inherit' // Highlight 'Fly' and 'Dr.' in red as well
               }}
             >
               {word}
             </span>
           ))}
         </h1>
-        <p className="mt-6 text-sm lg:text-xl text-white text-left">
-          Drone Service Provider || Procurement Services || Reliable Maintenance || Professional Pilot Training
-        </p>
+        <p className="mt-6 text-xs lg:text-xl text-white text-center">
+  Drone Service Provider || Procurement Services || Reliable Maintenance || Professional Pilot Training
+</p>
+
         <div className="mt-8 text-left">
           <a href="/profile" className="inline-block">
             <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]"
