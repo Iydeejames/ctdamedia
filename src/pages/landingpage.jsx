@@ -172,7 +172,7 @@ const ImageSliderSection = () => {
     <div style={slidingImageStyle}></div>
     <div className="flex flex-col items-start px-6 lg:px-16 relative z-10">
       <div style={cardStyle} className="w-full max-w-none">
-      <h1 className="text-2xl lg:text-5xl mt-16 font-bold leading-tight text-center text-white">
+      <h1 className="text-2xl lg:text-5xl mt-16 font-bold leading-tight text-right text-white">
           {words.map((word, index) => (
             <span
               key={index}
@@ -190,11 +190,11 @@ const ImageSliderSection = () => {
             </span>
           ))}
         </h1>
-        <p className="mt-6 text-xs lg:text-xl text-white text-center">
+        <p className="mt-6 text-xs lg:text-xl text-white text-right">
   Drone Service Provider || Procurement Services || Reliable Maintenance || Professional Pilot Training
 </p>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-right">
           <a href="/profile" className="inline-block">
             <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]"
                     style={{
