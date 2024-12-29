@@ -83,7 +83,8 @@ const cardStyle = {
 
 const words = [
   //' Fly', 'Confidently', 'with', 'Dr.', 'Drone',   
-  'Dr.', 'Drone', '–', 'Your', 'Trusted', 'Partner', 'for',  'Professional', 'Solutions!',   
+ // 'Dr.', 'Drone', '–', 'Your', 'Trusted', 'Partner', 'for',  'Professional', 'Solutions!',  
+   'Excellence', 'in', 'Drone', 'Solutions', 'with', 'Dr.', 'Drone.' 
 ];
 
 const ImageSliderSection = () => {
@@ -180,10 +181,10 @@ const ImageSliderSection = () => {
               style={{ 
                 animationDelay: `${index * 0.2}s`,
                 color: 
-                  word === 'Drone' || 
+                  word === 'Drone.' || 
                   word === 'Dr.' || 
-                  word === 'Fly' || 
-                  word === 'Trusted' ? '#dc2626' : 'inherit' // Highlight 'Fly' and 'Dr.' in red as well
+                  word === 'Excellence' || 
+                  word === 'Drone.' ? '#007791' : 'inherit' // Highlight 'Fly' and 'Dr.' in red as well
               }}
             >
               {word}
@@ -196,7 +197,7 @@ const ImageSliderSection = () => {
 
         <div className="mt-8 text-left">
           <a href="/profile" className="inline-block">
-            <button className="bg-[#dc2626] hover:bg-white text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]"
+            <button className="bg-[#007791] hover:bg-[#ffffff] text-white hover:text-red-600 font-semibold py-2 px-5 text-sm rounded-md transition duration-300 animate-[buttonPulse_2s_infinite]"
                     style={{
                       clipPath: 'polygon(50% 0%, 81% 5%, 100% 0, 100% 100%, 80% 95%, 50% 100%, 20% 95%, 0 100%, 0 0, 23% 5%)'
                       //clipPath: 'polygon(60% 15%, 23% 15%, 0 10%, 0 90%, 25% 85%, 60% 85%, 70% 100%, 100% 50%, 100% 50%, 70% 0)'
@@ -224,10 +225,10 @@ const LandingPage = () => {
       
       {/* Features Section */}
       <section className="py-16 bg-gray-100">
-        <div className="text-center">
+        <div className="text-center ">
         <ScrollSection>
-          <h2 className="text-2xl lg:text-3xl font-bold mb-12">
-            Why Choose Dr. Drone Nig Ltd
+          <h2 className="text-xl lg:text-2xl  font-bold mb-2">
+            Why Choose Dr. Drone Nig Ltd:
           </h2>
           </ScrollSection>
           <div
