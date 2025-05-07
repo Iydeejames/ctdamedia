@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
-import { FaYoutube, FaSpotify, FaApple, FaInstagram } from 'react-icons/fa';
+import { FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
+
 import img1 from "../../assets/images/img1.jpg";
 import img2 from "../../assets/images/img2.jpg";
 import img3 from "../../assets/images/img3.jpg";
@@ -11,61 +12,13 @@ import img6 from "../../assets/images/img6.jpg";
 import img7 from "../../assets/images/img7.jpg";
 import vid from "../../assets/videos/vid.mp4";
 
-const images = [img1, img2, img3, img4, img5, img6, img7];
+const categoryImages = [img2, img3, img4, img5];
+const featuredImages = [img6, img7, img1, img2];
+const blockImages = [img3, img4, img5, img6, img7, img1];
 
 const LandingPage = () => {
-  let imgIndex = 0;
-  const getNextImage = () => images[imgIndex++ % images.length];
-
   return (
     <div className="bg-gray-50 text-gray-800 font-sans">
-
-
-      {/* TRENDING BAR 
-<motion.div
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  className="bg-white border-y py-3 overflow-hidden"
->
-  <div className="relative w-full overflow-hidden">
-    <div className="flex animate-marquee gap-8 px-4">
-      {[
-        { text: "Afrobeat Stars Take Over the Charts", img: img1 },
-        { text: "Nollywood’s Thriller Breaks Records", img: img2 },
-        { text: "CTDA Interviews Grammy Winner", img: img3 },
-        { text: "CTDA Awards 2025 Highlights", img: img4 },
-        { text: "Black Culture in Focus", img: img5 },
-      ]
-        .concat([
-          // Duplicate to ensure seamless looping
-          { text: "Afrobeat Stars Take Over the Charts", img: img1 },
-          { text: "Nollywood’s Thriller Breaks Records", img: img2 },
-          { text: "CTDA Interviews Grammy Winner", img: img3 },
-          { text: "CTDA Awards 2025 Highlights", img: img4 },
-          { text: "Black Culture in Focus", img: img5 },
-        ])
-        .map((item, idx) => (
-          <div
-            key={idx}
-            className="w-[200px] flex-shrink-0 text-center flex flex-col items-center"
-          >
-            <img
-              src={item.img}
-              alt="Trending"
-              className="w-14 h-14 object-cover rounded mb-2"
-            />
-            <p className="text-xs text-green-600 font-semibold">
-              {item.text}
-            </p>
-          </div>
-        ))}
-    </div>
-  </div>
-</motion.div>
-*/}
-
-
       {/* HERO SECTION */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -73,34 +26,41 @@ const LandingPage = () => {
         transition={{ duration: 1 }}
         className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6"
       >
-        <div className="lg:w-3/4 relative">
-          <img src={getNextImage()} alt="hero" className="w-full h-[525px] object-cover" />
+<div className="lg:w-3/4 relative h-[525px]">
+  {/* Image */}
+  <img src={img5} alt="hero" className="w-full h-full object-cover" />
 
-        </div>
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+
+  {/* Text overlay */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
+      WELCOME TO CTDAmongBlacks
+    </h1>
+  </div>
+</div>
+
 
         {/* SIDEBAR */}
         <aside className="lg:w-1/4">
-  <div className="bg-white p-4 shadow rounded">
-    <div className="flex justify-between items-center mb-4">
-      <h2 className="text-xl font-bold">Categories</h2>
-      <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
-    </div>
-    {["Business", "Technology", "Entertainment", "Sports"].map((cat) => (
-      <div key={cat} className="relative mb-4">
-        <img src={getNextImage()} alt={cat} className="w-full h-24 object-cover rounded" />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
-          <a 
-            href={`/${cat.toLowerCase()}`} // Link to the category page, e.g. /business, /technology, etc.
-            className="hover:underline"
-          >
-            {cat}
-          </a>
-        </div>
-      </div>
-    ))}
-  </div>
-</aside>
-
+          <div className="bg-white p-4 shadow rounded">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">Categories</h2>
+              <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
+            </div>
+            {["Business", "Technology", "Entertainment", "Sports"].map((cat, index) => (
+              <div key={cat} className="relative mb-4">
+                <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
+                  <a href={`/${cat.toLowerCase()}`} className="hover:underline">
+                    {cat}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </aside>
       </motion.div>
 
       {/* BLACK EXPERIENCE SECTION */}
@@ -144,9 +104,9 @@ const LandingPage = () => {
           <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="relative">
-              <img src={getNextImage()} className="w-full h-48 object-cover rounded" />
+          {featuredImages.map((image, index) => (
+            <div key={index} className="relative">
+              <img src={image} className="w-full h-48 object-cover rounded" alt={`featured-${index}`} />
               <div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
                 <p className="text-sm">Technology / January 01, 2045</p>
                 <h3 className="text-lg font-semibold leading-tight">Sanctus amet sed ipsum lorem</h3>
@@ -157,94 +117,65 @@ const LandingPage = () => {
       </motion.section>
 
       {/* CATEGORY BLOCKS */}
-      {["Business", "Technology", "Entertainment", "Sports"].map((section) => {
-  const itemCount = section === "Technology" || section === "Sports" ? 2 : 3;
+      {["Business", "Technology", "Entertainment", "Sports"].map((section, secIndex) => {
+        const itemCount = section === "Technology" || section === "Sports" ? 2 : 3;
 
-  return (
-    <motion.section
-      key={section}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="container mx-auto px-4 mt-10"
-    >
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold">{section}</h2>
-        <div className="flex gap-2">
-          <button className="bg-gray-200 px-2">◀</button>
-          <button className="bg-gray-200 px-2">▶</button>
-        </div>
-      </div>
-      <div
-  className={`grid gap-4 ${
-    itemCount === 2
-      ? 'grid-cols-2 justify-center'
-      : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-3'
-  }`}
->
-  {[...Array(itemCount)].map((_, item) => (
-    <div key={item} className="bg-white shadow p-2 rounded">
-      <img src={getNextImage()} alt="post" className="w-full h-40 object-cover rounded" />
-      <p className="text-xs text-red-500 mt-2">{section} / January 01, 2045</p>
-      <h4 className="font-semibold mt-1">Sanctus amet sed ipsum lorem</h4>
-    </div>
-  ))}
-</div>
-
-    </motion.section>
-  );
-  
-})}
+        return (
+          <motion.section
+            key={section}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="container mx-auto px-4 mt-10"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold">{section}</h2>
+              <div className="flex gap-2">
+                <button className="bg-gray-200 px-2">◀</button>
+                <button className="bg-gray-200 px-2">▶</button>
+              </div>
+            </div>
+            <div className={`grid gap-4 ${
+              itemCount === 2
+                ? "grid-cols-2 justify-center"
+                : "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
+            }`}>
+              {[...Array(itemCount)].map((_, item) => {
+                const imgIndex = (secIndex * 3 + item) % blockImages.length;
+                return (
+                  <div key={item} className="bg-white shadow p-2 rounded">
+                    <img src={blockImages[imgIndex]} alt="post" className="w-full h-40 object-cover rounded" />
+                    <p className="text-xs text-red-500 mt-2">{section} / January 01, 2045</p>
+                    <h4 className="font-semibold mt-1">Sanctus amet sed ipsum lorem</h4>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.section>
+        );
+      })}
 
       {/* SUBSCRIBE & FOLLOW SECTION */}
       <section className="bg-gray-100 mt-6 py-12">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-8">Subscribe and Follow</h2>
-        <div className="flex justify-center gap-6">
-          {/* YouTube */}
-          <a
-            href="https://www.youtube.com/@ctdamongblacks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300"
-          >
-            <FaYoutube className="text-4xl" />
-          </a>
-
-          {/* Spotify */}
-          <a
-            href="https://open.spotify.com/show/1KibEPZONRPj2jlOrygxQK"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300"
-          >
-            <FaSpotify className="text-4xl" />
-          </a>
-
-          {/* iTunes */}
-          <a
-            href="https://podcasts.apple.com/us/podcast/ctdamongblacks/id1674951670"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300"
-          >
-            <FaApple className="text-4xl" />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/ctdamongblacks?igsh=MWIzc2locHRoNG56ag=="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-300"
-          >
-            <FaInstagram className="text-4xl" />
-          </a>
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">Subscribe and Follow</h2>
+          <div className="flex justify-center gap-6">
+            <a href="https://www.youtube.com/@ctdamongblacks" target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300">
+              <FaYoutube className="text-4xl" />
+            </a>
+            <a href="https://open.spotify.com/show/1KibEPZONRPj2jlOrygxQK" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300">
+              <FaSpotify className="text-4xl" />
+            </a>
+            <a href="https://podcasts.apple.com/us/podcast/ctdamongblacks/id1674951670" target="_blank" rel="noopener noreferrer" className="bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">
+              <FaApple className="text-4xl" />
+            </a>
+            <a href="https://www.instagram.com/ctdamongblacks?igsh=MWIzc2locHRoNG56ag==" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-300">
+              <FaInstagram className="text-4xl" />
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
-
+      </section>
 
       {/* VIDEO SECTION */}
       <motion.section
