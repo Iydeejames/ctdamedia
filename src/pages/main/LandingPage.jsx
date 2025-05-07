@@ -21,7 +21,7 @@ const LandingPage = () => {
     <div className="bg-gray-50 text-gray-800 font-sans">
 
 
-      {/* TRENDING BAR */}
+      {/* TRENDING BAR 
 <motion.div
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ const LandingPage = () => {
     </div>
   </div>
 </motion.div>
-
+*/}
 
 
       {/* HERO SECTION */}
