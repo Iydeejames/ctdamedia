@@ -74,13 +74,8 @@ const LandingPage = () => {
         className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6"
       >
         <div className="lg:w-3/4 relative">
-          <img src={getNextImage()} alt="hero" className="w-full h-[400px] object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-50 text-white p-6 flex flex-col justify-end">
-            <p className="text-sm">Technology / January 01, 2045</p>
-            <h1 className="text-2xl font-bold leading-tight mt-2">
-              Sanctus amet sed amet ipsum lorem. Dolores et erat et elitr sea sed
-            </h1>
-          </div>
+          <img src={getNextImage()} alt="hero" className="w-full h-[525px] object-cover" />
+
         </div>
 
         {/* SIDEBAR */}
