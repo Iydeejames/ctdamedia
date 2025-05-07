@@ -47,7 +47,6 @@ const LandingPage = () => {
           <div className="bg-white p-4 shadow rounded">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Categories</h2>
-              <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
             </div>
             {["Business", "Technology", "Entertainment", "Sports"].map((cat, index) => (
               <div key={cat} className="relative mb-4">
@@ -116,45 +115,75 @@ const LandingPage = () => {
         </div>
       </motion.section>
 
-      {/* CATEGORY BLOCKS */}
       {["Business", "Technology", "Entertainment", "Sports"].map((section, secIndex) => {
-        const itemCount = section === "Technology" || section === "Sports" ? 2 : 3;
+  const itemCount = section === "Technology" || section === "Sports" ? 2 : 3;
 
-        return (
-          <motion.section
-            key={section}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="container mx-auto px-4 mt-10"
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold">{section}</h2>
-              <div className="flex gap-2">
-                <button className="bg-gray-200 px-2">◀</button>
-                <button className="bg-gray-200 px-2">▶</button>
+  return (
+    <motion.section
+      key={section}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="container mx-auto px-4 mt-10"
+    >
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold">{section}</h2>
+        <div className="flex gap-2">
+          <button className="bg-gray-200 px-2">◀</button>
+          <button className="bg-gray-200 px-2">▶</button>
+        </div>
+      </div>
+
+      {["Business", "Entertainment"].includes(section) ? (
+        <div className="space-y-4">
+          {[...Array(itemCount)].map((_, item) => {
+            const imgIndex = (secIndex * 3 + item) % blockImages.length;
+            return (
+              <div key={item} className="flex gap-4 items-start">
+                <img
+                  src={blockImages[imgIndex]}
+                  alt="post"
+                  className="w-20 h-20 object-cover rounded"
+                />
+                <div>
+                  <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+                    Sample article title for {section} {item + 1}
+                  </h4>
+                  <p className="text-gray-500 text-xs mt-1">EPISODE {itemCount - item + 9}</p>
+                </div>
               </div>
-            </div>
-            <div className={`grid gap-4 ${
-              itemCount === 2
-                ? "grid-cols-2 justify-center"
-                : "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
-            }`}>
-              {[...Array(itemCount)].map((_, item) => {
-                const imgIndex = (secIndex * 3 + item) % blockImages.length;
-                return (
-                  <div key={item} className="bg-white shadow p-2 rounded">
-                    <img src={blockImages[imgIndex]} alt="post" className="w-full h-40 object-cover rounded" />
-                    <p className="text-xs text-red-500 mt-2">{section} / January 01, 2045</p>
-                    <h4 className="font-semibold mt-1">Sanctus amet sed ipsum lorem</h4>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.section>
-        );
-      })}
+            );
+          })}
+        </div>
+      ) : (
+        <div
+          className={`grid gap-4 ${
+            itemCount === 2
+              ? "grid-cols-2 justify-center"
+              : "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
+          }`}
+        >
+          {[...Array(itemCount)].map((_, item) => {
+            const imgIndex = (secIndex * 3 + item) % blockImages.length;
+            return (
+              <div key={item} className="bg-white shadow p-2 rounded">
+                <img
+                  src={blockImages[imgIndex]}
+                  alt="post"
+                  className="w-full h-40 object-cover rounded"
+                />
+                <p className="text-xs text-red-500 mt-2">{section} / January 01, 2045</p>
+                <h4 className="font-semibold mt-1">Sanctus amet sed ipsum lorem</h4>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </motion.section>
+  );
+})}
+
 
       {/* SUBSCRIBE & FOLLOW SECTION */}
       <section className="bg-gray-100 mt-6 py-12">
