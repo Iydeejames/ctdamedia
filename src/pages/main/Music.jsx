@@ -100,7 +100,7 @@ const Music = () => {
       </h5>
 
       {/* News Section - Timeline Style */}
-      <section className="relative border-l-4 border-gray-500 pl-6">
+      <section className="relative border-l-4 border-green-500 pl-6">
         {musicNews.map((news, index) => (
           <div key={index} className="mb-12 relative">
             <div className="absolute w-4 h-4 bg-green-600 rounded-full left-[-35px] top-3"></div>
