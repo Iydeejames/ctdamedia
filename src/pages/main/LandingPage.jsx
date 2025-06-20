@@ -16,9 +16,44 @@ const categoryImages = [img2, img3, img4, img5];
 const featuredImages = [img6, img7, img1, img2];
 const blockImages = [img3, img4, img5, img6, img7, img1];
 
+const metrics = [
+  { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
+  { label: "Content Reliability", value: "98%", color: "bg-green-600" },
+  { label: "Engagement Rate", value: "85%", color: "bg-yellow-500" },
+  { label: "Update Frequency", value: "70%", color: "bg-red-500" },
+]
+
+const featuredCards = [
+  {
+    img: img7,
+    category: "Entertainment",
+    date: "May 01, 2025",
+    title: "Behind the Scenes of Nollywood's Rising Stars"
+  },
+  {
+    img: img6,
+    category: "Culture",
+    date: "May 02, 2025",
+    title: "Exploring the Roots of Afrobeat in Lagos"
+  },
+  {
+    img: img3,
+    category: "Tech",
+    date: "May 03, 2025",
+    title: "How Nigerian Startups Are Changing Africa"
+  },
+  {
+    img: img4,
+    category: "Lifestyle",
+    date: "May 04, 2025",
+    title: "Modern Fashion Trends from West Africa"
+  }
+];
+
+
 const LandingPage = () => {
   return (
-    <div className="bg-gray-50 text-gray-800 font-sans">
+    <div className=" text-gray-800 font-sans">
       {/* HERO SECTION */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -48,7 +83,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Categories</h2>
             </div>
-            {["Business", "Technology", "Entertainment", "Sports"].map((cat, index) => (
+            {["Music", "Podcasts", "Spotlight", "Documentary"].map((cat, index) => (
               <div key={cat} className="relative mb-4">
                 <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
@@ -90,99 +125,167 @@ const LandingPage = () => {
         </div>
       </motion.section>
 
-      {/* FEATURED SECTION */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="container mx-auto px-4 mt-10"
-      >
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">Featured</h2>
-          <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {featuredImages.map((image, index) => (
-            <div key={index} className="relative">
-              <img src={image} className="w-full h-48 object-cover rounded" alt={`featured-${index}`} />
-              <div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
-                <p className="text-sm">Technology / January 01, 2045</p>
-                <h3 className="text-lg font-semibold leading-tight">Sanctus amet sed ipsum lorem</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+{/* FEATURED SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="container mx-auto px-4 mt-10"
+> 
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-2xl font-bold">Latest Episodes</h2>
+    <a href="#" className="text-sm text-blue-500 hover:underline">View All</a>
+  </div>
 
-      {["Business", "Technology", "Entertainment", "Sports"].map((section, secIndex) => {
-  const itemCount = section === "Technology" || section === "Sports" ? 2 : 3;
-
-  return (
-    <motion.section
-      key={section}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="container mx-auto px-4 mt-10"
-    >
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold">{section}</h2>
-        <div className="flex gap-2">
-          <button className="bg-gray-200 px-2">◀</button>
-          <button className="bg-gray-200 px-2">▶</button>
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {featuredCards.map((item, index) => (
+      <div key={index} className="relative">
+<img src={item.img} className="w-full h-48 object-cover rounded" alt={item.title} />
+<div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
+          <p className="text-sm">{item.category} / {item.date}</p>
+          <h3 className="text-lg font-semibold leading-tight">{item.title}</h3>
         </div>
       </div>
+    ))}
+  </div>
+</motion.section>
 
-      {["Business", "Entertainment"].includes(section) ? (
-        <div className="space-y-4">
-          {[...Array(itemCount)].map((_, item) => {
-            const imgIndex = (secIndex * 3 + item) % blockImages.length;
-            return (
-              <div key={item} className="flex gap-4 items-start">
-                <img
-                  src={blockImages[imgIndex]}
-                  alt="post"
-                  className="w-20 h-20 object-cover rounded"
-                />
-                <div>
-                  <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-                    Sample article title for {section} {item + 1}
-                  </h4>
-                  <p className="text-gray-500 text-xs mt-1">EPISODE {itemCount - item + 9}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div
-          className={`grid gap-4 ${
-            itemCount === 2
-              ? "grid-cols-2 justify-center"
-              : "grid-cols-2 md:grid-cols-3 lg:grid-cols-3"
-          }`}
-        >
-          {[...Array(itemCount)].map((_, item) => {
-            const imgIndex = (secIndex * 3 + item) % blockImages.length;
-            return (
-              <div key={item} className="bg-white shadow p-2 rounded">
-                <img
-                  src={blockImages[imgIndex]}
-                  alt="post"
-                  className="w-full h-40 object-cover rounded"
-                />
-                <p className="text-xs text-red-500 mt-2">{section} / January 01, 2045</p>
-                <h4 className="font-semibold mt-1">Sanctus amet sed ipsum lorem</h4>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </motion.section>
-  );
-})}
+
+{/* BUSINESS SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="container mx-auto px-4 mt-10"
+>
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-2xl font-bold">Business</h2>
+  </div>
+  <div className="space-y-4">
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[0]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          How African Entrepreneurs Are Shaping Global Markets
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 12</p>
+      </div>
+    </div>
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[1]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          Funding Challenges and Success Stories in Nigeria’s SME Sector
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 11</p>
+      </div>
+    </div>
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[2]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          Youth-Owned Startups That Are Disrupting the Status Quo
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 10</p>
+      </div>
+    </div>
+  </div>
+</motion.section>
+
+{/* TECHNOLOGY SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="container mx-auto px-4 mt-10"
+>
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-2xl font-bold">Technology</h2>
+  </div>
+  <div className="grid grid-cols-2 gap-4">
+    <div className="bg-white shadow p-2 rounded">
+      <img src={blockImages[3]} alt="post" className="w-full h-40 object-cover rounded" />
+      <p className="text-xs text-red-500 mt-2">Technology / January 01, 2025</p>
+      <h4 className="font-semibold mt-1">The Rise of AI Startups in Africa</h4>
+    </div>
+    <div className="bg-white shadow p-2 rounded">
+      <img src={blockImages[4]} alt="post" className="w-full h-40 object-cover rounded" />
+      <p className="text-xs text-red-500 mt-2">Technology / January 02, 2025</p>
+      <h4 className="font-semibold mt-1">Why Nigeria Is Becoming a Hub for Tech Innovation</h4>
+    </div>
+  </div>
+</motion.section>
+
+{/* ENTERTAINMENT SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="container mx-auto px-4 mt-10"
+>
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-2xl font-bold">Entertainment Gists</h2>
+  </div>
+  <div className="space-y-4">
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[5]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          How Afrobeat Conquered the Global Charts
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 15</p>
+      </div>
+    </div>
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[0]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          Nollywood: The Untold Stories Behind the Scenes
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 14</p>
+      </div>
+    </div>
+    <div className="flex gap-4 items-start">
+      <img src={blockImages[1]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <div>
+        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
+          The Influence of Gen Z Creators on African Media
+        </h4>
+        <p className="text-gray-500 text-xs mt-1">EPISODE 13</p>
+      </div>
+    </div>
+  </div>
+</motion.section>
+
+{/* SPORTS SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="container mx-auto px-4 mt-10"
+>
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-2xl font-bold">Sports</h2>
+  </div>
+  <div className="grid grid-cols-2 gap-4">
+    <div className="bg-white shadow p-2 rounded">
+      <img src={blockImages[2]} alt="post" className="w-full h-40 object-cover rounded" />
+      <p className="text-xs text-red-500 mt-2">Sports / March 10, 2025</p>
+      <h4 className="font-semibold mt-1">How African Athletes Are Redefining Global Sports</h4>
+    </div>
+    <div className="bg-white shadow p-2 rounded">
+      <img src={blockImages[3]} alt="post" className="w-full h-40 object-cover rounded" />
+      <p className="text-xs text-red-500 mt-2">Sports / March 11, 2025</p>
+      <h4 className="font-semibold mt-1">The Rise of Nigerian Football in the European Leagues</h4>
+    </div>
+  </div>
+</motion.section>
+
 
 
       {/* SUBSCRIBE & FOLLOW SECTION */}
@@ -206,22 +309,50 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* VIDEO SECTION */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        className="container mx-auto px-4 mt-10 mb-10 flex justify-center"
+     {/* VIDEO SECTION */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.7 }}
+  className="container mx-auto px-4 mt-16 mb-16"
+>
+  <div className=" rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+    <h2 className="text-2xl font-bold mb-3 text-gray-800">Visual Of The Week</h2>
+    <p className="text-gray-600 text-sm mb-6 max-w-xl">
+      Short text describing the video
+    </p>
+
+    <div className="w-full max-w-2xl rounded overflow-hidden shadow-sm">
+      <video
+        controls
+        className="w-full h-74 md:h-82 object-cover rounded"
       >
-        <div className="w-full lg:w-2/3">
-          <h2 className="text-2xl font-bold mb-4">Watch Now</h2>
-          <video controls className="w-full h-[500px] object-cover rounded shadow">
-            <source src={vid} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </motion.section>
+        <source src={vid} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
+  </div>
+</motion.section>
+
+
+<section className="py-16 text-center">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">Our Key Media Metrics</h2>
+        <p className="text-gray-500 mb-10 text-sm">A snapshot of our performance across core media delivery areas</p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-center items-center">
+          {metrics.map((metric, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className={`w-24 h-24 rounded-full flex items-center justify-center text-white text-xl font-bold ${metric.color}`}>
+                {metric.value}
+              </div>
+              <p className="mt-3 text-sm font-medium text-gray-800">{metric.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+</div>
   );
 };
 

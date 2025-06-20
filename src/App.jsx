@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 import LandingPage from "./pages/main/LandingPage";
 import Header from "./components/reusables/Header";
 import Footer from "./components/reusables/Footer";
-import Category from "./pages/main/Category";
-import Post from "./pages/main/Post";
+import Music from "./pages/main/Music";
+import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
 import Search from "./pages/main/Search";
@@ -48,8 +48,8 @@ function App() {
         {/* Public/Main Site Layout */}
         <Route element={<MainLayout />}>
           <Route index element={<LandingPage />} />
-          <Route path="/category/:slug" element={<Category />} />
-          <Route path="/post/:id" element={<Post />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/podcasts" element={<Podcasts />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />

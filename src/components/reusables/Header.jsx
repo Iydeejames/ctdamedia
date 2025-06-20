@@ -15,21 +15,9 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 font-medium text-white">
           <a href="/" className="hover:underline">Home</a>
-          <a href="/categories" className="hover:underline">Categories</a>
-          <a href="/post/sample-id" className="hover:underline">Single News</a>
-
-          {/* Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 hover:underline">
-              More ▾
-            </button>
-            <div className="absolute hidden group-hover:block bg-white text-gray-800 shadow-lg rounded-md py-2 w-40 mt-2 z-50 transition-all">
-              <a href="/option1" className="block px-4 py-2 hover:bg-gray-100">Option 1</a>
-              <a href="/option2" className="block px-4 py-2 hover:bg-gray-100">Option 2</a>
-              <a href="/option3" className="block px-4 py-2 hover:bg-gray-100">Option 3</a>
-            </div>
-          </div>
-
+          <a href="/about" className="hover:underline">About Us</a>
+          <a href="/music" className="hover:underline">Music</a>
+          <a href="/podcasts" className="hover:underline">Podcasts</a>
           <a href="/contact" className="hover:underline">Contact</a>
         </nav>
 
@@ -59,9 +47,9 @@ const Header = () => {
         <div className="lg:hidden bg-green-700 px-4 pb-4 text-white animate-slide-down">
           <nav className="flex flex-col space-y-3 font-medium text-sm">
             <a href="/" className="hover:underline">Home</a>
-            <a href="/categories" className="hover:underline">Categories</a>
-            <a href="/post/sample-id" className="hover:underline">Single News</a>
-            <a href="#" className="hover:underline">Dropdown</a>
+            <a href="/about" className="hover:underline">About Us</a>
+            <a href="/music" className="hover:underline">Music</a>
+            <a href="/podcasts" className="hover:underline">Podcasts</a>
             <a href="/contact" className="hover:underline">Contact</a>
           </nav>
         </div>
