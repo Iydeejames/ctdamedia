@@ -18,7 +18,7 @@ const Contact = () => {
     <div className="bg-green-700 min-h-screen py-16 px-6 text-white">
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-5xl font-extrabold mb-4">Let's Connect</h1>
+        <h1 className="text-2xl font-extrabold mb-4">Let's Connect</h1>
         <p className="text-lg text-green-100 max-w-2xl mx-auto">
           Got a question, collaboration idea, or media inquiry? Reach out—we'd love to hear from you.
         </p>

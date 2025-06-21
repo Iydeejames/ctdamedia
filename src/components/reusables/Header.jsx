@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
+import {  FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -21,17 +21,7 @@ const Header = () => {
           <a href="/contact" className="hover:underline">Contact</a>
         </nav>
 
-        {/* Search - Hidden on Mobile */}
-        <div className="hidden md:flex items-center bg-white rounded-full px-3 py-1">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent text-sm text-gray-700 placeholder-gray-400 outline-none"
-          />
-          <button className="text-green-700 text-lg ml-2">
-            <FaSearch />
-          </button>
-        </div>
+
 
         {/* Mobile Menu Toggle */}
         <button

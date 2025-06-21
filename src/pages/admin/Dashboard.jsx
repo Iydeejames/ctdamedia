@@ -20,6 +20,29 @@ const dummyUsageData = [
   { name: 'Sun', views: 290 },
 ];
 
+const pollTemplate = `
+  <div class="poll">
+    <p><strong>What do you think about this topic?</strong></p>
+    <form onsubmit="event.preventDefault(); alert('Thank you for voting!')">
+      <label><input type="radio" name="poll" value="1"> Option 1</label><br>
+      <label><input type="radio" name="poll" value="2"> Option 2</label><br>
+      <label><input type="radio" name="poll" value="3"> Option 3</label><br>
+      <button type="submit">Vote</button>
+    </form>
+  </div>
+`;
+
+const commentBoxTemplate = `
+  <div class="comment-box">
+    <h4>Leave a comment</h4>
+    <form onsubmit="event.preventDefault(); alert('Thank you for your comment!')">
+      <input type="text" placeholder="Your name" required/><br/>
+      <textarea placeholder="Your comment" required></textarea><br/>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+`;
+
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedPage, setSelectedPage] = useState("Home");
@@ -96,11 +119,19 @@ const Dashboard = () => {
     setNewEntry({ ...entry });
   };
 
+  const appendToContent = (html) => {
+    setNewEntry(prev => ({ ...prev, content: prev.content + html }));
+  };
+
+  const appendToEpisodeContent = (html) => {
+    setNewEpisode(prev => ({ ...prev, content: prev.content + html }));
+  };
+
   return (
     <div className="flex min-h-screen bg-white overflow-x-hidden">
-      <div className={`fixed md:static top-0 left-0 w-64 bg-white shadow-lg h-full z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:translate-x-0`}>
+      <div className="fixed md:static top-0 left-0 w-64 bg-white shadow-lg h-full z-20">
         <div className="flex items-center justify-between px-4 py-3 border-b">
-          <h1 className="text-xl font-bold text-green-600 flex items-center gap-2">CTDA Admin</h1>
+          <h1 className="text-xl font-bold text-green-600">CTDA Admin</h1>
           <FiX onClick={() => setSidebarOpen(false)} className="md:hidden text-xl cursor-pointer" />
         </div>
         <nav className="p-4 space-y-2">
@@ -110,7 +141,6 @@ const Dashboard = () => {
               onClick={() => setSelectedPage(page)}
               className={`block w-full text-left px-3 py-2 rounded-lg font-medium ${selectedPage === page ? "bg-green-100 text-green-700" : "text-gray-600 hover:bg-red-100"}`}
             >
-              {page === "Home" ? <FaHome className="inline mr-2" /> : page === "About Us" ? <FaInfoCircle className="inline mr-2" /> : page === "Music" ? <FaMusic className="inline mr-2" /> : page === "Podcasts" ? <FaPodcast className="inline mr-2" /> : <FaEnvelope className="inline mr-2" />}
               {page}
             </button>
           ))}
@@ -144,18 +174,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-4 mb-6">
-          <h3 className="text-lg font-semibold mb-4 text-gray-700 flex items-center gap-2"><FaChartBar /> Site Usage This Week</h3>
-          <ResponsiveContainer width="100%" height={150}>
-            <BarChart data={dummyUsageData}>
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="views" fill="#DC2626" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
         <div className="bg-red-50 border-l-4 border-red-600 rounded-lg shadow p-4 mb-6">
           <h3 className="text-lg font-semibold text-red-800 mb-4">🎧 Latest Episodes</h3>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4 mb-4">
@@ -165,6 +183,10 @@ const Dashboard = () => {
             <input type="file" onChange={(e) => handleChangeEpisode(e, "img")} className="p-2 border border-red-300 rounded" />
             <div className="col-span-full">
               <ReactQuill theme="snow" value={newEpisode.content} onChange={(value) => setNewEpisode({ ...newEpisode, content: value })} />
+              <div className="flex gap-2 mt-2">
+                <button className="text-xs bg-green-500 text-white px-2 py-1 rounded" onClick={() => appendToEpisodeContent(pollTemplate)}>+ Poll</button>
+                <button className="text-xs bg-blue-500 text-white px-2 py-1 rounded" onClick={() => appendToEpisodeContent(commentBoxTemplate)}>+ Comment Box</button>
+              </div>
             </div>
           </div>
           <button onClick={handleAddOrUpdateEpisode} className="bg-red-600 text-white px-4 py-2 rounded">
@@ -200,29 +222,14 @@ const Dashboard = () => {
             <input type="file" onChange={(e) => setNewEntry({ ...newEntry, img: e.target.files[0] })} className="p-2 border border-green-300 rounded" />
             <div className="col-span-full">
               <ReactQuill theme="snow" value={newEntry.content} onChange={(value) => setNewEntry({ ...newEntry, content: value })} />
+              <div className="flex gap-2 mt-2">
+                <button className="text-xs bg-green-500 text-white px-2 py-1 rounded" onClick={() => appendToContent(pollTemplate)}>+ Poll</button>
+                <button className="text-xs bg-blue-500 text-white px-2 py-1 rounded" onClick={() => appendToContent(commentBoxTemplate)}>+ Comment Box</button>
+              </div>
             </div>
           </div>
           <button onClick={handleAddEntry} className="bg-green-600 text-white px-4 py-2 rounded">Add Entry</button>
         </div>
-
-        {categories.map((cat) => (
-          <div key={cat} className="mb-8">
-            <h3 className="text-xl font-bold text-gray-800 mb-3">{cat}</h3>
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-              {data[cat] && data[cat].length > 0 ? data[cat].map((entry) => (
-                <div key={entry.id} className="bg-white rounded shadow p-3">
-                  {entry.img && <img src={entry.img} alt={entry.title} className="w-full h-32 object-cover rounded mb-2" />}
-                  <h4 className="text-lg font-semibold text-green-700">{entry.title}</h4>
-                  <p className="text-sm text-gray-500">{entry.category} - {entry.date}</p>
-                  <div className="flex gap-2 mt-2">
-                    <button onClick={() => handleEditEntry(entry)} className="text-xs bg-black text-white px-2 py-1 rounded">Edit</button>
-                    <button onClick={() => handleDeleteEntry(cat, entry.id)} className="text-xs bg-red-600 text-white px-2 py-1 rounded">Delete</button>
-                  </div>
-                </div>
-              )) : <p className="text-gray-500 text-sm">No content in this category yet.</p>}
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaPlay } from "react-icons/fa";
-import { FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaPlay, FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
 
 import img1 from "../../assets/images/hero-page/img1.jpg";
 import img2 from "../../assets/images/hero-page/img2.jpg";
@@ -28,19 +27,9 @@ import img23 from "../../assets/images/hero-page/img23.jpg";
 import img24 from "../../assets/images/hero-page/img24.jpg";
 import img25 from "../../assets/images/hero-page/img25.jpg";
 
-
 import vid from "../../assets/videos/vid.mp4";
 
 const categoryImages = [img2, img7, img9, img10];
-const featuredImages = [img6, img7, img1, img2];
-// const blockImages = [img3, img4, img5, img6, img7, img1];
-
-const metrics = [
-  { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
-  { label: "Content Reliability", value: "98%", color: "bg-green-600" },
-  { label: "Engagement Rate", value: "85%", color: "bg-yellow-500" },
-  { label: "Update Frequency", value: "70%", color: "bg-red-500" },
-]
 
 const featuredCards = [
   {
@@ -68,40 +57,116 @@ const featuredCards = [
     title: "Modern Fashion Trends from West Africa"
   }
 ];
-
+const metrics = [  // ⬅️ Paste it here
+  { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
+  { label: "Content Reliability", value: "98%", color: "bg-green-600" },
+  { label: "Engagement Rate", value: "85%", color: "bg-yellow-500" },
+  { label: "Update Frequency", value: "70%", color: "bg-red-500" },
+];
 
 const LandingPage = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [scrollTime, setScrollTime] = useState(0);
+  const blackExperienceRef = useRef(null);
+
+  // Detect time spent scrolling
+  useEffect(() => {
+    let timeout;
+    const handleScroll = () => {
+      if (scrollTime === 0) {
+        timeout = setTimeout(() => {
+          setScrollTime(10);
+        }, 10000); // 10 seconds
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollTime]);
+
+  // Trigger popup when reaching "Black Experience" after 10s
+  useEffect(() => {
+    if (scrollTime < 10) return;
+    const handleScrollToSection = () => {
+      const section = blackExperienceRef.current;
+      if (section) {
+        const { top } = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (top <= windowHeight - 100) {
+          setShowPopup(true);
+          window.removeEventListener("scroll", handleScrollToSection);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScrollToSection);
+    return () => window.removeEventListener("scroll", handleScrollToSection);
+  }, [scrollTime]);
+
   return (
-    <div className=" text-gray-800 font-sans">
-      {/* HERO SECTION */}
+    <div className="text-gray-800 font-sans relative">
+      {/* AnimatePresence handles animation mount/unmount */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md text-center relative"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <button
+                onClick={() => setShowPopup(false)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+              >
+                &times;
+              </button>
+              <h2 className="text-2xl font-bold mb-2">Join Our Newsletter</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Get the latest updates, stories, and insights delivered straight to your inbox.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-2 border rounded text-sm"
+                />
+                <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">
+                  Subscribe
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* HERO Section */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6"
       >
-<div className="lg:w-3/4 relative h-[525px]">
-  {/* Image */}
-  <img src={img5} alt="hero" className="w-full h-full object-cover" />
+        <div className="lg:w-3/4 relative h-[525px]">
+          <img src={img5} alt="hero" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
+              WELCOME TO CTDAmongBlacks
+            </h1>
+          </div>
+        </div>
 
-  {/* Dark overlay */}
-  <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-
-  {/* Text overlay */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
-      WELCOME TO CTDAmongBlacks
-    </h1>
-  </div>
-</div>
-
-
-        {/* SIDEBAR */}
         <aside className="lg:w-1/4">
           <div className="bg-white p-4 shadow rounded">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Categories</h2>
-            </div>
+            <h2 className="text-xl font-bold mb-4">Categories</h2>
             {["Music", "Podcasts", "Culture", "Documentary"].map((cat, index) => (
               <div key={cat} className="relative mb-4">
                 <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
@@ -118,6 +183,7 @@ const LandingPage = () => {
 
       {/* BLACK EXPERIENCE SECTION */}
       <motion.section
+        ref={blackExperienceRef}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
