@@ -6,7 +6,7 @@ import { FiX } from "react-icons/fi";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const pages = ["Home", "About Us", "Music", "Podcasts", "Contact"];
-const categories = ["Featured", "Business", "Technology", "Entertainment", "Sports"];
+const categories = ["Business", "Technology", "Entertainment", "Sports"];
 
 const dummyUsageData = [
   { name: 'Mon', views: 240 },
@@ -76,6 +76,16 @@ const Dashboard = () => {
     setLatestEpisodes(latestEpisodes.filter((ep) => ep.id !== id));
   };
 
+  const handleDeleteEntry = (cat, id) => {
+    const updated = { ...data };
+    updated[cat] = updated[cat].filter((entry) => entry.id !== id);
+    setData(updated);
+  };
+
+  const handleEditEntry = (entry) => {
+    setNewEntry({ ...entry });
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-50 overflow-x-hidden">
       <div className={`fixed md:static top-0 left-0 w-64 bg-white shadow-lg h-full z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:translate-x-0`}>
@@ -88,7 +98,7 @@ const Dashboard = () => {
             <button
               key={page}
               onClick={() => setSelectedPage(page)}
-              className={`block w-full text-left px-3 py-2 rounded-lg font-medium ${selectedPage === page ? "bg-green-100 text-green-700" : "text-gray-600 hover:bg-blue-100"}`}
+              className={`block w-full text-left px-3 py-2 rounded-lg font-medium ${selectedPage === page ? "bg-green-100 text-green-700" : "text-gray-600 hover:bg-red-100"}`}
             >
               {page === "Home" ? <FaHome className="inline mr-2" /> : page === "About Us" ? <FaInfoCircle className="inline mr-2" /> : page === "Music" ? <FaMusic className="inline mr-2" /> : page === "Podcasts" ? <FaPodcast className="inline mr-2" /> : <FaEnvelope className="inline mr-2" />}
               {page}
@@ -111,36 +121,40 @@ const Dashboard = () => {
             <p className="text-xl font-bold">{Object.values(data).reduce((sum, arr) => sum + arr.length, 0)}</p>
           </div>
           <div className="bg-white shadow rounded p-4">
-            <p className="text-gray-500 text-sm">Total Videos</p>
+            <p className="text-gray-500 text-sm">Episodes Published</p>
             <p className="text-xl font-bold">{latestEpisodes.length}</p>
           </div>
           <div className="bg-white shadow rounded p-4">
             <p className="text-gray-500 text-sm">Last Update</p>
             <p className="text-xl font-bold">{new Date().toLocaleDateString()}</p>
           </div>
+          <div className="bg-white shadow rounded p-4">
+            <p className="text-gray-500 text-sm">Active Sections</p>
+            <p className="text-xl font-bold">{categories.length}</p>
+          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow p-4 mb-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-700 flex items-center gap-2"><FaChartBar /> Site Usage This Week</h3>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={150}>
             <BarChart data={dummyUsageData}>
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="views" fill="#0EA5E9" />
+              <Bar dataKey="views" fill="#DC2626" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg shadow p-4 mb-6">
-          <h3 className="text-lg font-semibold text-blue-800 mb-4">🎧 Latest Episodes</h3>
+        <div className="bg-red-50 border-l-4 border-red-600 rounded-lg shadow p-4 mb-6">
+          <h3 className="text-lg font-semibold text-red-800 mb-4">🎧 Latest Episodes</h3>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4 mb-4">
-            <input value={newEpisode.title} onChange={(e) => handleChangeEpisode(e, "title")} placeholder="Episode Title" className="p-2 border border-blue-300 rounded" />
-            <input value={newEpisode.category} onChange={(e) => handleChangeEpisode(e, "category")} placeholder="Category" className="p-2 border border-blue-300 rounded" />
-            <input type="date" value={newEpisode.date} onChange={(e) => handleChangeEpisode(e, "date")} className="p-2 border border-blue-300 rounded" />
-            <input type="file" onChange={(e) => handleChangeEpisode(e, "img")} className="p-2 border border-blue-300 rounded" />
+            <input value={newEpisode.title} onChange={(e) => handleChangeEpisode(e, "title")} placeholder="Episode Title" className="p-2 border border-red-300 rounded" />
+            <input value={newEpisode.category} onChange={(e) => handleChangeEpisode(e, "category")} placeholder="Category" className="p-2 border border-red-300 rounded" />
+            <input type="date" value={newEpisode.date} onChange={(e) => handleChangeEpisode(e, "date")} className="p-2 border border-red-300 rounded" />
+            <input type="file" onChange={(e) => handleChangeEpisode(e, "img")} className="p-2 border border-red-300 rounded" />
           </div>
-          <button onClick={handleAddOrUpdateEpisode} className="bg-blue-600 text-white px-4 py-2 rounded">
+          <button onClick={handleAddOrUpdateEpisode} className="bg-red-600 text-white px-4 py-2 rounded">
             {editEpisodeId ? "Update Episode" : "Add Episode"}
           </button>
 
@@ -162,7 +176,7 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-green-50 border-l-4 border-green-600 rounded-lg shadow p-4 mb-6">
-          <h3 className="text-lg font-semibold text-green-800 mb-4">📝 Add Featured/Section Content</h3>
+          <h3 className="text-lg font-semibold text-green-800 mb-4">📝 Add Section Content</h3>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-2 mb-4">
             <input value={newEntry.title} onChange={(e) => setNewEntry({ ...newEntry, title: e.target.value })} placeholder="Title" className="p-2 border border-green-300 rounded" />
             <input type="date" value={newEntry.date} onChange={(e) => setNewEntry({ ...newEntry, date: e.target.value })} className="p-2 border border-green-300 rounded" />
@@ -186,6 +200,10 @@ const Dashboard = () => {
                   <h4 className="text-lg font-semibold text-green-700">{entry.title}</h4>
                   <p className="text-sm text-gray-500">{entry.date}</p>
                   <p className="text-gray-700 mt-1 line-clamp-3">{entry.content}</p>
+                  <div className="flex gap-2 mt-2">
+                    <button onClick={() => handleEditEntry(entry)} className="text-xs bg-black text-white px-2 py-1 rounded">Edit</button>
+                    <button onClick={() => handleDeleteEntry(cat, entry.id)} className="text-xs bg-red-600 text-white px-2 py-1 rounded">Delete</button>
+                  </div>
                 </div>
               )) : <p className="text-gray-500 text-sm">No content in this category yet.</p>}
             </div>
