@@ -1,5 +1,7 @@
-import  { useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
+// ✅ Your hardcoded images
 import img1 from "../../assets/images/podcast/img1.jpg";
 import img2 from "../../assets/images/podcast/img2.jpg";
 import img3 from "../../assets/images/podcast/img3.jpg";
@@ -23,8 +25,8 @@ import img21 from "../../assets/images/podcast/img21.jpg";
 import img22 from "../../assets/images/podcast/img22.jpg";
 import img23 from "../../assets/images/podcast/img23.jpg";
 
-
-const podcastGroups = [
+// ✅ Hardcoded fallback data
+const fallbackData = [
   {
     category: "Culture",
     items: [
@@ -208,87 +210,54 @@ const podcastGroups = [
   },
 ];
 
-{/*
-const podcasts = [
-  {
-    title: 'The Echo Chamber',
-    date: 'Jan 12, 2025',
-    src: 'https://example.com/audio1.mp3',
-  },
-  {
-    title: 'Voices of Youth',
-    date: 'Feb 9, 2025',
-    src: 'https://example.com/audio2.mp3',
-  },
-  {
-    title: 'Breaking Bias',
-    date: 'Mar 2, 2025',
-    src: 'https://example.com/audio3.mp3',
-  },
-  {
-    title: 'Voices of the Street',
-    date: 'Apr 18, 2025',
-    src: 'https://example.com/audio4.mp3',
-  },
-]; */}
+
 
 const Podcasts = () => {
   const scrollRefs = useRef([]);
+  const [podcastGroups, setPodcastGroups] = useState([]);
+  const [modalItem, setModalItem] = useState(null);
+
+  useEffect(() => {
+    const fetchPodcasts = async () => {
+      try {
+        const res = await fetch("https://your-api.com/podcasts"); // Replace with your actual API
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          setPodcastGroups(data);
+        } else {
+          setPodcastGroups(fallbackData);
+        }
+      } catch (err) {
+        console.error("Failed to fetch podcast data:", err);
+        setPodcastGroups(fallbackData);
+      }
+    };
+
+    fetchPodcasts();
+  }, []);
 
   const scroll = (index, direction) => {
     const ref = scrollRefs.current[index];
     if (ref) {
-      ref.scrollBy({
-        left: direction === 'left' ? -300 : 300,
-        behavior: 'smooth',
-      });
+      ref.scrollBy({ left: direction === "left" ? -300 : 300, behavior: "smooth" });
     }
   };
+  useEffect(() => {
+    if (modalItem) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modalItem]);
+  
 
   return (
-    <div className="bg-white text-black min-h-screen px-6 py-12 space-y-20">
-      <h3 className="text-2xl font-bold  text-center">🎙️ Welcome To Our Podcast Library</h3>
-      <section className="space-y-8">
-        
-        {/*
-        <h2 className="text-3xl font-bold border-b pb-2 border-gray-300">Latest Releases</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <video controls className="rounded-xl w-full h-64 object-cover">
-            <source src={vid} type="video/mp4" />
-          </video>
-          <video controls className="rounded-xl w-full h-64 object-cover">
-            <source src={vid} type="video/mp4" />
-          </video>
-        </div>
-        */}
-        <div className="mt-4">
-  {/* On mobile: horizontal scroll | On md+: 2-column grid 
-  <div className="md:grid md:grid-cols-2 md:gap-6 overflow-x-auto  flex md:block gap-4 scrollbar-hide py-2">
-    {podcasts.slice(0, 4).map((podcast, index) => (
-      <div
-        key={index}
-        className="min-w-[80%] md:min-w-0 bg-gradient-to-br from-green-50 to-white border border-green-100 rounded-xl shadow-sm hover:shadow-lg transition duration-300 p-5 shrink-0"
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <div className="bg-green-100 p-2 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-2v13" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-green-900">{podcast.title}</h3>
-            <p className="text-sm text-green-600">{podcast.date}</p>
-          </div>
-        </div>
-        <audio controls className="w-full accent-green-600 rounded-md">
-          <source src={podcast.src} type="audio/mpeg" />
-        </audio>
-      </div>
-    ))}
-  </div> */}
-</div>
-
-      </section>
+    <div className="bg-white text-black min-h-screen px-6 py-12 space-y-20 relative">
+      <h3 className="text-2xl font-bold text-center">🎙️ Welcome To Our Podcast Library</h3>
 
       {podcastGroups.map((group, i) => (
         <section key={i} className="space-y-4 relative">
@@ -307,22 +276,16 @@ const Podcasts = () => {
               className="flex overflow-x-auto gap-4 py-4 scrollbar-hide"
             >
               {group.items.map((item, j) => (
-                <a
+                <div
                   key={j}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="min-w-[220px] max-w-[220px] shrink-0 block hover:underline"
+                  onClick={() => setModalItem(item)}
+                  className="min-w-[220px] max-w-[220px] shrink-0 cursor-pointer hover:underline"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="rounded-xl w-full h-36 object-cover mb-2"
-                  />
+                  <img src={item.image} alt={item.title} className="rounded-xl w-full h-36 object-cover mb-2" />
                   <h3 className="text-md font-semibold">{item.title}</h3>
                   <p className="text-sm text-gray-700">{item.description}</p>
                   <span className="text-blue-600 text-sm mt-1 inline-block">Listen →</span>
-                </a>
+                </div>
               ))}
             </div>
 
@@ -335,6 +298,42 @@ const Podcasts = () => {
           </div>
         </section>
       ))}
+
+      {/* Modal */}
+      {modalItem && (
+  <div className="fixed inset-0 z-50 bg-white text-black overflow-y-auto px-6 py-8">
+    <button
+      onClick={() => setModalItem(null)}
+      className="absolute top-6 right-6 text-black hover:text-red-600"
+    >
+      <X size={28} />
+    </button>
+
+    <div className="max-w-3xl mx-auto mt-10">
+      <img
+        src={modalItem.image}
+        alt={modalItem.title}
+        className="w-full h-64 object-cover rounded-xl mb-6"
+      />
+
+      <h2 className="text-3xl font-bold mb-3">{modalItem.title}</h2>
+      <p className="text-gray-800 text-base mb-6">{modalItem.description}</p>
+
+      {modalItem.link && (
+        <a
+          href={modalItem.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-700 underline font-medium text-lg"
+        >
+          🎧 Listen Now →
+        </a>
+      )}
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 };

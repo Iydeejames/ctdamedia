@@ -1,7 +1,6 @@
 import React from "react";
 import img1 from "../../assets/images/about-page/img1.jpg";
 
-
 const team = [
   {
     name: "Amaka O.",
@@ -34,7 +33,7 @@ const About = () => {
     <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800">
       {/* Hero Intro */}
       <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">CTDAmongBlacks</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">CTDA Media</h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
           More than a podcast — we're a dynamic media company blending African heritage and global
           perspectives. From music and movies to deep conversations, we celebrate the Black experience.
@@ -70,7 +69,7 @@ const About = () => {
       </div>
 
       {/* Team Section */}
-      <div className="max-w-6xl mx-auto mt-20">
+      <div className="max-w-6xl mx-auto mt-20 px-6">
         <h3 className="text-2xl font-bold text-center mb-10">Meet the Team</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((member, index) => (
@@ -81,7 +80,7 @@ const About = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-60 object-cover rounded-2xl mb-4"
+                className="w-full aspect-[3/4] object-contain rounded-2xl mb-4 bg-white"
               />
               <h4 className="text-lg font-semibold text-center">{member.name}</h4>
               <p className="text-sm text-red-500 text-center font-medium">{member.role}</p>
