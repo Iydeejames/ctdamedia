@@ -1,12 +1,28 @@
 import  { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import img1 from "../../assets/images/img1.jpg";
-import img2 from "../../assets/images/img2.jpg";
-import img3 from "../../assets/images/img3.jpg";
-import img4 from "../../assets/images/img4.jpg";
-import img5 from "../../assets/images/img5.jpg";
-import img6 from "../../assets/images/img6.jpg";
-import img7 from "../../assets/images/img7.jpg";
+import img1 from "../../assets/images/podcast/img1.jpg";
+import img2 from "../../assets/images/podcast/img2.jpg";
+import img3 from "../../assets/images/podcast/img3.jpg";
+import img4 from "../../assets/images/podcast/img4.jpg";
+import img5 from "../../assets/images/podcast/img5.jpg";
+import img6 from "../../assets/images/podcast/img6.jpg";
+import img7 from "../../assets/images/podcast/img7.jpg";
+import img8 from "../../assets/images/podcast/img8.jpg";
+import img9 from "../../assets/images/podcast/img9.jpg";
+import img10 from "../../assets/images/podcast/img10.jpg";
+import img12 from "../../assets/images/podcast/img12.jpg";
+import img13 from "../../assets/images/podcast/img13.jpg";
+import img14 from "../../assets/images/podcast/img14.jpg";
+import img15 from "../../assets/images/podcast/img15.jpg";
+import img16 from "../../assets/images/podcast/img16.jpg";
+import img17 from "../../assets/images/podcast/img17.jpg";
+import img18 from "../../assets/images/podcast/img18.jpg";
+import img19 from "../../assets/images/podcast/img19.jpg";
+import img20 from "../../assets/images/podcast/img20.jpg";
+import img21 from "../../assets/images/podcast/img21.jpg";
+import img22 from "../../assets/images/podcast/img22.jpg";
+import img23 from "../../assets/images/podcast/img23.jpg";
+
 
 const podcastGroups = [
   {
@@ -16,42 +32,42 @@ const podcastGroups = [
         type: "link",
         title: "Culture Clash: Afro vs Western",
         description: "Exploring the tension and blend between African and Western norms.",
-        image: img1,
+        image: img6,
         link: "#",
       },
       {
         type: "link",
         title: "The Evolution of Urban Slang",
         description: "We explore how language shapes and evolves in Afro-diasporic communities.",
-        image: img2,
+        image: img7,
         link: "https://spotify.com/culture-urban-slang",
       },
       {
         type: "link",
         title: "Street Culture & Music",
         description: "From graffiti to breakdancing – what makes the street pulse?",
-        image: img3,
+        image: img8,
         link: "#",
       },
       {
         type: "link",
         title: "The Evolution of Urban Slang",
         description: "We explore how language shapes and evolves in Afro-diasporic communities.",
-        image: img2,
+        image: img9,
         link: "https://spotify.com/culture-urban-slang",
       },
       {
         type: "link",
         title: "Traditional Rites in Modern Times",
         description: "Are cultural rites being lost or transformed in today's world?",
-        image: img4,
+        image: img10,
         link: "https://spotify.com/traditional-rites",
       },
       {
         type: "link",
         title: "Street Culture & Music",
         description: "From graffiti to breakdancing – what makes the street pulse?",
-        image: img3,
+        image: img6,
         link: "#",
       },
     ],
@@ -63,42 +79,42 @@ const podcastGroups = [
         type: "link",
         title: "Voices of Lagos",
         description: "An aural tour through Nigeria’s bustling megacity.",
-        image: img5,
+        image: img17,
         link: "#",
       },
       {
         type: "link",
         title: "Inside the Nigerian Film Industry",
         description: "Behind the scenes of Nollywood's booming ecosystem.",
-        image: img6,
+        image: img18,
         link: "https://spotify.com/nollywood-doc",
       },
       {
         type: "link",
         title: "Documenting War & Peace",
         description: "Uncovering stories in war zones and peace tables alike.",
-        image: img7,
+        image: img19,
         link: "#",
       },
       {
         type: "link",
         title: "Voices of Lagos",
         description: "An aural tour through Nigeria’s bustling megacity.",
-        image: img5,
+        image: img17,
         link: "#",
       },
       {
         type: "link",
         title: "Oil & History",
         description: "An investigative series on how oil shaped African geopolitics.",
-        image: img1,
+        image: img18,
         link: "https://spotify.com/oil-africa",
       },
       {
         type: "link",
         title: "Inside the Nigerian Film Industry",
         description: "Behind the scenes of Nollywood's booming ecosystem.",
-        image: img6,
+        image: img19,
         link: "https://spotify.com/nollywood-doc",
       },
     ],
@@ -110,42 +126,42 @@ const podcastGroups = [
         type: "link",
         title: "Naija Beats: Then & Now",
         description: "Tracing the evolution of Nigeria’s pop scene.",
-        image: img2,
+        image: img22,
         link: "#",
       },
       {
         type: "link",
         title: "African Jazz & Highlife",
         description: "A sonic journey through West Africa's legendary genres.",
-        image: img3,
+        image: img23,
         link: "https://spotify.com/highlife-sound",
       },
       {
         type: "link",
         title: "The Rise of Afrobeats",
         description: "How global charts are embracing Afro sounds.",
-        image: img4,
+        image: img13,
         link: "https://spotify.com/afrobeats-rise",
       },
       {
         type: "link",
         title: "Studio Sessions: Live in Lagos",
         description: "Experience real-time music creation from Lagos studios.",
-        image: img5,
+        image: img20,
         link: "#",
       },
       {
         type: "link",
         title: "African Jazz & Highlife",
         description: "A sonic journey through West Africa's legendary genres.",
-        image: img3,
+        image: img15,
         link: "https://spotify.com/highlife-sound",
       },
       {
         type: "link",
         title: "The Rise of Afrobeats",
         description: "How global charts are embracing Afro sounds.",
-        image: img4,
+        image: img14,
         link: "https://spotify.com/afrobeats-rise",
       },
     ],
@@ -157,21 +173,21 @@ const podcastGroups = [
         type: "link",
         title: "Jollof Wars",
         description: "Who truly owns the crown: Nigeria or Ghana?",
-        image: img6,
+        image: img5,
         link: "https://spotify.com/jollof-wars",
       },
       {
         type: "link",
         title: "Palm Oil Stories",
         description: "The untold origin and impact of red gold.",
-        image: img7,
+        image: img4,
         link: "#",
       },
       {
         type: "link",
         title: "A Day at the Lagos Market",
         description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
-        image: img1,
+        image: img3,
         link: "#",
       },
       {

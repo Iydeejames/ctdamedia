@@ -1,8 +1,6 @@
 import React from "react";
-import img1 from "../../assets/images/img1.jpg";
-import img2 from "../../assets/images/img2.jpg";
-import img3 from "../../assets/images/img3.jpg";
-import img4 from "../../assets/images/img4.jpg";
+import img1 from "../../assets/images/about-page/img1.jpg";
+
 
 const team = [
   {
@@ -14,19 +12,19 @@ const team = [
   {
     name: "Tunde A.",
     role: "Lead Producer",
-    image: img2,
+    image: img1,
     bio: "Born in Nigeria, Tunde bridges cultures through powerful content and smooth production."
   },
   {
     name: "Zainab B.",
     role: "Media Strategist",
-    image: img3,
+    image: img1,
     bio: "Zainab curates experiences across platforms, shaping how CTDA connects with the world."
   },
   {
     name: "Dayo M.",
     role: "Podcast Host",
-    image: img4,
+    image: img1,
     bio: "With charm and intellect, Dayo drives conversations that resonate with diverse audiences."
   }
 ];
