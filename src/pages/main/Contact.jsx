@@ -15,19 +15,19 @@ import {
 
 const Contact = () => {
   return (
-    <div className="bg-green-600 min-h-screen py-16 px-6 text-white">
+    <div className="bg-green-100 min-h-screen py-16 px-6 text-white">
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
-        <h1 className="text-2xl font-extrabold mb-4">Let's Connect</h1>
-        <p className="text-lg text-green-100 max-w-2xl mx-auto">
+        <h1 className="text-2xl text-black font-extrabold mb-4">Let's Connect</h1>
+        <p className="text-lg text-green-700 max-w-2xl mx-auto">
           Got a question, collaboration idea, or media inquiry? Reach out—we'd love to hear from you.
         </p>
       </div>
 
       {/* Contact Info Cards */}
-      <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto mb-20">
+      <div className="grid gap-8  md:grid-cols-2 max-w-6xl mx-auto mb-20">
         {/* General */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
+        <div className="backdrop-blur-md bg-green-700 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
           <div className="flex items-center gap-4 mb-4">
             <Mail className="w-8 h-8 text-white" />
             <h2 className="text-2xl font-semibold">General Inquiries</h2>
@@ -39,7 +39,7 @@ const Contact = () => {
         </div>
 
         {/* Collaborations */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
+        <div className="backdrop-blur-md bg-green-700 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
           <div className="flex items-center gap-4 mb-4">
             <Users className="w-8 h-8 text-white" />
             <h2 className="text-2xl font-semibold">Collaborations</h2>
@@ -51,7 +51,7 @@ const Contact = () => {
         </div>
 
         {/* Press */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
+        <div className="backdrop-blur-md bg-green-700 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
           <div className="flex items-center gap-4 mb-4">
             <Megaphone className="w-8 h-8 text-white" />
             <h2 className="text-2xl font-semibold">Press & Media</h2>
@@ -63,7 +63,7 @@ const Contact = () => {
         </div>
 
         {/* Social Media */}
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
+        <div className="backdrop-blur-md bg-green-700 rounded-2xl p-6 border border-white/20 shadow-lg hover:shadow-xl transition">
           <div className="flex items-center gap-4 mb-4">
             <Share2 className="w-8 h-8 text-white" />
             <h2 className="text-2xl font-semibold">Social Media</h2>
