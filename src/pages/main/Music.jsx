@@ -10,31 +10,31 @@ import vid from "../../assets/videos/vid.mp4";
 
 const musicNews = [
   {
-    title: "Burna Boy makes history at Coachella with electrifying Afro-fusion set",
+    title: "Fire Boy makes history at Coachella with electrifying Afro-fusion set",
     description:
       "The Grammy winner delivered a genre-bending performance, blending Afrobeats, dancehall, and hip-hop for a crowd of over 100,000.",
-    img: img1,
+    img: img3,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
     title: "Tems debuts new album 'Born in the Wild' with global streaming release",
     description:
       "Tems' latest project offers introspective ballads and experimental sonic textures, charting on multiple international playlists.",
-    img: img2,
+    img: img1,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
   },
   {
     title: "Davido launches record label imprint for young African talents",
     description:
       "30BG Empire aims to sign emerging acts across West Africa and give them access to global distribution and mentorship.",
-    img: img3,
+    img: img6,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
   },
   {
-    title: "Ayra Starr joins Spotify's global RADAR program",
+    title: "J.Cole joins Spotify's global RADAR program",
     description:
-      "The Mavin Records star continues her international rise, gaining major playlist placements and editorial features worldwide.",
-    img: img4,
+      "Award winning star Cole continues his international rise, gaining major playlist placements and editorial features worldwide.",
+    img: img2,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
   },
   {
@@ -48,7 +48,7 @@ const musicNews = [
     title: "Burna Boy makes history at Coachella with electrifying Afro-fusion set",
     description:
       "The Grammy winner delivered a genre-bending performance, blending Afrobeats, dancehall, and hip-hop for a crowd of over 100,000.",
-    img: img6,
+    img: img5,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
   },
 ];
