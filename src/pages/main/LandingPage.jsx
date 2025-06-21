@@ -10,9 +10,17 @@ import img4 from "../../assets/images/img4.jpg";
 import img5 from "../../assets/images/img5.jpg";
 import img6 from "../../assets/images/img6.jpg";
 import img7 from "../../assets/images/img7.jpg";
+import img9 from "../../assets/images/img9.jpg";
+import img10 from "../../assets/images/img10.jpg";
+import img11 from "../../assets/images/img11.jpg";
+import img12 from "../../assets/images/img12.jpg";
+import img13 from "../../assets/images/img13.jpg";
+import img14 from "../../assets/images/img14.jpg";
+
+
 import vid from "../../assets/videos/vid.mp4";
 
-const categoryImages = [img2, img3, img4, img5];
+const categoryImages = [img2, img7, img9, img10];
 const featuredImages = [img6, img7, img1, img2];
 const blockImages = [img3, img4, img5, img6, img7, img1];
 
@@ -25,25 +33,25 @@ const metrics = [
 
 const featuredCards = [
   {
-    img: img7,
+    img: img11,
     category: "Entertainment",
     date: "May 01, 2025",
     title: "Behind the Scenes of Nollywood's Rising Stars"
   },
   {
-    img: img6,
+    img: img12,
     category: "Culture",
     date: "May 02, 2025",
     title: "Exploring the Roots of Afrobeat in Lagos"
   },
   {
-    img: img3,
+    img: img13,
     category: "Tech",
     date: "May 03, 2025",
     title: "How Nigerian Startups Are Changing Africa"
   },
   {
-    img: img4,
+    img: img14,
     category: "Lifestyle",
     date: "May 04, 2025",
     title: "Modern Fashion Trends from West Africa"
@@ -83,7 +91,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold">Categories</h2>
             </div>
-            {["Music", "Podcasts", "Spotlight", "Documentary"].map((cat, index) => (
+            {["Music", "Podcasts", "Culture", "Documentary"].map((cat, index) => (
               <div key={cat} className="relative mb-4">
                 <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
