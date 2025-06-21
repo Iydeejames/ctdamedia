@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import {
   FaBars, FaHome, FaMusic, FaPodcast, FaEnvelope, FaChartBar, FaInfoCircle,
 } from "react-icons/fa";
@@ -24,7 +26,7 @@ const Dashboard = () => {
   const [data, setData] = useState({});
   const [newEntry, setNewEntry] = useState({ title: "", date: "", category: "", content: "", img: null });
   const [latestEpisodes, setLatestEpisodes] = useState([]);
-  const [newEpisode, setNewEpisode] = useState({ title: "", category: "", date: "", img: null });
+  const [newEpisode, setNewEpisode] = useState({ title: "", category: "", date: "", img: null, content: "" });
   const [editEpisodeId, setEditEpisodeId] = useState(null);
 
   useEffect(() => {
@@ -51,24 +53,32 @@ const Dashboard = () => {
   };
 
   const handleAddOrUpdateEpisode = () => {
-    if (!newEpisode.title || !newEpisode.img) return;
-    const imgURL = newEpisode.img ? URL.createObjectURL(newEpisode.img) : "";
+    if (!newEpisode.title || !newEpisode.category || !newEpisode.date || !newEpisode.img || !newEpisode.content) return;
 
-    if (editEpisodeId) {
-      const updated = latestEpisodes.map((ep) =>
-        ep.id === editEpisodeId ? { ...ep, ...newEpisode, img: imgURL } : ep
-      );
-      setLatestEpisodes(updated);
-      setEditEpisodeId(null);
+    let imgURL;
+    if (typeof newEpisode.img === "string") {
+      imgURL = newEpisode.img;
     } else {
-      const newEp = { ...newEpisode, id: Date.now(), img: imgURL };
-      setLatestEpisodes([...latestEpisodes, newEp]);
+      imgURL = URL.createObjectURL(newEpisode.img);
     }
-    setNewEpisode({ title: "", category: "", date: "", img: null });
+
+    const newEp = {
+      ...newEpisode,
+      img: imgURL,
+      id: editEpisodeId || Date.now()
+    };
+
+    const updatedEpisodes = editEpisodeId
+      ? latestEpisodes.map((ep) => (ep.id === editEpisodeId ? newEp : ep))
+      : [...latestEpisodes, newEp];
+
+    setLatestEpisodes(updatedEpisodes);
+    setEditEpisodeId(null);
+    setNewEpisode({ title: "", category: "", date: "", img: null, content: "" });
   };
 
   const handleEditEpisode = (ep) => {
-    setNewEpisode({ ...ep });
+    setNewEpisode({ ...ep, img: ep.img.startsWith("blob:") ? ep.img : null });
     setEditEpisodeId(ep.id);
   };
 
@@ -87,7 +97,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50 overflow-x-hidden">
+    <div className="flex min-h-screen bg-white overflow-x-hidden">
       <div className={`fixed md:static top-0 left-0 w-64 bg-white shadow-lg h-full z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:translate-x-0`}>
         <div className="flex items-center justify-between px-4 py-3 border-b">
           <h1 className="text-xl font-bold text-green-600 flex items-center gap-2">CTDA Admin</h1>
@@ -153,6 +163,9 @@ const Dashboard = () => {
             <input value={newEpisode.category} onChange={(e) => handleChangeEpisode(e, "category")} placeholder="Category" className="p-2 border border-red-300 rounded" />
             <input type="date" value={newEpisode.date} onChange={(e) => handleChangeEpisode(e, "date")} className="p-2 border border-red-300 rounded" />
             <input type="file" onChange={(e) => handleChangeEpisode(e, "img")} className="p-2 border border-red-300 rounded" />
+            <div className="col-span-full">
+              <ReactQuill theme="snow" value={newEpisode.content} onChange={(value) => setNewEpisode({ ...newEpisode, content: value })} />
+            </div>
           </div>
           <button onClick={handleAddOrUpdateEpisode} className="bg-red-600 text-white px-4 py-2 rounded">
             {editEpisodeId ? "Update Episode" : "Add Episode"}
@@ -185,7 +198,9 @@ const Dashboard = () => {
               {categories.map((cat) => <option key={cat} value={cat}>{cat}</option>)}
             </select>
             <input type="file" onChange={(e) => setNewEntry({ ...newEntry, img: e.target.files[0] })} className="p-2 border border-green-300 rounded" />
-            <textarea value={newEntry.content} onChange={(e) => setNewEntry({ ...newEntry, content: e.target.value })} placeholder="Content" className="p-2 border border-green-300 rounded h-24 md:h-auto" />
+            <div className="col-span-full">
+              <ReactQuill theme="snow" value={newEntry.content} onChange={(value) => setNewEntry({ ...newEntry, content: value })} />
+            </div>
           </div>
           <button onClick={handleAddEntry} className="bg-green-600 text-white px-4 py-2 rounded">Add Entry</button>
         </div>
@@ -198,8 +213,7 @@ const Dashboard = () => {
                 <div key={entry.id} className="bg-white rounded shadow p-3">
                   {entry.img && <img src={entry.img} alt={entry.title} className="w-full h-32 object-cover rounded mb-2" />}
                   <h4 className="text-lg font-semibold text-green-700">{entry.title}</h4>
-                  <p className="text-sm text-gray-500">{entry.date}</p>
-                  <p className="text-gray-700 mt-1 line-clamp-3">{entry.content}</p>
+                  <p className="text-sm text-gray-500">{entry.category} - {entry.date}</p>
                   <div className="flex gap-2 mt-2">
                     <button onClick={() => handleEditEntry(entry)} className="text-xs bg-black text-white px-2 py-1 rounded">Edit</button>
                     <button onClick={() => handleDeleteEntry(cat, entry.id)} className="text-xs bg-red-600 text-white px-2 py-1 rounded">Delete</button>
