@@ -208,6 +208,7 @@ const podcastGroups = [
   },
 ];
 
+{/*
 const podcasts = [
   {
     title: 'The Echo Chamber',
@@ -229,7 +230,7 @@ const podcasts = [
     date: 'Apr 18, 2025',
     src: 'https://example.com/audio4.mp3',
   },
-];
+]; */}
 
 const Podcasts = () => {
   const scrollRefs = useRef([]);
@@ -261,7 +262,7 @@ const Podcasts = () => {
         </div>
         */}
         <div className="mt-4">
-  {/* On mobile: horizontal scroll | On md+: 2-column grid */}
+  {/* On mobile: horizontal scroll | On md+: 2-column grid 
   <div className="md:grid md:grid-cols-2 md:gap-6 overflow-x-auto  flex md:block gap-4 scrollbar-hide py-2">
     {podcasts.slice(0, 4).map((podcast, index) => (
       <div
@@ -284,7 +285,7 @@ const Podcasts = () => {
         </audio>
       </div>
     ))}
-  </div>
+  </div> */}
 </div>
 
       </section>

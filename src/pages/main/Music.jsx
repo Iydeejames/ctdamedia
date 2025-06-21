@@ -159,7 +159,7 @@ const Music = () => {
       {/* Video Section */}
       <section className="mt-20">
         <h2 className="text-3xl font-bold mb-10 text-center text-gray-800">
-          Featured Music Sessions
+          Visual Recordings
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
           {featuredVideos.map((vidItem, index) => (
