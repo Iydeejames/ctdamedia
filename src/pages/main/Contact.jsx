@@ -15,7 +15,7 @@ import {
 
 const Contact = () => {
   return (
-    <div className="bg-green-700 min-h-screen py-16 px-6 text-white">
+    <div className="bg-green-600 min-h-screen py-16 px-6 text-white">
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
         <h1 className="text-2xl font-extrabold mb-4">Let's Connect</h1>
