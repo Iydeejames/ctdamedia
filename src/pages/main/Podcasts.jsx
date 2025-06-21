@@ -242,6 +242,7 @@ const Podcasts = () => {
       ref.scrollBy({ left: direction === "left" ? -300 : 300, behavior: "smooth" });
     }
   };
+  
   useEffect(() => {
     if (modalItem) {
       document.body.style.overflow = "hidden";
@@ -253,6 +254,7 @@ const Podcasts = () => {
       document.body.style.overflow = "auto";
     };
   }, [modalItem]);
+  
   
 
   return (
@@ -301,15 +303,15 @@ const Podcasts = () => {
 
       {/* Modal */}
       {modalItem && (
-  <div className="fixed inset-0 z-50 bg-white text-black overflow-y-auto px-6 py-8">
+  <div className="fixed top-0 left-0 w-full min-h-screen z-[9999] bg-white overflow-y-auto">
     <button
       onClick={() => setModalItem(null)}
-      className="absolute top-6 right-6 text-black hover:text-red-600"
+      className="absolute top-4 right-4 text-black hover:text-red-600 z-50"
     >
       <X size={28} />
     </button>
 
-    <div className="max-w-3xl mx-auto mt-10">
+    <div className="max-w-3xl mx-auto px-4 pt-24 pb-20">
       <img
         src={modalItem.image}
         alt={modalItem.title}
@@ -332,6 +334,9 @@ const Podcasts = () => {
     </div>
   </div>
 )}
+
+
+
 
 
     </div>

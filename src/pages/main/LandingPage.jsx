@@ -36,39 +36,71 @@ const featuredCards = [
     img: img11,
     category: "Entertainment",
     date: "May 01, 2025",
-    title: "Behind the Scenes of Nollywood's Rising Stars"
+    title: "Behind the Scenes of Nollywood's Rising Stars",
+    content: "Full article content for featured 1."
   },
   {
     img: img12,
     category: "Culture",
     date: "May 02, 2025",
-    title: "Exploring the Roots of Afrobeat in Lagos"
+    title: "Exploring the Roots of Afrobeat in Lagos",
+    content: "Full article content for featured 2."
   },
   {
     img: img13,
     category: "Tech",
     date: "May 03, 2025",
-    title: "How Nigerian Startups Are Changing Africa"
+    title: "How Nigerian Startups Are Changing Africa",
+    content: "Full article content for featured 3."
   },
   {
     img: img14,
     category: "Lifestyle",
     date: "May 04, 2025",
-    title: "Modern Fashion Trends from West Africa"
+    title: "Modern Fashion Trends from West Africa",
+    content: "Full article content for featured 4."
   }
 ];
-const metrics = [  // ⬅️ Paste it here
+
+const businessItems = [
+  { img: img15, title: "How African Entrepreneurs Are Shaping Global Markets", date: "EPISODE 12", content: "Full article content for business 1." },
+  { img: img16, title: "Funding Challenges and Success Stories in Nigeria’s SME Sector", date: "EPISODE 11", content: "Full article content for business 2." },
+  { img: img17, title: "Youth-Owned Startups That Are Disrupting the Status Quo", date: "EPISODE 10", content: "Full article content for business 3." }
+];
+
+const techItems = [
+  { img: img18, title: "The Rise of AI Startups in Africa", date: "Technology / January 01, 2025", content: "Full article content for tech 1." },
+  { img: img19, title: "Why Nigeria Is Becoming a Hub for Tech Innovation", date: "Technology / January 02, 2025", content: "Full article content for tech 2." }
+];
+
+const entertainmentItems = [
+  { img: img21, title: "How Afrobeat Conquered the Global Charts", date: "EPISODE 15", content: "Full article content for entertainment 1." },
+  { img: img23, title: "Nollywood: The Untold Stories Behind the Scenes", date: "EPISODE 14", content: "Full article content for entertainment 2." },
+  { img: img20, title: "The Influence of Gen Z Creators on African Media", date: "EPISODE 13", content: "Full article content for entertainment 3." }
+];
+
+const sportsItems = [
+  { img: img25, title: "How African Athletes Are Redefining Global Sports", date: "Sports / March 10, 2025", content: "Full article content for sports 1." },
+  { img: img24, title: "The Rise of Nigerian Football in the European Leagues", date: "Sports / March 11, 2025", content: "Full article content for sports 2." }
+];
+const metrics = [  
   { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
   { label: "Content Reliability", value: "98%", color: "bg-green-600" },
   { label: "Engagement Rate", value: "85%", color: "bg-yellow-500" },
   { label: "Update Frequency", value: "70%", color: "bg-red-500" },
 ];
 
+
+
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [scrollTime, setScrollTime] = useState(0);
   const blackExperienceRef = useRef(null);
 
+  const [modalData, setModalData] = useState(null);
+  const handleOpenModal = (item) => setModalData(item);
+  const handleCloseModal = () => setModalData(null);
+  
   // Detect time spent scrolling
   useEffect(() => {
     let timeout;
@@ -80,6 +112,8 @@ const LandingPage = () => {
       }
     };
     window.addEventListener("scroll", handleScroll);
+
+    
     return () => {
       clearTimeout(timeout);
       window.removeEventListener("scroll", handleScroll);
@@ -211,164 +245,67 @@ const LandingPage = () => {
       </motion.section>
 
 {/* FEATURED SECTION */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="container mx-auto px-4 mt-10"
-> 
-  <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-bold">Latest Episodes</h2>
-   {/* <a href="#" className="text-sm text-blue-500 hover:underline">View All</a> */}
-  </div>
+<div className="relative">
+      <AnimatePresence>
+        {modalData && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="bg-white w-11/12 max-w-3xl p-6 rounded-lg relative overflow-y-auto max-h-[90vh]">
+              <button
+                onClick={handleCloseModal}
+                className="absolute top-2 right-2 text-black text-2xl font-bold"
+              >
+                &times;
+              </button>
+              <img src={modalData.img} alt={modalData.title} className="w-full h-64 object-cover rounded mb-4" />
+              <h2 className="text-xl font-bold mb-2">{modalData.title}</h2>
+              <p className="text-sm text-gray-500 mb-2">{modalData.date}</p>
+              <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap">{modalData.content}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-    {featuredCards.map((item, index) => (
-      <div key={index} className="relative">
-<img src={item.img} className="w-full h-48 object-cover rounded" alt={item.title} />
-<div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
-          <p className="text-sm">{item.category} / {item.date}</p>
-          <h3 className="text-lg font-semibold leading-tight">{item.title}</h3>
+      <section className="container mx-auto px-4 mt-10">
+        <h2 className="text-2xl font-bold mb-4">Latest Episodes</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {featuredCards.map((item, index) => (
+            <div key={index} className="relative cursor-pointer" onClick={() => handleOpenModal(item)}>
+              <img src={item.img} alt={item.title} className="w-full h-48 object-cover rounded" />
+              <div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
+                <p className="text-sm">{item.category} / {item.date}</p>
+                <h3 className="text-lg font-semibold leading-tight">{item.title}</h3>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</motion.section>
+      </section>
 
-{/* BUSINESS SECTION */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="container mx-auto px-4 mt-10"
->
-  <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-bold">Business</h2>
-  </div>
-  <div className="space-y-4">
-    <div className="flex gap-4 items-start">
-      <img src={img15} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          How African Entrepreneurs Are Shaping Global Markets
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 12</p>
-      </div>
+      {[{ title: "Business", data: businessItems }, { title: "Technology", data: techItems }, { title: "Entertainment Gists", data: entertainmentItems }, { title: "Sports", data: sportsItems }].map((section, i) => (
+        <section key={i} className="container mx-auto px-4 mt-10">
+          <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+          <div className={section.title === "Technology" || section.title === "Sports" ? "grid grid-cols-2 gap-4" : "space-y-4"}>
+            {section.data.map((item, j) => (
+              <div
+                key={j}
+                className={section.title === "Technology" || section.title === "Sports" ? "bg-white shadow p-2 rounded cursor-pointer" : "flex gap-4 items-start cursor-pointer"}
+                onClick={() => handleOpenModal(item)}
+              >
+                <img src={item.img} alt={item.title} className={section.title === "Technology" || section.title === "Sports" ? "w-full h-40 object-cover rounded" : "w-20 h-20 object-cover rounded"} />
+                <div className={section.title === "Technology" || section.title === "Sports" ? "mt-2" : ""}>
+                  <p className="text-xs text-red-500 mt-1">{item.date}</p>
+                  <h4 className="font-semibold mt-1 text-sm md:text-base hover:underline cursor-pointer">{item.title}</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
-    <div className="flex gap-4 items-start">
-      <img src={img16} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          Funding Challenges and Success Stories in Nigeria’s SME Sector
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 11</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-start">
-      <img src={img17} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          Youth-Owned Startups That Are Disrupting the Status Quo
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 10</p>
-      </div>
-    </div>
-  </div>
-</motion.section>
-
-{/* TECHNOLOGY SECTION */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="container mx-auto px-4 mt-10"
->
-  <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-bold">Technology</h2>
-  </div>
-  <div className="grid grid-cols-2 gap-4">
-    <div className="bg-white shadow p-2 rounded">
-      <img src={img18} alt="post" className="w-full h-40 object-cover rounded" />
-      <p className="text-xs text-red-500 mt-2">Technology / January 01, 2025</p>
-      <h4 className="font-semibold mt-1">The Rise of AI Startups in Africa</h4>
-    </div>
-    <div className="bg-white shadow p-2 rounded">
-      <img src={img19} alt="post" className="w-full h-40 object-cover rounded" />
-      <p className="text-xs text-red-500 mt-2">Technology / January 02, 2025</p>
-      <h4 className="font-semibold mt-1">Why Nigeria Is Becoming a Hub for Tech Innovation</h4>
-    </div>
-  </div>
-</motion.section>
-
-{/* ENTERTAINMENT SECTION */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="container mx-auto px-4 mt-10"
->
-  <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-bold">Entertainment Gists</h2>
-  </div>
-  <div className="space-y-4">
-    <div className="flex gap-4 items-start">
-      <img src={img21} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          How Afrobeat Conquered the Global Charts
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 15</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-start">
-      <img src={img23} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          Nollywood: The Untold Stories Behind the Scenes
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 14</p>
-      </div>
-    </div>
-    <div className="flex gap-4 items-start">
-      <img src={img20} alt="post" className="w-20 h-20 object-cover rounded" />
-      <div>
-        <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
-          The Influence of Gen Z Creators on African Media
-        </h4>
-        <p className="text-gray-500 text-xs mt-1">EPISODE 13</p>
-      </div>
-    </div>
-  </div>
-</motion.section>
-
-{/* SPORTS SECTION */}
-<motion.section
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{ duration: 0.6 }}
-  viewport={{ once: true }}
-  className="container mx-auto px-4 mt-10"
->
-  <div className="flex justify-between items-center mb-4">
-    <h2 className="text-2xl font-bold">Sports</h2>
-  </div>
-  <div className="grid grid-cols-2 gap-4">
-    <div className="bg-white shadow p-2 rounded">
-      <img src={img25} alt="post" className="w-full h-40 object-cover rounded" />
-      <p className="text-xs text-red-500 mt-2">Sports / March 10, 2025</p>
-      <h4 className="font-semibold mt-1">How African Athletes Are Redefining Global Sports</h4>
-    </div>
-    <div className="bg-white shadow p-2 rounded">
-      <img src={img24} alt="post" className="w-full h-40 object-cover rounded" />
-      <p className="text-xs text-red-500 mt-2">Sports / March 11, 2025</p>
-      <h4 className="font-semibold mt-1">The Rise of Nigerian Football in the European Leagues</h4>
-    </div>
-  </div>
-</motion.section>
 
 
 
