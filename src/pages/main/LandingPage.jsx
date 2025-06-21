@@ -16,13 +16,24 @@ import img11 from "../../assets/images/img11.jpg";
 import img12 from "../../assets/images/img12.jpg";
 import img13 from "../../assets/images/img13.jpg";
 import img14 from "../../assets/images/img14.jpg";
+import img15 from "../../assets/images/img15.jpg";
+import img16 from "../../assets/images/img16.jpg";
+import img17 from "../../assets/images/img17.jpg";
+import img18 from "../../assets/images/img18.jpg";
+import img19 from "../../assets/images/img19.jpg";
+import img20 from "../../assets/images/img20.jpg";
+import img21 from "../../assets/images/img21.jpg";
+import img22 from "../../assets/images/img22.jpg";
+import img23 from "../../assets/images/img23.jpg";
+import img24 from "../../assets/images/img24.jpg";
+import img25 from "../../assets/images/img25.jpg";
 
 
 import vid from "../../assets/videos/vid.mp4";
 
 const categoryImages = [img2, img7, img9, img10];
 const featuredImages = [img6, img7, img1, img2];
-const blockImages = [img3, img4, img5, img6, img7, img1];
+// const blockImages = [img3, img4, img5, img6, img7, img1];
 
 const metrics = [
   { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
@@ -159,7 +170,6 @@ const LandingPage = () => {
   </div>
 </motion.section>
 
-
 {/* BUSINESS SECTION */}
 <motion.section
   initial={{ opacity: 0 }}
@@ -173,7 +183,7 @@ const LandingPage = () => {
   </div>
   <div className="space-y-4">
     <div className="flex gap-4 items-start">
-      <img src={blockImages[0]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img15} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           How African Entrepreneurs Are Shaping Global Markets
@@ -182,7 +192,7 @@ const LandingPage = () => {
       </div>
     </div>
     <div className="flex gap-4 items-start">
-      <img src={blockImages[1]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img16} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           Funding Challenges and Success Stories in Nigeria’s SME Sector
@@ -191,7 +201,7 @@ const LandingPage = () => {
       </div>
     </div>
     <div className="flex gap-4 items-start">
-      <img src={blockImages[2]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img17} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           Youth-Owned Startups That Are Disrupting the Status Quo
@@ -215,12 +225,12 @@ const LandingPage = () => {
   </div>
   <div className="grid grid-cols-2 gap-4">
     <div className="bg-white shadow p-2 rounded">
-      <img src={blockImages[3]} alt="post" className="w-full h-40 object-cover rounded" />
+      <img src={img18} alt="post" className="w-full h-40 object-cover rounded" />
       <p className="text-xs text-red-500 mt-2">Technology / January 01, 2025</p>
       <h4 className="font-semibold mt-1">The Rise of AI Startups in Africa</h4>
     </div>
     <div className="bg-white shadow p-2 rounded">
-      <img src={blockImages[4]} alt="post" className="w-full h-40 object-cover rounded" />
+      <img src={img19} alt="post" className="w-full h-40 object-cover rounded" />
       <p className="text-xs text-red-500 mt-2">Technology / January 02, 2025</p>
       <h4 className="font-semibold mt-1">Why Nigeria Is Becoming a Hub for Tech Innovation</h4>
     </div>
@@ -240,7 +250,7 @@ const LandingPage = () => {
   </div>
   <div className="space-y-4">
     <div className="flex gap-4 items-start">
-      <img src={blockImages[5]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img21} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           How Afrobeat Conquered the Global Charts
@@ -249,7 +259,7 @@ const LandingPage = () => {
       </div>
     </div>
     <div className="flex gap-4 items-start">
-      <img src={blockImages[0]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img23} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           Nollywood: The Untold Stories Behind the Scenes
@@ -258,7 +268,7 @@ const LandingPage = () => {
       </div>
     </div>
     <div className="flex gap-4 items-start">
-      <img src={blockImages[1]} alt="post" className="w-20 h-20 object-cover rounded" />
+      <img src={img20} alt="post" className="w-20 h-20 object-cover rounded" />
       <div>
         <h4 className="font-semibold text-sm md:text-base hover:underline cursor-pointer">
           The Influence of Gen Z Creators on African Media
@@ -282,17 +292,18 @@ const LandingPage = () => {
   </div>
   <div className="grid grid-cols-2 gap-4">
     <div className="bg-white shadow p-2 rounded">
-      <img src={blockImages[2]} alt="post" className="w-full h-40 object-cover rounded" />
+      <img src={img25} alt="post" className="w-full h-40 object-cover rounded" />
       <p className="text-xs text-red-500 mt-2">Sports / March 10, 2025</p>
       <h4 className="font-semibold mt-1">How African Athletes Are Redefining Global Sports</h4>
     </div>
     <div className="bg-white shadow p-2 rounded">
-      <img src={blockImages[3]} alt="post" className="w-full h-40 object-cover rounded" />
+      <img src={img24} alt="post" className="w-full h-40 object-cover rounded" />
       <p className="text-xs text-red-500 mt-2">Sports / March 11, 2025</p>
       <h4 className="font-semibold mt-1">The Rise of Nigerian Football in the European Leagues</h4>
     </div>
   </div>
 </motion.section>
+
 
 
 
