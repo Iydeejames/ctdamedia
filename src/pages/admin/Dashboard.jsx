@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { FaPodcast, FaNewspaper, FaVideo, FaBars } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { FiX } from "react-icons/fi";
 
 const sections = ["Featured", "Business", "Technology", "Entertainment", "Sports"];
 
@@ -15,10 +18,10 @@ const Dashboard = () => {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState({ title: "", category: "", date: "", img: null, content: "" });
   const [editingId, setEditingId] = useState(null);
-
   const [latestEpisodes, setLatestEpisodes] = useState([]);
   const [newEpisode, setNewEpisode] = useState({ title: "", category: "", date: "", img: null });
   const [editEpisodeId, setEditEpisodeId] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     setItems(dummyData[selectedSection] || []);
@@ -91,46 +94,15 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen  p-4 md:p-6 space-y-10 text-[14px] md:text-[16px]">
-      {/* 🎧 LATEST EPISODES SECTION */}
-      <div className="bg-green-100 text-white rounded-2xl p-4 md:p-6 shadow-xl border-l-4 border-green-500">
-        <div className="flex justify-between items-center mb-4 md:mb-6">
-          <h2 className="text-xl md:text-3xl font-extrabold text-green-400">🎧 Latest Episodes</h2>
+    <div className="flex min-h-screen bg-gray-100 text-sm md:text-base overflow-x-hidden">
+      {/* Sidebar */}
+      <div className={`fixed md:static top-0 left-0 w-64 bg-white shadow-lg h-full z-20 transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 md:translate-x-0`}>
+        <div className="flex items-center justify-between px-4 py-3 border-b">
+          <h1 className="text-xl font-bold text-green-600 flex items-center gap-2"><MdDashboard /> CTDA Admin</h1>
+          <FiX onClick={() => setSidebarOpen(false)} className="md:hidden text-xl cursor-pointer" />
         </div>
-
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-          <input value={newEpisode.title} onChange={(e) => handleChange(e, "title", true)} placeholder="Episode Title" className="p-2 md:p-3 rounded bg-black text-white border border-green-600 placeholder-gray-400" />
-          <input value={newEpisode.category} onChange={(e) => handleChange(e, "category", true)} placeholder="Category" className="p-2 md:p-3 rounded bg-black text-white border border-green-600 placeholder-gray-400" />
-          <input type="date" value={newEpisode.date} onChange={(e) => handleChange(e, "date", true)} className="p-2 md:p-3 rounded bg-black text-white border border-green-600" />
-          <input type="file" accept="image/*" onChange={(e) => handleChange(e, "img", true)} className="p-2 md:p-3 rounded bg-black text-white file:bg-green-600 file:border-none file:px-3 file:py-2" />
-        </div>
-        <button onClick={handleAddOrUpdateEpisode} className="bg-green-600 hover:bg-green-700 px-4 md:px-6 py-2 text-white rounded font-semibold">
-          {editEpisodeId ? "Update Episode" : "Add Episode"}
-        </button>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          {latestEpisodes.map((item) => (
-            <div key={item.id} className="relative group">
-              <img src={item.img} alt={item.title} className="w-full h-36 md:h-48 object-cover rounded" />
-              <div className="absolute inset-0 bg-black bg-opacity-50 p-3 md:p-4 flex flex-col justify-end rounded transition group-hover:bg-opacity-80">
-                <p className="text-xs md:text-sm text-green-300">{item.category} / {item.date}</p>
-                <h3 className="text-sm md:text-lg font-semibold leading-tight">{item.title}</h3>
-              </div>
-              <div className="absolute top-2 right-2 flex gap-1">
-                <button onClick={() => handleEditEpisode(item)} className="bg-white text-black px-2 py-1 text-xs rounded hover:bg-gray-200">Edit</button>
-                <button onClick={() => handleDeleteEpisode(item.id)} className="bg-red-600 text-white px-2 py-1 text-xs rounded hover:bg-red-700">Delete</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ✨ MAIN DASHBOARD SECTIONS */}
-      <div>
-        <h1 className="text-2xl md:text-4xl font-extrabold mb-4 md:mb-6 text-black">🛠 Admin Dashboard</h1>
-
-        <div className="flex flex-wrap gap-3 md:gap-4 mb-6 border-b border-gray-200">
-          {sections.map((sec) => (
+        <nav className="p-4 space-y-2">
+          {sections.map(sec => (
             <button
               key={sec}
               onClick={() => {
@@ -138,48 +110,99 @@ const Dashboard = () => {
                 setEditingId(null);
                 setNewItem({ title: "", category: "", date: "", img: null, content: "" });
               }}
-              className={`relative pb-2 text-sm md:text-lg font-semibold transition duration-300 ${sec === selectedSection ? "text-green-600 border-b-4 border-green-500" : "text-gray-500 hover:text-black"}`}
+              className={`block w-full text-left px-3 py-2 rounded-lg font-medium ${sec === selectedSection ? "bg-green-100 text-green-700" : "text-gray-600 hover:bg-gray-100"}`}
             >
               {sec}
             </button>
           ))}
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-4 md:p-6 w-full">
+        {/* Mobile Navbar */}
+        <div className="md:hidden mb-4 flex justify-between items-center">
+          <button onClick={() => setSidebarOpen(true)} className="text-green-600 text-2xl"><FaBars /></button>
+          <h1 className="text-xl font-bold">Dashboard</h1>
         </div>
 
-        <div className="bg-green-200 bg-opacity-80 backdrop-blur-md rounded-2xl shadow-xl p-4 md:p-6 mb-8 border-l-4 border-green-500">
-          <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-black">{editingId ? "Edit" : "Add New"} {selectedSection}</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            <input value={newItem.title} onChange={(e) => handleChange(e, "title")} placeholder="Title" className="px-3 py-2 border rounded-lg shadow-sm focus:ring-2 ring-green-500" />
-            <input value={newItem.category} onChange={(e) => handleChange(e, "category")} placeholder="Category" className="px-3 py-2 border rounded-lg shadow-sm focus:ring-2 ring-green-500" />
-            <input type="date" value={newItem.date} onChange={(e) => handleChange(e, "date")} className="px-3 py-2 border rounded-lg shadow-sm focus:ring-2 ring-green-500" />
-            <input type="file" accept="image/*" onChange={(e) => handleChange(e, "img")} className="px-3 py-2 border rounded-lg shadow-sm file:bg-green-500 file:text-white file:rounded file:border-none file:px-4 file:py-2" />
+        {/* Summary Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-white rounded-xl p-4 shadow">
+            <p className="text-gray-500">Total Articles</p>
+            <h2 className="text-xl font-bold text-green-600">{dummyData.Featured.length + dummyData.Business.length}</h2>
           </div>
-          <textarea value={newItem.content} onChange={(e) => handleChange(e, "content")} placeholder="Full Write-up" className="w-full mt-3 md:mt-4 p-3 h-32 md:h-36 border rounded-lg shadow-sm focus:ring-2 ring-green-500" />
-          <button onClick={handleAddOrUpdate} className="mt-4 md:mt-5 bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 md:px-6 md:py-3 rounded-lg transition">
-            {editingId ? "Update" : "Add"}
-          </button>
+          <div className="bg-white rounded-xl p-4 shadow">
+            <p className="text-gray-500">Latest Episodes</p>
+            <h2 className="text-xl font-bold text-green-600">{latestEpisodes.length}</h2>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow">
+            <p className="text-gray-500">Videos</p>
+            <h2 className="text-xl font-bold text-green-600">Coming Soon</h2>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow">
+            <p className="text-gray-500">Visitors</p>
+            <h2 className="text-xl font-bold text-green-600">Live</h2>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {items.length === 0 ? (
-            <p className="text-gray-500 text-sm md:text-lg col-span-full">No items in this section yet.</p>
-          ) : (
-            items.map((item) => (
-              <div key={item.id} className="rounded-xl shadow-lg overflow-hidden bg-white border border-gray-100 transition hover:shadow-xl">
-                {item.img && <img src={item.img} alt="preview" className="w-full h-32 md:h-40 object-cover" />}
-                <div className="p-3 md:p-4 flex flex-col justify-between h-full">
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold text-black mb-1">{item.title}</h3>
-                    <p className="text-xs md:text-sm text-gray-600 mb-2">{item.category} • {item.date}</p>
-                    <p className="text-sm text-gray-700 line-clamp-3">{item.content}</p>
-                  </div>
-                  <div className="mt-3 flex gap-2">
-                    <button onClick={() => handleEdit(item)} className="px-3 py-1 md:px-4 md:py-2 bg-black text-white rounded hover:bg-gray-800 text-xs md:text-sm">Edit</button>
-                    <button onClick={() => handleDelete(item.id)} className="px-3 py-1 md:px-4 md:py-2 bg-red-600 text-white rounded hover:bg-red-700 text-xs md:text-sm">Delete</button>
+        {/* Latest Episodes Section */}
+        <div className="mb-10">
+          <h2 className="text-xl md:text-2xl font-bold text-green-600 mb-4">🎧 Latest Episodes</h2>
+          <div className="grid md:grid-cols-4 gap-4 mb-4">
+            <input value={newEpisode.title} onChange={(e) => handleChange(e, "title", true)} placeholder="Title" className="p-2 border rounded" />
+            <input value={newEpisode.category} onChange={(e) => handleChange(e, "category", true)} placeholder="Category" className="p-2 border rounded" />
+            <input type="date" value={newEpisode.date} onChange={(e) => handleChange(e, "date", true)} className="p-2 border rounded" />
+            <input type="file" onChange={(e) => handleChange(e, "img", true)} className="p-2 border rounded" />
+          </div>
+          <button onClick={handleAddOrUpdateEpisode} className="bg-green-600 text-white px-4 py-2 rounded">
+            {editEpisodeId ? "Update" : "Add"} Episode
+          </button>
+          <div className="grid md:grid-cols-4 gap-4 mt-4">
+            {latestEpisodes.map((ep) => (
+              <div key={ep.id} className="bg-white shadow rounded overflow-hidden">
+                <img src={ep.img} alt="" className="h-32 w-full object-cover" />
+                <div className="p-3">
+                  <p className="text-sm text-gray-500">{ep.category} - {ep.date}</p>
+                  <h3 className="font-semibold text-gray-800">{ep.title}</h3>
+                  <div className="flex gap-2 mt-2">
+                    <button onClick={() => handleEditEpisode(ep)} className="text-xs bg-black text-white px-2 py-1 rounded">Edit</button>
+                    <button onClick={() => handleDeleteEpisode(ep.id)} className="text-xs bg-red-600 text-white px-2 py-1 rounded">Delete</button>
                   </div>
                 </div>
               </div>
-            ))
-          )}
+            ))}
+          </div>
+        </div>
+
+        {/* Section Content Manager */}
+        <h2 className="text-xl md:text-2xl font-bold text-green-600 mb-4">📝 Manage {selectedSection}</h2>
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <input value={newItem.title} onChange={(e) => handleChange(e, "title")} placeholder="Title" className="p-2 border rounded" />
+          <input value={newItem.category} onChange={(e) => handleChange(e, "category")} placeholder="Category" className="p-2 border rounded" />
+          <input type="date" value={newItem.date} onChange={(e) => handleChange(e, "date")} className="p-2 border rounded" />
+          <input type="file" onChange={(e) => handleChange(e, "img")} className="p-2 border rounded" />
+        </div>
+        <textarea value={newItem.content} onChange={(e) => handleChange(e, "content")} placeholder="Content" className="w-full p-3 h-24 border rounded mb-2" />
+        <button onClick={handleAddOrUpdate} className="bg-green-600 text-white px-4 py-2 rounded mb-6">
+          {editingId ? "Update" : "Add"} Content
+        </button>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          {items.map(item => (
+            <div key={item.id} className="bg-white rounded shadow overflow-hidden">
+              {item.img && <img src={item.img} className="h-32 w-full object-cover" />}
+              <div className="p-3">
+                <h3 className="font-bold text-gray-800">{item.title}</h3>
+                <p className="text-sm text-gray-500">{item.category} • {item.date}</p>
+                <p className="text-sm mt-1 line-clamp-3">{item.content}</p>
+                <div className="flex gap-2 mt-2">
+                  <button onClick={() => handleEdit(item)} className="text-xs bg-black text-white px-2 py-1 rounded">Edit</button>
+                  <button onClick={() => handleDelete(item.id)} className="text-xs bg-red-600 text-white px-2 py-1 rounded">Delete</button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
