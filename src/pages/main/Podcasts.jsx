@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
-// ✅ Your hardcoded images
+// hardcoded images
 import img1 from "../../assets/images/podcast/img1.jpg";
 import img2 from "../../assets/images/podcast/img2.jpg";
 import img3 from "../../assets/images/podcast/img3.jpg";
@@ -220,7 +220,7 @@ const Podcasts = () => {
   useEffect(() => {
     const fetchPodcasts = async () => {
       try {
-        const res = await fetch("https://your-api.com/podcasts"); // Replace with your actual API
+        const res = await fetch("https://api.com/podcasts"); // Replace with actual API later
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
           setPodcastGroups(data);
@@ -242,7 +242,7 @@ const Podcasts = () => {
       ref.scrollBy({ left: direction === "left" ? -300 : 300, behavior: "smooth" });
     }
   };
-  
+
   useEffect(() => {
     if (modalItem) {
       document.body.style.overflow = "hidden";
