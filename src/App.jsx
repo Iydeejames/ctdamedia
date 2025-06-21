@@ -59,13 +59,14 @@ function App() {
         <Route path="/admin/login" element={<Login />} />
 
         {/* Admin Panel Layout */}
-        <Route element={<AdminLayout />}>
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/posts" element={<ManagePosts />} />
-          <Route path="/admin/media" element={<MediaLibrary />} />
-          <Route path="/admin/comments" element={<Comments />} />
-          <Route path="/admin/settings" element={<Settings />} />
-        </Route>
+        <Route path="/admin" element={<AdminLayout />}>
+  <Route path="dashboard" element={<Dashboard />} />
+  <Route path="posts" element={<ManagePosts />} />
+  <Route path="media" element={<MediaLibrary />} />
+  <Route path="comments" element={<Comments />} />
+  <Route path="settings" element={<Settings />} />
+</Route>
+
       </Routes>
     </Router>
   );
