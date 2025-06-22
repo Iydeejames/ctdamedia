@@ -126,7 +126,16 @@ const LandingPage = () => {
   const blackExperienceRef = useRef(null);
 
   const [playingIndex, setPlayingIndex] = useState(null);
- 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  
+  const allItems = [
+    ...featuredCards,
+    ...businessItems,
+    ...techItems,
+    ...entertainmentItems,
+    ...sportsItems,
+  ];
     const [currentIndex, setCurrentIndex] = useState(0);
   
     // Auto-slide every 5 seconds
@@ -137,6 +146,18 @@ const LandingPage = () => {
       return () => clearInterval(interval);
     }, []);
   
+
+    useEffect(() => {
+      if (searchTerm.trim() === "") {
+        setSearchResults([]);
+        return;
+      }
+      const results = allItems.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchResults(results);
+    }, [searchTerm]);
+    
 
   const SectionCard = ({ title, data }) => (
     <section className="container mx-auto px-4 mt-10">
@@ -215,7 +236,43 @@ const LandingPage = () => {
   }, [scrollTime]);
 
   return (
+
     <div className="text-gray-800 font-sans relative">
+      <div className="container mx-auto px-4 mt-6">
+  <div className="relative w-full max-w-xl mx-auto">
+  <input
+  type="text"
+  placeholder="🔍 Search articles..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="w-full px-3 py-1.5 border border-gray-300 rounded-full shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
+/>
+
+    {searchResults.length > 0 && (
+      <ul className="absolute z-40 bg-white border border-gray-300 w-full mt-1 rounded shadow max-h-60 overflow-y-auto">
+        {searchResults.map((item, index) => (
+          <li
+            key={index}
+            className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+            onClick={() => {
+              const section = document.getElementById(
+                item.title.replace(/\s+/g, "-").toLowerCase()
+              );
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+              setSearchTerm("");
+              setSearchResults([]);
+            }}
+          >
+            {item.title}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+
       {/* AnimatePresence handles animation mount/unmount */}
       <AnimatePresence>
         {showPopup && (
@@ -232,6 +289,7 @@ const LandingPage = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4 }}
             >
+              
               <button
                 onClick={() => setShowPopup(false)}
                 className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
@@ -273,6 +331,7 @@ const LandingPage = () => {
           }`}
         >
           <img
+           loading="lazy"
             src={slide.image}
             alt={`Slide ${index}`}
             className="w-full h-full object-cover"
@@ -335,6 +394,7 @@ const LandingPage = () => {
 
 {/* FEATURED SECTION */}
 <div className="text-gray-800 font-sans">
+  
       <SectionCard title="Featured" data={featuredCards} />
       <SectionCard title="Business" data={businessItems} />
       <SectionCard title="Technology" data={techItems} />
