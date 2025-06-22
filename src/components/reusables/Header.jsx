@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {  FaBars, FaTimes } from 'react-icons/fa';
+import logo from "../../assets/images/logo.jpg";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -7,10 +8,13 @@ const Header = () => {
   return (
     <header className="bg-green-700 text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a href="/" className="text-3xl font-extrabold tracking-wide">
-          CTDA<span className="text-white font-light">Media</span>
-        </a>
+      <a href="/" className="flex items-center gap-2">
+  <img
+    src={logo}
+    alt="CTDA Media Logo"
+    className="h-14 w-14 rounded-full object-cover"
+  />
+</a>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 font-medium text-white">
