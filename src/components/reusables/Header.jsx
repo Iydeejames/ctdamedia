@@ -44,7 +44,7 @@ const Header = () => {
 
       {/* Mobile Slide-in Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 bg-green-800 text-white transform transition-transform duration-300 ease-in-out z-40 lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-3/4 bg-green-700 text-white transform transition-transform duration-300 ease-in-out z-40 lg:hidden ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
