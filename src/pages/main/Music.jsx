@@ -22,9 +22,9 @@ const placeholderMusicNews = [
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
   },
   {
-    title: "Davido launches record label imprint",
+    title: "Tiwa Savage launches record label imprint",
     description: "30BG Empire aims to sign emerging acts...",
-    img: img6,
+    img: img4,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
   },
   {
@@ -34,16 +34,10 @@ const placeholderMusicNews = [
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
   },
   {
-    title: "Davido launches record label imprint",
-    description: "30BG Empire aims to sign emerging acts...",
-    img: img7,
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-  },
-  {
     title: "Burna Boy makes history at Coachella",
     description: "The Grammy winner delivered a genre-bending performance...",
     img: img5,
-    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
   },
 ];
 
@@ -70,13 +64,9 @@ const Music = () => {
   useEffect(() => {
     const fetchMusicNews = async () => {
       try {
-        const response = await fetch("https://your-backend.com/music-news");
+        const response = await fetch("https://backend.com/music-news");
         const data = await response.json();
-        if (Array.isArray(data) && data.length > 0) {
-          setMusicNews(data);
-        } else {
-          setMusicNews(placeholderMusicNews);
-        }
+        setMusicNews(Array.isArray(data) && data.length > 0 ? data : placeholderMusicNews);
       } catch (error) {
         console.error("Fetch failed, using placeholder data", error);
         setMusicNews(placeholderMusicNews);
@@ -104,76 +94,66 @@ const Music = () => {
   };
 
   return (
-    <div className="px-4 py-10 max-w-7xl mx-auto bg-white">
-      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-2 text-gray-800">
-        CTDA Music & Entertainment News
-      </h1>
-      <h5 className="text-base sm:text-lg text-center mb-12 text-gray-800">
-        Dive into music reviews, artist spotlights, and genre explorations with a focus on diverse sounds and the influence of Black culture in the music world.
-      </h5>
+    <div className=" text-black px-4 py-12">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3"> CTDA Music & Culture</h1>
+        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+          Experience the pulse of Black music — from global hits to underground gems.
+        </p>
 
-      {/* News Section - Timeline Style */}
-      <section className="relative border-l-4 border-green-500 pl-6">
-        {musicNews.map((news, index) => (
-          <div key={index} className="mb-12 relative">
-            <div className="absolute w-4 h-4 bg-green-600 rounded-full left-[-35px] top-3"></div>
-            <div className="md:flex md:items-start">
-              <div className="relative bg-white">
-                <img
-                  src={news.img}
-                  alt="music news"
-                  className="w-full md:w-56 h-40 object-contain rounded-xl mb-4 md:mb-0 md:mr-6"
-                />
-                <button
-                  onClick={() => togglePlay(index)}
-                  className="absolute inset-0 flex items-center justify-center   rounded-xl"
-                >
-                  {playingIndex === index ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-12 sm:h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 sm:w-12 sm:h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  )}
-                </button>
-                <audio preload="auto" ref={(el) => (audioRefs.current[index] = el)}>
-                  <source src={news.audioUrl} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-              <div>
-                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-2">
-                  {news.title}
-                </h2>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                  {news.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </section>
+        {/* Music News Section */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+          {musicNews.map((item, index) => (
+            <div key={index} className="bg-gray-200  shadow-md overflow-hidden relative">
+<img
+  src={item.img}
+  alt={item.title}
+  className="w-full h-72 object-contain bg-white rounded"
+/>
 
-      {/* Video Section */}
-      <section className="mt-20">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-10 text-center text-gray-800">
-          Visual Recordings
-        </h2>
-        <div className="grid md:grid-cols-2 gap-10">
-          {featuredVideos.map((vidItem, index) => (
-            <div key={index} className="bg-green-700 overflow-hidden shadow-lg">
-              <video src={vidItem.video} controls className="w-full h-64 object-cover bg-black"></video>
-              <div className="p-4 text-white">
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1">{vidItem.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-300">{vidItem.subtitle}</p>
-                <p className="text-[10px] sm:text-xs text-gray-400 mt-1">Released: {vidItem.release}</p>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
+                <p className="text-sm text-gray-400 mb-4">{item.description}</p>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => togglePlay(index)}
+                    className="bg-green-500 hover:bg-green-600 transition text-white text-sm px-4 py-1 rounded-full"
+                  >
+                    {playingIndex === index ? "Pause" : "Play"}
+                  </button>
+                  <audio ref={(el) => (audioRefs.current[index] = el)}>
+                    <source src={item.audioUrl} type="audio/mpeg" />
+                  </audio>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </section>
+
+        {/* Featured Videos Carousel */}
+        <div className="mb-4">
+          <h2 className="text-2xl font-bold mb-6 text-center">Visual Lounge</h2>
+          <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-hide">
+            {featuredVideos.map((vidItem, index) => (
+              <div
+                key={index}
+                className="min-w-[300px] bg-[#1a1a1a] rounded-xl shadow-lg overflow-hidden flex-shrink-0"
+              >
+                <video
+                  src={vidItem.video}
+                  controls
+                  className="w-full h-52 object-cover bg-black"
+                />
+                <div className="p-4">
+                  <h4 className="text-white text-lg font-semibold">{vidItem.title}</h4>
+                  <p className="text-gray-400 text-sm">{vidItem.subtitle}</p>
+                  <p className="text-gray-600 text-xs mt-1">Released: {vidItem.release}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
