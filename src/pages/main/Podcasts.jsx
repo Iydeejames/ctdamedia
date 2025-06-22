@@ -308,7 +308,7 @@ const Podcasts = () => {
           <div className="relative">
             <button
               onClick={() => scroll(i, "left")}
-              className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-600 p-1 rounded-full shadow-md hover:bg-green-400 transition"
+              className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
             >
               <ChevronLeft size={18} />
             </button>
@@ -321,7 +321,7 @@ const Podcasts = () => {
                 <div
                   key={j}
                   onClick={() => setModalItem(item)}
-                  className="min-w-[220px] max-w-[220px] shrink-0 cursor-pointer hover:underline"
+                  className="min-w-[220px] max-w-[220px] shrink-0 cursor-pointer "
                 >
                   <img src={item.image} alt={item.title} className="w-full h-36 object-cover mb-2" />
                   <h3 className="text-md  font-semibold">{item.title}</h3>
@@ -333,7 +333,7 @@ const Podcasts = () => {
 
             <button
               onClick={() => scroll(i, "right")}
-              className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-600 p-1 rounded-full shadow-md hover:bg-green-400 transition"
+              className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
             >
               <ChevronRight size={18} />
             </button>
