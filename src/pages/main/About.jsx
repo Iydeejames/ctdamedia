@@ -33,15 +33,15 @@ const About = () => {
     <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800">
       {/* Hero Intro */}
       <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">CTDA Media</h1>
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">CTDA Media</h1>
+        <p className="text-md md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
           More than a podcast — we're a dynamic media company blending African heritage and global
           perspectives. From music and movies to deep conversations, we celebrate the Black experience.
         </p>
       </div>
 
       {/* Mission Cards */}
-      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-6 py-4 grid md:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-t-4 border-green-600">
           <h3 className="text-xl font-semibold mb-3 text-red-600">Who We Are</h3>
           <p className="text-gray-700 text-sm leading-relaxed">
