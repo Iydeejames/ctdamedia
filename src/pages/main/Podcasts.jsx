@@ -299,11 +299,11 @@ const Podcasts = () => {
 
   return (
     <div className="bg-white text-black min-h-screen px-6 py-12 space-y-20 relative">
-      <h3 className="text-2xl font-bold text-center">🎙️ Welcome To Our Podcast Library</h3>
+      <h3 className="text-2xl font-bold text-center"> Welcome To Our Podcast Library</h3>
 
       {podcastGroups.map((group, i) => (
         <section key={i} className="space-y-4 relative">
-          <h2 className="text-2xl font-bold border-b pb-2 border-gray-300">{group.category}</h2>
+          <h2 className="text-2xl font-bold border-b pb-2 text-red-700  border-gray-300">{group.category}</h2>
 
           <div className="relative">
             <button
@@ -323,8 +323,8 @@ const Podcasts = () => {
                   onClick={() => setModalItem(item)}
                   className="min-w-[220px] max-w-[220px] shrink-0 cursor-pointer hover:underline"
                 >
-                  <img src={item.image} alt={item.title} className="rounded-xl w-full h-36 object-cover mb-2" />
-                  <h3 className="text-md font-semibold">{item.title}</h3>
+                  <img src={item.image} alt={item.title} className="w-full h-36 object-cover mb-2" />
+                  <h3 className="text-md  font-semibold">{item.title}</h3>
                   <p className="text-sm text-gray-700">{item.description}</p>
                   <span className="text-blue-600 text-sm mt-1 inline-block">Listen →</span>
                 </div>
