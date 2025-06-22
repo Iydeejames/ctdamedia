@@ -97,9 +97,44 @@ const LandingPage = () => {
   const [scrollTime, setScrollTime] = useState(0);
   const blackExperienceRef = useRef(null);
 
-  const [modalData, setModalData] = useState(null);
-  const handleOpenModal = (item) => setModalData(item);
-  const handleCloseModal = () => setModalData(null);
+  const SectionCard = ({ title, data }) => (
+    <section className="container mx-auto px-4 mt-10">
+      <h2 className="text-2xl font-bold mb-4">{title}</h2>
+      <div className={
+        title === "Technology" || title === "Sports"
+          ? "grid grid-cols-2 gap-4"
+          : title === "Featured"
+          ? "grid grid-cols-2 md:grid-cols-4 gap-4"
+          : "space-y-4"
+      }>
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className={
+              title === "Technology" || title === "Sports" || title === "Featured"
+                ? "bg-white shadow p-2 rounded"
+                : "flex gap-4 items-start"
+            }
+          >
+            <img
+              src={item.img}
+              alt={item.title}
+              className={
+                title === "Technology" || title === "Sports" || title === "Featured"
+                  ? "w-full h-40 object-cover rounded"
+                  : "w-20 h-20 object-cover rounded"
+              }
+            />
+            <div className={title === "Technology" || title === "Sports" || title === "Featured" ? "mt-2" : ""}>
+              <p className="text-xs text-red-500 mt-1">{item.date}</p>
+              <h4 className="font-semibold mt-1 text-sm md:text-base">{item.title}</h4>
+              <p className="text-sm text-gray-600 mt-2">{item.content}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
   
   // Detect time spent scrolling
   useEffect(() => {
@@ -245,68 +280,13 @@ const LandingPage = () => {
       </motion.section>
 
 {/* FEATURED SECTION */}
-<div className="relative">
-      <AnimatePresence>
-        {modalData && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div className="bg-white w-11/12 max-w-3xl p-6 rounded-lg relative overflow-y-auto max-h-[90vh]">
-              <button
-                onClick={handleCloseModal}
-                className="absolute top-2 right-2 text-black text-2xl font-bold"
-              >
-                &times;
-              </button>
-              <img src={modalData.img} alt={modalData.title} className="w-full h-64 object-cover rounded mb-4" />
-              <h2 className="text-xl font-bold mb-2">{modalData.title}</h2>
-              <p className="text-sm text-gray-500 mb-2">{modalData.date}</p>
-              <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-wrap">{modalData.content}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <section className="container mx-auto px-4 mt-10">
-        <h2 className="text-2xl font-bold mb-4">Latest Episodes</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {featuredCards.map((item, index) => (
-            <div key={index} className="relative cursor-pointer" onClick={() => handleOpenModal(item)}>
-              <img src={item.img} alt={item.title} className="w-full h-48 object-cover rounded" />
-              <div className="absolute inset-0 bg-black bg-opacity-40 text-white p-4 flex flex-col justify-end">
-                <p className="text-sm">{item.category} / {item.date}</p>
-                <h3 className="text-lg font-semibold leading-tight">{item.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {[{ title: "Business", data: businessItems }, { title: "Technology", data: techItems }, { title: "Entertainment Gists", data: entertainmentItems }, { title: "Sports", data: sportsItems }].map((section, i) => (
-        <section key={i} className="container mx-auto px-4 mt-10">
-          <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
-          <div className={section.title === "Technology" || section.title === "Sports" ? "grid grid-cols-2 gap-4" : "space-y-4"}>
-            {section.data.map((item, j) => (
-              <div
-                key={j}
-                className={section.title === "Technology" || section.title === "Sports" ? "bg-white shadow p-2 rounded cursor-pointer" : "flex gap-4 items-start cursor-pointer"}
-                onClick={() => handleOpenModal(item)}
-              >
-                <img src={item.img} alt={item.title} className={section.title === "Technology" || section.title === "Sports" ? "w-full h-40 object-cover rounded" : "w-20 h-20 object-cover rounded"} />
-                <div className={section.title === "Technology" || section.title === "Sports" ? "mt-2" : ""}>
-                  <p className="text-xs text-red-500 mt-1">{item.date}</p>
-                  <h4 className="font-semibold mt-1 text-sm md:text-base hover:underline cursor-pointer">{item.title}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+<div className="text-gray-800 font-sans">
+      <SectionCard title="Featured" data={featuredCards} />
+      <SectionCard title="Business" data={businessItems} />
+      <SectionCard title="Technology" data={techItems} />
+      <SectionCard title="Entertainment Gists" data={entertainmentItems} />
+      <SectionCard title="Sports" data={sportsItems} />
     </div>
-
 
 
 
