@@ -117,7 +117,7 @@ const Music = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => togglePlay(index)}
-                    className="bg-green-500 hover:bg-green-600 transition text-white text-sm px-4 py-1 rounded-full"
+                    className="bg-red-700 hover:bg-red-500 transition text-white text-sm px-4 py-1 rounded-full"
                   >
                     {playingIndex === index ? "Pause" : "Play"}
                   </button>
