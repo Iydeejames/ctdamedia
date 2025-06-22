@@ -26,19 +26,19 @@ const Header = () => {
             <a
               key={item}
               href={`/${item === 'Home' ? '' : item.toLowerCase().replace(/\s+/g, '')}`}
-              className="hover:text-yellow-300 transition-colors duration-200"
+              className="hover:text-red-500 transition-colors duration-200"
             >
               {item}
             </a>
           ))}
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Toggle Button */}
         <button
           className="lg:hidden text-white text-2xl focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen(true)}
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          <FaBars />
         </button>
       </div>
 
@@ -48,13 +48,28 @@ const Header = () => {
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 flex flex-col justify-between h-full">
+        <div className="p-6 flex flex-col justify-between h-full relative">
+
+          {/* Close Icon */}
+          <button
+            className="absolute top-8 right-4 text-2xl text-white focus:outline-none"
+            onClick={() => setMenuOpen(false)}
+          >
+            <FaTimes />
+          </button>
+
+          {/* Dropdown Caption */}
+          <div className="text-center mt-2 mb-1">
+            <h2 className="text-2xl font-extrabold tracking-widest uppercase">CTDA Media</h2>
+          </div>
+
+          {/* Menu Links */}
           <div className="flex flex-col gap-5 font-medium text-sm uppercase tracking-wide">
             {['Home', 'About Us', 'Music', 'Podcasts', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`/${item === 'Home' ? '' : item.toLowerCase().replace(/\s+/g, '')}`}
-                className="hover:text-yellow-300 transition-colors duration-200"
+                className="hover:text-red-500 transition-colors duration-200"
                 onClick={() => setMenuOpen(false)}
               >
                 {item}
@@ -62,7 +77,7 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Enriched Bottom Section */}
+          {/* Extra Info Section */}
           <div className="mt-10 border-t border-white/30 pt-6 text-white text-sm leading-relaxed">
             <p className="font-semibold uppercase mb-2">Quick Info</p>
             <p className="text-white/90">
