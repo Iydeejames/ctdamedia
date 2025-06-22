@@ -163,7 +163,7 @@ const Music = () => {
         </h2>
         <div className="grid md:grid-cols-2 gap-10">
           {featuredVideos.map((vidItem, index) => (
-            <div key={index} className="bg-green-700 rounded-2xl overflow-hidden shadow-lg">
+            <div key={index} className="bg-green-700 overflow-hidden shadow-lg">
               <video src={vidItem.video} controls className="w-full h-64 object-cover bg-black"></video>
               <div className="p-4 text-white">
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1">{vidItem.title}</h3>

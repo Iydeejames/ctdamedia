@@ -28,6 +28,7 @@ import img24 from "../../assets/images/hero-page/img24.jpg";
 import img25 from "../../assets/images/hero-page/img25.jpg";
 
 import vid from "../../assets/videos/vid.mp4";
+import vid3 from "../../assets/videos/vid3.mp4";
 
 const categoryImages = [img2, img7, img9, img10];
 
@@ -112,7 +113,7 @@ const videoList = [
     description: "Behind the scenes with creators and thinkers",
   },
   {
-    src: vid,
+    src: vid3,
     title: "Creative Highlights",
     description: "This week's top artistic moments from CTDA",
   },
@@ -366,60 +367,59 @@ const LandingPage = () => {
 
      {/* VIDEO SECTION */}
      <motion.section
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="container mx-auto px-4 mt-16 mb-20"
-    >
-      <div className="rounded-2xl shadow-xl p-6 text-center bg-white ">
-        <h2 className="text-3xl font-bold mb-2 text-black ">
-          Visuals of the Week
-        </h2>
-        <p className="text-gray-600 dark:text-black text-sm mb-6 max-w-xl mx-auto">
-          Powerful moments captured this week. Explore the stories behind the lens.
-        </p>
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.7 }}
+  className="container mx-auto px-4 mt-16 mb-20"
+>
+  <div className=" shadow-xl p-6 text-center bg-white">
+    <h2 className="text-3xl font-bold mb-2 text-black">Visuals of the Week</h2>
+    <p className="text-gray-600 text-sm mb-6 max-w-xl mx-auto">
+      Powerful moments captured this week. Explore the stories behind the lens.
+    </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {videoList.map((video, index) => (
-            <div
-              key={index}
-              className="relative overflow-hidden shadow-lg bg-black"
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {videoList.map((video, index) => (
+        <div
+          key={index}
+          className="relative overflow-hidden shadow-lg bg-black "
+        >
+          <div
+            className="relative w-full cursor-pointer"
+            onClick={() => setPlayingIndex(index)}
+          >
+            <video
+              className="w-full h-[400px] object-fill rounded-xl"
+              muted
+              playsInline
+              controls={playingIndex === index}
+              autoPlay={playingIndex === index}
             >
-              <div
-                className="relative w-full cursor-pointer"
-                onClick={() => setPlayingIndex(index)}
-              >
-                <video
-                  className="w-full h-[360px] object-cover rounded-xl"
-                  muted
-                  preload="metadata"
-                  controls={playingIndex === index}
-                  autoPlay={playingIndex === index}
-                >
-                  <source src={video.src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <source src={video.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
-                {/* Play Icon Overlay (only when not playing) */}
-                {playingIndex !== index && (
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white text-black p-4 rounded-full shadow-xl">
-                      <FaPlay className="text-2xl" />
-                    </div>
-                  </div>
-                )}
+            {/* Play Icon Overlay (only when not playing) */}
+            {playingIndex !== index && (
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div className="bg-white text-black p-4 rounded-full shadow-xl">
+                  <FaPlay className="text-2xl" />
+                </div>
               </div>
+            )}
+          </div>
 
-              {/* Captions – always visible */}
-              <div className="p-4 text-left">
-                <h3 className="text-lg font-semibold text-white">{video.title}</h3>
-                <p className="text-sm text-gray-300">{video.description}</p>
-              </div>
-            </div>
-          ))}
+          {/* Captions – always visible */}
+          <div className="p-4 text-left">
+            <h3 className="text-lg font-semibold text-white">{video.title}</h3>
+            <p className="text-sm text-gray-300">{video.description}</p>
+          </div>
         </div>
-      </div>
-    </motion.section>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
 
 
 <section className="py-16 text-center">
