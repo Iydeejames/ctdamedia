@@ -59,9 +59,9 @@ const Header = () => {
           </button>
 
           {/* Dropdown Caption */}
-          <div className="text-center mt-2 mb-1">
-            <h2 className="text-2xl font-extrabold tracking-widest uppercase">CTDA Media</h2>
-          </div>
+          <span className="text-xl font-bold tracking-wide uppercase">
+            CTDA<span className="font-light text-white">Media</span>
+          </span>
 
           {/* Menu Links */}
           <div className="flex flex-col gap-5 font-medium text-sm uppercase tracking-wide">
