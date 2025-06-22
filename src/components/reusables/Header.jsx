@@ -21,7 +21,7 @@ const Header = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-6 font-medium uppercase tracking-wide">
+        <nav className="hidden lg:flex items-center space-x-6 font-semibold uppercase tracking-wide">
           {['Home', 'About', 'Music', 'Podcasts', 'Contact'].map((item) => (
             <a
               key={item}
@@ -81,15 +81,15 @@ const Header = () => {
           <div className="mt-10 border-t border-white/30 pt-6 text-white text-sm leading-relaxed">
             <p className="font-semibold uppercase mb-2">Quick Info</p>
             <p className="text-white/90">
-              CTDA Media is your trusted source for entertainment, culture, music, and podcasts. Stay updated with bold stories from the Black experience.
+            CTDA Media is your go-to source for authentic black culture, entertainment, news, and lifestyle content. Stay tuned for stories that move you.
             </p>
 
             <div className="mt-6">
               <p className="font-semibold uppercase mb-2">Visit Platforms</p>
               <ul className="space-y-1">
-                <li><a href="/music" className="hover:text-red-500">Music</a></li>
-                <li><a href="/podcasts" className="hover:text-red-500">Podcasts</a></li>
-                <li><a href="/about" className="hover:text-red-500">About CTDA</a></li>
+                <li><a href="/music" className="hover:text-red-500">Youtube</a></li>
+                <li><a href="/podcasts" className="hover:text-red-500">Spotify</a></li>
+                <li><a href="/about" className="hover:text-red-500">Instagram</a></li>
               </ul>
             </div>
           </div>

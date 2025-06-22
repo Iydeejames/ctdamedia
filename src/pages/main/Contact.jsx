@@ -15,7 +15,7 @@ import {
 
 const Contact = () => {
   return (
-    <div className="bg-green-100 min-h-screen py-16 px-4 sm:px-6 text-white">
+    <div className="bg-white min-h-screen py-16 px-4 sm:px-6 text-white">
       {/* Header */}
       <div className="max-w-5xl mx-auto text-center mb-16">
         <p className="text-base sm:text-lg text-green-700 max-w-2xl mx-auto">
