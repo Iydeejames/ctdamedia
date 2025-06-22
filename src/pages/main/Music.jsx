@@ -130,29 +130,7 @@ const Music = () => {
           ))}
         </div>
 
-        {/* Featured Videos Carousel */}
-        <div className="mb-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">Visual Lounge</h2>
-          <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-hide">
-            {featuredVideos.map((vidItem, index) => (
-              <div
-                key={index}
-                className="min-w-[300px] bg-[#1a1a1a] rounded-xl shadow-lg overflow-hidden flex-shrink-0"
-              >
-                <video
-                  src={vidItem.video}
-                  controls
-                  className="w-full h-52 object-cover bg-black"
-                />
-                <div className="p-4">
-                  <h4 className="text-white text-lg font-semibold">{vidItem.title}</h4>
-                  <p className="text-gray-400 text-sm">{vidItem.subtitle}</p>
-                  <p className="text-gray-600 text-xs mt-1">Released: {vidItem.release}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+       
       </div>
     </div>
   );
