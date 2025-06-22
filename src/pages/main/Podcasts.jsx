@@ -310,7 +310,7 @@ const Podcasts = () => {
               onClick={() => scroll(i, "left")}
               className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={12} />
             </button>
 
             <div
@@ -335,7 +335,7 @@ const Podcasts = () => {
               onClick={() => scroll(i, "right")}
               className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={12} />
             </button>
           </div>
         </section>
