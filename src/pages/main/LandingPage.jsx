@@ -31,6 +31,21 @@ import vid from "../../assets/videos/vid.mp4";
 
 const categoryImages = [img2, img7, img9, img10];
 
+const slides = [
+  {
+    image: img5,
+    caption: "WELCOME TO CTDAMedia",
+  },
+  {
+    image: img7,
+    caption: "EXPERIENCE TRUE BLACK MEDIA",
+  },
+  {
+    image: img4,
+    caption: "UNCOVER STORIES THAT MATTER",
+  },
+];
+
 const featuredCards = [
   {
     img: img11,
@@ -96,6 +111,18 @@ const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [scrollTime, setScrollTime] = useState(0);
   const blackExperienceRef = useRef(null);
+
+ 
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    // Auto-slide every 5 seconds
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }, []);
+  
 
   const SectionCard = ({ title, data }) => (
     <section className="container mx-auto px-4 mt-10">
@@ -223,15 +250,28 @@ const LandingPage = () => {
         transition={{ duration: 1 }}
         className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6"
       >
-        <div className="lg:w-3/4 relative h-[525px]">
-          <img src={img5} alt="hero" className="w-full h-full object-cover" />
+ <div className="lg:w-3/4 relative h-[525px] overflow-hidden  shadow-lg">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          <img
+            src={slide.image}
+            alt={`Slide ${index}`}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black bg-opacity-70"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
-              WELCOME TO CTDAmongBlacks
+              {slide.caption}
             </h1>
           </div>
         </div>
+      ))}
+    </div>
 
         <aside className="lg:w-1/4">
           <div className="bg-white p-4 shadow rounded">

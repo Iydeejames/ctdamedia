@@ -65,7 +65,7 @@ const Header = () => {
 
           {/* Menu Links */}
           <div className="flex flex-col gap-5 font-medium text-sm uppercase tracking-wide">
-            {['Home', 'About Us', 'Music', 'Podcasts', 'Contact'].map((item) => (
+            {['Home', 'About', 'Music', 'Podcasts', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`/${item === 'Home' ? '' : item.toLowerCase().replace(/\s+/g, '')}`}

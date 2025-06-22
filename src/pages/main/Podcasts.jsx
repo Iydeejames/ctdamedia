@@ -208,6 +208,46 @@ const fallbackData = [
       },
     ],
   },
+  {
+    category: "Interviews",
+    items: [
+      {
+        type: "link",
+        title: "Famous nigerian Artist on seat",
+        description: "Who truly owns the crown: Nigeria or Ghana?",
+        image: img18,
+        link: "https://spotify.com/jollof-wars",
+      },
+      {
+        type: "link",
+        title: "We discuss Fashion",
+        description: "The untold origin and impact of red gold.",
+        image: img18,
+        link: "#",
+      },
+      {
+        type: "link",
+        title: "Famous nigerian Artist on seat",
+        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
+        image: img18,
+        link: "#",
+      },
+      {
+        type: "link",
+        title: "Famous nigerian Artist on seat",
+        description: "Exploring the flavours of the roadside.",
+        image: img18,
+        link: "https://spotify.com/street-food",
+      },
+      {
+        type: "link",
+        title: "We discuss Fashion",
+        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
+        image: img18,
+        link: "#",
+      },
+    ],
+  },
 ];
 
 
