@@ -154,11 +154,18 @@ const Header = () => {
 
             <div className="mt-3">
               <p className="font-semibold uppercase mb-2">Visit Platforms</p>
-              <ul className="space-y-1">
-                <li><a href="/music" className="hover:text-red-500">Youtube</a></li>
-                <li><a href="/podcasts" className="hover:text-red-500">Spotify</a></li>
-                <li><a href="/about" className="hover:text-red-500">Instagram</a></li>
-              </ul>
+              <div className="flex gap-5 mt-2 text-xl">
+  <a href="/music" className="hover:text-red-500" title="YouTube">
+    <i className="fab fa-youtube"></i>
+  </a>
+  <a href="/podcasts" className="hover:text-red-500" title="Spotify">
+    <i className="fab fa-spotify"></i>
+  </a>
+  <a href="/about" className="hover:text-red-500" title="Instagram">
+    <i className="fab fa-instagram"></i>
+  </a>
+</div>
+
             </div>
           </div>
         </div>
