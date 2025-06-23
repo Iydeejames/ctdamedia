@@ -376,22 +376,14 @@ const LandingPage = () => {
         className="bg-gray-200 py-10 mt-12"
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Black Experience</h2>
+          <h2 className="text-3xl font-bold mb-4">Who We Are?</h2>
           <p className="max-w-3xl mx-auto text-gray-700 mb-6 leading-relaxed">
-            <strong>CTDAmongBlacks</strong> is more than just a podcast, it's a dynamic media company powered by a talented team, many of whom were born in Nigeria but have had the privilege of living both in and outside the country.
+            <strong>CTDA Media</strong> is where Black stories live boldly. We’re a culture-rooted media brand that celebrates the voices, dreams, and everyday brilliance of Black people across the world.
             <br /><br />
-            At CTDA, we focus on music, movies, culture, and everyday life, delivering it straight to your feed via our social media platforms. Whether through captivating captions or insightful discussions from our amazing host and co-host, we share perspectives while welcoming inspiring guests from all walks of life.
+            Through powerful storytelling, interviews, fashion, and moments that matter, we shine a light on who we are, how we live, and where we’re headed. This is a home of connection, community, and truth told our way.
             <br /><br />
-            Curious about the name? CTDA stands for "Connecting the Dots Among Blacks." Follow us to stay connected!
+            Welcome to CTDA! You’re in the right place.
           </p>
-          <a
-            href="https://ctdamongblacks.com/entertainment/who-do-you-think-deserves-the-headies-digital-artiste-of-the-year-round-3-in-the-arena/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full shadow hover:bg-red-700 transition"
-          >
-            <FaPlay /> Start Listening
-          </a>
         </div>
       </motion.section>
 
