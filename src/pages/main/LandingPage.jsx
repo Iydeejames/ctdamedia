@@ -33,49 +33,16 @@ import vid3 from "../../assets/videos/vid3.mp4";
 const categoryImages = [img2, img7, img9, img10];
 
 const slides = [
-  {
-    image: img5,
-    caption: "WELCOME TO CTDAMedia",
-  },
-  {
-    image: img7,
-    caption: "EXPERIENCE TRUE BLACK MEDIA",
-  },
-  {
-    image: img4,
-    caption: "UNCOVER STORIES THAT MATTER",
-  },
+  { image: img5, caption: "WELCOME TO CTDAMedia" },
+  { image: img7, caption: "EXPERIENCE TRUE BLACK MEDIA" },
+  { image: img4, caption: "UNCOVER STORIES THAT MATTER" },
 ];
 
-const featuredCards = [
-  {
-    img: img11,
-    category: "Entertainment",
-    date: "May 01, 2025",
-    title: "Behind the Scenes of Nollywood's Rising Stars",
-    content: "Full article content for featured 1."
-  },
-  {
-    img: img12,
-    category: "Culture",
-    date: "May 02, 2025",
-    title: "Exploring the Roots of Afrobeat in Lagos",
-    content: "Full article content for featured 2."
-  },
-  {
-    img: img13,
-    category: "Tech",
-    date: "May 03, 2025",
-    title: "How Nigerian Startups Are Changing Africa",
-    content: "Full article content for featured 3."
-  },
-  {
-    img: img14,
-    category: "Lifestyle",
-    date: "May 04, 2025",
-    title: "Modern Fashion Trends from West Africa",
-    content: "Full article content for featured 4."
-  }
+const recentReleases = [
+  { img: img11, category: "spotlight", date: "May 01, 2025", title: "Behind the Scenes of Nollywood's Rising Stars", content: "Full article content for release 1." },
+  { img: img12, category: "Culture", date: "May 02, 2025", title: "Exploring the Roots of Afrobeat in Lagos", content: "Full article content for release 2." },
+  { img: img13, category: "Tech", date: "May 03, 2025", title: "How Nigerian Startups Are Changing Africa", content: "Full article content for release 3." },
+  { img: img14, category: "Lifestyle", date: "May 04, 2025", title: "Modern Fashion Trends from West Africa", content: "Full article content for release 4." }
 ];
 
 const businessItems = [
@@ -89,16 +56,17 @@ const techItems = [
   { img: img19, title: "Why Nigeria Is Becoming a Hub for Tech Innovation", date: "Technology / January 02, 2025", content: "Full article content for tech 2." }
 ];
 
-const entertainmentItems = [
-  { img: img21, title: "How Afrobeat Conquered the Global Charts", date: "EPISODE 15", content: "Full article content for entertainment 1." },
-  { img: img23, title: "Nollywood: The Untold Stories Behind the Scenes", date: "EPISODE 14", content: "Full article content for entertainment 2." },
-  { img: img20, title: "The Influence of Gen Z Creators on African Media", date: "EPISODE 13", content: "Full article content for entertainment 3." }
+const spotlightItems = [
+  { img: img21, title: "How Afrobeat Conquered the Global Charts", date: "EPISODE 15", content: "Full article content for spotlight 1." },
+  { img: img23, title: "Nollywood: The Untold Stories Behind the Scenes", date: "EPISODE 14", content: "Full article content for spotlight 2." },
+  { img: img20, title: "The Influence of Gen Z Creators on African Media", date: "EPISODE 13", content: "Full article content for spotlight 3." }
 ];
 
 const sportsItems = [
   { img: img25, title: "How African Athletes Are Redefining Global Sports", date: "Sports / March 10, 2025", content: "Full article content for sports 1." },
   { img: img24, title: "The Rise of Nigerian Football in the European Leagues", date: "Sports / March 11, 2025", content: "Full article content for sports 2." }
 ];
+
 const metrics = [  
   { label: "Audience Reach", value: "100%", color: "bg-blue-600" },
   { label: "Content Reliability", value: "98%", color: "bg-green-600" },
@@ -119,45 +87,33 @@ const videoList = [
   },
 ];
 
-
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [scrollTime, setScrollTime] = useState(0);
   const blackExperienceRef = useRef(null);
-
   const [playingIndex, setPlayingIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  
-  const allItems = [
-    ...featuredCards,
-    ...businessItems,
-    ...techItems,
-    ...entertainmentItems,
-    ...sportsItems,
-  ];
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    // Auto-slide every 5 seconds
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }, []);
-  
+  const allItems = [...recentReleases, ...businessItems, ...techItems, ...spotlightItems, ...sportsItems];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    useEffect(() => {
-      if (searchTerm.trim() === "") {
-        setSearchResults([]);
-        return;
-      }
-      const results = allItems.filter((item) =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setSearchResults(results);
-    }, [searchTerm]);
-    
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setSearchResults([]);
+      return;
+    }
+    const results = allItems.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
 
   const SectionCard = ({ title, data }) => (
     <section className="container mx-auto px-4 mt-10">
@@ -165,26 +121,26 @@ const LandingPage = () => {
       <div className={
         title === "Technology" || title === "Sports"
           ? "grid grid-cols-2 gap-4"
-          : title === "Featured"
+          : title === "Recent Releases"
           ? "grid grid-cols-2 md:grid-cols-4 gap-4"
           : "space-y-4"
       }>
         {data.map((item, index) => (
-         <div
-         key={index}
-         id={item.title.replace(/\s+/g, "-").toLowerCase()}
-         className="bg-white rounded shadow p-2"
-       >
+          <div
+            key={index}
+            id={item.title.replace(/\s+/g, "-").toLowerCase()}
+            className="bg-white rounded shadow p-2"
+          >
             <img
               src={item.img}
               alt={item.title}
               className={
-                title === "Technology" || title === "Sports" || title === "Featured"
+                title === "Technology" || title === "Sports" || title === "Recent Releases"
                   ? "w-full h-40 object-cover rounded"
                   : "w-20 h-20 object-cover rounded"
               }
             />
-            <div className={title === "Technology" || title === "Sports" || title === "Featured" ? "mt-2" : ""}>
+            <div className={title === "Technology" || title === "Sports" || title === "Recent Releases" ? "mt-2" : ""}>
               <p className="text-xs text-red-500 mt-1">{item.date}</p>
               <h4 className="font-semibold mt-1 text-sm md:text-base">{item.title}</h4>
               <p className="text-sm text-gray-600 mt-2">{item.content}</p>
@@ -194,27 +150,23 @@ const LandingPage = () => {
       </div>
     </section>
   );
-  
-  // Detect time spent scrolling
+
   useEffect(() => {
     let timeout;
     const handleScroll = () => {
       if (scrollTime === 0) {
         timeout = setTimeout(() => {
           setScrollTime(10);
-        }, 10000); // 10 seconds
+        }, 10000);
       }
     };
     window.addEventListener("scroll", handleScroll);
-
-    
     return () => {
       clearTimeout(timeout);
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollTime]);
 
-  // Trigger popup when reaching "Black Experience" after 10s
   useEffect(() => {
     if (scrollTime < 10) return;
     const handleScrollToSection = () => {
@@ -231,6 +183,7 @@ const LandingPage = () => {
     window.addEventListener("scroll", handleScrollToSection);
     return () => window.removeEventListener("scroll", handleScrollToSection);
   }, [scrollTime]);
+
 
   return (
 
@@ -390,11 +343,12 @@ const LandingPage = () => {
 {/* FEATURED SECTION */}
 <div className="text-gray-800 font-sans">
   
-      <SectionCard title="Featured" data={featuredCards} />
+<SectionCard title="Recent Releases" data={recentReleases} />
       <SectionCard title="Business" data={businessItems} />
       <SectionCard title="Technology" data={techItems} />
-      <SectionCard title="Entertainment Gists" data={entertainmentItems} />
+      <SectionCard title="Spotlight" data={spotlightItems} />
       <SectionCard title="Sports" data={sportsItems} />
+
     </div>
 
 
@@ -428,7 +382,7 @@ const LandingPage = () => {
   className="container mx-auto px-4 mt-16 mb-20"
 >
   <div className=" shadow-xl p-6 text-center bg-white">
-    <h2 className="text-3xl font-bold mb-2 text-black">Visuals of the Week</h2>
+    <h2 className="text-3xl font-bold mb-2 text-black">Recent interviews</h2>
     <p className="text-gray-600 text-sm mb-6 max-w-xl mx-auto">
       Powerful moments captured this week. Explore the stories behind the lens.
     </p>
