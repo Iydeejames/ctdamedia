@@ -43,7 +43,7 @@ const Header = () => {
           {/* Blog Dropdown */}
           <div className="relative group">
             <button className="hover:text-red-500 transition-colors duration-200 uppercase">
-            Blog {blogDropdownOpen ? '▼' : '▲'}
+            Blog {blogDropdownOpen ? '▲' : '▼'}
             </button>
             <div className="absolute top-full left-0 mt-2 bg-white text-green-700 shadow-lg rounded-md opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform scale-95 group-hover:scale-100 transition duration-200 origin-top w-56 z-30">
               {blogPages.map((item) => (
@@ -59,7 +59,7 @@ const Header = () => {
           </div>
 
           {/* Other Links */}
-          {['About', 'Music', 'Podcasts', 'Contact'].map((item) => (
+          {['About', 'Podcasts', 'Contact'].map((item) => (
             <a
               key={item}
               href={`/${item.toLowerCase()}`}
@@ -115,7 +115,7 @@ const Header = () => {
               onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
               className="text-left font-semibold hover:text-red-500 transition duration-200 uppercase"
             >
-              Blog {blogDropdownOpen ? '▼' : '▲'}
+              Blog {blogDropdownOpen ? '▲' : '▼'}
             </button>
             {blogDropdownOpen && (
               <div className="grid grid-cols-2 gap-3 text-xs mt-2 ml-2">
@@ -146,13 +146,13 @@ const Header = () => {
           </div>
 
           {/* Footer Info */}
-          <div className="mt-10 border-t border-white/30 pt-6 text-white text-xs leading-relaxed">
+          <div className="mt-10 border-t border-white/30 pt-4 text-white text-xs leading-relaxed">
             <p className="font-semibold uppercase mb-2">Quick Info</p>
             <p className="text-white/90">
               CTDA Media is your go-to source for authentic black culture, entertainment, news, and lifestyle content. Stay tuned for stories that move you.
             </p>
 
-            <div className="mt-6">
+            <div className="mt-3">
               <p className="font-semibold uppercase mb-2">Visit Platforms</p>
               <ul className="space-y-1">
                 <li><a href="/music" className="hover:text-red-500">Youtube</a></li>
