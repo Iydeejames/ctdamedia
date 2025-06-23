@@ -170,14 +170,11 @@ const LandingPage = () => {
           : "space-y-4"
       }>
         {data.map((item, index) => (
-          <div
-            key={index}
-            className={
-              title === "Technology" || title === "Sports" || title === "Featured"
-                ? "bg-white shadow p-2 rounded"
-                : "flex gap-4 items-start"
-            }
-          >
+         <div
+         key={index}
+         id={item.title.replace(/\s+/g, "-").toLowerCase()}
+         className="bg-white rounded shadow p-2"
+       >
             <img
               src={item.img}
               alt={item.title}
@@ -240,6 +237,9 @@ const LandingPage = () => {
     <div className="text-gray-800 font-sans relative">
       <div className="container mx-auto px-4 mt-6">
   <div className="relative w-full max-w-xl mx-auto">
+  <div className="w-full bg-gray-50 shadow-sm py-3">
+  <div className="container mx-auto px-4">
+    <div className="relative w-full max-w-md mx-auto">
   <input
   type="text"
   placeholder="🔍 Search articles..."
@@ -247,6 +247,9 @@ const LandingPage = () => {
   onChange={(e) => setSearchTerm(e.target.value)}
   className="w-full px-3 py-1.5 border border-gray-300 rounded-full shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
 />
+</div>
+  </div>
+</div>
 
     {searchResults.length > 0 && (
       <ul className="absolute z-40 bg-white border border-gray-300 w-full mt-1 rounded shadow max-h-60 overflow-y-auto">
