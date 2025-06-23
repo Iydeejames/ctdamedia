@@ -7,12 +7,14 @@ const Header = () => {
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
 
   const blogPages = [
-    'Fashion',
-    'Lifestyle',
+    'CTDA Editorial',
+    'Spotlight',
+    'Culture',
     'Music',
-    'Business',
-    'Technology',
-    'Entertainment',
+    'Lifestyle',
+    'On the Scene',
+    'Community',
+    'Documentary',
   ];
 
   return (
@@ -40,6 +42,14 @@ const Header = () => {
             Home
           </a>
 
+             {/* About */}
+           <a
+            href="/about"
+            className="hover:text-red-500 transition-colors duration-200 uppercase"
+          >
+            About CTDA
+          </a>
+
           {/* Blog Dropdown */}
           <div className="relative group">
             <button className="hover:text-red-500 transition-colors duration-200 uppercase">
@@ -59,7 +69,7 @@ const Header = () => {
           </div>
 
           {/* Other Links */}
-          {['About', 'Podcasts', 'Contact'].map((item) => (
+          {[ 'Podcasts', 'Contact'].map((item) => (
             <a
               key={item}
               href={`/${item.toLowerCase()}`}
@@ -110,7 +120,16 @@ const Header = () => {
               Home
             </a>
 
-            {/* Blog Dropdown for Mobile */}
+            {/* About*/}
+              <a
+              href="/about"
+              className="hover:text-red-500 transition-colors font-semibold duration-200"
+              onClick={() => setMenuOpen(false)}
+            >
+              About CTDA
+            </a>
+
+            {/* Blog Dropdown for Mobile */} 
             <button
               onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
               className="text-left font-semibold hover:text-red-500 transition duration-200 uppercase"
@@ -133,7 +152,7 @@ const Header = () => {
             )}
 
             {/* Other Links */}
-            {['About', 'Music', 'Podcasts', 'Contact'].map((item) => (
+            {[ 'Podcasts', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`/${item.toLowerCase()}`}
