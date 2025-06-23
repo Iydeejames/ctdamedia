@@ -43,7 +43,7 @@ const Header = () => {
           {/* Blog Dropdown */}
           <div className="relative group">
             <button className="hover:text-red-500 transition-colors duration-200 uppercase">
-            Blog {blogDropdownOpen ? '▲' : '▼'}
+            Blog {blogDropdownOpen ? '▼' : '▲'}
             </button>
             <div className="absolute top-full left-0 mt-2 bg-white text-green-700 shadow-lg rounded-md opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform scale-95 group-hover:scale-100 transition duration-200 origin-top w-56 z-30">
               {blogPages.map((item) => (
@@ -115,7 +115,7 @@ const Header = () => {
               onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
               className="text-left font-semibold hover:text-red-500 transition duration-200 uppercase"
             >
-              Blog {blogDropdownOpen ? '▲' : '▼'}
+              Blog {blogDropdownOpen ? '▼' : '▲'}
             </button>
             {blogDropdownOpen && (
               <div className="grid grid-cols-2 gap-3 text-xs mt-2 ml-2">
