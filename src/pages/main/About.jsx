@@ -88,7 +88,7 @@ const About = () => {
 
 {/* Our Story */}
 <div className="max-w-5xl mx-auto px-6 py-12">
-  <h2 className="text-2xl md:text-3xl font-bold text-center text-red-600 mb-6">Our Story</h2>
+  <h2 className="text-xl font-semibold mb-3 text-red-600 mb-6">Our Story</h2>
   <p className="text-gray-700 leading-relaxed text-sm md:text-lg">
     CTDA was born from a simple idea: that Black stories deserve space, truth, and celebration on our own terms.
     Founded by <span className="font-semibold">Oyebanji Akins</span>, a Nigerian-born American creative with a global voice,
@@ -108,7 +108,7 @@ const About = () => {
 
 {/* What Makes Us Different */}
 <div className="max-w-5xl mx-auto px-6 py-12">
-  <h2 className="text-2xl md:text-3xl font-bold text-center text-red-600 mb-6">What Makes Us Different</h2>
+  <h2 className="text-xl font-semibold mb-3 text-red-600 mb-6">What Makes Us Different</h2>
   <p className="text-gray-700 leading-relaxed text-sm md:text-lg">
     CTDA is not here to go viral and vanish. We're here to mean something. Our content is intentional and rooted in experience.
     We platform emerging voices right alongside established names. We ask the questions no one else is asking.
