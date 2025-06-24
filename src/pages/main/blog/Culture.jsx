@@ -66,7 +66,7 @@ const Culture = () => {
 
   return (
     <div className="bg-white dark:white py-12 px-4 sm:px-8 lg:px-20">
-      <h1 className="text-4xl font-bold text-center text-green-700 mb-12 border-b-4 border-green-700 inline-block pb-2">
+      <h1 className="text-4xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2">
         Culture & Heritage
       </h1>
 
@@ -76,7 +76,7 @@ const Culture = () => {
             key={item.id}
             className={`flex flex-col lg:flex-row ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            } gap-8 items-center bg-green-100  p-6 rounded-2xl shadow-md`}
+            } gap-8 items-center bg-green-50  p-6 shadow-md`}
           >
             <div className="flex-1 w-full">
               <img
