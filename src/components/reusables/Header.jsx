@@ -115,8 +115,8 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-green-800 text-white w-full absolute top-full left-0 shadow-md rounded-b-lg py-4 px-6 z-40"
-          >
+            className="bg-green-800 text-white w-full absolute top-[95%] left-0 shadow-md rounded-b-lg py-4 px-6 z-40"
+            >
             {/* Logo Centered */}
             <div className="flex flex-col items-center mb-6">
               <img
