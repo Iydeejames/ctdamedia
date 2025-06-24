@@ -74,7 +74,7 @@ const About = () => {
           <div className="w-1/2 text-white">
             <h1 className="text-3xl font-extrabold mb-2">About CTDA Media</h1>
             <p className="text-base  leading-snug">
-              More than a podcast — we're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
+              We're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
             </p>
           </div>
           <div className="w-1/2">
@@ -112,7 +112,7 @@ const About = () => {
           },
           {
             title: "More than a podcast",
-            desc: "More than a podcast — we're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.",
+            desc: "We're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.",
           },
         ].map((item, i) => (
           <div

@@ -1,384 +1,143 @@
-import { useRef, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import vid from "../../assets/videos/vid.mp4";
+import vid3 from "../../assets/videos/vid3.mp4";
+import vid1 from "../../assets/videos/vid1.mp4";
 
-// hardcoded images
-import img1 from "../../assets/images/podcast/img1.jpg";
-import img2 from "../../assets/images/podcast/img2.jpg";
-import img3 from "../../assets/images/podcast/img3.jpg";
-import img4 from "../../assets/images/podcast/img4.jpg";
-import img5 from "../../assets/images/podcast/img5.jpg";
-import img6 from "../../assets/images/podcast/img6.jpg";
-import img7 from "../../assets/images/podcast/img7.jpg";
-import img8 from "../../assets/images/podcast/img8.jpg";
-import img9 from "../../assets/images/podcast/img9.jpg";
-import img10 from "../../assets/images/podcast/img10.jpg";
-import img12 from "../../assets/images/podcast/img12.jpg";
-import img13 from "../../assets/images/podcast/img13.jpg";
-import img14 from "../../assets/images/podcast/img14.jpg";
-import img15 from "../../assets/images/podcast/img15.jpg";
-import img16 from "../../assets/images/podcast/img16.jpg";
-import img17 from "../../assets/images/podcast/img17.jpg";
-import img18 from "../../assets/images/podcast/img18.jpg";
-import img19 from "../../assets/images/podcast/img19.jpg";
-import img20 from "../../assets/images/podcast/img20.jpg";
-import img21 from "../../assets/images/podcast/img21.jpg";
-import img22 from "../../assets/images/podcast/img22.jpg";
-import img23 from "../../assets/images/podcast/img23.jpg";
-
-// ✅ Hardcoded fallback data
-const fallbackData = [
+const interviews = [
   {
-    category: "Culture",
-    items: [
-      {
-        type: "link",
-        title: "Culture Clash: Afro vs Western",
-        description: "Exploring the tension and blend between African and Western norms.",
-        image: img6,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "The Evolution of Urban Slang",
-        description: "We explore how language shapes and evolves in Afro-diasporic communities.",
-        image: img7,
-        link: "https://spotify.com/culture-urban-slang",
-      },
-      {
-        type: "link",
-        title: "Street Culture & Music",
-        description: "From graffiti to breakdancing – what makes the street pulse?",
-        image: img8,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "The Evolution of Urban Slang",
-        description: "We explore how language shapes and evolves in Afro-diasporic communities.",
-        image: img9,
-        link: "https://spotify.com/culture-urban-slang",
-      },
-      {
-        type: "link",
-        title: "Traditional Rites in Modern Times",
-        description: "Are cultural rites being lost or transformed in today's world?",
-        image: img10,
-        link: "https://spotify.com/traditional-rites",
-      },
-      {
-        type: "link",
-        title: "Street Culture & Music",
-        description: "From graffiti to breakdancing – what makes the street pulse?",
-        image: img6,
-        link: "#",
-      },
-    ],
+    id: "interview-creators",
+    title: "Interview with Creators",
+    video: vid,
+    description: "Discussing innovation and storytelling with Black creatives.",
+    date: "June 20, 2025",
   },
   {
-    category: "Documentary",
-    items: [
-      {
-        type: "link",
-        title: "Voices of Lagos",
-        description: "An aural tour through Nigeria’s bustling megacity.",
-        image: img17,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Inside the Nigerian Film Industry",
-        description: "Behind the scenes of Nollywood's booming ecosystem.",
-        image: img18,
-        link: "https://spotify.com/nollywood-doc",
-      },
-      {
-        type: "link",
-        title: "Documenting War & Peace",
-        description: "Uncovering stories in war zones and peace tables alike.",
-        image: img19,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Voices of Lagos",
-        description: "An aural tour through Nigeria’s bustling megacity.",
-        image: img17,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Oil & History",
-        description: "An investigative series on how oil shaped African geopolitics.",
-        image: img18,
-        link: "https://spotify.com/oil-africa",
-      },
-      {
-        type: "link",
-        title: "Inside the Nigerian Film Industry",
-        description: "Behind the scenes of Nollywood's booming ecosystem.",
-        image: img19,
-        link: "https://spotify.com/nollywood-doc",
-      },
-    ],
-  },
-  {
-    category: "Music",
-    items: [
-      {
-        type: "link",
-        title: "Naija Beats: Then & Now",
-        description: "Tracing the evolution of Nigeria’s pop scene.",
-        image: img22,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "African Jazz & Highlife",
-        description: "A sonic journey through West Africa's legendary genres.",
-        image: img23,
-        link: "https://spotify.com/highlife-sound",
-      },
-      {
-        type: "link",
-        title: "The Rise of Afrobeats",
-        description: "How global charts are embracing Afro sounds.",
-        image: img13,
-        link: "https://spotify.com/afrobeats-rise",
-      },
-      {
-        type: "link",
-        title: "Studio Sessions: Live in Lagos",
-        description: "Experience real-time music creation from Lagos studios.",
-        image: img20,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "African Jazz & Highlife",
-        description: "A sonic journey through West Africa's legendary genres.",
-        image: img15,
-        link: "https://spotify.com/highlife-sound",
-      },
-      {
-        type: "link",
-        title: "The Rise of Afrobeats",
-        description: "How global charts are embracing Afro sounds.",
-        image: img14,
-        link: "https://spotify.com/afrobeats-rise",
-      },
-    ],
-  },
-  {
-    category: "Food",
-    items: [
-      {
-        type: "link",
-        title: "Jollof Wars",
-        description: "Who truly owns the crown: Nigeria or Ghana?",
-        image: img5,
-        link: "https://spotify.com/jollof-wars",
-      },
-      {
-        type: "link",
-        title: "Palm Oil Stories",
-        description: "The untold origin and impact of red gold.",
-        image: img4,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "A Day at the Lagos Market",
-        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
-        image: img3,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Street Food Culture",
-        description: "Exploring the flavours of the roadside.",
-        image: img2,
-        link: "https://spotify.com/street-food",
-      },
-      {
-        type: "link",
-        title: "A Day at the Lagos Market",
-        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
-        image: img1,
-        link: "#",
-      },
-    ],
-  },
-  {
-    category: "Interviews",
-    items: [
-      {
-        type: "link",
-        title: "Famous nigerian Artist on seat",
-        description: "Who truly owns the crown: Nigeria or Ghana?",
-        image: img18,
-        link: "https://spotify.com/jollof-wars",
-      },
-      {
-        type: "link",
-        title: "We discuss Fashion",
-        description: "The untold origin and impact of red gold.",
-        image: img18,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Famous nigerian Artist on seat",
-        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
-        image: img18,
-        link: "#",
-      },
-      {
-        type: "link",
-        title: "Famous nigerian Artist on seat",
-        description: "Exploring the flavours of the roadside.",
-        image: img18,
-        link: "https://spotify.com/street-food",
-      },
-      {
-        type: "link",
-        title: "We discuss Fashion",
-        description: "Dive into the colors, sounds and scents of Africa’s largest markets.",
-        image: img18,
-        link: "#",
-      },
-    ],
+    id: "global-voices",
+    title: "Global Voices",
+    video: vid3,
+    description: "Diaspora artists talk identity, struggle, and creativity.",
+    date: "June 18, 2025",
   },
 ];
 
+const conversations = [
+  {
+    id: "lagos-love",
+    title: "Love & Lagos",
+    video: vid1,
+    description: "Conversations about love, hustle, and modern Nigerian life.",
+    date: "June 15, 2025",
+  },
+  {
+    id: "faith-culture",
+    title: "Faith and Culture",
+    video: vid,
+    description: "An honest discussion on how faith intersects with African culture.",
+    date: "June 12, 2025",
+  },
+];
 
+const relatedLinks = [
+  { title: "CTDA Featured Stories", url: "/featured" },
+  { title: "Behind the Music", url: "/music" },
+  { title: "CTDA Culture Blog", url: "/culture" },
+  { title: "New Voices: Emerging Creators", url: "/blog/emerging-creators" },
+  { title: "Black Experience Series", url: "/about#black-experience" },
+];
 
 const Podcasts = () => {
-  const scrollRefs = useRef([]);
-  const [podcastGroups, setPodcastGroups] = useState([]);
-  const [modalItem, setModalItem] = useState(null);
+  const videoRefs = useRef([]);
 
   useEffect(() => {
-    const fetchPodcasts = async () => {
-      try {
-        const res = await fetch("https://api.com/podcasts"); // Replace with actual API later
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          setPodcastGroups(data);
-        } else {
-          setPodcastGroups(fallbackData);
+    const handlePlay = (index) => {
+      videoRefs.current.forEach((video, i) => {
+        if (i !== index && video && !video.paused) {
+          video.pause();
         }
-      } catch (err) {
-        console.error("Failed to fetch podcast data:", err);
-        setPodcastGroups(fallbackData);
-      }
+      });
     };
 
-    fetchPodcasts();
+    videoRefs.current.forEach((video, i) => {
+      if (video) {
+        video.addEventListener("play", () => handlePlay(i));
+      }
+    });
+
+    return () => {
+      videoRefs.current.forEach((video) => {
+        if (video) {
+          video.removeEventListener("play", () => handlePlay());
+        }
+      });
+    };
   }, []);
 
-  const scroll = (index, direction) => {
-    const ref = scrollRefs.current[index];
-    if (ref) {
-      ref.scrollBy({ left: direction === "left" ? -300 : 300, behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    if (modalItem) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [modalItem]);
-  
-  
+  const renderSection = (title, items, startIndex) => (
+    <section className="mb-16">
+      <h2 className="text-xl md:text-3xl font-extrabold mb-6 text-black border-b-2 border-black pb-2">
+        {title}
+      </h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        {items.map((pod, index) => (
+          <Link
+            key={pod.id}
+            to={`/podcast/${pod.id}`}
+            className="group block bg-white shadow hover:shadow-xl transition overflow-hidden border border-gray-200"
+          >
+            <video
+              src={pod.video}
+              controls
+              preload="metadata"
+              className="w-full h-64 object-cover"
+              ref={(el) => (videoRefs.current[startIndex + index] = el)}
+            />
+            <div className="p-4">
+              <h3 className="text-lg md:text-xl font-semibold text-green-900 group-hover:underline">
+                {pod.title}
+              </h3>
+              <p className="text-sm text-gray-500">{pod.date}</p>
+              <p className="text-sm text-gray-700 mt-2">{pod.description}</p>
+              <span className="inline-block text-sm text-red-600 mt-2 font-medium">
+                Watch →
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
 
   return (
-    <div className="bg-white text-black min-h-screen px-6 py-12 space-y-20 relative">
-      <h3 className="text-2xl font-bold text-center"> Welcome To Our Podcast Library</h3>
+    <div className="bg-gray-50 text-gray-900 px-4 md:px-10 py-12 max-w-7xl mx-auto">
+      <h1 className="text-2xl font-bold text-center text-black mb-8">
+        Join the Conversation
+      </h1>
 
-      {podcastGroups.map((group, i) => (
-        <section key={i} className="space-y-4 relative">
-          <h2 className="text-2xl font-bold border-b pb-2 text-red-700  border-gray-300">{group.category}</h2>
+      {/* Interviews */}
+      {renderSection(" Interviews", interviews, 0)}
 
-          <div className="relative">
-            <button
-              onClick={() => scroll(i, "left")}
-              className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
-            >
-              <ChevronLeft size={12} />
-            </button>
+      {/* Conversations */}
+      {renderSection(" Conversations", conversations, interviews.length)}
 
-            <div
-              ref={(el) => (scrollRefs.current[i] = el)}
-              className="flex overflow-x-auto gap-4 py-4 scrollbar-hide"
-            >
-              {group.items.map((item, j) => (
-                <div
-                  key={j}
-                  onClick={() => setModalItem(item)}
-                  className="min-w-[220px] max-w-[220px] shrink-0 cursor-pointer "
-                >
-                  <img src={item.image} alt={item.title} className="w-full h-36 object-cover mb-2" />
-                  <h3 className="text-md  font-semibold">{item.title}</h3>
-                  <p className="text-sm text-gray-700">{item.description}</p>
-                  <span className="text-blue-600 text-sm mt-1 inline-block">Listen →</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => scroll(i, "right")}
-              className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 z-10 bg-green-200 p-1 rounded-full shadow-md hover:bg-green-400 transition"
-            >
-              <ChevronRight size={12} />
-            </button>
-          </div>
-        </section>
-      ))}
-
-      {/* Modal */}
-      {modalItem && (
-  <div className="fixed top-0 left-0 w-full min-h-screen z-[9999] bg-white overflow-y-auto">
-    <button
-      onClick={() => setModalItem(null)}
-      className="absolute top-4 right-4 text-black hover:text-red-600 z-50"
-    >
-      <X size={28} />
-    </button>
-
-    <div className="max-w-3xl mx-auto px-4 pt-24 pb-20">
-      <img
-        src={modalItem.image}
-        alt={modalItem.title}
-        className="w-full h-64 object-cover rounded-xl mb-6"
-      />
-
-      <h2 className="text-3xl font-bold mb-3">{modalItem.title}</h2>
-      <p className="text-gray-800 text-base mb-6">{modalItem.description}</p>
-
-      {modalItem.link && (
-        <a
-          href={modalItem.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-green-700 underline font-medium text-lg"
-        >
-          🎧 Listen Now →
-        </a>
-      )}
-    </div>
-  </div>
-)}
-
-
-
-
-
+      {/* Related Text Links */}
+      <section>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
+          You Might Also Like
+        </h2>
+        <ul className="list-disc list-inside text-green-800 text-md space-y-2">
+          {relatedLinks.map((item, index) => (
+            <li key={index}>
+              <Link
+                to={item.url}
+                className="hover:underline transition duration-200 hover:text-red-600"
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
 };
