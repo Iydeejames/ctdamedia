@@ -4,9 +4,10 @@ import img2 from "../../../assets/images/music-page/img2.jpg";
 import img3 from "../../../assets/images/music-page/img3.jpg";
 import img4 from "../../../assets/images/music-page/img4.jpg";
 import img5 from "../../../assets/images/music-page/img5.jpg";
-
 import img6 from "../../../assets/images/music-page/img6.jpg";
 import img7 from "../../../assets/images/music-page/img7.jpg";
+import img from "../../../assets/images/music-page/img.png";
+
 import vid from "../../../assets/videos/vid.mp4";
 
 const placeholderMusicNews = [
@@ -39,21 +40,6 @@ const placeholderMusicNews = [
     description: "The Grammy winner delivered a genre-bending performance...",
     img: img5,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-  },
-];
-
-const featuredVideos = [
-  {
-    title: "Behind the Scenes with Fireboy DML",
-    subtitle: "Exclusive backstage experience",
-    release: "April 22, 2025",
-    video: vid,
-  },
-  {
-    title: "CTDA Live Lounge: Rema - 'Calm Down'",
-    subtitle: "Stripped version of the hit song",
-    release: "May 3, 2025",
-    video: vid,
   },
 ];
 
@@ -95,23 +81,47 @@ const Music = () => {
   };
 
   return (
-    <div className=" text-black px-4 py-12">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3"> CTDA Music & Culture</h1>
-        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
-          Experience the pulse of Black music — from global hits to underground gems.
-        </p>
+    <div className="text-black">
+      {/* Hero Section */}
+      <div className="relative text-white">
+        {/* Mobile View */}
+        <div className="md:hidden relative h-72 w-full">
+          <img
+            src={img}
+            alt="Music Hero Mobile"
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 className="text-3xl font-bold mb-2"> Music</h1>
+            <p className="text-base font-semibold">
+              Experience the pulse of Black music — from global hits to underground gems.
+            </p>
+          </div>
+        </div>
 
+        {/* Desktop View */}
+        <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
+          <div className="w-1/2 text-white">
+            <h1 className="text-3xl font-extrabold mb-2">Music</h1>
+            <p className="text-base leading-snug">
+              From Afrobeats to Highlife, Hip Hop to Soul — we tell the stories behind the sound.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="px-4 py-12 max-w-7xl mx-auto">
         {/* Music News Section */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
           {musicNews.map((item, index) => (
-            <div key={index} className="bg-gray-200  shadow-md overflow-hidden relative">
-<img
-  src={item.img}
-  alt={item.title}
-  className="w-full h-72 object-contain bg-white rounded"
-/>
-
+            <div key={index} className="bg-gray-200 shadow-md overflow-hidden relative">
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-72 object-contain bg-white rounded"
+              />
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
                 <p className="text-sm text-gray-400 mb-4">{item.description}</p>
@@ -130,8 +140,6 @@ const Music = () => {
             </div>
           ))}
         </div>
-
-       
       </div>
     </div>
   );
