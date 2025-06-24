@@ -8,6 +8,7 @@ import LandingPage from "./pages/main/LandingPage";
 import Header from "./components/reusables/Header";
 import Footer from "./components/reusables/Footer";
 import Music from "./pages/main/blog/Music";
+import Culture from "./pages/main/blog/Culture";
 import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
@@ -49,6 +50,7 @@ function App() {
         <Route element={<MainLayout />}>
   <Route index element={<LandingPage />} />
   <Route path="/music" element={<Music />} />
+  <Route path="/culture" element={<Culture />} />
   <Route path="/podcasts" element={<Podcasts />} />
   <Route path="/about" element={<About />} />
   <Route path="/contact" element={<Contact />} />
@@ -56,6 +58,7 @@ function App() {
   
   {/* 🆕 Blog routes */}
   <Route path="/blog/music" element={<Music />} />
+  <Route path="/blog/culture" element={<Culture />} />
 </Route>
 
 

@@ -294,7 +294,7 @@ const LandingPage = () => {
         <aside className="lg:w-1/4">
           <div className="bg-white p-4 shadow rounded">
             <h2 className="text-xl font-bold mb-4">Categories</h2>
-            {["Music", "Podcasts", "Culture", "Documentary"].map((cat, index) => (
+            {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
               <div key={cat} className="relative mb-4">
                 <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">

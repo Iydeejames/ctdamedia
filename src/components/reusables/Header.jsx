@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FaBars,
   FaTimes,
@@ -10,9 +10,12 @@ import {
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/images/logo.jpg";
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
+  const [isBlogHovered, setIsBlogHovered] = useState(false);
+  const dropdownRef = useRef(null);
 
   const blogPages = [
     'CTDA Editorial',
@@ -35,9 +38,15 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Close dropdown on outside click
   useEffect(() => {
-    const img = new Image();
-    img.src = logo;
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setBlogDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -45,14 +54,13 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3">
-        <img
-  src={logo}
-  alt="CTDA Media Logo"
-  className="h-12 w-12 rounded-full object-cover border-2 border-white"
-  loading="eager"
-  decoding="async"
-/>
-
+          <img
+            src={logo}
+            alt="CTDA Media Logo"
+            className="h-12 w-12 rounded-full object-cover border-2 border-white"
+            loading="eager"
+            decoding="async"
+          />
           <span className="text-xl font-bold tracking-wide uppercase">
             CTDA<span className="font-light text-white">Media</span>
           </span>
@@ -63,22 +71,35 @@ const Header = () => {
           <a href="/" className="hover:text-red-500">Home</a>
           <a href="/about" className="hover:text-red-500">About CTDA</a>
 
-          {/* Blog Dropdown */}
-          <div className="relative group">
-            <div className="flex items-center gap-2 cursor-pointer hover:text-red-500">
+          {/* Blog Dropdown - Hover or Click */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsBlogHovered(true)}
+            onMouseLeave={() => setIsBlogHovered(false)}
+            ref={dropdownRef}
+          >
+            <button
+              onClick={() => setBlogDropdownOpen(prev => !prev)}
+              className="flex items-center gap-2 cursor-pointer hover:text-red-500"
+            >
               BLOG <FaChevronDown size={14} />
-            </div>
-            <div className="absolute top-full left-0 mt-2 bg-white text-green-800 shadow-lg rounded-md scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 origin-top w-64 z-30 p-4 grid grid-cols-1 gap-2 pointer-events-none group-hover:pointer-events-auto">
-              {blogPages.map((item) => (
-                <a
-                  key={item}
-                  href={`/blog/${item.toLowerCase()}`}
-                  className="bg-green-100 rounded-md px-3 py-2 text-sm hover:bg-green-200 hover:text-green-900 transition shadow-sm"
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
+            </button>
+
+            {(isBlogHovered || blogDropdownOpen) && (
+              <div className="absolute top-full left-0 mt-2 w-64 z-30">
+                <div className="bg-white text-green-800 shadow-lg rounded-md p-4 grid grid-cols-1 gap-2 transition-all duration-200 origin-top">
+                  {blogPages.map((item) => (
+                    <a
+                      key={item}
+                      href={`/blog/${item.toLowerCase()}`}
+                      className="bg-green-100 rounded-md px-3 py-2 text-sm hover:bg-green-200 hover:text-green-900 transition shadow-sm"
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <a href="/podcasts" className="hover:text-red-500">Podcasts</a>
@@ -118,14 +139,13 @@ const Header = () => {
           >
             {/* Logo Centered */}
             <div className="flex flex-col items-center mb-6">
-            <img
-  src={logo}
-  alt="CTDA Media Logo"
-  className="h-12 w-12 rounded-full object-cover border-2 border-white"
-  loading="eager"
-  decoding="async"
-/>
-
+              <img
+                src={logo}
+                alt="CTDA Media Logo"
+                className="h-14 w-14 rounded-full object-cover border-2 border-white"
+                loading="eager"
+                decoding="async"
+              />
               <span className="text-lg font-bold mt-2 uppercase tracking-wide">
                 CTDA <span className="font-light">Media</span>
               </span>
