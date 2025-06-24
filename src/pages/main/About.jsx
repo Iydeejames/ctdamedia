@@ -63,7 +63,7 @@ const About = () => {
   <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-t-4 border-green-600">
     <h3 className="text-xl font-semibold mb-3 text-red-600">Who We Are</h3>
     <p className="text-gray-700 text-sm leading-relaxed">
-      CTDAmongBlacks is a vibrant media company driven by a passionate team of creatives. We
+      CTDA is a vibrant media company driven by a passionate team of creatives. We
       aim to connect the dots in conversations around music, movies, culture, and everyday life
       of Black people in and outside Africa.
     </p>

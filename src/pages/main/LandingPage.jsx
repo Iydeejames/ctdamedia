@@ -51,9 +51,9 @@ const businessItems = [
   { img: img17, title: "Youth-Owned Startups That Are Disrupting the Status Quo", date: "EPISODE 10", content: "Full article content for business 3." }
 ];
 
-const techItems = [
-  { img: img18, title: "The Rise of AI Startups in Africa", date: "Technology / January 01, 2025", content: "Full article content for tech 1." },
-  { img: img19, title: "Why Nigeria Is Becoming a Hub for Tech Innovation", date: "Technology / January 02, 2025", content: "Full article content for tech 2." }
+const CultureItems = [
+  { img: img18, title: "The Rise of AI Startups in Africa", date: "Culture / January 01, 2025", content: "Full article content for tech 1." },
+  { img: img19, title: "Why Nigeria Is Becoming a Hub for Tech Innovation", date: "Culture / January 02, 2025", content: "Full article content for tech 2." }
 ];
 
 const spotlightItems = [
@@ -94,7 +94,7 @@ const LandingPage = () => {
   const [playingIndex, setPlayingIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const allItems = [...recentReleases, ...businessItems, ...techItems, ...spotlightItems, ...sportsItems];
+  const allItems = [...recentReleases, ...businessItems, ...CultureItems, ...spotlightItems, ...sportsItems];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -119,7 +119,7 @@ const LandingPage = () => {
     <section className="container mx-auto px-4 mt-10">
       <h2 className="text-2xl font-bold mb-4">{title}</h2>
       <div className={
-        title === "Technology" || title === "Sports"
+        title === "Culture" || title === "Sports"
           ? "grid grid-cols-2 gap-4"
           : title === "Recent Releases"
           ? "grid grid-cols-2 md:grid-cols-4 gap-4"
@@ -135,12 +135,12 @@ const LandingPage = () => {
               src={item.img}
               alt={item.title}
               className={
-                title === "Technology" || title === "Sports" || title === "Recent Releases"
+                title === "Culture" || title === "Sports" || title === "Recent Releases"
                   ? "w-full h-40 object-cover rounded"
                   : "w-20 h-20 object-cover rounded"
               }
             />
-            <div className={title === "Technology" || title === "Sports" || title === "Recent Releases" ? "mt-2" : ""}>
+            <div className={title === "Culture" || title === "Sports" || title === "Recent Releases" ? "mt-2" : ""}>
               <p className="text-xs text-red-500 mt-1">{item.date}</p>
               <h4 className="font-semibold mt-1 text-sm md:text-base">{item.title}</h4>
               <p className="text-sm text-gray-600 mt-2">{item.content}</p>
@@ -331,7 +331,7 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Who We Are?</h2>
           <p className="max-w-3xl mx-auto text-gray-700 mb-6 leading-relaxed">
-            <strong>CTDA Media</strong> is where Black stories live boldly. We’re a culture-rooted media brand that celebrates the voices, dreams, and everyday brilliance of Black people across the world.
+            <strong>CTDA Media</strong> is where Black stories live boldly. We’re a Culture-rooted media brand that celebrates the voices, dreams, and everyday brilliance of Black people across the world.
             <br /><br />
             Through powerful storytelling, interviews, fashion, and moments that matter, we shine a light on who we are, how we live, and where we’re headed. This is a home of connection, community, and truth told our way.
             <br /><br />
@@ -345,7 +345,7 @@ const LandingPage = () => {
   
 <SectionCard title="Recent Releases" data={recentReleases} />
       <SectionCard title="Business" data={businessItems} />
-      <SectionCard title="Technology" data={techItems} />
+      <SectionCard title="Culture" data={CultureItems} />
       <SectionCard title="Spotlight" data={spotlightItems} />
       <SectionCard title="Sports" data={sportsItems} />
 

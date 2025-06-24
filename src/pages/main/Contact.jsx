@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import {
   FaInstagram,
-  FaApple,
+  FaFacebook,
   FaSpotify,
   FaYoutube,
   FaXTwitter,
@@ -44,8 +44,8 @@ const Contact = () => {
             <h2 className="text-xl sm:text-2xl font-semibold">Collaborations</h2>
           </div>
           <p className="text-sm sm:text-base text-green-100">Let's collaborate and create something impactful.</p>
-          <a href="mailto:collab@ctdamedia.com" className="mt-3 inline-block text-white underline font-medium text-sm sm:text-base">
-            collab@ctdamedia.com
+          <a href="mailto:CTDAMedia@afrikanrootstore.com" className="mt-3 inline-block text-white underline font-medium text-sm sm:text-base">
+            CTDAMedia@afrikanrootstore.com
           </a>
         </div>
 
@@ -56,8 +56,8 @@ const Contact = () => {
             <h2 className="text-xl sm:text-2xl font-semibold">Press & Media</h2>
           </div>
           <p className="text-sm sm:text-base text-green-100">Reach our media team for interviews or press kits.</p>
-          <a href="mailto:press@ctdamedia.com" className="mt-3 inline-block text-white underline font-medium text-sm sm:text-base">
-            press@ctdamedia.com
+          <a href="mailto:info@afrikanrootstore.com" className="mt-3 inline-block text-white underline font-medium text-sm sm:text-base">
+          info@afrikanrootstore.com
           </a>
         </div>
 
@@ -71,7 +71,7 @@ const Contact = () => {
           <ul className="mt-4 grid grid-cols-2 gap-3 text-sm sm:text-base">
             <li>
               <a
-                href="https://www.instagram.com/ctdamongblacks?igsh=MWIzc2locHRoNG56ag=="
+                href="https://www.instagram.com/ctda_media"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
@@ -81,17 +81,17 @@ const Contact = () => {
             </li>
             <li>
               <a
-                href="https://podcasts.apple.com/us/podcast/ctdamongblacks/id1674951670"
+                href="https://www.facebook.com/profile.php?id=61576711739005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
               >
-                <FaApple /> Apple Podcasts
+                <FaFacebook />FaceBook
               </a>
             </li>
             <li>
               <a
-                href="https://open.spotify.com/show/1KibEPZONRPj2jlOrygxQK"
+                href="https://open.spotify.com/playlist/7a7Xe4xxHU3J87pyXddibZ?si=zcV50LtKQn2JQkGE0x36wQ&pt=4a16698b4b4726428d1e8a0b73f21970&pi=e-ewbOrumcTzuO"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
@@ -101,7 +101,7 @@ const Contact = () => {
             </li>
             <li>
               <a
-                href="https://www.youtube.com/@ctdamongblacks"
+                href="https://youtube.com/@ctdamedia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
@@ -111,7 +111,7 @@ const Contact = () => {
             </li>
             <li>
               <a
-                href="http://x.com/ctdamongblacks"
+                href="https://x.com/CTDAMEDIA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
@@ -121,7 +121,7 @@ const Contact = () => {
             </li>
             <li>
               <a
-                href="https://www.tiktok.com/@ctdamongblacks?_t=8qNUeAAG38f&_r=1"
+                href="https://www.tiktok.com/@ctdamedia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-medium hover:underline"
