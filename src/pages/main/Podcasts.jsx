@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import img7 from "../../assets/images/podcast/img7.png";
 import vid from "../../assets/videos/vid.mp4";
 import vid3 from "../../assets/videos/vid3.mp4";
 import vid1 from "../../assets/videos/vid1.mp4";
@@ -74,14 +75,14 @@ const Podcasts = () => {
 
   const renderSection = (title, items, startIndex) => (
     <section className="mb-16">
-      <h2 className="text-xl md:text-3xl font-bold mb-6 text-black border-b-2 border-black pb-2">
+      <h2 className="text-xl md:text-3xl font-extrabold mb-6 text-black border-b-2 border-black pb-2">
         {title}
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
         {items.map((pod, index) => (
           <div
             key={pod.id}
-            className="group block bg-white shadow hover:shadow-xl transition overflow-hidden border border-gray-200 rounded-xl"
+            className="group block bg-white shadow hover:shadow-xl transition overflow-hidden border border-gray-200 "
           >
             <video
               src={pod.video}
@@ -91,7 +92,6 @@ const Podcasts = () => {
               preload="auto"
               className="w-full h-64 object-cover"
               ref={(el) => (videoRefs.current[startIndex + index] = el)}
-              poster="/fallback-thumbnail.jpg" // optional: add your thumbnail path
             />
             <div className="p-4">
               <h3 className="text-lg md:text-xl font-semibold text-green-900">
@@ -107,33 +107,70 @@ const Podcasts = () => {
   );
 
   return (
-    <div className="bg-gray-50 text-gray-900 px-4 md:px-10 py-12 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold text-center text-black mb-8">
-        Join the Conversation
-      </h1>
+    <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800">
+      {/* Hero Section */}
+      <div className="relative text-white">
+        {/* Mobile View */}
+        <div className="md:hidden relative h-72 w-full">
+          <img
+            src={img7}
+            alt="Podcast Hero Mobile"
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 className="text-3xl font-bold mb-2">CTDA Media Podcasts</h1>
+            <p className="text-base font-semibold">
+              Real Voices. Raw Stories. Unfiltered Culture.
+            </p>
+          </div>
+        </div>
 
-      {renderSection(" Interviews", interviews, 0)}
-      {renderSection("Conversations", conversations, interviews.length)}
+        {/* Desktop View */}
+        <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
+          <div className="w-1/2 text-white">
+            <h1 className="text-3xl font-bold mb-2">CTDA Media Podcasts</h1>
+            <p className="text-base leading-snug">
+              Join powerful interviews and deep conversations exploring African stories, identity, and creativity.
+            </p>
+          </div>
+          {/*
+          <div className="w-1/2">
+            <img
+              src={img7}
+              alt="Podcast Hero Desktop"
+              className="shadow-lg w-full h-60 object-cover"
+            />
+          </div>
+          */}
+        </div>
+      </div>
 
-      {/* Related Links */}
-      <section>
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
-          You Might Also Like
-        </h2>
-        <ul className="list-disc list-inside text-green-800 text-md space-y-2">
-          {relatedLinks.map((item, index) => (
-            <li key={index}>
-              <a
-                href={item.url}
-                className="hover:underline transition duration-200 hover:text-red-600"
-              >
-                {item.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+      {/* Podcast Sections */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        {renderSection(" Interviews", interviews, 0)}
+        {renderSection(" Conversations", conversations, interviews.length)}
+
+        {/* Related Links */}
+        <section>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
+            You Might Also Like
+          </h2>
+          <ul className="list-disc list-inside text-green-800 text-md space-y-2">
+            {relatedLinks.map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.url}
+                  className="hover:underline transition duration-200 hover:text-red-600"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
+    </section>
   );
 };
 

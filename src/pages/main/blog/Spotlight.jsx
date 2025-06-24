@@ -39,13 +39,14 @@ const Spotlight = () => {
   </div>
 
   {/* Desktop View (reduced height) */}
-  <div className="hidden md:flex bg-gradient-to-r from-green-700 via-green-900 to-white h-72 items-center px-6 md:px-12">
-    <div className="w-1/2 text-white">
+  <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
+  <div className="w-1/2 text-white">
       <h1 className="text-3xl font-extrabold mb-2">SPOTLIGHT</h1>
       <p className="text-base font-light leading-snug">
         Discover the powerful stories, fearless creators, and bold narratives shaping today’s Black experience. Our Spotlight section brings you original series, documentaries, and visual deep dives into culture, art, music, and movements.
       </p>
     </div>
+    {/*
     <div className="w-1/2">
       <img
         src={img3}
@@ -53,6 +54,7 @@ const Spotlight = () => {
         className=" shadow-lg w-full h-60 object-cover"
       />
     </div>
+    */}
   </div>
 </div>
 

@@ -70,13 +70,14 @@ const About = () => {
         </div>
 
         {/* Desktop View */}
-        <div className="hidden md:flex bg-gradient-to-r from-green-700 via-green-900 to-white h-72 items-center px-12">
+        <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
           <div className="w-1/2 text-white">
             <h1 className="text-3xl font-extrabold mb-2">About CTDA Media</h1>
             <p className="text-base  leading-snug">
               We're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
             </p>
           </div>
+          {/*
           <div className="w-1/2">
             <img
               src={aboutHero}
@@ -84,6 +85,7 @@ const About = () => {
               className=" shadow-lg w-full h-60 object-cover"
             />
           </div>
+          */}
         </div>
       </div>
 
