@@ -6,124 +6,138 @@ import img4 from "../../assets/images/about-page/img4.jpg";
 import img5 from "../../assets/images/about-page/img5.jpg";
 import img6 from "../../assets/images/about-page/img6.jpg";
 import img7 from "../../assets/images/about-page/img7.jpg";
+import aboutHero from "../../assets/images/logo.jpg";
 
 const team = [
   {
     name: "Oyebanji Akins",
     role: "Founder & Host",
     image: img1,
-    bio: " Oyebanji leads CTDA with heart and vision. A storyteller and cultural critic, he’s known for his sharp reviews on X and his deep love for music, books, movies, and football."
+    bio: "Oyebanji leads CTDA with heart and vision. A storyteller and cultural critic, he’s known for his sharp reviews on X and his deep love for music, books, movies, and football.",
   },
   {
     name: "Gift RapzyRita",
     role: "Social Media Strategist",
     image: img2,
-    bio: " Rapzy drives CTDA’s campaigns with precision and creativity. As founder of @teamdrimedia, he blends strategy with cultural insight and always with the right vibe."
+    bio: "Rapzy drives CTDA’s campaigns with precision and creativity. As founder of @teamdrimedia, he blends strategy with cultural insight and always with the right vibe.",
   },
   {
     name: "Toyin Omoyeni",
     role: "Video Editor",
     image: img3,
-    bio: " Toyin brings CTDA’s visuals to life with motion, style, and story. She’s the eye behind our YouTube magic. When she’s not editing, she’s reading or creating."
+    bio: "Toyin brings CTDA’s visuals to life with motion, style, and story. She’s the eye behind our YouTube magic. When she’s not editing, she’s reading or creating.",
   },
   {
     name: "Destiny (Goldmond) Osaratin",
     role: "Marketing & Content Strategist",
     image: img7,
-    bio: "Goldmond leads CTDA’s marketing efforts, blending strategy and storytelling to grow our reach and impact. Offline, he’s a talented pencil artist with a creative soul."
+    bio: "Goldmond leads CTDA’s marketing efforts, blending strategy and storytelling to grow our reach and impact. Offline, he’s a talented pencil artist with a creative soul.",
   },
   {
     name: "Ajayi Goodness",
     role: "Social Media Manager",
     image: img6,
-    bio: "Goodness plans and manages CTDA’s content across platforms, making sure our voice stays clear and consistent. She’s also a content creator and lover of dance, food, and conversation."
+    bio: "Goodness plans and manages CTDA’s content across platforms, making sure our voice stays clear and consistent. She’s also a content creator and lover of dance, food, and conversation.",
   },
   {
     name: "Precious Osazee",
     role: "Content Writer",
     image: img4,
-    bio: " Precious writes engaging blog content for CTDA, transforming research into stories that connect. She also loves cooking, fiction, and great animations."
-  }
+    bio: "Precious writes engaging blog content for CTDA, transforming research into stories that connect. She also loves cooking, fiction, and great animations.",
+  },
 ];
 
 const About = () => {
   return (
     <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800">
-      {/* Hero Intro */}
-      <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-  <h1 className="text-2xl md:text-4xl font-bold mb-2 text-gray-900">CTDA Media</h1>
-  <p className="text-md md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-    More than a podcast — we're a dynamic media company blending African heritage and global
-    perspectives. From music and movies to deep conversations, we celebrate the Black experience.
-  </p>
-</div>
 
-{/* Mission Cards */}
-<div className="max-w-6xl mx-auto px-6 py-4 grid md:grid-cols-3 gap-6">
-  <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-t-4 border-green-600">
-    <h3 className="text-xl font-semibold mb-3 text-red-600">Who We Are</h3>
-    <p className="text-gray-700 text-sm leading-relaxed">
-      CTDA is a vibrant media company driven by a passionate team of creatives. We
-      aim to connect the dots in conversations around music, movies, culture, and everyday life
-      of Black people in and outside Africa.
-    </p>
-  </div>
-  <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-t-4 border-green-600">
-    <h3 className="text-xl font-semibold mb-3 text-red-600">What We Do</h3>
-    <p className="text-gray-700 text-sm leading-relaxed">
-      We deliver engaging content through social media, podcasts, and visuals. Our hosts lead
-      thought-provoking discussions and interviews that reflect and celebrate the Black cultural
-      identity across borders.
-    </p>
-  </div>
-  <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-t-4 border-green-600">
-    <h3 className="text-xl font-semibold mb-3 text-red-600">Our Mission</h3>
-    <p className="text-gray-700 text-sm leading-relaxed">
-      We amplify Black voices and bridge cultural gaps through storytelling, creativity, and
-      connection. Our platform celebrates identity and empowers communities through diverse
-      narratives and shared experiences.
-    </p>
-  </div>
-</div>
+      {/* Hero Section */}
+      <div className="relative text-white">
+        {/* Mobile View */}
+        <div className="md:hidden relative h-72 w-full">
+          <img
+            src={aboutHero}
+            alt="CTDA Hero Mobile"
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 className="text-3xl font-bold mb-2">About Us</h1>
+            <p className="text-base text-semibold ">
+              Connecting the dots through culture and conversation.
+            </p>
+          </div>
+        </div>
 
-{/* Our Story */}
-<div className="max-w-5xl mx-auto px-6 py-12">
-  <h2 className="text-xl font-semibold mb-3 text-red-600 mb-6">Our Story</h2>
-  <p className="text-gray-700 leading-relaxed text-sm md:text-lg">
-    CTDA was born from a simple idea: that Black stories deserve space, truth, and celebration on our own terms.
-    Founded by <span className="font-semibold">Oyebanji Akins</span>, a Nigerian-born American creative with a global voice,
-    CTDA stands for <span className="font-semibold">Connecting the Dots Africa</span>. But it’s more than a name, it’s a mission.
-    We connect the dots between generations, between the diaspora and the continent, between the known and the forgotten.
-    We speak from the heart of the culture, wherever it lives, and we don’t just observe, we participate.
-    CTDA is a growing home for stories that feel like us, sound like us, and move like us.
-  </p>
-</div>
+        {/* Desktop View */}
+        <div className="hidden md:flex bg-gradient-to-r from-green-700 via-green-900 to-white h-72 items-center px-12">
+          <div className="w-1/2 text-white">
+            <h1 className="text-3xl font-extrabold mb-2">About CTDA Media</h1>
+            <p className="text-base  leading-snug">
+              More than a podcast — we're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
+            </p>
+          </div>
+          <div className="w-1/2">
+            <img
+              src={aboutHero}
+              alt="CTDA Hero Desktop"
+              className=" shadow-lg w-full h-60 object-cover"
+            />
+          </div>
+        </div>
+      </div>
 
-{/* CTDA Pillars */}
-<div className="text-center px-6">
-  <p className="text-red-600 text-md font-semibold italic border-y-2 border-green-300 py-4 max-w-md mx-auto">
-    CTDA Pillars: Culture | Creativity | Community | Connection
-  </p>
-</div>
+      {/* Mission Cards */}
+      <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-6">
+        {[
+          {
+            title: "Who We Are",
+            desc: "CTDA is a vibrant media company driven by a passionate team of creatives. We connect the dots in conversations around music, movies, culture, and Black life in Africa and the diaspora.",
+          },
+          {
+            title: "What We Do",
+            desc: "We create, curate, and share engaging content via social media, podcasts, and video. We explore conversations that reflect the heartbeat of Black culture across continents.",
+          },
+          {
+            title: "Our Mission",
+            desc: "To amplify Black voices and bridge cultural gaps through storytelling, creativity, and connection — celebrating identity and empowering community.",
+          },
+          {
+            title: "What Makes Us Different",
+            desc: "CTDA isn't here to go viral and vanish. We're here to mean something. Our content is intentional and rooted in lived experience. We highlight emerging voices and elevate everyday Black life — the wins, the struggles, the nuance.We care deeply: about the culture, the creators, and the community. That's what sets us apart — and keeps us going.",
+          },
+          {
+            title: "Our Story",
+            desc: "CTDA was born from a simple idea: that Black stories deserve space, truth, and celebration on our own terms. Founded by Oyebanji Akins, a Nigerian-born American creative with a global voice, CTDA stands for Connecting the Dots Africa. But it’s more than a name — it’s a mission.We connect generations, the diaspora and the continent, the known and the forgotten. We speak from the heart of the culture, wherever it lives. We don’t just observe, we participate. CTDA is a growing home for stories that feel like us, sound like us, and move like us.",
+          },
+          {
+            title: "More than a podcast",
+            desc: "More than a podcast — we're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.",
+          },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="bg-white p-6 rounded-xl shadow hover:shadow-md transition border-l-4 border-green-600"
+          >
+            <h3 className="text-xl font-semibold mb-3 text-red-600">{item.title}</h3>
+            <p className="text-gray-700 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
 
-{/* What Makes Us Different */}
-<div className="max-w-5xl mx-auto px-6 py-12">
-  <h2 className="text-xl font-semibold mb-3 text-red-600 mb-6">What Makes Us Different</h2>
-  <p className="text-gray-700 leading-relaxed text-sm md:text-lg">
-    CTDA is not here to go viral and vanish. We're here to mean something. Our content is intentional and rooted in experience.
-    We platform emerging voices right alongside established names. We ask the questions no one else is asking.
-    We center everyday Black life; the big wins, the quiet struggles, the nuance.
-    <br /><br />
-    Most of all, we care deeply. About the culture. About the creators. About the community.
-    That’s what sets us apart. And that’s what keeps us going.
-  </p>
-</div>
+      
 
+      {/* Pillars */}
+      <div className="text-center px-6">
+        <p className="text-red-600 text-md font-semibold italic border-y-2 border-green-300 py-4 max-w-md mx-auto">
+          CTDA Pillars: Culture | Creativity | Community | Connection
+        </p>
+      </div>
 
       {/* Team Section */}
-      <div className="max-w-6xl mx-auto mt-20 px-6">
+      <div className="max-w-6xl mx-auto mt-20 px-6 pb-16">
         <h3 className="text-2xl font-bold text-center mb-10">Meet the Team</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {team.map((member, index) => (
             <div
               key={index}

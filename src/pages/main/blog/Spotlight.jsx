@@ -39,7 +39,7 @@ const Spotlight = () => {
   </div>
 
   {/* Desktop View (reduced height) */}
-  <div className="hidden md:flex bg-gradient-to-r from-black via-green-900 to-white h-72 items-center px-6 md:px-12">
+  <div className="hidden md:flex bg-gradient-to-r from-green-700 via-green-900 to-white h-72 items-center px-6 md:px-12">
     <div className="w-1/2 text-white">
       <h1 className="text-3xl font-extrabold mb-2">SPOTLIGHT</h1>
       <p className="text-base font-light leading-snug">
