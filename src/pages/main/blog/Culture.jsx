@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import img1 from "../../../assets/images/podcast/img1.jpg";
 import img2 from "../../../assets/images/culture-page/img2.jpg";
 import img3 from "../../../assets/images/culture-page/img3.jpg";
 import img4 from "../../../assets/images/culture-page/img4.jpg";
 import img5 from "../../../assets/images/culture-page/img5.jpg";
 
+// Blog Data
 const fallbackCultureData = [
   {
     id: 1,
@@ -80,41 +82,57 @@ const Culture = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-white py-16 px-4 sm:px-8 lg:px-24">
-      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2">
+    <motion.div
+      className="bg-white dark:bg-white py-16 px-4 sm:px-8 lg:px-24"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.h1
+        className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2"
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         Culture & Heritage
-      </h1>
+      </motion.h1>
 
       <div className="grid gap-12 md:grid-cols-2">
-        {cultureContent.map((item) => (
-          <Link
-            to={`/culture/${item.slug}`}
+        {cultureContent.map((item, index) => (
+          <motion.div
             key={item.id}
-            className="group bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: index * 0.15, duration: 0.6 }}
           >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="p-6 flex flex-col flex-grow">
-              <p className="text-xs sm:text-sm text-gray-500 mb-2">
-                Published: {formatDate(item.date)}
-              </p>
-              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 group-hover:text-green-700 transition-colors">
-                {item.title}
-              </h2>
-              <p className="text-sm sm:text-base text-black flex-grow">
-                {item.description}
-              </p>
-              <span className="mt-4 text-red-600 font-medium text-sm sm:text-base hover:underline">
-                Read More →
-              </span>
-            </div>
-          </Link>
+            <Link
+              to={`/culture/${item.slug}`}
+              className="group bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <p className="text-xs sm:text-sm text-gray-500 mb-2">
+                  Published: {formatDate(item.date)}
+                </p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 group-hover:text-green-700 transition-colors">
+                  {item.title}
+                </h2>
+                <p className="text-sm sm:text-base text-black flex-grow">
+                  {item.description}
+                </p>
+                <span className="mt-4 text-red-600 font-medium text-sm sm:text-base hover:underline">
+                  Read More →
+                </span>
+              </div>
+            </Link>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
