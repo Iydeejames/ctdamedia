@@ -7,7 +7,7 @@ import img3 from "../../../assets/images/culture-page/img3.jpg";
 import img4 from "../../../assets/images/culture-page/img4.jpg";
 import img5 from "../../../assets/images/culture-page/img5.jpg";
 
-// Blog Data
+// Sample Data
 const fallbackCultureData = [
   {
     id: 1,
@@ -60,16 +60,7 @@ const Culture = () => {
   const [cultureContent, setCultureContent] = useState([]);
 
   useEffect(() => {
-    const fetchCultureData = async () => {
-      try {
-        setCultureContent(fallbackCultureData);
-      } catch (error) {
-        console.error("Failed to fetch culture content:", error);
-        setCultureContent(fallbackCultureData);
-      }
-    };
-
-    fetchCultureData();
+    setCultureContent(fallbackCultureData);
   }, []);
 
   const formatDate = (dateString) => {
@@ -81,39 +72,41 @@ const Culture = () => {
     });
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
+  };
+
   return (
-    <motion.div
-      className="bg-white dark:bg-white py-16 px-4 sm:px-8 lg:px-24"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
+    <div className="bg-white dark:bg-white py-16 px-4 sm:px-8 lg:px-24">
       <motion.h1
-        className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2"
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12  inline-block pb-2"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
       >
         Culture & Heritage
       </motion.h1>
 
       <div className="grid gap-12 md:grid-cols-2">
-        {cultureContent.map((item, index) => (
+        {cultureContent.map((item) => (
           <motion.div
             key={item.id}
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: index * 0.15, duration: 0.6 }}
+            className="bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
-            <Link
-              to={`/culture/${item.slug}`}
-              className="group bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+            <Link to={`/culture/${item.slug}`}>
+              <div className="overflow-hidden">
+                <motion.img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                />
+              </div>
               <div className="p-6 flex flex-col flex-grow">
                 <p className="text-xs sm:text-sm text-gray-500 mb-2">
                   Published: {formatDate(item.date)}
@@ -132,7 +125,7 @@ const Culture = () => {
           </motion.div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
