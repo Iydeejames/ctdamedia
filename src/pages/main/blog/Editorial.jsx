@@ -110,7 +110,7 @@ const Editorial = () => {
       </div>
 
       {/* Contribute Section */}
-      <div className="bg-green-900 text-white text-center py-12 px-6">
+      <div className="bg-green-200 text-black text-center py-12 px-6">
         <h2 className="text-2xl font-semibold mb-4">Pitch Your Story</h2>
         <p className="max-w-2xl mx-auto mb-6">
           Are you a writer, thinker, or journalist with a unique voice or viewpoint? We welcome pitches that align with our
