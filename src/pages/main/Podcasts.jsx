@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import vid from "../../assets/videos/vid.mp4";
 import vid3 from "../../assets/videos/vid3.mp4";
 import vid1 from "../../assets/videos/vid1.mp4";
@@ -33,7 +32,7 @@ const conversations = [
     id: "faith-culture",
     title: "Faith and Culture",
     video: vid,
-    description: "An honest discussion on how faith intersects with African culture.",
+    description: "How faith intersects with African culture and community.",
     date: "June 12, 2025",
   },
 ];
@@ -75,34 +74,33 @@ const Podcasts = () => {
 
   const renderSection = (title, items, startIndex) => (
     <section className="mb-16">
-      <h2 className="text-xl md:text-3xl font-extrabold mb-6 text-black border-b-2 border-black pb-2">
+      <h2 className="text-xl md:text-3xl font-bold mb-6 text-black border-b-2 border-black pb-2">
         {title}
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
         {items.map((pod, index) => (
-          <Link
+          <div
             key={pod.id}
-            to={`/podcast/${pod.id}`}
-            className="group block bg-white shadow hover:shadow-xl transition overflow-hidden border border-gray-200"
+            className="group block bg-white shadow hover:shadow-xl transition overflow-hidden border border-gray-200 rounded-xl"
           >
             <video
               src={pod.video}
               controls
-              preload="metadata"
+              playsInline
+              muted
+              preload="auto"
               className="w-full h-64 object-cover"
               ref={(el) => (videoRefs.current[startIndex + index] = el)}
+              poster="/fallback-thumbnail.jpg" // optional: add your thumbnail path
             />
             <div className="p-4">
-              <h3 className="text-lg md:text-xl font-semibold text-green-900 group-hover:underline">
+              <h3 className="text-lg md:text-xl font-semibold text-green-900">
                 {pod.title}
               </h3>
               <p className="text-sm text-gray-500">{pod.date}</p>
               <p className="text-sm text-gray-700 mt-2">{pod.description}</p>
-              <span className="inline-block text-sm text-red-600 mt-2 font-medium">
-                Watch →
-              </span>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>
@@ -114,13 +112,10 @@ const Podcasts = () => {
         Join the Conversation
       </h1>
 
-      {/* Interviews */}
       {renderSection(" Interviews", interviews, 0)}
+      {renderSection("Conversations", conversations, interviews.length)}
 
-      {/* Conversations */}
-      {renderSection(" Conversations", conversations, interviews.length)}
-
-      {/* Related Text Links */}
+      {/* Related Links */}
       <section>
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
           You Might Also Like
@@ -128,12 +123,12 @@ const Podcasts = () => {
         <ul className="list-disc list-inside text-green-800 text-md space-y-2">
           {relatedLinks.map((item, index) => (
             <li key={index}>
-              <Link
-                to={item.url}
+              <a
+                href={item.url}
                 className="hover:underline transition duration-200 hover:text-red-600"
               >
                 {item.title}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
