@@ -10,7 +10,6 @@ import {
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/images/logo.jpg";
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
@@ -36,7 +35,6 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Preload logo image to prevent delay
   useEffect(() => {
     const img = new Image();
     img.src = logo;
@@ -47,11 +45,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="CTDA Media Logo"
-            className="h-12 w-12 rounded-full object-cover border-2 border-white"
-          />
+        <img
+  src={logo}
+  alt="CTDA Media Logo"
+  className="h-12 w-12 rounded-full object-cover border-2 border-white"
+  loading="eager"
+  decoding="async"
+/>
+
           <span className="text-xl font-bold tracking-wide uppercase">
             CTDA<span className="font-light text-white">Media</span>
           </span>
@@ -64,10 +65,10 @@ const Header = () => {
 
           {/* Blog Dropdown */}
           <div className="relative group">
-            <button className="flex items-center gap-2 hover:text-red-500">
+            <div className="flex items-center gap-2 cursor-pointer hover:text-red-500">
               BLOG <FaChevronDown size={14} />
-            </button>
-            <div className="absolute top-full left-0 mt-2 bg-white text-green-800 shadow-lg rounded-md opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transform scale-95 group-hover:scale-100 transition duration-200 origin-top w-64 z-30 p-4 grid grid-cols-1 gap-2">
+            </div>
+            <div className="absolute top-full left-0 mt-2 bg-white text-green-800 shadow-lg rounded-md scale-95 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 origin-top w-64 z-30 p-4 grid grid-cols-1 gap-2 pointer-events-none group-hover:pointer-events-auto">
               {blogPages.map((item) => (
                 <a
                   key={item}
@@ -86,28 +87,26 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-  className="lg:hidden text-white text-2xl z-[60] relative"
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  {menuOpen ? <FaTimes /> : <FaBars />}
-</button>
-
+          className="lg:hidden text-white text-2xl z-[60] relative"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
 
-{/* Background Blur Overlay */}
-<AnimatePresence>
-  {menuOpen && (
-    <motion.div
-      className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 lg:hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    />
-  )}
-</AnimatePresence>
+      {/* Background Blur Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
 
-
-      {/* Mobile Menu with Animation */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -116,14 +115,17 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="bg-green-800 text-white w-full absolute top-[95%] left-0 shadow-md rounded-b-lg py-4 px-6 z-40"
-            >
+          >
             {/* Logo Centered */}
             <div className="flex flex-col items-center mb-6">
-              <img
-                src={logo}
-                alt="CTDA Media Logo"
-                className="h-14 w-14 rounded-full object-cover border-2 border-white"
-              />
+            <img
+  src={logo}
+  alt="CTDA Media Logo"
+  className="h-12 w-12 rounded-full object-cover border-2 border-white"
+  loading="eager"
+  decoding="async"
+/>
+
               <span className="text-lg font-bold mt-2 uppercase tracking-wide">
                 CTDA <span className="font-light">Media</span>
               </span>
