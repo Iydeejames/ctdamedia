@@ -16,7 +16,7 @@ const Header = () => {
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
 
   const blogPages = [
-    'CTDA Editorial',
+    'Editorial',
     'Spotlight',
     'Culture',
     'Music',
