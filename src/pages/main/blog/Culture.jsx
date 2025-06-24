@@ -6,7 +6,6 @@ import img3 from "../../../assets/images/culture-page/img3.jpg";
 import img4 from "../../../assets/images/culture-page/img4.jpg";
 import img5 from "../../../assets/images/culture-page/img5.jpg";
 
-// Example blog data with publish date and slug
 const fallbackCultureData = [
   {
     id: 1,
@@ -44,7 +43,15 @@ const fallbackCultureData = [
     slug: "language-revival",
     date: "2025-03-05",
   },
-
+  {
+    id: 5,
+    title: "Food, Family, and Folklore: The Culture of the Kitchen",
+    description:
+      "From ancestral recipes to communal cooking, African kitchens are sacred spaces of memory, healing, and storytelling.",
+    image: img5,
+    slug: "culture-of-the-kitchen",
+    date: "2025-06-01",
+  },
 ];
 
 const Culture = () => {
@@ -53,7 +60,6 @@ const Culture = () => {
   useEffect(() => {
     const fetchCultureData = async () => {
       try {
-        // Replace with real backend fetch later
         setCultureContent(fallbackCultureData);
       } catch (error) {
         console.error("Failed to fetch culture content:", error);
@@ -74,8 +80,8 @@ const Culture = () => {
   };
 
   return (
-    <div className="bg-white py-16 px-4 sm:px-8 lg:px-24">
-      <h1 className="text-4xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2">
+    <div className="bg-white dark:bg-white py-16 px-4 sm:px-8 lg:px-24">
+      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12 border-b-4 border-black inline-block pb-2">
         Culture & Heritage
       </h1>
 
@@ -84,7 +90,7 @@ const Culture = () => {
           <Link
             to={`/culture/${item.slug}`}
             key={item.id}
-            className="group bg-green-50 shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            className="group bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
           >
             <img
               src={item.image}
@@ -92,14 +98,16 @@ const Culture = () => {
               className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <div className="p-6 flex flex-col flex-grow">
-              <p className="text-sm text-gray-500 mb-2">
+              <p className="text-xs sm:text-sm text-gray-500 mb-2">
                 Published: {formatDate(item.date)}
               </p>
-              <h2 className="text-2xl font-semibold text-black mb-3 group-hover:text-green-700 transition-colors">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-black mb-3 group-hover:text-green-700 transition-colors">
                 {item.title}
               </h2>
-              <p className="text-black text-sm flex-grow">{item.description}</p>
-              <span className="mt-4 text-red-600 font-medium hover:underline">
+              <p className="text-sm sm:text-base text-black flex-grow">
+                {item.description}
+              </p>
+              <span className="mt-4 text-red-600 font-medium text-sm sm:text-base hover:underline">
                 Read More →
               </span>
             </div>
