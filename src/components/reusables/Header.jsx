@@ -36,6 +36,12 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Preload logo image to prevent delay
+  useEffect(() => {
+    const img = new Image();
+    img.src = logo;
+  }, []);
+
   return (
     <header className="bg-green-700 text-white sticky top-0 z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -80,12 +86,26 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-white text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+  className="lg:hidden text-white text-2xl z-[60] relative"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  {menuOpen ? <FaTimes /> : <FaBars />}
+</button>
+
       </div>
+
+{/* Background Blur Overlay */}
+<AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 lg:hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    />
+  )}
+</AnimatePresence>
+
 
       {/* Mobile Menu with Animation */}
       <AnimatePresence>
