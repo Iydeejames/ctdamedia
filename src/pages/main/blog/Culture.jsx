@@ -45,15 +45,6 @@ const fallbackCultureData = [
     slug: "language-revival",
     date: "2025-03-05",
   },
-  {
-    id: 5,
-    title: "Food, Family, and Folklore: The Culture of the Kitchen",
-    description:
-      "From ancestral recipes to communal cooking, African kitchens are sacred spaces of memory, healing, and storytelling.",
-    image: img5,
-    slug: "culture-of-the-kitchen",
-    date: "2025-06-01",
-  },
 ];
 
 const Culture = () => {
