@@ -92,7 +92,7 @@ const Culture = () => {
         {cultureContent.map((item) => (
           <motion.div
             key={item.id}
-            className="bg-green-50 rounded-lg shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
+            className="bg-green-50  shadow hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
