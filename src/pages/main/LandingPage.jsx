@@ -208,13 +208,21 @@ const LandingPage = () => {
           <div className="bg-white p-4 shadow rounded">
             <h2 className="text-xl font-bold mb-4">Categories</h2>
             {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
-              <div key={cat} className="relative mb-4">
-                <img src={categoryImages[index]} alt={cat} className="w-full h-24 object-cover rounded" />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
-                  <a href={`/${cat.toLowerCase()}`} className="hover:underline">{cat}</a>
-                </div>
-              </div>
-            ))}
+  <div key={cat} className="relative mb-4 rounded overflow-hidden aspect-[3/1]">
+    <img
+      src={categoryImages[index]}
+      alt={cat}
+      loading="lazy"
+      className="absolute inset-0 w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-lg font-bold">
+      <a href={`/${cat.toLowerCase()}`} className="hover:underline">
+        {cat}
+      </a>
+    </div>
+  </div>
+))}
+
           </div>
         </aside>
       </div>
