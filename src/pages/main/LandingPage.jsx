@@ -213,22 +213,15 @@ const LandingPage = () => {
       <h2 className="text-xl font-bold mb-4">Categories</h2>
       {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
        <div key={cat} className="mb-4 rounded overflow-hidden">
-       <div
-         className="relative w-full h-24 sm:h-28 md:h-32"
-         style={{
-           transform: "translateZ(0)",
-           WebkitTransform: "translateZ(0)",
-         }}
-       >
-         <img
-           src={categoryImages[index]}
-           alt={cat}
-           loading="lazy"
-           className="w-full h-full object-cover"
+       <div className="relative w-full h-24 sm:h-28 md:h-32">
+         <div
+           className="w-full h-full"
            style={{
-             backfaceVisibility: "hidden",
-             WebkitBackfaceVisibility: "hidden",
-             transform: "translate3d(0,0,0)",
+             backgroundImage: `url(${categoryImages[index]})`,
+             backgroundSize: "cover",
+             backgroundPosition: "center",
+             width: "100%",
+             height: "100%",
            }}
          />
          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
