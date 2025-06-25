@@ -188,8 +188,7 @@ const Editorial = () => {
   </motion.div>
 </section>
 
-{/* === Editorial Team === */}
-{/* === Editorial Team === */}
+{/* === Editorial Team === 
 <section className="bg-gray-100 py-20 px-6">
   <div className="max-w-6xl mx-auto">
     <h2 className="text-3xl font-serif font-bold text-center text-gray-900 mb-12">
@@ -224,7 +223,7 @@ const Editorial = () => {
     </div>
   </div>
 </section>
-
+*/}
 
 {/* === Pitch Section === */}
 <section className="bg-white text-black py-20 px-6 text-center">
