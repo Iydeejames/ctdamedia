@@ -179,7 +179,7 @@ const LandingPage = () => {
 
   return (
 <div className="text-gray-800 font-sans relative">
-  {/* Search Input Section */}
+  {/* Search Input or Toggle */}
   <div className="relative z-50 px-4 mt-4 flex justify-end items-center">
     {showSearch ? (
       <div className="relative w-64">
@@ -189,13 +189,10 @@ const LandingPage = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           autoFocus
-          className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition"
+          className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-gray-100 rounded-full  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition"
         />
-        {/* Icon Inside Input */}
-        <FiSearch className="absolute left-3 top-2.5 text-gray-500 text-base" />
       </div>
     ) : (
-      // Initial button to reveal search bar
       <button
         onClick={() => setShowSearch(true)}
         className="p-2 rounded-full hover:bg-gray-200 transition"
@@ -207,8 +204,8 @@ const LandingPage = () => {
   </div>
 
   {/* Search Results Dropdown */}
-  {showSearch && searchResults.length > 0 && (
-    <ul className="absolute top-[100%] mt-1 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg max-h-52 overflow-y-auto z-40">
+  {showSearch && searchTerm && searchResults.length > 0 && (
+    <ul className="absolute mt-2 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg max-h-52 overflow-y-auto z-40">
       {searchResults.map((item, index) => (
         <li
           key={index}
