@@ -192,46 +192,62 @@ const LandingPage = () => {
 
       {/* HERO + CATEGORIES */}
       <div className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6">
-        <div className="lg:w-3/4 relative h-[525px] overflow-hidden shadow-lg">
-          {slides.map((slide, index) => (
-            <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
-              <img src={slide.image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">{slide.caption}</h1>
-              </div>
-            </div>
-          ))}
+  {/* === Slideshow (Left Side) === */}
+  <div className="lg:w-3/4 relative h-[525px] overflow-hidden shadow-lg rounded">
+    {slides.map((slide, index) => (
+      <div
+        key={index}
+        className={`absolute inset-0 transition-opacity duration-1000 ${
+          index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+        }`}
+        style={{ willChange: "opacity", transform: "translateZ(0)" }}
+      >
+        <img
+          src={slide.image}
+          alt={`Slide ${index}`}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          style={{ willChange: "transform", transform: "translateZ(0)" }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-70" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
+            {slide.caption}
+          </h1>
         </div>
-
-        <aside className="lg:w-1/4">
-          <div className="bg-white p-4 shadow rounded">
-            <h2 className="text-xl font-bold mb-4">Categories</h2>
-            {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
-  <div key={cat} className="mb-4 rounded overflow-hidden">
-    <div className="relative w-full h-24 sm:h-28 md:h-32">
-      <img
-        src={categoryImages[index]}
-        alt={cat}
-        loading="lazy"
-        className="w-full h-full object-cover"
-        style={{ willChange: "transform", transform: "translateZ(0)" }}
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-        <a
-          href={`/${cat.toLowerCase()}`}
-          className="text-white text-lg font-bold hover:underline"
-        >
-          {cat}
-        </a>
       </div>
-    </div>
+    ))}
   </div>
-))}
 
+  {/* === Categories (Right Side) === */}
+  <aside className="lg:w-1/4">
+    <div className="bg-white p-4 shadow rounded">
+      <h2 className="text-xl font-bold mb-4">Categories</h2>
+      {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
+        <div key={cat} className="mb-4 rounded overflow-hidden">
+          <div className="relative w-full h-24 sm:h-28 md:h-32">
+            <img
+              src={categoryImages[index]}
+              alt={cat}
+              loading="lazy"
+              className="w-full h-full object-cover"
+              style={{ willChange: "transform", transform: "translateZ(0)" }}
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <a
+                href={`/${cat.toLowerCase()}`}
+                className="text-white text-lg font-bold hover:underline"
+              >
+                {cat}
+              </a>
+            </div>
           </div>
-        </aside>
-      </div>
+        </div>
+      ))}
+    </div>
+  </aside>
+</div>
+
 
       {/* BLACK EXPERIENCE SECTION */}
       <section ref={blackExperienceRef} className="bg-gray-200 py-10 mt-12 text-center">
