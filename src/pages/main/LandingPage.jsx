@@ -95,16 +95,6 @@ const LandingPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (searchTerm.trim() === "") {
-      setSearchResults([]);
-      return;
-    }
-    const results = allItems.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
-  }, [searchTerm]);
 
   const SectionCard = ({ title, data }) => (
     <section className="container mx-auto px-4 mt-10">
@@ -179,7 +169,7 @@ const LandingPage = () => {
 
   return (
 <div className="text-gray-800 font-sans relative">
-  {/* Search Input or Toggle */}
+  {/* Search Input or Toggle 
   <div className="relative z-50 px-4 mt-4 flex justify-end items-center">
     {showSearch ? (
       <div className="relative w-64">
@@ -203,7 +193,7 @@ const LandingPage = () => {
     )}
   </div>
 
-  {/* Search Results Dropdown */}
+
   {showSearch && searchTerm && searchResults.length > 0 && (
     <ul className="absolute mt-2 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg max-h-52 overflow-y-auto z-40">
       {searchResults.map((item, index) => (
@@ -227,13 +217,7 @@ const LandingPage = () => {
       ))}
     </ul>
   )}
-
-
-
-  
-
-    
-    
+*/}
 
       {/* AnimatePresence handles animation mount/unmount */}
       <AnimatePresence>
