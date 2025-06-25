@@ -84,7 +84,7 @@ const Culture = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            <h1 className="text-3xl font-bold mb-2">Culture & Heritage</h1>
+            <h1 className="text-2xl font-bold mb-2">Culture & Heritage</h1>
             <p className="text-base font-semibold">
               Exploring African identity, tradition, and modern expression.
             </p>
@@ -105,7 +105,7 @@ const Culture = () => {
       {/* Culture Posts Section */}
       <div className="py-16 px-4 sm:px-8 lg:px-24">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-black mb-12 inline-block pb-2"
+          className="text-2xl sm:text-2xl md:text-3xl font-bold text-center text-black mb-12 inline-block pb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
