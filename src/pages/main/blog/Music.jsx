@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+
 import img1 from "../../../assets/images/music-page/img1.jpg";
 import img2 from "../../../assets/images/music-page/img2.jpg";
 import img3 from "../../../assets/images/music-page/img3.jpg";
@@ -7,7 +9,6 @@ import img5 from "../../../assets/images/music-page/img5.jpg";
 import img6 from "../../../assets/images/music-page/img6.jpg";
 import img7 from "../../../assets/images/music-page/img7.jpg";
 import img from "../../../assets/images/music-page/img.png";
-
 import vid from "../../../assets/videos/vid.mp4";
 
 const placeholderMusicNews = [
@@ -42,6 +43,15 @@ const placeholderMusicNews = [
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
   },
 ];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeInOut" },
+  },
+};
 
 const Music = () => {
   const [musicNews, setMusicNews] = useState([]);
@@ -92,55 +102,91 @@ const Music = () => {
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            <h1 className="text-3xl font-bold mb-2"> Music</h1>
+          <motion.div
+            variants={fadeInUp}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+          >
+            <h1 className="text-3xl font-bold mb-2">Music</h1>
             <p className="text-base font-semibold">
               Experience the pulse of Black music — from global hits to underground gems.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Desktop View */}
         <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
-          <div className="w-1/2 text-white">
+          <motion.div
+            variants={fadeInUp}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="w-1/2 text-white"
+          >
             <h1 className="text-3xl font-extrabold mb-2">Music</h1>
             <p className="text-base leading-snug">
               From Afrobeats to Highlife, Hip Hop to Soul — we tell the stories behind the sound.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="px-4 py-12 max-w-7xl mx-auto">
-        {/* Music News Section */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+            {/* Main Content */}
+            <div className="max-w-6xl mx-auto px-4 py-12">
+        <motion.h2
+          className="text-2xl md:text-3xl font-bold mb-8 text-green-800 text-center"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          Latest in Music
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {musicNews.map((item, index) => (
-            <div key={index} className="bg-gray-200 shadow-md overflow-hidden relative">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-72 object-contain bg-white rounded"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-400 mb-4">{item.description}</p>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => togglePlay(index)}
-                    className="bg-red-700 hover:bg-red-500 transition text-white text-sm px-4 py-1 rounded-full"
-                  >
-                    {playingIndex === index ? "Pause" : "Play"}
-                  </button>
-                  <audio ref={(el) => (audioRefs.current[index] = el)}>
-                    <source src={item.audioUrl} type="audio/mpeg" />
-                  </audio>
-                </div>
+            <motion.div
+              key={index}
+              className="bg-white shadow-lg rounded-2xl overflow-hidden transition-transform hover:scale-105"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+<div className="w-full aspect-video ">
+  <img
+    src={item.img}
+    alt={item.title}
+    className="w-full h-full object-contain object-center rounded-t-2xl"
+  />
+</div>
+
+              <div className="p-5">
+                <h3 className="text-lg md:text-xl font-semibold text-green-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm md:text-base text-gray-700 mb-4">
+                  {item.description}
+                </p>
+                <button
+                  onClick={() => togglePlay(index)}
+                  className="bg-green-700 hover:bg-green-900 text-white text-sm px-4 py-2 rounded-md transition"
+                >
+                  {playingIndex === index ? "Pause" : "Play Audio"}
+                </button>
+                <audio
+                  ref={(el) => (audioRefs.current[index] = el)}
+                  src={item.audioUrl}
+                  className="hidden"
+                  preload="none"
+                />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
+
     </div>
   );
 };
