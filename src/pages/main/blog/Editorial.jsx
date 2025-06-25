@@ -69,136 +69,186 @@ const Editorial = () => {
         </div>
       </div>
 
-      {/* === Mission === */}
-      <motion.div
-        className="py-12 px-6 max-w-5xl mx-auto text-center"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <SectionHeader icon={FaBullhorn} title="Our Mission" />
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-          At CTDA Media, we believe stories shape identity, drive change, and
-          challenge narratives. Our editorial team is committed to telling the
-          truth — boldly, responsibly, and unapologetically.
-        </p>
-      </motion.div>
+{/* === Mission Statement === */}
+<section className="py-20 px-6 bg-white text-center">
+  <motion.div
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="max-w-3xl mx-auto"
+  >
+    <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+      Our Editorial Mission
+    </h2>
+    <p className="text-sm text-gray-700 leading-relaxed">
+      At CTDA Media, we harness storytelling to reclaim truth, celebrate identity,
+      and challenge the dominant narrative — unapologetically. We publish content that
+      honors lived Black experiences, shaped by creativity, courage, and truth.
+    </p>
+  </motion.div>
+</section>
 
-      {/* === Philosophy (No Animation on Cards) === */}
-      <div className="py-12 px-6 max-w-6xl mx-auto">
-        <SectionHeader icon={FaPenNib} title="Editorial Philosophy" />
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            ["Independent Journalism", "Free from external influence, rooted in facts and integrity."],
-            ["Diverse Voices", "We spotlight Black stories, diasporic experiences, and new perspectives."],
-            ["Cultural Consciousness", "Content that respects and reflects the African and global Black identity."],
-            ["Accountability", "We hold the powerful — and ourselves — to high editorial standards."],
-            ["Innovation", "Multimedia storytelling, new platforms, and bold formats drive our work."],
-          ].map(([title, desc], idx) => (
-            <div
-              key={idx}
-              className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
-            >
-              <h3 className="font-bold text-lg text-green-800 mb-2">{title}</h3>
-              <p className="text-gray-700">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* === Editorial Process === */}
-      <motion.div
-        className="py-12 px-6 max-w-5xl mx-auto"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <SectionHeader icon={FaCheckCircle} title="Our Editorial Process" />
-        <div className="space-y-6 text-gray-700 text-base">
-          <div>
-            <strong className="text-black">Fact-Checking:</strong> Every
-            report undergoes a rigorous review for accuracy and fairness.
-          </div>
-          <div>
-            <strong className="text-black">Sources:</strong> We value firsthand
-            sources, lived experiences, and documented truth.
-          </div>
-          <div>
-            <strong className="text-black">Corrections Policy:</strong> We
-            promptly correct any errors and ensure transparency with our
-            readers.
-          </div>
-        </div>
-      </motion.div>
-
-      {/* === Meet the Team (No Animation on Cards) === */}
-      <div className="bg-white py-12 px-6">
-        <SectionHeader icon={FaUserEdit} title="Meet the Editorial Team" />
-        <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-8">
-          {[{
-            name: "Oyebanji Akins",
-            role: "Editor-in-Chief",
-            img: team1,
-            bio: "Nigerian-born, globally-minded. A passionate storyteller connecting Africa to the world."
-          }, {
-            name: "Precious Osazee",
-            role: "Content Writer",
-            img: team2,
-            bio: "Precious writes engaging blog content for CTDA, transforming research into stories that connect. She also loves cooking, fiction, and great animations."
-          }].map((member, idx) => (
-            <div
-              key={idx}
-              className="flex gap-4 items-start bg-gray-50 p-4 rounded-xl shadow hover:shadow-md transition"
-            >
-              <img src={member.img} alt={member.name} className="w-16 h-16 rounded-full object-cover shadow" />
-              <div>
-                <h3 className="font-bold text-lg">{member.name}</h3>
-                <p className="text-sm text-gray-600">{member.role}</p>
-                <p className="text-sm mt-1">{member.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* === Ethical Standards === */}
-      <motion.div
-        className="py-12 px-6 max-w-5xl mx-auto"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <SectionHeader icon={FaCheckCircle} title="Ethical Standards" />
-        <ul className="space-y-4 text-gray-800 list-disc list-inside">
-          <li>We adhere to the International Federation of Journalists (IFJ) ethical standards.</li>
-          <li>We do not publish hate speech, misinformation, or discriminatory content.</li>
-          <li>Our editorial team is trained in anti-bias, trauma-informed reporting, and ethical sourcing.</li>
-        </ul>
-      </motion.div>
-
-      {/* === Pitch Section === */}
-      <motion.div
-        className="bg-green-100 text-black text-center py-12 px-6"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4">Pitch Your Story</h2>
-        <p className="max-w-2xl mx-auto mb-6 text-base md:text-lg">
-          Are you a writer, thinker, or journalist with a unique voice or viewpoint?
-          We welcome pitches that align with our editorial vision.
-        </p>
-        <a
-          href="/contact"
-          className="inline-block bg-white text-green-800 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition"
+{/* === Philosophy === */}
+<section className="bg-white py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <motion.h2
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="text-2xl font-bold font-serif text-center text-gray-900 mb-8"
+    >
+      Our Editorial Philosophy
+    </motion.h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          title: "Truth First",
+          text: "Every piece we publish starts with facts — we go beyond headlines to illuminate context and clarity.",
+        },
+        {
+          title: "Global Black Voices",
+          text: "We uplift stories from across the African diaspora, giving platform to both legacy and emerging voices.",
+        },
+        {
+          title: "Bold Formats",
+          text: "From audio narratives to short-form critique, we experiment to meet our audience where they are.",
+        },
+        {
+          title: "Cultural Depth",
+          text: "We interpret culture critically, understanding its social and historical weight — not just trends.",
+        },
+        {
+          title: "Creative Freedom",
+          text: "Writers have autonomy. Our editors guide, but we protect the original voice and tone of each contributor.",
+        },
+        {
+          title: "Ethical Grounding",
+          text: "Our standards are rooted in care, respect, and accountability — to both the story and the people behind it.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="bg-white p-6 rounded-xl shadow-md transition hover:shadow-lg"
         >
-          Submit a Pitch
-        </a>
-      </motion.div>
+          <h3 className="text-xl font-semibold text-red-800 mb-3">{item.title}</h3>
+          <p className="text-sm text-gray-700">{item.text}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* === Editorial Process === */}
+<section className="bg-white py-20 px-6">
+  <motion.div
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="max-w-4xl mx-auto text-center"
+  >
+    <h2 className="text-3xl font-serif font-bold text-gray-900 mb-6">
+      How We Work
+    </h2>
+    <p className="text-gray-700 text-lg leading-relaxed mb-6">
+      Every article, interview, and opinion goes through a careful editorial pipeline — blending transparency, accuracy, and care.
+    </p>
+    <div className="flex flex-col md:flex-row gap-6 mt-10">
+      {[
+        {
+          title: "Research & Reporting",
+          text: "We begin with primary sources, field expertise, and authentic perspectives from our communities.",
+        },
+        {
+          title: "Rigorous Review",
+          text: "Each submission is reviewed for clarity, balance, and relevance by experienced editors.",
+        },
+        {
+          title: "Transparent Corrections",
+          text: "If we get it wrong, we say so — promptly and publicly. Accuracy is a non-negotiable value.",
+        },
+      ].map((step, idx) => (
+        <div
+          key={idx}
+          className="bg-gray-50 rounded-lg p-5 shadow-sm border-t-4 border-red-700"
+        >
+          <h3 className="text-lg font-semibold text-red-900 mb-2">
+            {step.title}
+          </h3>
+          <p className="text-sm text-gray-700">{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
+{/* === Editorial Team === */}
+{/* === Editorial Team === */}
+<section className="bg-gray-100 py-20 px-6">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl font-serif font-bold text-center text-gray-900 mb-12">
+      Meet the Editorial Team
+    </h2>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {[{
+        name: "Oyebanji Akins",
+        role: "Editor-in-Chief",
+        img: team1,
+        bio: "Connecting Africa to the world through editorial leadership and truth-driven storytelling."
+      }, {
+        name: "Precious Osazee",
+        role: "Content Writer",
+        img: team2,
+        bio: "Writing from a place of curiosity, craft, and cultural awareness."
+      }].map((member, idx) => (
+        <div
+          key={idx}
+          className="bg-white p-6 rounded-xl shadow hover:shadow-md transition text-center"
+        >
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md"
+          />
+          <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
+          <p className="text-sm text-gray-600">{member.role}</p>
+          <p className="text-sm mt-2 text-gray-700">{member.bio}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+{/* === Pitch Section === */}
+<section className="bg-white text-black py-20 px-6 text-center">
+  <motion.div
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    className="max-w-3xl mx-auto"
+  >
+    <h2 className="text-xl font-serif font-bold mb-4">Pitch Your Story</h2>
+    <p className="mb-6 text-sm">
+      Are you a journalist, creator, or cultural critic with a story to tell?
+      Pitch us your piece — we're always open to bold, new voices.
+    </p>
+    <a
+      href="/contact"
+      className="bg-red-700 text-white font-semibold px-4 py-2 rounded-md hover:bg-red-900 transition"
+    >
+      Submit a Pitch
+    </a>
+  </motion.div>
+</section>
+
     </section>
   );
 };
