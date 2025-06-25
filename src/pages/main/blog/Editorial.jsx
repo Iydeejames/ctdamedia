@@ -85,14 +85,8 @@ const Editorial = () => {
         </p>
       </motion.div>
 
-      {/* === Philosophy === */}
-      <motion.div
-        className="py-12 px-6 max-w-6xl mx-auto"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      {/* === Philosophy (No Animation on Cards) === */}
+      <div className="py-12 px-6 max-w-6xl mx-auto">
         <SectionHeader icon={FaPenNib} title="Editorial Philosophy" />
         <div className="grid md:grid-cols-2 gap-6">
           {[
@@ -102,20 +96,16 @@ const Editorial = () => {
             ["Accountability", "We hold the powerful — and ourselves — to high editorial standards."],
             ["Innovation", "Multimedia storytelling, new platforms, and bold formats drive our work."],
           ].map(([title, desc], idx) => (
-            <motion.div
+            <div
               key={idx}
               className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
             >
               <h3 className="font-bold text-lg text-green-800 mb-2">{title}</h3>
               <p className="text-gray-700">{desc}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* === Editorial Process === */}
       <motion.div
@@ -143,14 +133,8 @@ const Editorial = () => {
         </div>
       </motion.div>
 
-      {/* === Meet the Team === */}
-      <motion.div
-        className="bg-white py-12 px-6"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      {/* === Meet the Team (No Animation on Cards) === */}
+      <div className="bg-white py-12 px-6">
         <SectionHeader icon={FaUserEdit} title="Meet the Editorial Team" />
         <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-8">
           {[{
@@ -164,13 +148,9 @@ const Editorial = () => {
             img: team2,
             bio: "Precious writes engaging blog content for CTDA, transforming research into stories that connect. She also loves cooking, fiction, and great animations."
           }].map((member, idx) => (
-            <motion.div
+            <div
               key={idx}
               className="flex gap-4 items-start bg-gray-50 p-4 rounded-xl shadow hover:shadow-md transition"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
             >
               <img src={member.img} alt={member.name} className="w-16 h-16 rounded-full object-cover shadow" />
               <div>
@@ -178,10 +158,10 @@ const Editorial = () => {
                 <p className="text-sm text-gray-600">{member.role}</p>
                 <p className="text-sm mt-1">{member.bio}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
 
       {/* === Ethical Standards === */}
       <motion.div
