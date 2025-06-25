@@ -78,8 +78,8 @@ const sectionData = {
 const metrics = [
   { label: "YouTube Subs", value: "12K", color: "bg-red-500" },
   { label: "Podcast Streams", value: "150K", color: "bg-green-500" },
-  { label: "Articles Published", value: "300+", color: "bg-blue-500" },
-  { label: "Instagram Followers", value: "25K", color: "bg-pink-500" },
+  { label: "Articles Published", value: "300+", color: "bg-blue-400" },
+  { label: "Instagram Followers", value: "25K", color: "bg-yellow-500" },
 ];
 
 const LandingPage = () => {
@@ -264,8 +264,8 @@ const LandingPage = () => {
       {/* METRICS */}
       <section className="py-16 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">Our Key Media Metrics</h2>
-          <p className="text-gray-500 mb-10 text-sm">A snapshot of our performance across core media delivery areas</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Our Key Media Metrics</h2>
+          <p className="text-gray-500 mb-10 text-sm">A snapshot of our performance...</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {metrics.map((metric, index) => (
               <div key={index} className="flex flex-col items-center">
