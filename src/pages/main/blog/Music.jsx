@@ -148,7 +148,7 @@ const Music = () => {
           {musicNews.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-2xl overflow-hidden transition-transform hover:scale-105"
+              className="bg-white shadow-lg overflow-hidden transition-transform hover:scale-105"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -158,7 +158,7 @@ const Music = () => {
   <img
     src={item.img}
     alt={item.title}
-    className="w-full h-full object-contain object-center rounded-t-2xl"
+    className="w-full h-full object-contain object-center "
   />
 </div>
 
@@ -171,7 +171,7 @@ const Music = () => {
                 </p>
                 <button
                   onClick={() => togglePlay(index)}
-                  className="bg-green-700 hover:bg-green-900 text-white text-sm px-4 py-2 rounded-md transition"
+                  className="bg-green-700 hover:bg-green-900 text-white text-sm px-4 py-2  transition"
                 >
                   {playingIndex === index ? "Pause" : "Play Audio"}
                 </button>
