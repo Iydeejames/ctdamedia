@@ -177,7 +177,7 @@ const About = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full aspect-[3/4] object-contain rounded-2xl mb-4 bg-white"
+                className="w-full aspect-[3/4] object-contain  mb-4 bg-white"
               />
               <motion.h4
                 variants={fadeInUp}
