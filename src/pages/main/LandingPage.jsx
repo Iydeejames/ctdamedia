@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay, FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 
 import img1 from "../../assets/images/hero-page/img1.jpg";
 import img2 from "../../assets/images/hero-page/img2.jpg";
@@ -85,6 +86,7 @@ const LandingPage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const allItems = [...recentReleases, ...businessItems, ...CultureItems, ...spotlightItems, ...sportsItems];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showSearch, setShowSearch] = useState(false); // ✅ correct
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -174,49 +176,67 @@ const LandingPage = () => {
   }, [scrollTime]);
 
 
+
   return (
-
-    <div className="text-gray-800 font-sans relative">
-      <div className="container mx-auto px-4 mt-6">
-  <div className="relative w-full max-w-xl mx-auto">
-  <div className="w-full bg-gray-50 shadow-sm py-3">
-  <div className="container mx-auto px-4">
-    <div className="relative w-full max-w-md mx-auto">
-  <input
-  type="text"
-  placeholder="🔍 Search articles..."
-  value={searchTerm}
-  onChange={(e) => setSearchTerm(e.target.value)}
-  className="w-full px-3 py-1.5 border border-gray-300 rounded-full shadow-sm text-sm focus:outline-none focus:ring-2 focus:ring-red-500 placeholder:text-gray-400"
-/>
-</div>
-  </div>
-</div>
-
-    {searchResults.length > 0 && (
-      <ul className="absolute z-40 bg-white border border-gray-300 w-full mt-1 rounded shadow max-h-60 overflow-y-auto">
-        {searchResults.map((item, index) => (
-          <li
-            key={index}
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
-            onClick={() => {
-              const section = document.getElementById(
-                item.title.replace(/\s+/g, "-").toLowerCase()
-              );
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth", block: "start" });
-              }
-              setSearchTerm("");
-              setSearchResults([]);
-            }}
-          >
-            {item.title}
-          </li>
-        ))}
-      </ul>
+<div className="text-gray-800 font-sans relative">
+  {/* Search Input Section */}
+  <div className="relative z-50 px-4 mt-4 flex justify-end items-center">
+    {showSearch ? (
+      <div className="relative w-64">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          autoFocus
+          className="w-full pl-9 pr-3 py-2 text-sm bg-white border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400 transition"
+        />
+        {/* Icon Inside Input */}
+        <FiSearch className="absolute left-3 top-2.5 text-gray-500 text-base" />
+      </div>
+    ) : (
+      // Initial button to reveal search bar
+      <button
+        onClick={() => setShowSearch(true)}
+        className="p-2 rounded-full hover:bg-gray-200 transition"
+        aria-label="Open Search"
+      >
+        <FiSearch className="text-gray-700 text-xl" />
+      </button>
     )}
   </div>
-</div>
+
+  {/* Search Results Dropdown */}
+  {showSearch && searchResults.length > 0 && (
+    <ul className="absolute top-[100%] mt-1 right-4 w-64 bg-white border border-gray-200 rounded-lg shadow-lg max-h-52 overflow-y-auto z-40">
+      {searchResults.map((item, index) => (
+        <li
+          key={index}
+          className="px-3 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+          onClick={() => {
+            const section = document.getElementById(
+              item.title.replace(/\s+/g, "-").toLowerCase()
+            );
+            if (section) {
+              section.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+            setSearchTerm("");
+            setSearchResults([]);
+            setShowSearch(false);
+          }}
+        >
+          {item.title}
+        </li>
+      ))}
+    </ul>
+  )}
+
+
+
+  
+
+    
+    
 
       {/* AnimatePresence handles animation mount/unmount */}
       <AnimatePresence>
