@@ -21,7 +21,7 @@ const Header = () => {
     'Culture',
     'Music',
     'Lifestyle',
-    'On the Scene',
+    'Scene',
     'Community',
     'Documentary',
   ];

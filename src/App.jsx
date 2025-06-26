@@ -12,6 +12,7 @@ import Culture from "./pages/main/blog/Culture";
 import Spotlight from "./pages/main/blog/Spotlight";
 import Editorial from "./pages/main/blog/Editorial";
 import Lifestyle from "./pages/main/blog/Lifestyle";
+import Scene from "./pages/main/blog/Scene";
 import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
@@ -57,6 +58,7 @@ function App() {
   <Route path="/spotlight" element={<Spotlight />} />
   <Route path="/editorial" element={<Editorial />} />
   <Route path="/lifestyle" element={<Lifestyle />} />
+  <Route path="/scece" element={<Scene />} />
   <Route path="/podcasts" element={<Podcasts />} />
   <Route path="/about" element={<About />} />
   <Route path="/contact" element={<Contact />} />
@@ -68,6 +70,7 @@ function App() {
   <Route path="/blog/spotlight" element={<Spotlight />} />
   <Route path="/blog/editorial" element={<Editorial />} />
   <Route path="/blog/lifestyle" element={<Lifestyle />} />
+  <Route path="/blog/scene" element={<Scene />} />
 </Route>
 
 
