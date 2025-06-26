@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import img1 from "../../../assets/images/lifestyle-page/img1.png";
-import img2 from "../../../assets/images/lifestyle-page/img2.png";
-import img3 from "../../../assets/images/lifestyle-page/img3.png";
-import img4 from "../../../assets/images/lifestyle-page/img4.png";
+import img1 from "../../../assets/images/scene-page/img1.png";
+import img2 from "../../../assets/images/scene-page/img2.png";
+import img3 from "../../../assets/images/scene-page/img3.png";
 import img5 from "../../../assets/images/scene-page/img5.png";
 
 const fallbackSceneData = [
@@ -14,7 +13,7 @@ const fallbackSceneData = [
     title: "Behind the Velvet Rope: Exclusive Looks from AfroFashion Night",
     description:
       "Get access to the glitz, the glam, and the backstage chaos from the most anticipated fashion night in Lagos.",
-    image: img1,
+    image: img3,
     slug: "afrofashion-night-behind-scenes",
     date: "2025-05-15",
   },
@@ -32,7 +31,7 @@ const fallbackSceneData = [
     title: "Red Carpet Recap: Highlights from the Creative Awards 2025",
     description:
       "From daring fashion choices to heartfelt moments, here’s everything that went down on the red carpet.",
-    image: img3,
+    image: img1,
     slug: "creative-awards-red-carpet",
     date: "2025-06-01",
   },
@@ -41,7 +40,7 @@ const fallbackSceneData = [
     title: "Street Pulse: What the Crowd Wore to AfroBeat Fest",
     description:
       "Candid photos of festival-goers and their Afrocentric drip. Style, color, and culture — unfiltered.",
-    image: img4,
+    image: img3,
     slug: "afrobeat-fest-street-style",
     date: "2025-06-10",
   },
