@@ -13,7 +13,7 @@ const fallbackSceneData = [
     title: "Behind the Velvet Rope: Exclusive Looks from AfroFashion Night",
     description:
       "Get access to the glitz, the glam, and the backstage chaos from the most anticipated fashion night in Lagos.",
-    image: img3,
+    image: img2,
     slug: "afrofashion-night-behind-scenes",
     date: "2025-05-15",
   },
@@ -22,7 +22,7 @@ const fallbackSceneData = [
     title: "Moments Before the Mic: Spoken Word Stars in Action",
     description:
       "We caught rising poetry talents as they warmed up, rehearsed, and channeled raw emotion into powerful words.",
-    image: img2,
+    image: img1,
     slug: "spoken-word-behind-mic",
     date: "2025-05-22",
   },
