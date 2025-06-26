@@ -6,7 +6,7 @@ import img1 from "../../../assets/images/lifestyle-page/img1.png";
 import img2 from "../../../assets/images/lifestyle-page/img2.png";
 import img3 from "../../../assets/images/lifestyle-page/img3.png";
 import img4 from "../../../assets/images/lifestyle-page/img4.png";
-import img5 from "../../../assets/images/lifestyle-page/img5.png";
+import img5 from "../../../assets/images/scene-page/img5.png";
 
 const fallbackSceneData = [
   {
