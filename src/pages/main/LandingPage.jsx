@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { FaPlay, FaYoutube, FaSpotify, FaApple, FaInstagram } from "react-icons/fa";
 
 // Images
 import img1 from "../../assets/images/hero-page/img1.jpg";
