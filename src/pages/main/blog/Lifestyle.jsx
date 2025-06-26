@@ -106,7 +106,7 @@ const Lifestyle = () => {
       {/* Posts Section */}
       <div className="py-16 px-4 sm:px-8 lg:px-24">
         <motion.h2
-          className="text-2xl sm:text-2xl md:text-3xl font-bold text-center text-black mb-12 inline-block pb-2"
+          className="text-2xl sm:text-2xl md:text-3xl font-bold text-center text-black mb-8 inline-block pb-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}

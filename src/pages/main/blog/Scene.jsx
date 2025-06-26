@@ -102,6 +102,14 @@ const Scene = () => {
 
      {/* New Magazine Style Section */}
      <div className="px-4 sm:px-8 lg:px-24 py-20 space-y-24">
+     <motion.h2
+          className="text-2xl sm:text-2xl md:text-3xl font-bold text-center text-black mb-2 inline-block "
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        >
+          What's On The Scene?
+        </motion.h2>
        {sceneContent.map((item, index) => (
          <div
            key={item.id}
