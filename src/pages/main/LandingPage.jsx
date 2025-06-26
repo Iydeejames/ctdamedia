@@ -281,26 +281,47 @@ const LandingPage = () => {
       </section>
 
       
-      {/* SUBSCRIBE & FOLLOW SECTION */}
-        <section className="bg-gray-100 mt-6 py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Subscribe and Follow</h2>
-          <div className="flex justify-center gap-6">
-            <a href="https://www.youtube.com/@ctdamongblacks" target="_blank" rel="noopener noreferrer" className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300">
-              <FaYoutube className="text-4xl" />
-            </a>
-            <a href="https://open.spotify.com/show/1KibEPZONRPj2jlOrygxQK" target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300">
-              <FaSpotify className="text-4xl" />
-            </a>
-            <a href="https://podcasts.apple.com/us/podcast/ctdamongblacks/id1674951670" target="_blank" rel="noopener noreferrer" className="bg-black text-white p-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300">
-              <FaApple className="text-4xl" />
-            </a>
-            <a href="https://www.instagram.com/ctdamongblacks?igsh=MWIzc2locHRoNG56ag==" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-300">
-              <FaInstagram className="text-4xl" />
-            </a>
-          </div>
-        </div>
-      </section>
+{/* SUBSCRIBE & FOLLOW SECTION */}
+<section className="bg-gray-100 mt-6 py-12">
+  <div className="container mx-auto px-4 text-center">
+    <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Subscribe and Follow</h2>
+    <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
+      <a
+        href="https://www.youtube.com/@ctdamongblacks"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-red-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300"
+      >
+        <FaYoutube className="text-2xl sm:text-4xl" />
+      </a>
+      <a
+        href="https://open.spotify.com/show/1KibEPZONRPj2jlOrygxQK"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300"
+      >
+        <FaSpotify className="text-2xl sm:text-4xl" />
+      </a>
+      <a
+        href="https://podcasts.apple.com/us/podcast/ctdamongblacks/id1674951670"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-black text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300"
+      >
+        <FaApple className="text-2xl sm:text-4xl" />
+      </a>
+      <a
+        href="https://www.instagram.com/ctdamongblacks?igsh=MWIzc2locHRoNG56ag=="
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:from-pink-700 hover:to-purple-700 transition-all duration-300"
+      >
+        <FaInstagram className="text-2xl sm:text-4xl" />
+      </a>
+    </div>
+  </div>
+</section>
+
 
     </div>
   );
