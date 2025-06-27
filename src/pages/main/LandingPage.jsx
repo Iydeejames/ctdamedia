@@ -29,11 +29,19 @@ import img25 from "../../assets/images/hero-page/img25.jpg";
 
 // Slideshow + category data
 const slides = [
-  { image: img5, caption: "WELCOME TO CTDAMedia" },
-  { image: img7, caption: "EXPERIENCE TRUE BLACK MEDIA" },
-  { image: img4, caption: "UNCOVER STORIES THAT MATTER" },
+  {
+    image: img4,
+    caption: 'Welcome to CTDA Media',
+  },
+  {
+    image: img5,
+    caption: 'Community-Driven Stories',
+  },
+  {
+    image: img7,
+    caption: 'Your Voice, Your Power',
+  },
 ];
-
 const categoryImages = [img2, img7, img9, img10];
 
 // Section layout data
@@ -83,50 +91,45 @@ const metrics = [
 ];
 
 const LandingPage = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [scrollTime, setScrollTime] = useState(0);
   const blackExperienceRef = useRef(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+// 1. Slideshow transition
+useEffect(() => {
+  const interval = setInterval(() => {
+    setFade(false);
+    setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+      setFade(true);
+    }, 100); // fade duration
+  }, 8000); // change slide every 8 seconds
 
-  useEffect(() => {
-    let timeout;
-    const handleScroll = () => {
-      if (scrollTime === 0) {
-        timeout = setTimeout(() => {
-          setScrollTime(10);
-        }, 10000);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollTime]);
+  return () => clearInterval(interval);
+}, []);
 
-  useEffect(() => {
-    if (scrollTime < 10) return;
-    const handleScrollToSection = () => {
-      const section = blackExperienceRef.current;
-      if (section) {
-        const { top } = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        if (top <= windowHeight - 100) {
-          setShowPopup(true);
-          window.removeEventListener("scroll", handleScrollToSection);
-        }
+// 2. Scroll trigger for popup
+useEffect(() => {
+  const handleScroll = () => {
+    const section = blackExperienceRef.current;
+    if (section) {
+      const top = section.getBoundingClientRect().top;
+      const trigger = window.innerHeight * 0.75;
+      if (top < trigger) {
+        setShowPopup(true);
       }
-    };
-    window.addEventListener("scroll", handleScrollToSection);
-    return () => window.removeEventListener("scroll", handleScrollToSection);
-  }, [scrollTime]);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
 
   const SectionCard = ({ title, layout, items }) => (
     <section className="container mx-auto px-4 mt-10">
@@ -194,18 +197,20 @@ const LandingPage = () => {
       <div className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6">
   {/* === STATIC SLIDESHOW (No Animation) === */}
   <div className="lg:w-3/4 relative h-[525px] overflow-hidden shadow-lg">
-    <img
-      src={slides[0].image}
-      alt="Static Slide"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h1 className="text-white text-3xl lg:text-5xl font-bold text-center px-4">
-        {slides[0].caption}
-      </h1>
+      <img
+        src={slides[currentIndex].image}
+        alt={`Slide ${currentIndex + 1}`}
+        className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-500 ${
+          fade ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-60" />
+      <div className="absolute inset-0 flex items-center justify-center px-4">
+        <h1 className="text-white text-3xl lg:text-5xl font-bold text-center transition-opacity duration-500">
+          {slides[currentIndex].caption}
+        </h1>
+      </div>
     </div>
-  </div>
 
   {/* === CATEGORY CARDS (No Animation, No flicker) === */}
   <aside className="lg:w-1/4">
@@ -213,7 +218,7 @@ const LandingPage = () => {
       <h2 className="text-xl font-bold mb-4">Categories</h2>
       {["Music", "Podcasts", "Culture", "Lifestyle"].map((cat, index) => (
        <div key={cat} className="mb-4 rounded overflow-hidden">
-       <div className="relative w-full h-24 sm:h-28 md:h-32">
+       <div className="relative w-full h-20 sm:h-24 md:h-26">
          <div
            className="w-full h-full"
            style={{
