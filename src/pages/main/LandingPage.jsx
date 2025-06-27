@@ -202,19 +202,19 @@ const handleSubscribe = () => {
 
 
      {/* Category Cards (Mobile) */}
-<div className="space-y-3 px-8">
+<div className="space-y-2 px-8">
   {mobileCategories.map((cat, i) => (
     <Link
       to={cat.link}
       key={i}
-      className="relative block h-20 overflow-hidden"
+      className="relative block h-16 overflow-hidden"
     >
       <img
         src={cat.image}
         alt={cat.text}
         className="h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
         <span className="text-white font-bold text-lg">{cat.text}</span>
       </div>
     </Link>
