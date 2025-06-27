@@ -55,6 +55,14 @@ const LandingPage = () => {
     },
   ];
 
+  
+  const mobileCategories = [
+    { text: "Music", link: "/music", image: img },
+    { text: "Podcasts", link: "/podcasts", image: img7 },
+    { text: "Culture", link: "/culture", image: img11 },
+    { text: "Lifestyle", link: "/lifestyle", image: img26 },
+  ];
+
   const recentReleases = [
     { slug: "recent-1", title: "Exploring African Heritage Through Dance", date: "May 27, 2025", description: "A deep dive into dance as a cultural expression.", image: img9 },
     { slug: "recent-2", title: "Sound of Suburb in Lagos", date: "May 27, 2025", description: "The rise of grassroots music scenes.", image: img12 },
@@ -85,6 +93,30 @@ const LandingPage = () => {
     { slug: "spot-2", title: "Creative Powerhouses Rising", date: "May 25, 2025", description: "Artists transforming global media.", image: img22 },
     { slug: "spot-3", title: "Fashion and Media Icons", date: "May 26, 2025", description: "Celebrating industry leaders.", image: img10 },
   ];
+
+  const [mainIndex, setMainIndex] = useState(0);
+  const [catIndex, setCatIndex] = useState(0);
+
+  // Main hero slide auto transition (optional)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setMainIndex((prev) => (prev + 1) % slides.length);
+        setFade(true);
+      }, 200);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Auto-slide for categories
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCatIndex((prev) => (prev + 1) % mobileCategories.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
 
 
   const [scrollTime, setScrollTime] = useState(0);
@@ -178,35 +210,56 @@ const handleSubscribe = () => {
 
   return (
     <main>
-      <section className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6">
-      <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
-  <img
-    src={slides[currentIndex].image}
-    alt="Slide"
-    className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
-  />
-  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-    <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
-      {slides[currentIndex].caption}
-    </h1>
+{/* Desktop View: Stays the Same */}
+<section className="container mx-auto px-4 mt-6 hidden lg:flex flex-col lg:flex-row gap-6">
+  <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
+    <img
+      src={slides[currentIndex].image}
+      alt="Slide"
+      className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+    />
+    <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+      <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
+        {slides[currentIndex].caption}
+      </h1>
+    </div>
   </div>
-</div>
 
+  <aside className="lg:w-1/4 grid gap-4">
+    {[
+      { text: "Music", link: "/music", image: img },
+      { text: "Podcasts", link: "/podcasts", image: img7 },
+      { text: "Culture", link: "/culture", image: img11 },
+      { text: "Lifestyle", link: "/lifestyle", image: img26 }
+    ].map((cat, i) => (
+      <Link to={cat.link} key={i} className="relative h-24 block">
+        <img src={cat.image} alt={cat.text} className="rounded w-full h-full object-cover" />
+        <span className="absolute inset-0 bg-black bg-opacity-50 text-white flex items-center justify-center font-bold text-lg">
+          {cat.text}
+        </span>
+      </Link>
+    ))}
+  </aside>
+</section>
 
-        <aside className="lg:w-1/4 grid gap-4">
-          {[
-            { text: "Music", link: "/music", image: img },
-            { text: "Podcasts", link: "/podcasts", image: img7 },
-            { text: "Culture", link: "/culture", image: img11 },
-            { text: "Lifestyle", link: "/lifestyle", image: img26 }
-          ].map((cat, i) => (
-            <Link to={cat.link} key={i} className="relative h-24 block">
-              <img src={cat.image} alt={cat.text} className="rounded w-full h-full object-cover" />
-              <span className="absolute inset-0 bg-black bg-opacity-50 text-white flex items-center justify-center font-bold text-lg">{cat.text}</span>
-            </Link>
-          ))}
-        </aside>
-      </section>
+{/* Mobile View: New UI Design */}
+<section className="lg:hidden px-0 mt-0 space-y-2">
+      {/* Main Hero Image */}
+      <div className="relative  overflow-hidden h-[450px]">
+        <img
+          src={slides[mainIndex].image}
+          alt="Hero"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+          <h1 className="text-white text-2xl font-bold text-center px-4 leading-snug">
+            {slides[mainIndex].caption} 
+          </h1>
+        </div>
+      </div>
+
+     
+    </section>
 
       <AnimatePresence>
   {showPopup && (
@@ -266,6 +319,9 @@ const handleSubscribe = () => {
           </p>
         </div>
       </section>
+
+
+      
 
       {renderSection("Recent Releases", recentReleases, true)}
       {renderSection("Business", business, false)}
