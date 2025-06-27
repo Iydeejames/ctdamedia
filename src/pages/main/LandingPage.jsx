@@ -91,9 +91,7 @@ const metrics = [
 ];
 
 const LandingPage = () => {
-  const [showPopup, setShowPopup] = useState(false);
   const [scrollTime, setScrollTime] = useState(0);
-  const blackExperienceRef = useRef(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
@@ -112,23 +110,49 @@ useEffect(() => {
 }, []);
 
 // 2. Scroll trigger for popup
+const [email, setEmail] = useState("");
+const [showPopup, setShowPopup] = useState(false);
+const blackExperienceRef = useRef(null);
+
+// Only show popup once per session, never if already subscribed
 useEffect(() => {
+  const hasSubscribed = localStorage.getItem("ctda_has_subscribed");
+  const hasSeenPopup = sessionStorage.getItem("ctda_seen_popup");
+
+  if (hasSubscribed || hasSeenPopup) return;
+
   const handleScroll = () => {
     const section = blackExperienceRef.current;
     if (section) {
       const top = section.getBoundingClientRect().top;
       const trigger = window.innerHeight * 0.75;
+
       if (top < trigger) {
         setShowPopup(true);
+        sessionStorage.setItem("ctda_seen_popup", "true");
+        window.removeEventListener("scroll", handleScroll);
       }
     }
   };
 
   window.addEventListener("scroll", handleScroll);
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
+  return () => window.removeEventListener("scroll", handleScroll);
 }, []);
+
+const handleSubscribe = () => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  localStorage.setItem("ctda_has_subscribed", "true");
+  setShowPopup(false);
+  setEmail("");
+};
+
+
 
 
   const SectionCard = ({ title, layout, items }) => (
@@ -175,23 +199,50 @@ useEffect(() => {
 
   return (
     <div className="text-gray-800 font-sans relative">
-      <AnimatePresence>
-        {showPopup && (
-          <motion.div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <motion.div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md text-center relative"
-              initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }}>
-              <button onClick={() => setShowPopup(false)} className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold">&times;</button>
-              <h2 className="text-2xl font-bold mb-2">Join Our Newsletter</h2>
-              <p className="text-sm text-gray-600 mb-4">Get the latest updates, stories, and insights delivered straight to your inbox.</p>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-2 border rounded text-sm" />
-                <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm">Subscribe</button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {showPopup && (
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md text-center relative"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8, opacity: 0 }}
+      >
+        <button
+          onClick={() => setShowPopup(false)}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold"
+        >
+          &times;
+        </button>
+        <h2 className="text-2xl font-bold mb-2">Join Our Newsletter</h2>
+        <p className="text-sm text-gray-600 mb-4">
+          Get the latest updates, stories, and insights delivered straight to your inbox.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-2">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1 px-4 py-2 border rounded text-sm"
+          />
+          <button
+            onClick={handleSubscribe}
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm"
+          >
+            Subscribe
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
       {/* HERO + CATEGORIES */}
       <div className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6">
