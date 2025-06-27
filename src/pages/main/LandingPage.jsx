@@ -177,7 +177,7 @@ const handleSubscribe = () => {
           <Link
             to={`/post/${item.slug}`}
             key={index}
-            className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-all duration-300"
+            className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow duration-300 duration-300"
           >
             <img
               src={item.img}
