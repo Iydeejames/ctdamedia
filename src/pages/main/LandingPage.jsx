@@ -184,26 +184,27 @@ const handleSubscribe = () => {
     </div>
   ) : (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-      {items.map((item) => (
-        <Link
-          to={`/post/${item.slug}`}
-          key={item.slug}
-          className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-        >
-          <div className="w-full h-40 overflow-hidden">
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-full object-cover block"
-            />
-          </div>
-          <div className="p-3">
-            <p className="text-xs text-red-500">{item.date}</p>
-            <h3 className="text-sm font-semibold mt-1">{item.title}</h3>
-            <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
-          </div>
-        </Link>
-      ))}
+     {items.map((item) => (
+  <Link
+    to={`/post/${item.slug}`}
+    key={item.slug}
+    className="bg-white rounded-lg overflow-hidden shadow-md sm:hover:shadow-lg sm:transition-shadow sm:duration-300"
+  >
+    <div className="w-full h-40 overflow-hidden backface-hidden [contain:paint]">
+      <img
+        src={item.img}
+        alt={item.title}
+        loading="lazy"
+        className="w-full h-full object-cover block"
+      />
+    </div>
+    <div className="p-3">
+      <p className="text-xs text-red-500">{item.date}</p>
+      <h3 className="text-sm font-semibold mt-1">{item.title}</h3>
+      <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
+    </div>
+  </Link>
+))}
     </div>
   )}
 </section>
