@@ -268,9 +268,9 @@ const handleSubscribe = () => {
 </AnimatePresence>
 
      {/* BLACK EXPERIENCE SECTION */}
-     <section ref={blackExperienceRef} className="bg-gray-200 py-10 mt-12 text-center">
+     <section ref={blackExperienceRef} className="bg-green-100 py-10 mt-12 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Who We Are?</h2>
+          <h2 className="text-3xl font-bold mb-4">Who Are We?</h2>
           <p className="max-w-3xl mx-auto text-gray-700 mb-6 leading-relaxed">
             <strong>CTDA Media</strong> is where Black Black stories live boldly. 
             We’re a culture-rooted media brand that celebrates the voices, dreams,
