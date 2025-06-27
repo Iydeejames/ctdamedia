@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   FaYoutube,
@@ -7,6 +6,7 @@ import {
   FaInstagram,
   FaApple
 } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion"; 
 
 // Images
 import img1 from "../../assets/images/hero-page/img1.jpg";
@@ -33,6 +33,22 @@ import img24 from "../../assets/images/hero-page/img24.jpg";
 import img25 from "../../assets/images/hero-page/img25.jpg";
 
 const LandingPage = () => {
+
+  const slides = [
+    {
+      image: img4,
+      caption: 'Welcome to CTDA Media',
+    },
+    {
+      image: img5,
+      caption: 'Community-Driven Stories',
+    },
+    {
+      image: img7,
+      caption: 'Your Voice, Your Power',
+    },
+  ];
+
   const recentReleases = [
     { slug: "recent-1", title: "Exploring African Heritage Through Dance", date: "May 27, 2025", description: "A deep dive into dance as a cultural expression.", image: img2 },
     { slug: "recent-2", title: "Sound of Suburb in Lagos", date: "May 27, 2025", description: "The rise of grassroots music scenes.", image: img4 },
@@ -77,8 +93,8 @@ useEffect(() => {
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
       setFade(true);
-    }, 100); // fade duration
-  }, 8000); // change slide every 8 seconds
+    }, 100);
+  }, 8000);
 
   return () => clearInterval(interval);
 }, []);
@@ -157,10 +173,19 @@ const handleSubscribe = () => {
   return (
     <main>
       <section className="container mx-auto px-4 mt-6 flex flex-col lg:flex-row gap-6">
-        <div className="lg:w-3/4">
-          <img src={img1} alt="Hero" className="w-full h-[450px] object-cover rounded" />
-          <h1 className="text-3xl font-bold mt-4">Community-Driven Stories</h1>
-        </div>
+      <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
+  <img
+    src={slides[currentIndex].image}
+    alt="Slide"
+    className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+    <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
+      {slides[currentIndex].caption}
+    </h1>
+  </div>
+</div>
+
         <aside className="lg:w-1/4 grid gap-4">
           {[
             { text: "Music", link: "/music", image: img2 },
