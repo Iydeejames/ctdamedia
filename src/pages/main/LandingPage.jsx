@@ -183,13 +183,13 @@ const handleSubscribe = () => {
 {/* Mobile View: New UI Design */}
 <section className="lg:hidden px-0 mt-0  space-y-6">
       {/* Main Hero Image */}
-      <div className="lg:w-3/4 relative rounded overflow-hidden h-[280px] ">
+      <div className="lg:w-3/4 relative rounded overflow-hidden h-[220px] ">
   <img
     src={img4}
     alt="CTDA Media"
     className="w-full h-full object-cover"
   />
-  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center px-4 text-center">
+  <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center px-4 text-center">
     <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 leading-snug">
       Welcome to CTDA Media
     </h1>
