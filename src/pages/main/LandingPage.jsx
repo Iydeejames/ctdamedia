@@ -165,13 +165,15 @@ const handleSubscribe = () => {
         <Link
           to={`/post/${item.slug}`}
           key={item.slug}
-          className="flex gap-4 items-start max-w-xs bg-white rounded shadow p-2 hover:shadow-md transition-shadow duration-300"
+          className="flex gap-3 items-start bg-white rounded-lg shadow-md p-3 hover:shadow-lg transition-shadow duration-300"
         >
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-20 h-20 object-cover rounded will-change-transform"
-          />
+          <div className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-lg">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover block"
+            />
+          </div>
           <div className="flex-1">
             <p className="text-xs text-red-500">{item.date}</p>
             <h3 className="text-sm font-semibold leading-snug">{item.title}</h3>
@@ -186,13 +188,15 @@ const handleSubscribe = () => {
         <Link
           to={`/post/${item.slug}`}
           key={item.slug}
-          className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
         >
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-32 sm:h-36 md:h-40 object-cover will-change-transform"
-          />
+          <div className="w-full h-40 overflow-hidden">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover block"
+            />
+          </div>
           <div className="p-3">
             <p className="text-xs text-red-500">{item.date}</p>
             <h3 className="text-sm font-semibold mt-1">{item.title}</h3>
