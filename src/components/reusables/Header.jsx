@@ -75,7 +75,7 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 font-semibold uppercase tracking-wide relative">
-          <a href="/" className="hover:text-red-500">Home</a>
+          <a href="/" className="hover:text-red-500">HOME</a>
           <a href="/about" className="hover:text-red-500">About CTDA</a>
 
           <div className="relative">
@@ -157,8 +157,8 @@ const Header = () => {
 
             {/* Nav Items */}
             <nav className="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-wide">
-              <button onClick={() => handleNavigation('/')} className="text-left hover:text-red-400">Home</button>
-              <button onClick={() => handleNavigation('/about')} className="text-left hover:text-red-400">About CTDA</button>
+              <button onClick={() => handleNavigation('/')} className="text-left hover:text-red-400">HOME</button>
+              <button onClick={() => handleNavigation('/about')} className="text-left hover:text-red-400">ABOUT CTDA</button>
 
               {/* Blog Dropdown */}
               <div>
@@ -186,8 +186,8 @@ const Header = () => {
                 )}
               </div>
 
-              <button onClick={() => handleNavigation('/podcasts')} className="text-left hover:text-red-400">Podcasts</button>
-              <button onClick={() => handleNavigation('/contact')} className="text-left hover:text-red-400">Contact</button>
+              <button onClick={() => handleNavigation('/podcasts')} className="text-left hover:text-red-400">PODCAST</button>
+              <button onClick={() => handleNavigation('/contact')} className="text-left hover:text-red-400">CONTACT</button>
             </nav>
 
             <hr className="my-6 border-white/20" />
