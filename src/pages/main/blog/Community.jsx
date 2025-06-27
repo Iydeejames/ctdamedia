@@ -91,47 +91,52 @@ const Community = () => {
       </div>
 
       {/* Community Stories */}
-      <div className="px-4 sm:px-8 lg:px-24 py-20 space-y-24">
-        {communityContent.map((item, index) => (
-          <div
-            key={item.id}
-            className={`flex flex-col-reverse ${
-              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-            } items-center gap-8`}
-          >
-            {/* Text */}
-            <div className="md:w-1/2">
-              <div className="bg-emerald-100 inline-block px-3 py-1 text-xs uppercase font-semibold text-emerald-800 mb-4 rounded-full">
-                {formatDate(item.date)}
-              </div>
-              <h2 className="text-2xl md:text-3xl font-extrabold mb-4">
-                {item.title}
-              </h2>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
-                {item.description}
-              </p>
-              <Link
-                to={`/community/${item.slug}`}
-                className="inline-flex items-center text-emerald-700 font-semibold hover:underline group"
-              >
-                Read Full Story{" "}
-                <span className="ml-2 transform group-hover:translate-x-1 transition-transform">
-                  →
-                </span>
-              </Link>
-            </div>
+{/* Community Card Section */}
+<div className="px-4 sm:px-8 lg:px-24 py-20 bg-white">
+  {/* Section Title */}
+  <div className="text-center mb-12">
+    <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+      Voices That Build Us
+    </h2>
+  </div>
 
-            {/* Image */}
-            <div className="md:w-1/2 w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-80 object-cover rounded-lg"
-              />
-            </div>
+  {/* Cards Grid */}
+  <div className="grid gap-10 md:grid-cols-2">
+    {communityContent.map((item) => (
+      <div
+        key={item.id}
+        className="bg-green-50  overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col"
+      >
+        <div className="h-52 overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+        <div className="p-6 flex flex-col justify-between flex-grow">
+          <div>
+            <span className="text-xs uppercase font-semibold text-red-900 bg-red-200 px-3 py-1 rounded-full inline-block mb-3">
+              {formatDate(item.date)}
+            </span>
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+              {item.title}
+            </h3>
+            <p className="text-sm text-gray-700 mb-4">{item.description}</p>
           </div>
-        ))}
+          <Link
+            to={`/community/${item.slug}`}
+            className="text-gray-900 text-sm font-semibold hover:underline inline-flex items-center group mt-auto"
+          >
+            Read Full Story
+            <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
+
     </section>
   );
 };

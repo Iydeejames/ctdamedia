@@ -16,13 +16,13 @@ const Header = () => {
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
 
   const blogPages = [
+    'Lifestyle',
+    'Community',
     'Editorial',
     'Spotlight',
-    'Culture',
     'Music',
-    'Lifestyle',
     'Scene',
-    'Community',
+    'Culture',
     'Documentary',
   ];
 
