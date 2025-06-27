@@ -14,6 +14,7 @@ import Editorial from "./pages/main/blog/Editorial";
 import Lifestyle from "./pages/main/blog/Lifestyle";
 import Scene from "./pages/main/blog/Scene";
 import Community from "./pages/main/blog/Community";
+import Documentary from "./pages/main/blog/Documentary";
 import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
@@ -74,6 +75,7 @@ function App() {
   <Route path="/blog/lifestyle" element={<Lifestyle />} />
   <Route path="/blog/community" element={<Community/>} />
   <Route path="/blog/scene" element={<Scene />} />
+  <Route path="/blog/documentary" element={<Documentary />} />
 </Route>
 
 
