@@ -9,6 +9,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion"; 
 
 // Images
+import img from "../../assets/images/hero-page/img.png";
 import img1 from "../../assets/images/hero-page/img1.jpg";
 import img2 from "../../assets/images/hero-page/img2.jpg";
 import img4 from "../../assets/images/hero-page/img4.jpg";
@@ -31,6 +32,8 @@ import img22 from "../../assets/images/hero-page/img22.jpg";
 import img23 from "../../assets/images/hero-page/img23.jpg";
 import img24 from "../../assets/images/hero-page/img24.jpg";
 import img25 from "../../assets/images/hero-page/img25.jpg";
+import img26 from "../../assets/images/hero-page/img26.png";
+
 
 const LandingPage = () => {
 
@@ -186,12 +189,13 @@ const handleSubscribe = () => {
   </div>
 </div>
 
+
         <aside className="lg:w-1/4 grid gap-4">
           {[
-            { text: "Music", link: "/music", image: img2 },
-            { text: "Podcasts", link: "/podcasts", image: img4 },
-            { text: "Culture", link: "/culture", image: img5 },
-            { text: "Lifestyle", link: "/lifestyle", image: img7 }
+            { text: "Music", link: "/music", image: img },
+            { text: "Podcasts", link: "/podcasts", image: img7 },
+            { text: "Culture", link: "/culture", image: img11 },
+            { text: "Lifestyle", link: "/lifestyle", image: img26 }
           ].map((cat, i) => (
             <Link to={cat.link} key={i} className="relative h-24 block">
               <img src={cat.image} alt={cat.text} className="rounded w-full h-full object-cover" />
