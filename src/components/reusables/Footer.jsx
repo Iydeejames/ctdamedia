@@ -20,7 +20,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><a href="/about" className="hover:underline">About Us</a></li>
               <li><a href="/contact" className="hover:underline">Contact</a></li>
-              <li><a href="/categories" className="hover:underline">Categories</a></li>
               <li><a href="/privacy-policy" className="hover:underline">Privacy Policy</a></li>
               <li><a href="/terms" className="hover:underline">Terms & Conditions</a></li>
             </ul>
@@ -30,11 +29,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Popular Categories</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="/entertainment" className="hover:underline">Entertainment</a></li>
+              <li><a href="/editorial" className="hover:underline">Editorial</a></li>
               <li><a href="/lifestyle" className="hover:underline">Lifestyle</a></li>
-              <li><a href="/news" className="hover:underline">News</a></li>
+              <li><a href="/spotlight" className="hover:underline">Spotlight</a></li>
               <li><a href="/culture" className="hover:underline">Culture</a></li>
-              <li><a href="/opinion" className="hover:underline">Opinion</a></li>
+              <li><a href="/community" className="hover:underline">Community</a></li>
             </ul>
           </div>
 

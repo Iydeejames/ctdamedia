@@ -56,7 +56,7 @@ const Header = () => {
     setNavigatingTo(url);
     setTimeout(() => {
       window.location.href = url;
-    }, 600); // 300ms to match exit transition
+    }, 600); // 600ms to match exit transition
   };
 
   return (
