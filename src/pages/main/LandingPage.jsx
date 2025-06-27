@@ -156,45 +156,54 @@ const handleSubscribe = () => {
 
 
   const SectionCard = ({ title, layout, items }) => (
-    <section className="container mx-auto px-4 mt-10">
-      <h2 className="text-2xl font-bold mb-4">{title}</h2>
-      {layout === "list" ? (
-        <div className="flex flex-col gap-4">
-          {items.map((item, index) => (
-            <Link to={`/post/${item.slug}`} key={index} className="flex gap-4 items-start max-w-xs bg-white rounded shadow p-2 hover:shadow-md transition">
-              <img src={item.img} alt={item.title} className="w-20 h-20 object-cover rounded" />
-              <div className="flex-1">
-                <p className="text-xs text-red-500">{item.date}</p>
-                <h3 className="text-sm font-semibold leading-snug">{item.title}</h3>
-                <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {items.map((item, index) => (
-          <Link
-            to={`/post/${item.slug}`}
-            key={index}
-            className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow duration-300 duration-300"
-          >
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-32 sm:h-36 md:h-40 object-cover"
-            />
-            <div className="p-3">
-              <p className="text-xs text-red-500">{item.date}</p>
-              <h3 className="text-sm font-semibold mt-1">{item.title}</h3>
-              <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-      
-      )}
-    </section>
+<section className="container mx-auto px-4 mt-10">
+  <h2 className="text-2xl font-bold mb-4">{title}</h2>
+
+  {layout === "list" ? (
+    <div className="flex flex-col gap-4">
+      {items.map((item) => (
+        <Link
+          to={`/post/${item.slug}`}
+          key={item.slug}
+          className="flex gap-4 items-start max-w-xs bg-white rounded shadow p-2 hover:shadow-md transition-shadow duration-300"
+        >
+          <img
+            src={item.img}
+            alt={item.title}
+            className="w-20 h-20 object-cover rounded will-change-transform"
+          />
+          <div className="flex-1">
+            <p className="text-xs text-red-500">{item.date}</p>
+            <h3 className="text-sm font-semibold leading-snug">{item.title}</h3>
+            <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  ) : (
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {items.map((item) => (
+        <Link
+          to={`/post/${item.slug}`}
+          key={item.slug}
+          className="bg-white shadow rounded overflow-hidden hover:shadow-lg transition-shadow duration-300"
+        >
+          <img
+            src={item.img}
+            alt={item.title}
+            className="w-full h-32 sm:h-36 md:h-40 object-cover will-change-transform"
+          />
+          <div className="p-3">
+            <p className="text-xs text-red-500">{item.date}</p>
+            <h3 className="text-sm font-semibold mt-1">{item.title}</h3>
+            <p className="text-xs text-gray-600 mt-1">{item.excerpt}</p>
+          </div>
+        </Link>
+      ))}
+    </div>
+  )}
+</section>
+
   );
 
   return (
