@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   FaYoutube,
@@ -10,10 +10,8 @@ import { AnimatePresence, motion } from "framer-motion";
 
 // Images
 import img from "../../assets/images/hero-page/img.png";
-import img1 from "../../assets/images/hero-page/img1.jpg";
-import img2 from "../../assets/images/hero-page/img2.jpg";
 import img3 from "../../assets/images/hero-page/img3.jpg";
-import img4 from "../../assets/images/hero-page/img4.jpg";
+import img4 from "../../assets/images/hero-page/img4.png";
 import img5 from "../../assets/images/hero-page/img5.jpg";
 import img7 from "../../assets/images/hero-page/img7.jpg";
 import img9 from "../../assets/images/hero-page/img9.jpg";
@@ -25,12 +23,7 @@ import img14 from "../../assets/images/hero-page/img14.jpg";
 import img15 from "../../assets/images/hero-page/img15.jpg";
 import img16 from "../../assets/images/hero-page/img16.jpg";
 import img17 from "../../assets/images/hero-page/img17.jpg";
-import img18 from "../../assets/images/hero-page/img18.jpg";
-import img19 from "../../assets/images/hero-page/img19.jpg";
-import img20 from "../../assets/images/hero-page/img20.jpg";
-import img21 from "../../assets/images/hero-page/img21.jpg";
 import img22 from "../../assets/images/hero-page/img22.jpg";
-import img23 from "../../assets/images/hero-page/img23.jpg";
 import img24 from "../../assets/images/hero-page/img24.jpg";
 import img25 from "../../assets/images/hero-page/img25.jpg";
 import img26 from "../../assets/images/hero-page/img26.png";
@@ -39,21 +32,6 @@ import img27 from "../../assets/images/hero-page/img27.png";
 
 
 const LandingPage = () => {
-
-  const slides = [
-    {
-      image: img4,
-      caption: 'Welcome to CTDA Media',
-    },
-    {
-      image: img5,
-      caption: 'Community-Driven Stories',
-    },
-    {
-      image: img7,
-      caption: 'Your Voice, Your Power',
-    },
-  ];
 
   
   const mobileCategories = [
@@ -94,48 +72,7 @@ const LandingPage = () => {
     { slug: "spot-3", title: "Fashion and Media Icons", date: "May 26, 2025", description: "Celebrating industry leaders.", image: img10 },
   ];
 
-  const [mainIndex, setMainIndex] = useState(0);
-  const [catIndex, setCatIndex] = useState(0);
-
-  // Main hero slide auto transition (optional)
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setMainIndex((prev) => (prev + 1) % slides.length);
-        setFade(true);
-      }, 200);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Auto-slide for categories
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCatIndex((prev) => (prev + 1) % mobileCategories.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
-
-
-  const [scrollTime, setScrollTime] = useState(0);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-// 1. Slideshow transition
-useEffect(() => {
-  const interval = setInterval(() => {
-    setFade(false);
-    setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-      setFade(true);
-    }, 100);
-  }, 8000);
-
-  return () => clearInterval(interval);
-}, []);
+  
 
 // 2. Scroll trigger for popup
 const [email, setEmail] = useState("");
@@ -212,18 +149,19 @@ const handleSubscribe = () => {
     <main>
 {/* Desktop View: Stays the Same */}
 <section className="container mx-auto px-4 mt-6 hidden lg:flex flex-col lg:flex-row gap-6">
-  <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
-    <img
-      src={slides[currentIndex].image}
-      alt="Slide"
-      className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
-    />
-    <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-      <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
-        {slides[currentIndex].caption}
-      </h1>
-    </div>
+
+<div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
+  <img
+    src={img4}
+    alt="CTDA Media"
+    className="w-full h-full object-cover"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+    <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
+      Welcome to CTDA Media
+    </h1>
   </div>
+</div>
 
   <aside className="lg:w-1/4 grid gap-4">
     {[
@@ -243,22 +181,42 @@ const handleSubscribe = () => {
 </section>
 
 {/* Mobile View: New UI Design */}
-<section className="lg:hidden px-0 mt-0 space-y-2">
+<section className="lg:hidden px-0 mt-0  space-y-6">
       {/* Main Hero Image */}
-      <div className="relative  overflow-hidden h-[450px]">
-        <img
-          src={slides[mainIndex].image}
-          alt="Hero"
-          className={`w-full h-full object-cover transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-          <h1 className="text-white text-2xl font-bold text-center px-4 leading-snug">
-            {slides[mainIndex].caption} 
-          </h1>
-        </div>
-      </div>
+      <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
+  <img
+    src={img4}
+    alt="CTDA Media"
+    className="w-full h-full object-cover"
+  />
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+    <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
+      Welcome to CTDA Media
+    </h1>
+  </div>
+</div>
 
-     
+
+     {/* Category Cards (Mobile) */}
+<div className="space-y-3 px-8">
+  {mobileCategories.map((cat, i) => (
+    <Link
+      to={cat.link}
+      key={i}
+      className="relative block h-20 overflow-hidden"
+    >
+      <img
+        src={cat.image}
+        alt={cat.text}
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+        <span className="text-white font-bold text-lg">{cat.text}</span>
+      </div>
+    </Link>
+  ))}
+</div>
+
     </section>
 
       <AnimatePresence>
@@ -319,9 +277,6 @@ const handleSubscribe = () => {
           </p>
         </div>
       </section>
-
-
-      
 
       {renderSection("Recent Releases", recentReleases, true)}
       {renderSection("Business", business, false)}
