@@ -183,18 +183,22 @@ const handleSubscribe = () => {
 {/* Mobile View: New UI Design */}
 <section className="lg:hidden px-0 mt-0  space-y-6">
       {/* Main Hero Image */}
-      <div className="lg:w-3/4 relative rounded overflow-hidden h-[450px]">
+      <div className="lg:w-3/4 relative rounded overflow-hidden h-[380px] ">
   <img
     src={img4}
     alt="CTDA Media"
     className="w-full h-full object-cover"
   />
-  <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-    <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold text-center px-6 leading-snug">
+  <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center px-4 text-center">
+    <h1 className="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-2 leading-snug">
       Welcome to CTDA Media
     </h1>
+    <p className="text-white text-sm sm:text-base max-w-xl">
+      Your home for stories, culture, and voices that matter.
+    </p>
   </div>
 </div>
+
 
 
      {/* Category Cards (Mobile) */}
