@@ -113,88 +113,74 @@ const Header = () => {
       </div>
 
       {/* Background Blur Overlay */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
-        )}
-      </AnimatePresence>
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden" />
+      )}
 
-      {/* Mobile Menu */}
-{/* Mobile Menu (Slide-in Sidebar) */}
-<AnimatePresence>
-  {menuOpen && (
-    <motion.aside
-      initial={{ opacity: 0, x: '100%' }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: '100%' }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-0 right-0 h-screen w-72 sm:w-80 bg-green-800 text-white shadow-lg z-50 px-6 py-6 overflow-y-auto"
-    >
+      {/* Mobile Menu - Simplified without exit animation */}
+      {menuOpen && (
+        <motion.aside
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-0 right-0 h-screen w-72 sm:w-80 bg-green-800 text-white shadow-lg z-50 px-6 py-6 overflow-y-auto"
+        >
+          {/* Logo */}
+          <div className="flex flex-col items-center mb-6">
+            <img
+              src={logo}
+              alt="CTDA Media Logo"
+              className="h-14 w-14 rounded-full object-cover border-2 border-white"
+            />
+            <span className="text-lg font-bold mt-2 uppercase tracking-wide">
+              CTDA <span className="font-light">Media</span>
+            </span>
+          </div>
 
+          {/* Nav Items */}
+          <nav className="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-wide">
+            <a href="/" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Home</a>
+            <a href="/about" onClick={() => setMenuOpen(false)} className="hover:text-red-400">About CTDA</a>
 
-      {/* Logo */}
-      <div className="flex flex-col items-center mb-6">
-        <img
-          src={logo}
-          alt="CTDA Media Logo"
-          className="h-14 w-14 rounded-full object-cover border-2 border-white"
-        />
-        <span className="text-lg font-bold mt-2 uppercase tracking-wide">
-          CTDA <span className="font-light">Media</span>
-        </span>
-      </div>
-
-      {/* Nav Items */}
-      <nav className="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-wide">
-        <a href="/" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Home</a>
-        <a href="/about" onClick={() => setMenuOpen(false)} className="hover:text-red-400">About CTDA</a>
-
-        {/* Blog Dropdown */}
-        <div>
-          <button
-            onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
-            className="flex items-center justify-between w-full hover:text-red-400"
-          >
-            <span>BLOG</span>
-            {blogDropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
-          </button>
-          {blogDropdownOpen && (
-            <div className="grid grid-cols-2 gap-3 mt-3 pl-1 text-xs">
-              {blogPages.map((item) => (
-                <a
-                  key={item}
-                  href={`/blog/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="bg-green-600 rounded-md px-2 py-1 text-white hover:bg-green-500 transition shadow"
-                >
-                  {item}
-                </a>
-              ))}
+            {/* Blog Dropdown */}
+            <div>
+              <button
+                onClick={() => setBlogDropdownOpen(!blogDropdownOpen)}
+                className="flex items-center justify-between w-full hover:text-red-400"
+              >
+                <span>BLOG</span>
+                {blogDropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+              {blogDropdownOpen && (
+                <div className="grid grid-cols-2 gap-3 mt-3 pl-1 text-xs">
+                  {blogPages.map((item) => (
+                    <a
+                      key={item}
+                      href={`/blog/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                      onClick={() => setMenuOpen(false)}
+                      className="bg-green-600 rounded-md px-2 py-1 text-white hover:bg-green-500 transition shadow"
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        <a href="/podcasts" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Podcasts</a>
-        <a href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Contact</a>
-      </nav>
+            <a href="/podcasts" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Podcasts</a>
+            <a href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-red-400">Contact</a>
+          </nav>
 
-      <hr className="my-6 border-white/20" />
+          <hr className="my-6 border-white/20" />
 
-      {/* Social Icons */}
-      <div className="flex justify-center gap-6 text-xl pb-4">
-        <a href="/music" className="hover:text-red-500" title="YouTube"><FaYoutube /></a>
-        <a href="/podcasts" className="hover:text-red-500" title="Spotify"><FaSpotify /></a>
-        <a href="/about" className="hover:text-red-500" title="Instagram"><FaInstagram /></a>
-      </div>
-    </motion.aside>
-  )}
-</AnimatePresence>
-
+          {/* Social Icons */}
+          <div className="flex justify-center gap-6 text-xl pb-4">
+            <a href="/music" className="hover:text-red-500" title="YouTube"><FaYoutube /></a>
+            <a href="/podcasts" className="hover:text-red-500" title="Spotify"><FaSpotify /></a>
+            <a href="/about" className="hover:text-red-500" title="Instagram"><FaInstagram /></a>
+          </div>
+        </motion.aside>
+      )}
     </header>
   );
 };
