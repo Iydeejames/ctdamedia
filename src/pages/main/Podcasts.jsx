@@ -151,7 +151,7 @@ const Podcasts = () => {
         {renderSection(" Interviews", interviews, 0)}
         {renderSection(" Conversations", conversations, interviews.length)}
 
-        {/* Related Links */}
+        {/* Related Links 
         <section>
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
             You Might Also Like
@@ -168,7 +168,7 @@ const Podcasts = () => {
               </li>
             ))}
           </ul>
-        </section>
+        </section>*/}
       </div>
     </section>
   );
