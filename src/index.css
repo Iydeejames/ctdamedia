@@ -29,3 +29,10 @@ img {
     opacity: 1;
   }
 }
+
+
+/* Tailwind (or global CSS for the audio tag) */
+audio::-webkit-media-controls-panel {
+  background-color: #f3f4f6; /* light background */
+  border-radius: 8px;
+}

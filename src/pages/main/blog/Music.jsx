@@ -6,50 +6,47 @@ import img2 from "../../../assets/images/music-page/img2.jpg";
 import img3 from "../../../assets/images/music-page/img3.jpg";
 import img4 from "../../../assets/images/music-page/img4.jpg";
 import img5 from "../../../assets/images/music-page/img5.jpg";
-import img6 from "../../../assets/images/music-page/img6.jpg";
-import img7 from "../../../assets/images/music-page/img7.jpg";
 import img from "../../../assets/images/music-page/img.png";
-import vid from "../../../assets/videos/vid.mp4";
 
 const placeholderMusicNews = [
   {
-    title: "Fire Boy makes history at Coachella with electrifying Afro-fusion set",
-    description: "The Grammy winner delivered a genre-bending performance...",
+    title: "Fire Boy - Coachella (Live)",
+    description: "Afro-fusion magic on the biggest global stage.",
     img: img3,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
   },
   {
-    title: "Tems debuts new album 'Born in the Wild'",
-    description: "Tems' latest project offers introspective ballads...",
+    title: "Tems - Wild (Intro)",
+    description: "A powerful opening to her new album.",
     img: img1,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
   },
   {
-    title: "Tiwa Savage launches record label imprint",
-    description: "30BG Empire aims to sign emerging acts...",
+    title: "Tiwa Savage - Empire Talk",
+    description: "Her thoughts on the future of Afrobeats.",
     img: img4,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
   },
   {
-    title: "J.Cole joins Spotify's global RADAR program",
-    description: "Award winning star Cole continues his international rise...",
+    title: "J.Cole - RADAR Freestyle",
+    description: "Bars and rhythm from the king of lyrical rap.",
     img: img2,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
   },
   {
-    title: "Burna Boy makes history at Coachella",
-    description: "The Grammy winner delivered a genre-bending performance...",
+    title: "Burna Boy - Stage Energy",
+    description: "A record-breaking night to remember.",
     img: img5,
     audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
   },
 ];
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 10 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeInOut" },
+    transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
 
@@ -84,7 +81,6 @@ const Music = () => {
       if (playingIndex !== null && audioRefs.current[playingIndex]) {
         audioRefs.current[playingIndex].pause();
       }
-      currentAudio.load();
       currentAudio.play().catch((e) => console.error("Playback error:", e));
       setPlayingIndex(index);
     }
@@ -92,101 +88,112 @@ const Music = () => {
 
   return (
     <div className="text-black">
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="relative text-white">
-        {/* Mobile View */}
-        <div className="md:hidden relative h-72 w-full">
+        <div className="relative h-72 w-full">
           <img
             src={img}
-            alt="Music Hero Mobile"
+            alt="Music Hero"
             className="absolute inset-0 w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-transparent" />
           <motion.div
             variants={fadeInUp}
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true }}
             className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
           >
-            <h1 className="text-3xl font-bold mb-2">Music</h1>
-            <p className="text-base font-semibold">
-              Experience the pulse of Black music — from global hits to underground gems.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Desktop View */}
-        <div className="hidden md:flex bg-gradient-to-r from-green-800 via-green-600 to-white h-72 items-center px-12">
-          <motion.div
-            variants={fadeInUp}
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="w-1/2 text-white"
-          >
-            <h1 className="text-3xl font-extrabold mb-2">Music</h1>
-            <p className="text-base leading-snug">
-              From Afrobeats to Highlife, Hip Hop to Soul — we tell the stories behind the sound.
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">Music</h1>
+            <p className="text-base md:text-lg font-medium">
+              From Afrobeats to Hip Hop — sound that speaks.
             </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Main Content */}
-            {/* Main Content */}
-            <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* Music Section */}
+      <div className="max-w-6xl mx-auto px-4 py-12">
         <motion.h2
           className="text-2xl md:text-3xl font-bold mb-8 text-green-800 text-center"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true }}
         >
-          Latest in Music
+          Audio Drops
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-6">
           {musicNews.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg overflow-hidden transition-transform hover:scale-105"
+              className="bg-white border rounded-lg p-3 md:p-4 shadow hover:shadow-xl transition flex items-center gap-3 md:gap-5"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: true }}
             >
-<div className="w-full aspect-video ">
-  <img
-    src={item.img}
-    alt={item.title}
-    className="w-full h-full object-contain object-center "
-  />
-</div>
+              {/* Image with Visualizer */}
+              <div className="relative w-24 h-24 md:w-36 md:h-36 rounded-lg overflow-hidden flex-shrink-0">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+                {playingIndex === index && (
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="w-1 bg-green-400 animate-waveBar"
+                        style={{
+                          animationDelay: `${i * 0.1}s`,
+                          animationDuration: "0.9s",
+                        }}
+                      ></div>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-              <div className="p-5">
-                <h3 className="text-lg md:text-xl font-semibold text-green-900 mb-2">
+              {/* Text + Controls */}
+              <div className="flex-1">
+                <h3 className="text-sm md:text-lg font-bold text-green-800">
                   {item.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-700 mb-4">
+                <p className="text-xs md:text-sm text-gray-600 mb-2">
                   {item.description}
                 </p>
-                <button
-                  onClick={() => togglePlay(index)}
-                  className="bg-red-700 hover:bg-red-900 text-white text-sm px-4 py-2  transition"
-                >
-                  {playingIndex === index ? "Pause" : "Play Audio"}
-                </button>
-                <audio
-                  ref={(el) => (audioRefs.current[index] = el)}
-                  src={item.audioUrl}
-                  className="hidden"
-                  preload="none"
-                />
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => togglePlay(index)}
+                    className="px-3 py-1 text-xs md:text-sm bg-red-700 hover:bg-red-800 text-white rounded"
+                  >
+                    {playingIndex === index ? "Pause" : "Play"}
+                  </button>
+                  <audio
+                    ref={(el) => (audioRefs.current[index] = el)}
+                    src={item.audioUrl}
+                    preload="none"
+                    className="hidden"
+                  />
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
+      {/* Custom Animation for Bars */}
+      <style>{`
+        @keyframes waveBar {
+          0%, 100% { height: 30%; }
+          50% { height: 100%; }
+        }
+        .animate-waveBar {
+          animation: waveBar 1s infinite ease-in-out;
+        }
+      `}</style>
     </div>
   );
 };

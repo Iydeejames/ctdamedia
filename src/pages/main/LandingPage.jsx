@@ -12,7 +12,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import img from "../../assets/images/hero-page/img.png";
 import img3 from "../../assets/images/hero-page/img3.jpg";
 import img4 from "../../assets/images/hero-page/img4.png";
-import img5 from "../../assets/images/hero-page/img5.jpg";
 import img7 from "../../assets/images/hero-page/img7.jpg";
 import img9 from "../../assets/images/hero-page/img9.jpg";
 import img10 from "../../assets/images/hero-page/img10.jpg";
