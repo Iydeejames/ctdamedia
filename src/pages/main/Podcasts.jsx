@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import  { useRef, useEffect } from "react";
 import img7 from "../../assets/images/podcast/img7.png";
 import vid from "../../assets/videos/vid.mp4";
 import vid3 from "../../assets/videos/vid3.mp4";
@@ -38,13 +38,7 @@ const conversations = [
   },
 ];
 
-const relatedLinks = [
-  { title: "CTDA Featured Stories", url: "/featured" },
-  { title: "Behind the Music", url: "/music" },
-  { title: "CTDA Culture Blog", url: "/culture" },
-  { title: "New Voices: Emerging Creators", url: "/blog/emerging-creators" },
-  { title: "Black Experience Series", url: "/about#black-experience" },
-];
+
 
 const Podcasts = () => {
   const videoRefs = useRef([]);
