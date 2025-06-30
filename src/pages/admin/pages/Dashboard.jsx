@@ -40,7 +40,7 @@ const Dashboard = () => {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white shadow-md rounded-2xl p-4 flex items-center gap-4">
+          <div key={index} className="bg-white shadow-md  p-4 flex items-center gap-4">
             <div className="bg-gray-100 rounded-full p-3">
               {stat.icon}
             </div>
@@ -53,7 +53,7 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white p-6 shadow-md rounded-2xl mb-8">
+      <div className="bg-white p-6 shadow-md  mb-8">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">🕒 Recent Activity</h2>
         <ul className="space-y-3">
           {recentActivity.map((activity, index) => (
@@ -66,13 +66,13 @@ const Dashboard = () => {
       </div>
 
       {/* Quick Navigation */}
-      <div className="bg-white p-6 shadow-md rounded-2xl">
+      <div className="bg-white p-6 shadow-md ">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">🚀 Quick Links</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link to="/posts/featured" className="bg-blue-100 hover:bg-blue-200 text-blue-800 p-4 rounded-lg text-center font-medium">Manage Featured</Link>
-          <Link to="/admin/podcasts" className="bg-purple-100 hover:bg-purple-200 text-purple-800 p-4 rounded-lg text-center font-medium">View Podcasts</Link>
-          <Link to="/admin/newsletter" className="bg-green-100 hover:bg-green-200 text-green-800 p-4 rounded-lg text-center font-medium">Subscribers</Link>
-          <Link to="/admin/analytics" className="bg-red-100 hover:bg-red-200 text-red-800 p-4 rounded-lg text-center font-medium">Analytics</Link>
+          <Link to="/posts/featured" className="bg-blue-100 hover:bg-blue-200 text-blue-800 p-4  text-center font-medium">Manage Featured</Link>
+          <Link to="/admin/podcasts" className="bg-purple-100 hover:bg-purple-200 text-purple-800 p-4  text-center font-medium">View Podcasts</Link>
+          <Link to="/admin/newsletter" className="bg-green-100 hover:bg-green-200 text-green-800 p-4  text-center font-medium">Subscribers</Link>
+          <Link to="/admin/analytics" className="bg-red-100 hover:bg-red-200 text-red-800 p-4  text-center font-medium">Analytics</Link>
         </div>
       </div>
     </div>
