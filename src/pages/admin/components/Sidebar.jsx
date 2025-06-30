@@ -10,7 +10,6 @@ import {
   FaFilm,
   FaPen,
   FaGlobe,
-  FaComment,
   FaUsers,
   FaCog,
   FaChartBar,

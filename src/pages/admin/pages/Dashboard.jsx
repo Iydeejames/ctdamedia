@@ -1,12 +1,9 @@
-import React from "react";
 import {
   FaUsers,
   FaEye,
   FaMicrophone,
   FaNewspaper,
   FaBell,
-  FaChartLine,
-  FaCalendarAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
