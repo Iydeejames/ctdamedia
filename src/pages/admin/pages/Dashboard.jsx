@@ -34,16 +34,19 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">📊 Dashboard Overview</h1>
+    <div className="p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
+        📊 Dashboard Overview
+      </h1>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white shadow-md  p-4 flex items-center gap-4">
-            <div className="bg-gray-100 rounded-full p-3">
-              {stat.icon}
-            </div>
+          <div
+            key={index}
+            className="bg-white shadow-sm rounded-xl p-4 flex items-center gap-4"
+          >
+            <div className="bg-gray-100 rounded-full p-3">{stat.icon}</div>
             <div>
               <h4 className="text-gray-600 text-sm">{stat.title}</h4>
               <p className="text-xl font-bold text-gray-900">{stat.value}</p>
@@ -53,26 +56,55 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white p-6 shadow-md  mb-8">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">🕒 Recent Activity</h2>
-        <ul className="space-y-3">
+      <div className="bg-white p-4 sm:p-6 shadow-sm rounded-xl mb-8">
+        <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-800">
+          🕒 Recent Activity
+        </h2>
+        <ul className="space-y-3 text-sm sm:text-base">
           {recentActivity.map((activity, index) => (
-            <li key={index} className="flex justify-between text-gray-700">
-              <span>{activity.title}</span>
-              <span className="text-sm text-gray-400">{activity.time}</span>
+            <li
+              key={index}
+              className="flex justify-between items-center text-gray-700"
+            >
+              <span className="w-2/3 truncate">{activity.title}</span>
+              <span className="text-gray-400 text-xs sm:text-sm whitespace-nowrap">
+                {activity.time}
+              </span>
             </li>
           ))}
         </ul>
       </div>
 
       {/* Quick Navigation */}
-      <div className="bg-white p-6 shadow-md ">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">🚀 Quick Links</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link to="/posts/featured" className="bg-blue-100 hover:bg-blue-200 text-blue-800 p-4  text-center font-medium">Manage Featured</Link>
-          <Link to="/admin/podcasts" className="bg-purple-100 hover:bg-purple-200 text-purple-800 p-4  text-center font-medium">View Podcasts</Link>
-          <Link to="/admin/newsletter" className="bg-green-100 hover:bg-green-200 text-green-800 p-4  text-center font-medium">Subscribers</Link>
-          <Link to="/admin/analytics" className="bg-red-100 hover:bg-red-200 text-red-800 p-4  text-center font-medium">Analytics</Link>
+      <div className="bg-white p-4 sm:p-6 shadow-sm rounded-xl">
+        <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-800">
+          🚀 Quick Links
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            to="/posts/featured"
+            className="bg-blue-100 hover:bg-blue-200 text-blue-800 p-3 rounded text-center font-medium text-sm sm:text-base"
+          >
+            Manage Featured
+          </Link>
+          <Link
+            to="/admin/podcasts"
+            className="bg-purple-100 hover:bg-purple-200 text-purple-800 p-3 rounded text-center font-medium text-sm sm:text-base"
+          >
+            View Podcasts
+          </Link>
+          <Link
+            to="/admin/newsletter"
+            className="bg-green-100 hover:bg-green-200 text-green-800 p-3 rounded text-center font-medium text-sm sm:text-base"
+          >
+            Subscribers
+          </Link>
+          <Link
+            to="/admin/analytics"
+            className="bg-red-100 hover:bg-red-200 text-red-800 p-3 rounded text-center font-medium text-sm sm:text-base"
+          >
+            Analytics
+          </Link>
         </div>
       </div>
     </div>
