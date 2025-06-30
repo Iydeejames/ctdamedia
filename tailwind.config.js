@@ -1,6 +1,5 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-import scrollbarHide from 'tailwind-scrollbar-hide';
-
 export default {
   content: [
     "./index.html",
@@ -8,18 +7,18 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-      },
-      animation: {
-        marquee: 'marquee 10s linear infinite',
-      },
+  keyframes: {
+    marquee: {
+      '0%': { transform: 'translateX(0%)' },
+      '100%': { transform: 'translateX(-50%)' },
     },
   },
-  plugins: [
-    scrollbarHide, 
-  ],
+  animation: {
+    marquee: 'marquee 10s linear infinite',
+  },
+},
+
+  },
+  plugins: [],
+  
 };
