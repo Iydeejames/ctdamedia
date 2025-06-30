@@ -7,25 +7,24 @@ const AdminLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-white">
       {/* Topbar */}
       <Topbar onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
 
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 z-40 w-64 bg-gray-800 text-white p-4 transform transition-transform duration-300 ease-in-out
+          className={`fixed inset-y-0 left-0 z-50 w-64 bg-white text-gray-800 p-4 transform transition-transform duration-300 ease-in-out
             ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} 
-            md:relative md:translate-x-0 md:block overflow-y-auto`}
-          style={{ scrollbarWidth: "none" }}
+            md:relative md:translate-x-0 md:block overflow-y-auto scrollbar-hide`}
         >
-          <Sidebar />
+          <Sidebar onClose={() => setIsSidebarOpen(false)} />
         </div>
 
         {/* Backdrop for mobile */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 z-30 bg-black bg-opacity-30 md:hidden"
+            className="fixed inset-0 z-40 bg-black bg-opacity-30 md:hidden"
             onClick={() => setIsSidebarOpen(false)}
           ></div>
         )}

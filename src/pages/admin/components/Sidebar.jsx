@@ -1,7 +1,7 @@
 // src/pages/admin/components/Sidebar.jsx
 
-import React from "react";
 import { NavLink } from "react-router-dom";
+import { FaTimes } from "react-icons/fa"; // X iconimport { NavLink } from "react-router-dom";
 import {
   FaHome,
   FaNewspaper,
@@ -37,9 +37,20 @@ const navItems = [
   { label: "Settings", path: "/admin/pages/settings", icon: <FaCog /> },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ onClose }) => {
   return (
-    <aside className="w-64 bg-white border-r shadow h-screen p-4 overflow-y-auto">
+    <aside className="fixed top-0 left-0 w-64 h-full bg-white border-r shadow p-4 overflow-y-auto z-50 scrollbar-hide md:scrollbar-default">
+      {/* Mobile Close Icon */}
+      <div className="flex justify-end mb-4 md:hidden">
+        <button
+          onClick={onClose}
+          aria-label="Close Sidebar"
+          className="text-green-600 text-xl"
+        >
+          <FaTimes />
+        </button>
+      </div>
+
       <h2 className="text-2xl font-bold text-green-600 mb-6">CTDA Admin</h2>
       <nav className="space-y-1">
         {navItems.map(({ label, path, icon }) => (
@@ -53,6 +64,7 @@ const Sidebar = () => {
                   : "text-gray-700 hover:bg-gray-100"
               }`
             }
+            onClick={onClose} // auto close after click
           >
             <span className="text-lg">{icon}</span>
             <span>{label}</span>

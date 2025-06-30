@@ -36,3 +36,7 @@ audio::-webkit-media-controls-panel {
   border-radius: 8px;
 }
 
+body,
+html {
+  background-color: white;
+}
