@@ -1,34 +1,126 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ReactQuill, { Quill } from "react-quill";
+import ImageResize from "quill-image-resize-module-react";
+import "react-quill/dist/quill.snow.css";
 
-const initialData = [
-  {
-    id: 1,
-    title: "Exclusive Interview with Rising Artist",
-    date: "2025-06-28",
-    description: "We caught up with one of Africa’s hottest young talents.",
-    image: "https://via.placeholder.com/150",
+const API_BASE = "https://ctda-api.onrender.com/api";
+
+Quill.register("modules/imageResize", ImageResize);
+
+const modules = {
+  toolbar: {
+    container: [
+      [{ header: [1, 2, 3, false] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      ["clean"],
+    ],
+    handlers: {
+      image: imageHandler,
+    },
   },
+  imageResize: {
+    parchment: Quill.import("parchment"),
+  },
+};
+
+function imageHandler() {
+  const input = document.createElement("input");
+  input.setAttribute("type", "file");
+  input.setAttribute("accept", "image/*");
+  input.click();
+
+  input.onchange = () => {
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64 = reader.result;
+        const range = this.quill.getSelection();
+        this.quill.insertEmbed(range.index, "image", base64);
+        this.quill.setSelection(range.index + 1);
+        this.quill.insertText(range.index + 1, "\n");
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+}
+
+const formats = [
+  "header",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "list",
+  "bullet",
+  "link",
+  "image",
 ];
 
 export default function Featured() {
-  const [posts, setPosts] = useState(initialData);
-  const [form, setForm] = useState({ id: null, title: "", description: "", date: "", image: "" });
+  const [posts, setPosts] = useState([]);
+  const [form, setForm] = useState({
+    id: null,
+    title: "",
+    description: "",
+    date: "",
+    image: "",
+    content: "",
+  });
   const [isEditing, setIsEditing] = useState(false);
+
+  // Load posts from backend
+  useEffect(() => {
+    fetch(`${API_BASE}/posts`)
+      .then((res) => res.json())
+      .then((data) => setPosts(data))
+      .catch(() => {
+        const stored = localStorage.getItem("featuredPosts");
+        if (stored) setPosts(JSON.parse(stored));
+      });
+  }, []);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isEditing) {
-      setPosts(posts.map((p) => (p.id === form.id ? form : p)));
-      setIsEditing(false);
-    } else {
-      const newPost = { ...form, id: Date.now() };
-      setPosts([newPost, ...posts]);
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const preview = URL.createObjectURL(file);
+      setForm({ ...form, image: preview });
     }
-    setForm({ id: null, title: "", description: "", date: "", image: "" });
+  };
+
+  const handleContentChange = (value) => {
+    setForm({ ...form, content: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const method = isEditing ? "PUT" : "POST";
+    const url = isEditing
+      ? `${API_BASE}/posts/${form.id}`
+      : `${API_BASE}/posts`;
+
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const result = await res.json();
+    const updated = isEditing
+      ? posts.map((p) => (p.id === form.id ? result : p))
+      : [result, ...posts];
+
+    setPosts(updated);
+    localStorage.setItem("featuredPosts", JSON.stringify(updated));
+    setForm({ id: null, title: "", description: "", date: "", image: "", content: "" });
+    setIsEditing(false);
   };
 
   const handleEdit = (post) => {
@@ -36,15 +128,21 @@ export default function Featured() {
     setIsEditing(true);
   };
 
-  const handleDelete = (id) => {
-    setPosts(posts.filter((p) => p.id !== id));
+  const handleDelete = async (id) => {
+    await fetch(`${API_BASE}/posts/${id}`, { method: "DELETE" });
+    const updated = posts.filter((p) => p.id !== id);
+    setPosts(updated);
+    localStorage.setItem("featuredPosts", JSON.stringify(updated));
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Manage Featured Posts</h2>
+    <div className="max-w-3xl mx-auto px-4 py-6">
+      <h2 className="text-2xl font-bold mb-4">Manage Featured Posts</h2>
 
-      <form onSubmit={handleSubmit} className="bg-white shadow p-4 rounded mb-6 space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow p-4 rounded-lg mb-6 space-y-4"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
             type="text"
@@ -64,13 +162,18 @@ export default function Featured() {
             required
           />
           <input
-            type="text"
-            name="image"
-            placeholder="Image URL"
-            value={form.image}
-            onChange={handleChange}
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
             className="border p-2 rounded"
           />
+          {form.image && (
+            <img
+              src={form.image}
+              alt="Preview"
+              className="w-full h-32 object-cover rounded col-span-full"
+            />
+          )}
           <textarea
             name="description"
             placeholder="Short Description"
@@ -80,29 +183,53 @@ export default function Featured() {
             required
           ></textarea>
         </div>
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+
+        <div>
+          <label className="block font-semibold mb-1">Full Article Content</label>
+          <ReactQuill
+            value={form.content}
+            onChange={handleContentChange}
+            theme="snow"
+            modules={modules}
+            formats={formats}
+            className="bg-white"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4"
+        >
           {isEditing ? "Update" : "Add"} Post
         </button>
       </form>
 
+      {/* Display Posts */}
       <div className="space-y-4">
         {posts.map((post) => (
-          <div key={post.id} className="bg-white p-4 shadow rounded flex gap-4 items-start">
-            <img src={post.image} alt={post.title} className="w-24 h-24 object-cover rounded" />
+          <div
+            key={post.id}
+            className="bg-white shadow-md rounded-lg p-4 flex flex-col sm:flex-row gap-4"
+          >
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full sm:w-32 h-32 object-cover rounded"
+            />
             <div className="flex-1">
-              <h3 className="text-lg font-bold">{post.title}</h3>
+              <h3 className="text-lg font-semibold">{post.title}</h3>
               <p className="text-sm text-gray-500">{post.date}</p>
-              <p className="text-gray-700">{post.description}</p>
-              <div className="mt-2 flex gap-2">
+              <p className="text-gray-700 text-sm mb-1">{post.description}</p>
+              <div className="mt-2 flex gap-3 text-sm">
                 <button
                   onClick={() => handleEdit(post)}
-                  className="text-blue-600 text-sm underline"
+                  className="text-blue-600 underline"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(post.id)}
-                  className="text-red-600 text-sm underline"
+                  className="text-red-600 underline"
                 >
                   Delete
                 </button>
