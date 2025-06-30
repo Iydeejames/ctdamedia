@@ -44,13 +44,13 @@ const Sidebar = ({ onClose }) => {
         <button
           onClick={onClose}
           aria-label="Close Sidebar"
-          className="text-green-600 text-xl"
+          className="text-green-700 text-xl"
         >
           <FaTimes />
         </button>
       </div>
 
-      <h2 className="text-2xl font-bold text-green-600 mb-6">CTDA Admin</h2>
+      <h2 className="text-2xl font-bold text-green-700 mb-6">CTDA Admin</h2>
       <nav className="space-y-1">
         {navItems.map(({ label, path, icon }) => (
           <NavLink
@@ -59,7 +59,7 @@ const Sidebar = ({ onClose }) => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                 isActive
-                  ? "bg-green-500 text-white"
+                  ? "bg-green-700 text-white"
                   : "text-gray-700 hover:bg-gray-100"
               }`
             }
