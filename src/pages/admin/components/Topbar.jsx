@@ -1,6 +1,6 @@
 const Topbar = ({ onToggleSidebar }) => {
   return (
-    <div className="w-full bg-green-600 text-white shadow-sm p-4 flex items-center justify-between">
+    <div className="w-full bg-green-700 text-white shadow-sm p-4 flex items-center justify-between">
       {/* Hamburger menu on mobile */}
       <button
         className="md:hidden text-white text-2xl"

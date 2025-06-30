@@ -30,7 +30,6 @@ const navItems = [
   { label: "Documentaries", path: "/admin/pages/documentaries", icon: <FaFilm /> },
   { label: "Editorials", path: "/admin/pages/editorials", icon: <FaPen /> },
   { label: "Culture & Lifestyle", path: "/admin/pages/culture", icon: <FaGlobe /> },
-  { label: "Tweets & Blog", path: "/admin/pages/tweets", icon: <FaComment /> },
   { label: "Newsletter", path: "/admin/pages/newsletter", icon: <FaEnvelope /> },
   { label: "Analytics", path: "/admin/pages/analytics", icon: <FaChartBar /> },
   { label: "User Management", path: "/admin/pages/users", icon: <FaUsers /> },
