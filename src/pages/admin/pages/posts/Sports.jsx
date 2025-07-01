@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
+import img3 from "../../../../assets/images/hero-page/img3.jpg";
+
+
 
 const API_BASE = "https://ctda-api.onrender.com/api";
 
@@ -154,9 +157,10 @@ export default function SportsAdmin() {
         Manage Sports Posts
       </h2>
 
+      {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="bg-green-50 border border-green-100 shadow-lg p-4 rounded-lg mb-8 space-y-4"
+        className="bg-green-50 border border-green-200 shadow-md p-4 rounded-lg mb-8 space-y-4"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
@@ -169,12 +173,12 @@ export default function SportsAdmin() {
             required
           />
           <input
-            type="date"
+            type="text"
             name="date"
             placeholder="dd/mm/yyyy"
             value={form.date}
             onChange={handleChange}
-            className="border p-2 rounded text-sm placeholder:text-gray-400"
+            className="border p-2 rounded text-sm text-gray-800"
             required
           />
 
@@ -229,23 +233,45 @@ export default function SportsAdmin() {
         </button>
       </form>
 
-      {/* Display Posts */}
-      <div className="space-y-4">
+      {/* Hardcoded Sample Card to Preview UI */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        <div className="bg-white shadow rounded-lg overflow-hidden">
+          <img
+            src={img3}  
+            alt="Sample"
+            className="w-full h-32 object-cover"
+          />
+          <div className="p-3">
+            <h3 className="text-sm font-semibold text-green-800 mb-1">
+              Sample Sports Article
+            </h3>
+            <p className="text-xs text-gray-500 mb-1">01/07/2025</p>
+            <p className="text-sm text-gray-600">This is a hardcoded preview post card.</p>
+            <div className="mt-2 flex gap-3 text-sm">
+              <button className="text-green-600 hover:underline">Edit</button>
+              <button className="text-red-600 hover:underline">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Real Posts Rendered Below */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="bg-white shadow rounded-lg p-4 flex flex-col sm:flex-row gap-4"
+            className="bg-white shadow rounded-lg overflow-hidden"
           >
             <img
               src={post.image}
               alt={post.title}
-              className="w-full sm:w-32 h-32 object-cover rounded"
+              className="w-full h-32 object-cover"
             />
-            <div className="flex-1">
-              <h3 className="text-md font-semibold text-green-800">{post.title}</h3>
-              <p className="text-xs text-gray-500">{post.date}</p>
-              <p className="text-gray-700 text-sm mt-1">{post.description}</p>
-              <div className="mt-3 flex gap-4 text-sm">
+            <div className="p-3">
+              <h3 className="text-sm font-semibold text-green-800 mb-1">{post.title}</h3>
+              <p className="text-xs text-gray-500 mb-1">{post.date}</p>
+              <p className="text-sm text-gray-600 line-clamp-2">{post.description}</p>
+              <div className="mt-2 flex gap-3 text-sm">
                 <button
                   onClick={() => handleEdit(post)}
                   className="text-green-600 hover:underline"
