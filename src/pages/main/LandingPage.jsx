@@ -184,8 +184,6 @@ const LandingPage = () => {
   ];
   
 
-  
-
 // 2. Scroll trigger for popup
 const [email, setEmail] = useState("");
 const [showPopup, setShowPopup] = useState(false);

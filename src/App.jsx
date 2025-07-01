@@ -18,7 +18,8 @@ import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
 import Search from "./pages/main/Search";
-import Detail from "./pages/main/Detail";
+import FullPost from "./pages/main/FullPost";
+import NewsDetail from "./pages/NewsDetail";
 
 // Layouts
 import MainLayout from "./layouts/MainLayout";
@@ -74,7 +75,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/:category/:slug" element={<Detail />} />
+          <Route path="/:category/:slug" element={<FullPost />} />
+          <Route path="/post/:slug" element={<NewsDetail />} />
 
 
 
