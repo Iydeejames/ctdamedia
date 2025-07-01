@@ -28,16 +28,10 @@ import AdminLayout from "./layouts/AdminLayout";
 // Admin Pages
 import Dashboard from "./pages/admin/pages/Dashboard";
 import Blog from "./pages/admin/pages/posts/Blog";
-import Business from "./pages/admin/pages/posts/Business";
-import Entertainment from "./pages/admin/pages/posts/Entertainment";
 import Sports from "./pages/admin/pages/posts/Sports";
-import Technology from "./pages/admin/pages/posts/Technology";
-import SpotlightAdmin from "./pages/admin/pages/posts/Spotlight";
 import PodcastsAdmin from "./pages/admin/pages/Podcasts";
 import MusicAdmin from "./pages/admin/pages/Music";
-import Documentaries from "./pages/admin/pages/Documentaries";
-import Editorials from "./pages/admin/pages/Editorials";
-import CultureAdmin from "./pages/admin/pages/Culture";
+
 import Newsletter from "./pages/admin/pages/Newsletter";
 import Analytics from "./pages/admin/pages/Analytics";
 import Users from "./pages/admin/pages/Users";
@@ -94,16 +88,9 @@ function App() {
         {/* Admin Layout */}
         <Route path="/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
         <Route path="/posts/blog" element={<AdminLayout><Blog /></AdminLayout>} />
-        <Route path="/posts/business" element={<AdminLayout><Business /></AdminLayout>} />
-        <Route path="/posts/entertainment" element={<AdminLayout><Entertainment /></AdminLayout>} />
         <Route path="/posts/sports" element={<AdminLayout><Sports /></AdminLayout>} />
-        <Route path="/posts/technology" element={<AdminLayout><Technology /></AdminLayout>} />
-        <Route path="/posts/spotlight" element={<AdminLayout><SpotlightAdmin /></AdminLayout>} />
         <Route path="/admin/podcasts" element={<AdminLayout><PodcastsAdmin /></AdminLayout>} />
         <Route path="/admin/music" element={<AdminLayout><MusicAdmin /></AdminLayout>} />
-        <Route path="/admin/documentaries" element={<AdminLayout><Documentaries /></AdminLayout>} />
-        <Route path="/admin/editorials" element={<AdminLayout><Editorials /></AdminLayout>} />
-        <Route path="/admin/culture" element={<AdminLayout><CultureAdmin /></AdminLayout>} />
         <Route path="/admin/newsletter" element={<AdminLayout><Newsletter /></AdminLayout>} />
         <Route path="/admin/analytics" element={<AdminLayout><Analytics /></AdminLayout>} />
         <Route path="/admin/users" element={<AdminLayout><Users /></AdminLayout>} />

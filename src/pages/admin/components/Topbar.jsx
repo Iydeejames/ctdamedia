@@ -1,3 +1,6 @@
+import logo from "../../../assets/images/logo.jpg";
+
+
 const Topbar = ({ onToggleSidebar }) => {
   return (
     <div className="w-full bg-green-700 text-white shadow-sm p-4 flex items-center justify-between">
@@ -15,7 +18,7 @@ const Topbar = ({ onToggleSidebar }) => {
       <div className="flex items-center gap-4">
         <span className="text-sm hidden sm:inline">CTDA Media Admin</span>
         <img
-          src="https://ui-avatars.com/api/?name=Admin"
+          src={logo}
           alt="Admin Avatar"
           className="w-8 h-8 rounded-full object-cover border border-white"
         />
