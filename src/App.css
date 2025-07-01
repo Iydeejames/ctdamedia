@@ -40,3 +40,25 @@ body,
 html {
   background-color: white;
 }
+
+
+/* Quill toolbar scaling on small screens */
+.ql-toolbar {
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .ql-toolbar {
+    font-size: 8px !important;
+  }
+
+  .ql-toolbar .ql-formats {
+    margin-bottom: 2px;
+    flex-wrap: wrap;
+  }
+
+  .ql-toolbar button svg {
+    width: 13px;
+    height: 14px;
+  }
+}
