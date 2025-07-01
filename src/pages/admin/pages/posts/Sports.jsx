@@ -176,16 +176,7 @@ export default function Sports() {
             className="border p-2 rounded text-sm"
             required
           />
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            placeholder="dd/mm/yyyy"
-            className="border p-2 rounded text-sm placeholder:text-gray-400"
-            onFocus={(e) => (e.target.type = "date")}
-            required
-          />
+
 <div className="col-span-full">
   <div className="flex items-center space-x-4">
     <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">

@@ -175,15 +175,7 @@ export default function Business() {
             className="border p-2 rounded text-sm"
             required
           />
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            className="border p-2 rounded text-sm"
-            required
-            onFocus={(e) => (e.target.type = "date")}
-          />
+
 <div className="col-span-full">
   <div className="flex items-center space-x-4">
     <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">
