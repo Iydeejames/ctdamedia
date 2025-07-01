@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
+import TurndownService from "turndown";
 import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
 import img12 from "../../../../assets/images/hero-page/img12.jpg";
@@ -59,7 +60,7 @@ const formats = [
   "image",
 ];
 
-export default function Featured() {
+export default function  Blog() {
   const [posts, setPosts] = useState([
     // Sample card so admin sees something instantly
     {
@@ -68,7 +69,7 @@ export default function Featured() {
       description: "Celebrating excellence and achievement.",
       date: "2025-07-01",
       image: img12,
-      content: "This is a placeholder post content for Featured.",
+      content: "This is a placeholder post content for Blog.",
     },
   ]);
 
@@ -87,10 +88,10 @@ export default function Featured() {
     fetch(`${API_BASE}/posts`)
       .then((res) => res.json())
       .then((data) => {
-        const featuredPosts = data.filter(
-          (p) => p.category?.toLowerCase() === "featured"
+        const blogPosts = data.filter(
+          (p) => p.category?.toLowerCase() === "blog"
         );
-        setPosts((prev) => [...featuredPosts, ...prev]);
+        setPosts((prev) => [...blogPosts, ...prev]);
       })
       .catch(() => {});
   }, []);
@@ -112,6 +113,7 @@ export default function Featured() {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
     const method = isEditing ? "PUT" : "POST";
@@ -119,7 +121,7 @@ export default function Featured() {
       ? `${API_BASE}/posts/${form.id}`
       : `${API_BASE}/posts`;
 
-    const newPost = { ...form, category: "Featured" };
+    const newPost = { ...form, category: "Blog" };
 
     const res = await fetch(url, {
       method,
@@ -158,7 +160,7 @@ export default function Featured() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
       <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800">
-        Featured Admin Dashboard
+      Blog Admin Dashboard
       </h2>
 
       {/* FORM */}

@@ -27,7 +27,7 @@ import AdminLayout from "./layouts/AdminLayout";
 
 // Admin Pages
 import Dashboard from "./pages/admin/pages/Dashboard";
-import Featured from "./pages/admin/pages/posts/Featured";
+import Blog from "./pages/admin/pages/posts/Blog";
 import Business from "./pages/admin/pages/posts/Business";
 import Entertainment from "./pages/admin/pages/posts/Entertainment";
 import Sports from "./pages/admin/pages/posts/Sports";
@@ -93,7 +93,7 @@ function App() {
 
         {/* Admin Layout */}
         <Route path="/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
-        <Route path="/posts/featured" element={<AdminLayout><Featured /></AdminLayout>} />
+        <Route path="/posts/blog" element={<AdminLayout><Blog /></AdminLayout>} />
         <Route path="/posts/business" element={<AdminLayout><Business /></AdminLayout>} />
         <Route path="/posts/entertainment" element={<AdminLayout><Entertainment /></AdminLayout>} />
         <Route path="/posts/sports" element={<AdminLayout><Sports /></AdminLayout>} />
