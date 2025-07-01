@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
+import img12 from "../../../../assets/images/hero-page/img12.jpg";
 
 const API_BASE = "https://ctda-api.onrender.com/api";
 
@@ -30,7 +31,6 @@ function imageHandler() {
   input.setAttribute("type", "file");
   input.setAttribute("accept", "image/*");
   input.click();
-
   input.onchange = () => {
     const file = input.files[0];
     if (file) {
@@ -60,7 +60,18 @@ const formats = [
 ];
 
 export default function Featured() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([
+    // Sample card so admin sees something instantly
+    {
+      id: "sample",
+      title: "Spotlight on Black Innovators",
+      description: "Celebrating excellence and achievement.",
+      date: "2025-07-01",
+      image: img12,
+      content: "This is a placeholder post content for Featured.",
+    },
+  ]);
+
   const [form, setForm] = useState({
     id: null,
     title: "",
@@ -69,17 +80,19 @@ export default function Featured() {
     image: "",
     content: "",
   });
+
   const [isEditing, setIsEditing] = useState(false);
 
-  // Load posts from backend
   useEffect(() => {
     fetch(`${API_BASE}/posts`)
       .then((res) => res.json())
-      .then((data) => setPosts(data))
-      .catch(() => {
-        const stored = localStorage.getItem("featuredPosts");
-        if (stored) setPosts(JSON.parse(stored));
-      });
+      .then((data) => {
+        const featuredPosts = data.filter(
+          (p) => p.category?.toLowerCase() === "featured"
+        );
+        setPosts((prev) => [...featuredPosts, ...prev]);
+      })
+      .catch(() => {});
   }, []);
 
   const handleChange = (e) => {
@@ -106,10 +119,12 @@ export default function Featured() {
       ? `${API_BASE}/posts/${form.id}`
       : `${API_BASE}/posts`;
 
+    const newPost = { ...form, category: "Featured" };
+
     const res = await fetch(url, {
       method,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(newPost),
     });
 
     const result = await res.json();
@@ -118,8 +133,14 @@ export default function Featured() {
       : [result, ...posts];
 
     setPosts(updated);
-    localStorage.setItem("featuredPosts", JSON.stringify(updated));
-    setForm({ id: null, title: "", description: "", date: "", image: "", content: "" });
+    setForm({
+      id: null,
+      title: "",
+      description: "",
+      date: "",
+      image: "",
+      content: "",
+    });
     setIsEditing(false);
   };
 
@@ -132,25 +153,27 @@ export default function Featured() {
     await fetch(`${API_BASE}/posts/${id}`, { method: "DELETE" });
     const updated = posts.filter((p) => p.id !== id);
     setPosts(updated);
-    localStorage.setItem("featuredPosts", JSON.stringify(updated));
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
-      <h2 className="text-2xl font-bold mb-4">Manage Featured Posts</h2>
+    <div className="max-w-6xl mx-auto px-4 py-6">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800">
+        Featured Admin Dashboard
+      </h2>
 
+      {/* FORM */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow p-4 rounded-lg mb-6 space-y-4"
+        className="bg-green-50 border border-green-300 p-4 rounded-sm shadow-md mb-8 space-y-4"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
             type="text"
             name="title"
-            placeholder="Title"
+            placeholder="Post Title"
             value={form.title}
             onChange={handleChange}
-            className="border p-2 rounded"
+            className="border p-2 rounded text-sm"
             required
           />
           <input
@@ -158,73 +181,86 @@ export default function Featured() {
             name="date"
             value={form.date}
             onChange={handleChange}
-            className="border p-2 rounded"
+            placeholder="dd/mm/yyyy"
+            className="border p-2 rounded text-sm placeholder:text-gray-400"
+            onFocus={(e) => (e.target.type = "date")}
             required
           />
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="border p-2 rounded"
-          />
-          {form.image && (
-            <img
-              src={form.image}
-              alt="Preview"
-              className="w-full h-32 object-cover rounded col-span-full"
-            />
-          )}
+<div className="col-span-full">
+  <div className="flex items-center space-x-4">
+    <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">
+      Add Image
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        className="hidden"
+      />
+    </label>
+    {form.image && (
+      <img
+        src={form.image}
+        alt="Preview"
+        className="h-20 w-auto rounded shadow"
+      />
+    )}
+  </div>
+</div>
+
           <textarea
             name="description"
             placeholder="Short Description"
             value={form.description}
             onChange={handleChange}
-            className="border p-2 rounded col-span-full"
+            className="border p-2 rounded text-sm col-span-full"
             required
-          ></textarea>
+          />
         </div>
 
-        <div>
-          <label className="block font-semibold mb-1">Full Article Content</label>
+        <div className=" bg-white">
+          <label className="block font-semibold mb-1 bg-green-50 text-green-700 text-sm">
+            Full Article Content
+          </label>
           <ReactQuill
             value={form.content}
             onChange={handleContentChange}
             theme="snow"
             modules={modules}
             formats={formats}
-            className="bg-white"
+            placeholder="Write full content here..."
           />
         </div>
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4"
+          className="bg-red-700 text-white px-3 py-2  text-xs hover:bg-green-800 mt-4"
         >
           {isEditing ? "Update" : "Add"} Post
         </button>
       </form>
 
-      {/* Display Posts */}
-      <div className="space-y-4">
+      {/* POSTS - Compact Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="bg-white shadow-md rounded-lg p-4 flex flex-col sm:flex-row gap-4"
+            className="bg-white border shadow-sm overflow-hidden text-sm"
           >
             <img
               src={post.image}
               alt={post.title}
-              className="w-full sm:w-32 h-32 object-cover rounded"
+              className="w-full h-28 object-cover"
             />
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold">{post.title}</h3>
-              <p className="text-sm text-gray-500">{post.date}</p>
-              <p className="text-gray-700 text-sm mb-1">{post.description}</p>
-              <div className="mt-2 flex gap-3 text-sm">
-                <button
-                  onClick={() => handleEdit(post)}
-                  className="text-blue-600 underline"
-                >
+            <div className="p-2">
+              <h3 className="font-semibold text-green-900 line-clamp-2 text-xs">
+                {post.title}
+              </h3>
+              <p className="text-[11px] text-gray-500 mb-1">{post.date}</p>
+              <p className="text-[12px] text-gray-700 line-clamp-2">
+                {post.description}
+              </p>
+              <div className="mt-2 flex justify-between text-[12px] text-green-700">
+                <button onClick={() => handleEdit(post)} className="underline">
                   Edit
                 </button>
                 <button

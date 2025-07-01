@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
-
-Quill.register("modules/imageResize", ImageResize);
+import img17 from "../../../../assets/images/hero-page/img17.jpg";
 
 const API_BASE = "https://ctda-api.onrender.com/api";
+
+Quill.register("modules/imageResize", ImageResize);
 
 const modules = {
   toolbar: {
@@ -30,7 +31,6 @@ function imageHandler() {
   input.setAttribute("type", "file");
   input.setAttribute("accept", "image/*");
   input.click();
-
   input.onchange = () => {
     const file = input.files[0];
     if (file) {
@@ -59,8 +59,18 @@ const formats = [
   "image",
 ];
 
-export default function BusinessAdmin() {
-  const [posts, setPosts] = useState([]);
+export default function Business() {
+  const [posts, setPosts] = useState([
+    {
+      id: "sample",
+      title: "Africa’s Tech Startups Booming",
+      description: "A look into rising tech enterprises in Africa.",
+      date: "2025-07-01",
+      image: img17,
+      content: "This is a placeholder post content for Business.",
+    },
+  ]);
+
   const [form, setForm] = useState({
     id: null,
     title: "",
@@ -68,17 +78,20 @@ export default function BusinessAdmin() {
     date: "",
     image: "",
     content: "",
-    category: "Business",
   });
+
   const [isEditing, setIsEditing] = useState(false);
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetch(`${API_BASE}/posts`)
       .then((res) => res.json())
-      .then((data) =>
-        setPosts(data.filter((p) => p.category.toLowerCase() === "business"))
-      );
+      .then((data) => {
+        const businessPosts = data.filter(
+          (p) => p.category?.toLowerCase() === "business"
+        );
+        setPosts((prev) => [...businessPosts, ...prev]);
+      })
+      .catch(() => {});
   }, []);
 
   const handleChange = (e) => {
@@ -105,10 +118,12 @@ export default function BusinessAdmin() {
       ? `${API_BASE}/posts/${form.id}`
       : `${API_BASE}/posts`;
 
+    const newPost = { ...form, category: "Business" };
+
     const res = await fetch(url, {
       method,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(newPost),
     });
 
     const result = await res.json();
@@ -124,16 +139,13 @@ export default function BusinessAdmin() {
       date: "",
       image: "",
       content: "",
-      category: "Business",
     });
     setIsEditing(false);
-    setShowForm(false);
   };
 
   const handleEdit = (post) => {
     setForm(post);
     setIsEditing(true);
-    setShowForm(true);
   };
 
   const handleDelete = async (id) => {
@@ -143,103 +155,111 @@ export default function BusinessAdmin() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
-      <h2 className="text-2xl font-bold mb-4">Manage Business Posts</h2>
+    <div className="max-w-6xl mx-auto px-4 py-6">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800">
+        Business Admin Dashboard
+      </h2>
 
-      <button
-        onClick={() => setShowForm(!showForm)}
-        className="mb-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+      {/* FORM */}
+      <form
+        onSubmit={handleSubmit}
+        className="bg-green-50 border border-green-300 p-4 rounded-sm shadow-md mb-8 space-y-4"
       >
-        {showForm ? "Cancel" : isEditing ? "Edit Post" : "Add New Post"}
-      </button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="title"
+            placeholder="Post Title"
+            value={form.title}
+            onChange={handleChange}
+            className="border p-2 rounded text-sm"
+            required
+          />
+          <input
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={handleChange}
+            className="border p-2 rounded text-sm"
+            required
+            onFocus={(e) => (e.target.type = "date")}
+          />
+<div className="col-span-full">
+  <div className="flex items-center space-x-4">
+    <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">
+      Add Image
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        className="hidden"
+      />
+    </label>
+    {form.image && (
+      <img
+        src={form.image}
+        alt="Preview"
+        className="h-20 w-auto rounded shadow"
+      />
+    )}
+  </div>
+</div>
 
-      {showForm && (
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white shadow p-4 rounded-lg mb-6 space-y-4"
+      
+          <textarea
+            name="description"
+            placeholder="Short Description"
+            value={form.description}
+            onChange={handleChange}
+            className="border p-2 rounded text-sm col-span-full"
+            required
+          />
+        </div>
+
+        <div className="bg-white">
+          <label className="block font-semibold mb-1 bg-green-50 text-green-700 text-sm">
+            Full Article Content
+          </label>
+          <ReactQuill
+            value={form.content}
+            onChange={handleContentChange}
+            theme="snow"
+            modules={modules}
+            formats={formats}
+            placeholder="Write full content here..."
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="bg-red-700 text-white px-3 py-2 text-xs hover:bg-green-800 mt-4"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              value={form.title}
-              onChange={handleChange}
-              className="border p-2 rounded"
-              required
-            />
-            <input
-              type="date"
-              name="date"
-              value={form.date}
-              onChange={handleChange}
-              className="border p-2 rounded"
-              required
-            />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              className="border p-2 rounded"
-            />
-            {form.image && (
-              <img
-                src={form.image}
-                alt="Preview"
-                className="w-full h-32 object-cover rounded col-span-full"
-              />
-            )}
-            <textarea
-              name="description"
-              placeholder="Short Description"
-              value={form.description}
-              onChange={handleChange}
-              className="border p-2 rounded col-span-full"
-              required
-            ></textarea>
-          </div>
+          {isEditing ? "Update" : "Add"} Post
+        </button>
+      </form>
 
-          <div>
-            <label className="block font-semibold mb-1">Full Article Content</label>
-            <ReactQuill
-              value={form.content}
-              onChange={handleContentChange}
-              theme="snow"
-              modules={modules}
-              formats={formats}
-              className="bg-white"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mt-4"
-          >
-            {isEditing ? "Update" : "Add"} Post
-          </button>
-        </form>
-      )}
-
-      <div className="space-y-4">
+      {/* POSTS - Compact Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {posts.map((post) => (
           <div
             key={post.id}
-            className="bg-white shadow-md rounded-lg p-4 flex flex-col sm:flex-row gap-4"
+            className="bg-white border shadow-sm overflow-hidden text-sm"
           >
             <img
               src={post.image}
               alt={post.title}
-              className="w-full sm:w-32 h-32 object-cover rounded"
+              className="w-full h-28 object-cover"
             />
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold">{post.title}</h3>
-              <p className="text-sm text-gray-500">{post.date}</p>
-              <p className="text-gray-700 text-sm mb-1">{post.description}</p>
-              <div className="mt-2 flex gap-3 text-sm">
-                <button
-                  onClick={() => handleEdit(post)}
-                  className="text-blue-600 underline"
-                >
+            <div className="p-2">
+              <h3 className="font-semibold text-green-900 line-clamp-2 text-xs">
+                {post.title}
+              </h3>
+              <p className="text-[11px] text-gray-500 mb-1">{post.date}</p>
+              <p className="text-[12px] text-gray-700 line-clamp-2">
+                {post.description}
+              </p>
+              <div className="mt-2 flex justify-between text-[12px] text-green-700">
+                <button onClick={() => handleEdit(post)} className="underline">
                   Edit
                 </button>
                 <button

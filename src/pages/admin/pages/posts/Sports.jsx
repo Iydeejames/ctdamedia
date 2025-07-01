@@ -4,8 +4,6 @@ import ImageResize from "quill-image-resize-module-react";
 import "react-quill/dist/quill.snow.css";
 import img3 from "../../../../assets/images/hero-page/img3.jpg";
 
-
-
 const API_BASE = "https://ctda-api.onrender.com/api";
 
 Quill.register("modules/imageResize", ImageResize);
@@ -33,7 +31,6 @@ function imageHandler() {
   input.setAttribute("type", "file");
   input.setAttribute("accept", "image/*");
   input.click();
-
   input.onchange = () => {
     const file = input.files[0];
     if (file) {
@@ -62,8 +59,19 @@ const formats = [
   "image",
 ];
 
-export default function SportsAdmin() {
-  const [posts, setPosts] = useState([]);
+export default function Sports() {
+  const [posts, setPosts] = useState([
+    // Sample card so admin sees something instantly
+    {
+      id: "sample",
+      title: "Rise of Afro Sports Icons",
+      description: "African athletes making global waves.",
+      date: "2025-07-01",
+      image: img3,
+      content: "This is a placeholder post content for Sports.",
+    },
+  ]);
+
   const [form, setForm] = useState({
     id: null,
     title: "",
@@ -71,8 +79,8 @@ export default function SportsAdmin() {
     date: "",
     image: "",
     content: "",
-    category: "Sports",
   });
+
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
@@ -80,14 +88,11 @@ export default function SportsAdmin() {
       .then((res) => res.json())
       .then((data) => {
         const sportsPosts = data.filter(
-          (post) => post.category?.toLowerCase() === "sports"
+          (p) => p.category?.toLowerCase() === "sports"
         );
-        setPosts(sportsPosts);
+        setPosts((prev) => [...sportsPosts, ...prev]);
       })
-      .catch(() => {
-        const stored = localStorage.getItem("sportsPosts");
-        if (stored) setPosts(JSON.parse(stored));
-      });
+      .catch(() => {});
   }, []);
 
   const handleChange = (e) => {
@@ -114,10 +119,12 @@ export default function SportsAdmin() {
       ? `${API_BASE}/posts/${form.id}`
       : `${API_BASE}/posts`;
 
+    const newPost = { ...form, category: "Sports" };
+
     const res = await fetch(url, {
       method,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(newPost),
     });
 
     const result = await res.json();
@@ -126,7 +133,6 @@ export default function SportsAdmin() {
       : [result, ...posts];
 
     setPosts(updated);
-    localStorage.setItem("sportsPosts", JSON.stringify(updated));
     setForm({
       id: null,
       title: "",
@@ -134,7 +140,6 @@ export default function SportsAdmin() {
       date: "",
       image: "",
       content: "",
-      category: "Sports",
     });
     setIsEditing(false);
   };
@@ -148,19 +153,18 @@ export default function SportsAdmin() {
     await fetch(`${API_BASE}/posts/${id}`, { method: "DELETE" });
     const updated = posts.filter((p) => p.id !== id);
     setPosts(updated);
-    localStorage.setItem("sportsPosts", JSON.stringify(updated));
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6">
-      <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">
-        Manage Sports Posts
+    <div className="max-w-6xl mx-auto px-4 py-6">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800">
+        Sports Admin Dashboard
       </h2>
 
-      {/* Form */}
+      {/* FORM */}
       <form
         onSubmit={handleSubmit}
-        className="bg-green-50 border border-green-200 shadow-md p-4 rounded-lg mb-8 space-y-4"
+        className="bg-green-50 border border-green-300 p-4 rounded-sm shadow-md mb-8 space-y-4"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
@@ -173,122 +177,104 @@ export default function SportsAdmin() {
             required
           />
           <input
-            type="text"
+            type="date"
             name="date"
-            placeholder="dd/mm/yyyy"
             value={form.date}
             onChange={handleChange}
-            className="border p-2 rounded text-sm text-gray-800"
+            placeholder="dd/mm/yyyy"
+            className="border p-2 rounded text-sm placeholder:text-gray-400"
+            onFocus={(e) => (e.target.type = "date")}
             required
           />
-
-          <label className="cursor-pointer text-green-600 text-sm">
-            <span className="bg-green-100 border border-green-400 text-green-700 px-3 py-1 rounded hover:bg-green-200">
-              Add Image
-            </span>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              className="hidden"
-            />
-          </label>
-
-          {form.image && (
-            <img
-              src={form.image}
-              alt="Preview"
-              className="w-full h-28 object-cover rounded col-span-full"
-            />
-          )}
+<div className="col-span-full">
+  <div className="flex items-center space-x-4">
+    <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">
+      Add Image
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        className="hidden"
+      />
+    </label>
+    {form.image && (
+      <img
+        src={form.image}
+        alt="Preview"
+        className="h-20 w-auto rounded shadow"
+      />
+    )}
+  </div>
+</div>
 
           <textarea
             name="description"
             placeholder="Short Description"
             value={form.description}
             onChange={handleChange}
-            className="border p-2 rounded col-span-full text-sm"
+            className="border p-2 rounded text-sm col-span-full"
             required
-          ></textarea>
+          />
         </div>
 
-        <div>
-          <label className="block font-semibold mb-1 text-sm">Full Article Content</label>
+        <div className=" bg-white">
+          <label className="block font-semibold mb-1 bg-green-50 text-green-700 text-sm">
+            Full Article Content
+          </label>
           <ReactQuill
             value={form.content}
             onChange={handleContentChange}
             theme="snow"
             modules={modules}
             formats={formats}
-            className="bg-white text-sm"
-            placeholder="Write full article content here..."
+            placeholder="Write full content here..."
           />
         </div>
 
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mt-4 text-sm"
+          className="bg-red-700 text-white px-3 py-2  text-xs hover:bg-green-800 mt-4"
         >
           {isEditing ? "Update" : "Add"} Post
         </button>
       </form>
 
-      {/* Hardcoded Sample Card to Preview UI */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-white shadow rounded-lg overflow-hidden">
-          <img
-            src={img3}  
-            alt="Sample"
-            className="w-full h-32 object-cover"
-          />
-          <div className="p-3">
-            <h3 className="text-sm font-semibold text-green-800 mb-1">
-              Sample Sports Article
-            </h3>
-            <p className="text-xs text-gray-500 mb-1">01/07/2025</p>
-            <p className="text-sm text-gray-600">This is a hardcoded preview post card.</p>
-            <div className="mt-2 flex gap-3 text-sm">
-              <button className="text-green-600 hover:underline">Edit</button>
-              <button className="text-red-600 hover:underline">Delete</button>
-            </div>
-          </div>
+     {/* POSTS - Compact Cards */}
+<div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {posts.map((post) => (
+    <div
+      key={post.id}
+      className="bg-white border  shadow-sm overflow-hidden text-sm"
+    >
+      <img
+        src={post.image}
+        alt={post.title}
+        className="w-full h-28 object-cover"
+      />
+      <div className="p-2">
+        <h3 className="font-semibold text-green-900 line-clamp-2 text-xs">
+          {post.title}
+        </h3>
+        <p className="text-[11px] text-gray-500 mb-1">{post.date}</p>
+        <p className="text-[12px] text-gray-700 line-clamp-2">
+          {post.description}
+        </p>
+        <div className="mt-2 flex justify-between text-[12px] text-green-700">
+          <button onClick={() => handleEdit(post)} className="underline">
+            Edit
+          </button>
+          <button
+            onClick={() => handleDelete(post.id)}
+            className="text-red-600 underline"
+          >
+            Delete
+          </button>
         </div>
       </div>
+    </div>
+  ))}
+</div>
 
-      {/* Real Posts Rendered Below */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="bg-white shadow rounded-lg overflow-hidden"
-          >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-32 object-cover"
-            />
-            <div className="p-3">
-              <h3 className="text-sm font-semibold text-green-800 mb-1">{post.title}</h3>
-              <p className="text-xs text-gray-500 mb-1">{post.date}</p>
-              <p className="text-sm text-gray-600 line-clamp-2">{post.description}</p>
-              <div className="mt-2 flex gap-3 text-sm">
-                <button
-                  onClick={() => handleEdit(post)}
-                  className="text-green-600 hover:underline"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(post.id)}
-                  className="text-red-600 hover:underline"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
