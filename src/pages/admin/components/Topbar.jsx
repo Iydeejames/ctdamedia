@@ -1,16 +1,15 @@
 import logo from "../../../assets/images/logo.jpg";
 
-
-const Topbar = ({ onToggleSidebar }) => {
+const Topbar = ({ onToggleSidebar, isSidebarOpen }) => {
   return (
-    <div className="w-full bg-green-700 text-white shadow-sm p-4 flex items-center justify-between">
-      {/* Hamburger menu on mobile */}
+    <div className="fixed top-0 left-0 right-0 z-50 w-full bg-green-700 text-white shadow-sm p-4 flex items-center justify-between">
+      {/* Toggle icon on mobile */}
       <button
         className="md:hidden text-white text-2xl"
         onClick={onToggleSidebar}
         aria-label="Toggle Sidebar"
       >
-        ☰
+        {isSidebarOpen ? "✕" : "☰"}
       </button>
 
       <div className="text-lg font-semibold">Welcome Admin</div>

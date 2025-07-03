@@ -3,184 +3,201 @@ import {
   FaEye,
   FaMicrophone,
   FaNewspaper,
-  FaBell,
+  FaChartBar,
+  FaChartPie,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from "recharts";
 
 const Dashboard = () => {
-  const stats = [
+  const overview = [
     {
-      title: "Total Visitors",
+      label: "Visitors",
       value: "12,450",
-      icon: <FaEye className="text-blue-500 text-2xl" />,
+      icon: <FaEye className="text-blue-600 text-xl sm:text-2xl" />,
     },
     {
-      title: "Newsletter Subscribers",
+      label: "Subscribers",
       value: "2,184",
-      icon: <FaUsers className="text-green-500 text-2xl" />,
+      icon: <FaUsers className="text-green-600 text-xl sm:text-2xl" />,
     },
     {
-      title: "Podcasts Uploaded",
+      label: "Podcasts",
       value: "53",
-      icon: <FaMicrophone className="text-purple-500 text-2xl" />,
+      icon: <FaMicrophone className="text-purple-600 text-xl sm:text-2xl" />,
     },
     {
-      title: "Published Posts",
+      label: "Articles",
       value: "128",
-      icon: <FaNewspaper className="text-red-500 text-2xl" />,
+      icon: <FaNewspaper className="text-red-600 text-xl sm:text-2xl" />,
     },
   ];
 
-  const userStats = [
-    { role: "Admins", count: 3 },
-    { role: "Editors", count: 7 },
-    { role: "Contributors", count: 12 },
-    { role: "Guests", count: 890 },
+  const quickLinks = [
+    { label: "Home", to: "/", color: "blue" },
+    { label: "Podcasts", to: "/admin/podcasts", color: "purple" },
+    { label: "Subscribers", to: "/admin/newsletter", color: "green" },
+    { label: "Analytics", to: "/admin/analytics", color: "red" },
+    { label: "Settings", to: "/admin/settings", color: "gray" },
   ];
 
-  const activity = [
-    { title: "New podcast episode uploaded", time: "1 hour ago" },
-    { title: "Culture article published", time: "3 hours ago" },
-    { title: "New subscriber joined", time: "5 hours ago" },
-    { title: "Sports post updated", time: "Yesterday" },
+  const lineData = [
+    { month: "Jan", views: 1200 },
+    { month: "Feb", views: 1400 },
+    { month: "Mar", views: 1800 },
+    { month: "Apr", views: 2100 },
+    { month: "May", views: 2500 },
+    { month: "Jun", views: 2900 },
+    { month: "Jul", views: 3100 },
+    { month: "Aug", views: 3000 },
+    { month: "Sep", views: 2700 },
+    { month: "Oct", views: 2900 },
+    { month: "Nov", views: 3200 },
+    { month: "Dec", views: 3300 },
   ];
 
-  const alerts = [
-    "3 posts pending approval",
-    "1 podcast upload failed",
-    "Newsletter campaign sent",
-    "New comment needs review",
+  const pieData = [
+    { name: "Articles", value: 128 },
+    { name: "Podcasts", value: 53 },
+    { name: "Videos", value: 20 },
   ];
 
-  const uploadsThisWeek = [
-    { type: "Posts", count: 8 },
-    { type: "Podcasts", count: 3 },
-    { type: "Music", count: 5 },
-    { type: "Videos", count: 2 },
-  ];
+  const COLORS = ["#10B981", "#6366F1", "#F59E0B"];
 
-  const upcoming = [
-    { task: "Culture article scheduled", date: "July 2" },
-    { task: "Newsletter goes out", date: "July 4" },
-    { task: "Podcast episode drop", date: "July 5" },
+  const recentActivities = [
+    { activity: "Added new podcast episode", time: "30 mins ago" },
+    { activity: "Published an article", time: "3 hours ago" },
+    { activity: "Subscriber joined newsletter", time: "Yesterday" },
+    { activity: "Updated site analytics", time: "2 days ago" },
   ];
 
   return (
-    <div className="p-4 sm:p-6">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">📊 Dashboard Overview</h1>
+    <div className="min-h-screen bg-white px-4 sm:px-8 py-12">
+      <h1 className="text-3xl font-bold text-green-800 mt-10 mb-10">Overview</h1>
 
-      {/* Primary Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-8">
-        {stats.map((stat, index) => (
-          <div key={index} className="bg-white shadow-sm rounded-xl p-4 flex items-center gap-4">
-            <div className="bg-gray-100 rounded-full p-3">{stat.icon}</div>
+      {/* Overview Cards */}
+      <div className="grid gap-4 grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 mb-12">
+        {overview.map((item, idx) => (
+          <div
+            key={idx}
+            className="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-md flex items-center gap-4"
+          >
+            <div className="bg-gray-100 p-3 sm:p-4 rounded-full">{item.icon}</div>
             <div>
-              <h4 className="text-gray-600 text-sm">{stat.title}</h4>
-              <p className="text-xl font-bold text-gray-900">{stat.value}</p>
+              <p className="text-gray-500 text-xs sm:text-sm">{item.label}</p>
+              <p className="text-md sm:text-xl font-bold text-gray-800">{item.value}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {/* User Roles */}
-      <div className="bg-white p-4 shadow-sm rounded-xl mb-8">
-        <h2 className="text-lg font-semibold mb-4 text-gray-800">👥 User Breakdown</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
-          {userStats.map((user, index) => (
-            <div key={index} className="bg-gray-100 p-3 rounded text-center">
-              <p className="font-bold text-gray-700">{user.count}</p>
-              <p className="text-gray-500">{user.role}</p>
+      {/* Charts */}
+      <div className="grid sm:grid-cols-2 gap-6 mb-12">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-800">Traffic Overview</h2>
+            <FaChartBar className="text-gray-400" />
+          </div>
+          <ResponsiveContainer width="100%" height={200}>
+            <LineChart data={lineData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey="month"
+                interval={1}
+                tick={({ x, y, payload }) =>
+                  ["Jan", "Mar", "May", "Jul", "Sep", "Nov"].includes(payload.value) ? (
+                    <text x={x} y={y + 15} textAnchor="middle" fill="#666">
+                      {payload.value}
+                    </text>
+                  ) : null
+                }
+              />
+              <YAxis />
+              <Tooltip />
+              <Line type="monotone" dataKey="views" stroke="#10B981" strokeWidth={2} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="bg-white p-4 sm:p-6 rounded-2xl shadow">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-800">Content Breakdown</h2>
+            <FaChartPie className="text-gray-400" />
+          </div>
+          <ResponsiveContainer width="100%" height={200}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                cx="50%"
+                cy="50%"
+                outerRadius={60}
+                fill="#8884d8"
+                dataKey="value"
+                label
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+
+          {/* Pie Chart Legend */}
+          <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 text-sm">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[0] }}></span>
+              <span className="text-gray-600">Articles</span>
             </div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[1] }}></span>
+              <span className="text-gray-600">Podcasts</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[2] }}></span>
+              <span className="text-gray-600">Videos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Activity */}
+      <div className="bg-white p-6 rounded-2xl shadow mb-12">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">Recent Activity</h2>
+        <ul className="space-y-4">
+          {recentActivities.map((item, index) => (
+            <li key={index} className="flex justify-between text-sm sm:text-base text-gray-600 border-b pb-2">
+              <span>{item.activity}</span>
+              <span className="text-red-400">{item.time}</span>
+            </li>
           ))}
-        </div>
-      </div>
-
-      {/* Recent Activity & Alerts */}
-      <div className="grid gap-4 sm:grid-cols-2 mb-8">
-        {/* Activity */}
-        <div className="bg-white p-4 shadow-sm rounded-xl">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">🕒 Recent Activity</h2>
-          <ul className="space-y-3 text-sm">
-            {activity.map((item, index) => (
-              <li key={index} className="flex justify-between text-gray-700">
-                <span>{item.title}</span>
-                <span className="text-gray-400 text-xs">{item.time}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Alerts */}
-        <div className="bg-white p-4 shadow-sm rounded-xl">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">🔔 System Notifications</h2>
-          <ul className="space-y-2 text-sm text-red-600 font-medium">
-            {alerts.map((msg, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <FaBell className="text-red-400" />
-                <span>{msg}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* Upload Summary & Upcoming Tasks */}
-      <div className="grid gap-4 sm:grid-cols-2 mb-8">
-        {/* Upload Summary */}
-        <div className="bg-white p-4 shadow-sm rounded-xl">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">📥 Uploads This Week</h2>
-          <ul className="space-y-2 text-sm">
-            {uploadsThisWeek.map((item, i) => (
-              <li key={i} className="flex justify-between text-gray-700">
-                <span>{item.type}</span>
-                <span className="font-semibold">{item.count}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Upcoming Tasks */}
-        <div className="bg-white p-4 shadow-sm rounded-xl">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">📅 Upcoming Tasks</h2>
-          <ul className="space-y-2 text-sm">
-            {upcoming.map((item, i) => (
-              <li key={i} className="flex items-center justify-between text-gray-700">
-                <span>{item.task}</span>
-                <span className="text-xs text-gray-500">{item.date}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        </ul>
       </div>
 
       {/* Quick Links */}
-      <div className="bg-white p-4 sm:p-6 shadow-sm rounded-xl">
-        <h2 className="text-lg sm:text-xl font-semibold mb-4 text-gray-800">🚀 Quick Links</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Link
-            to="/posts/featured"
-            className="bg-blue-100 hover:bg-blue-200 text-blue-800 p-3 rounded text-center font-medium text-sm"
-          >
-            Manage Featured
-          </Link>
-          <Link
-            to="/admin/podcasts"
-            className="bg-purple-100 hover:bg-purple-200 text-purple-800 p-3 rounded text-center font-medium text-sm"
-          >
-            View Podcasts
-          </Link>
-          <Link
-            to="/admin/newsletter"
-            className="bg-green-100 hover:bg-green-200 text-green-800 p-3 rounded text-center font-medium text-sm"
-          >
-            Subscribers
-          </Link>
-          <Link
-            to="/admin/analytics"
-            className="bg-red-100 hover:bg-red-200 text-red-800 p-3 rounded text-center font-medium text-sm"
-          >
-            Analytics
-          </Link>
+      <div className="bg-white p-6 rounded-2xl shadow">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800">Quick Access</h2>
+        <div className="grid sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {quickLinks.map((link, i) => (
+            <Link
+              key={i}
+              to={link.to}
+              className={`bg-${link.color}-100 hover:bg-${link.color}-200 text-${link.color}-800 text-sm font-medium p-3 rounded-xl text-center transition`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </div>

@@ -159,7 +159,7 @@ export default function  Blog() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-green-800">
+      <h2 className="text-2xl pt-20 sm:text-3xl font-bold mb-6 text-green-800">
       Blog Admin Dashboard
       </h2>
 

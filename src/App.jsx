@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 // Main pages
 import LandingPage from "./pages/main/LandingPage";
 import Footer from "./components/reusables/Footer";
+import Header from "./components/reusables/Header";
 import Music from "./pages/main/blog/Music";
 import Culture from "./pages/main/blog/Culture";
 import Spotlight from "./pages/main/blog/Spotlight";
@@ -28,10 +29,8 @@ import AdminLayout from "./layouts/AdminLayout";
 // Admin Pages
 import Dashboard from "./pages/admin/pages/Dashboard";
 import Blog from "./pages/admin/pages/posts/Blog";
-import Sports from "./pages/admin/pages/posts/Sports";
 import PodcastsAdmin from "./pages/admin/pages/Podcasts";
 import MusicAdmin from "./pages/admin/pages/Music";
-
 import Newsletter from "./pages/admin/pages/Newsletter";
 import Analytics from "./pages/admin/pages/Analytics";
 import Users from "./pages/admin/pages/Users";
@@ -40,7 +39,7 @@ import Settings from "./pages/admin/pages/Settings";
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
     </div>
@@ -76,6 +75,7 @@ function App() {
 
           {/* Blog Routes */}
           <Route path="/blog/music" element={<Music />} />
+          <Route path="/blog/newsletter" element={<Newsletter />} />
           <Route path="/blog/culture" element={<Culture />} />
           <Route path="/blog/spotlight" element={<Spotlight />} />
           <Route path="/blog/editorial" element={<Editorial />} />
@@ -88,7 +88,6 @@ function App() {
         {/* Admin Layout */}
         <Route path="/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
         <Route path="/posts/blog" element={<AdminLayout><Blog /></AdminLayout>} />
-        <Route path="/posts/sports" element={<AdminLayout><Sports /></AdminLayout>} />
         <Route path="/admin/podcasts" element={<AdminLayout><PodcastsAdmin /></AdminLayout>} />
         <Route path="/admin/music" element={<AdminLayout><MusicAdmin /></AdminLayout>} />
         <Route path="/admin/newsletter" element={<AdminLayout><Newsletter /></AdminLayout>} />

@@ -7,7 +7,7 @@ const API_BASE = "https://ctda-api.onrender.com/api";
 
 export default function Detail() {
   // Route params from the URL: /:category/:slug
-  const { category, slug } = useParams();
+  const {  slug } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
