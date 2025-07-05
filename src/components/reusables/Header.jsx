@@ -14,7 +14,7 @@ import logo from "../../assets/images/logo.jpg";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
-  const [ setNavigatingTo] = useState(null); // for delayed navigation
+  const [navigatingTo, setNavigatingTo] = useState(null); // for delayed navigation
 
   const blogPages = [
     'Lifestyle',
