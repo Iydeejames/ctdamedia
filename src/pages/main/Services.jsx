@@ -136,7 +136,7 @@ const Services = () => {
               ))}
             </ul>
 
-            <div className="bg-gray-100 text-gray-800 rounded-md p-4 mb-4">
+            <div className="bg-green-200 text-gray-800 rounded-md p-4 mb-4">
               <p className="text-sm font-semibold mb-2">Pricing:</p>
               <ul className="text-sm space-y-1">
                 {service.pricing.map((price, idx) => (
@@ -149,7 +149,7 @@ const Services = () => {
 
             <Link
               to={service.link}
-              className="inline-block mt-2 bg-red-800 text-white text-sm md:text-base font-medium px-5 py-2 rounded-full hover:bg-gray-900 transition"
+              className="inline-block mt-2 bg-red-800 text-white text-sm md:text-base font-medium px-5 py-2 rounded-md hover:bg-gray-900 transition"
             >
               {service.cta}
             </Link>
@@ -172,7 +172,7 @@ const Services = () => {
       <Link
         key={i}
         to={btn.to}
-        className="w-[220px] text-center bg-gray-800 text-white px-4 py-2 rounded-md text-xs md:text-base text-sm md:text-sm hover:bg-red-800 transition"
+        className="w-[220px] text-center bg-green-200 text-gray-800 px-4 py-2 rounded-md text-xs md:text-base text-sm md:text-sm hover:bg-green-300 transition"
       >
         {btn.label}
       </Link>
