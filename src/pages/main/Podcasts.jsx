@@ -128,15 +128,6 @@ const Podcasts = () => {
               Join powerful interviews and deep conversations exploring African stories, identity, and creativity.
             </p>
           </div>
-          {/*
-          <div className="w-1/2">
-            <img
-              src={img7}
-              alt="Podcast Hero Desktop"
-              className="shadow-lg w-full h-60 object-cover"
-            />
-          </div>
-          */}
         </div>
       </div>
 
@@ -145,24 +136,7 @@ const Podcasts = () => {
         {renderSection(" Interviews", interviews, 0)}
         {renderSection(" Conversations", conversations, interviews.length)}
 
-        {/* Related Links 
-        <section>
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-red-700 border-b border-red-300 pb-2">
-            You Might Also Like
-          </h2>
-          <ul className="list-disc list-inside text-green-800 text-md space-y-2">
-            {relatedLinks.map((item, index) => (
-              <li key={index}>
-                <a
-                  href={item.url}
-                  className="hover:underline transition duration-200 hover:text-red-600"
-                >
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>*/}
+
       </div>
     </section>
   );

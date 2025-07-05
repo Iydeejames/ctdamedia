@@ -198,9 +198,13 @@ const LandingPage = () => {
   
 
   const getSectionData = (categoryName, fallbackData) => {
-    const filtered = posts.filter(p => p.category === categoryName);
+    const filtered = posts.filter(
+      (p) => p.category?.toLowerCase() === categoryName.toLowerCase()
+    );
     return filtered.length > 0 ? filtered : fallbackData;
   };
+  
+  
   
 
 
@@ -419,11 +423,12 @@ const renderSection = (title, data, isGrid) => (
         </div>
       </section>
 
-      {renderSection("Recent Releases", getSectionData("Recent Release", recentReleases), true)}
-{renderSection("Business", getSectionData("Business", business), false)}
-{renderSection("Sports", getSectionData("Sports", sports), true)}
-{renderSection("Culture", getSectionData("Culture", culture), false)}
-{renderSection("Spotlight", getSectionData("Spotlight", spotlight), true)}
+{renderSection("Recent Releases", getSectionData("recent-releases", recentReleases), true)}
+{renderSection("Business", getSectionData("business", business), false)}
+{renderSection("Sports", getSectionData("sports", sports), true)}
+{renderSection("Culture", getSectionData("culture", culture), false)}
+{renderSection("Spotlight", getSectionData("spotlight", spotlight), true)}
+
 
 
       <section className="py-16">

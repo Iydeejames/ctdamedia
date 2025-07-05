@@ -34,22 +34,19 @@ import Analytics from "./pages/admin/pages/Analytics";
 import Users from "./pages/admin/pages/Users";
 import Settings from "./pages/admin/pages/Settings";
 
-// Auth Page
+// Auth Pages
 import Login from "./pages/admin/auth/Login";
 import Signup from "./pages/admin/auth/Signup";
 import ForgotPassword from "./pages/admin/auth/ForgotPassword";
 
-
-//layout wrapper (not used, just demo)
-const Layout = ({ children }) => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
-  );
-};
+// Optional: Layout Wrapper (not currently used)
+const Layout = ({ children }) => (
+  <div className="flex flex-col min-h-screen">
+    <Header />
+    <main className="flex-grow">{children}</main>
+    <Footer />
+  </div>
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
@@ -65,7 +62,7 @@ function App() {
         <Route path="/admin/signup" element={<Signup />} />
         <Route path="/admin/forgot-password" element={<ForgotPassword />} />
 
-        {/* ========== PUBLIC ROUTES ========== */}
+        {/* ========== PUBLIC ROUTES (with MainLayout) ========== */}
         <Route element={<MainLayout />}>
           <Route index element={<LandingPage />} />
           <Route path="/music" element={<Music />} />
@@ -80,9 +77,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/post/:slug" element={<NewsDetail />} />
+          <Route path="/:category/:slug" element={<NewsDetail />} />
 
-          {/* Blog routes */}
+          {/* Optional blog aliases */}
           <Route path="/blog/music" element={<Music />} />
           <Route path="/blog/newsletter" element={<Newsletter />} />
           <Route path="/blog/culture" element={<Culture />} />
@@ -94,7 +91,7 @@ function App() {
           <Route path="/blog/documentary" element={<Documentary />} />
         </Route>
 
-        {/* ========== ADMIN ROUTES (Dashboard) ========== */}
+        {/* ========== ADMIN ROUTES (with AdminLayout) ========== */}
         <Route path="/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
         <Route path="/posts/blog" element={<AdminLayout><Blog /></AdminLayout>} />
         <Route path="/admin/podcasts" element={<AdminLayout><PodcastsAdmin /></AdminLayout>} />
