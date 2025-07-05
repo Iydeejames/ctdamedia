@@ -342,25 +342,7 @@ const renderSection = (title, data, isGrid) => (
 
 
 
-     {/* Category Cards (Mobile) */}
-<div className="space-y-2 px-8">
-  {mobileCategories.map((cat, i) => (
-    <Link
-      to={cat.link}
-      key={i}
-      className="relative block h-16 overflow-hidden"
-    >
-      <img
-        src={cat.image}
-        alt={cat.text}
-        className="h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-        <span className="text-white font-bold text-lg">{cat.text}</span>
-      </div>
-    </Link>
-  ))}
-</div>
+
 
     </section>
 
@@ -409,7 +391,7 @@ const renderSection = (title, data, isGrid) => (
 </AnimatePresence>
 
      {/* BLACK EXPERIENCE SECTION */}
-     <section ref={blackExperienceRef} className="bg-green-50 py-10 mt-12 text-center">
+     <section ref={blackExperienceRef} className="bg-green-50 py-10 mb-4 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Who Are We?</h2>
           <p className="max-w-3xl mx-auto text-sm text-gray-700 mb-6 leading-relaxed">
@@ -422,6 +404,27 @@ const renderSection = (title, data, isGrid) => (
           </p>
         </div>
       </section>
+
+
+           {/* Category Cards (Mobile) */}
+<div className="space-y-2 px-8">
+  {mobileCategories.map((cat, i) => (
+    <Link
+      to={cat.link}
+      key={i}
+      className="relative block h-16 overflow-hidden"
+    >
+      <img
+        src={cat.image}
+        alt={cat.text}
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+        <span className="text-white font-bold text-lg">{cat.text}</span>
+      </div>
+    </Link>
+  ))}
+</div>
 
 {renderSection("Recent Releases", getSectionData("recent-releases", recentReleases), true)}
 {renderSection("Business", getSectionData("business", business), false)}
