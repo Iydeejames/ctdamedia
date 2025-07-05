@@ -1,6 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import img1 from "../../../assets/images/spotlight-page/img1.jpg";
 import img2 from "../../../assets/images/spotlight-page/img2.jpg";
 import img3 from "../../../assets/images/spotlight-page/img3.jpg";
@@ -13,6 +13,7 @@ const spotlightContent = [
     image: img1,
     description: "Exploring the global impact of African heritage.",
     date: "June 12, 2025",
+    category: "spotlight",
   },
   {
     title: "Afrobeats Uncovered",
@@ -20,6 +21,7 @@ const spotlightContent = [
     image: img2,
     description: "A deep dive into Africa’s musical revolution.",
     date: "June 10, 2025",
+    category: "spotlight",
   },
   {
     title: "Legacy of the Lens",
@@ -27,6 +29,7 @@ const spotlightContent = [
     image: img3,
     description: "Celebrating Black photographers shaping narratives.",
     date: "June 8, 2025",
+    category: "spotlight",
   },
   {
     title: "Untold Black Stories",
@@ -34,6 +37,7 @@ const spotlightContent = [
     image: img4,
     description: "Stories that history books left behind.",
     date: "June 5, 2025",
+    category: "spotlight",
   },
   {
     title: "Cultural Icons",
@@ -41,6 +45,7 @@ const spotlightContent = [
     image: img1,
     description: "Honoring the faces and voices of a generation.",
     date: "June 3, 2025",
+    category: "spotlight",
   },
   {
     title: "Behind the Rhythm",
@@ -48,6 +53,7 @@ const spotlightContent = [
     image: img2,
     description: "Inside the creative process of Black musicians.",
     date: "June 1, 2025",
+    category: "spotlight",
   },
   {
     title: "Spotlight Shorts",
@@ -55,6 +61,7 @@ const spotlightContent = [
     image: img3,
     description: "Powerful stories told in under 5 minutes.",
     date: "May 29, 2025",
+    category: "spotlight",
   },
   {
     title: "Generation Bold",
@@ -62,6 +69,7 @@ const spotlightContent = [
     image: img4,
     description: "Young Black voices breaking boundaries.",
     date: "May 27, 2025",
+    category: "spotlight",
   },
 ];
 
@@ -132,7 +140,7 @@ const Spotlight = () => {
               key={index}
               className="bg-white shadow hover:shadow-lg transition duration-300 rounded overflow-hidden"
             >
-              <Link to={`/spotlight/${item.slug}`}>
+              <Link to={`/${item.category}/${item.slug}`}>
                 <img
                   src={item.image}
                   alt={item.title}

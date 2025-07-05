@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -16,6 +16,7 @@ const fallbackDocumentaryData = [
     description: "A cinematic journey into oral storytelling traditions and their role in preserving African heritage.",
     image: img1,
     slug: "voices-of-the-ancestors",
+    category: "documentary",
     date: "2025-01-10",
   },
   {
@@ -24,6 +25,7 @@ const fallbackDocumentaryData = [
     description: "Exploring the rhythm of modern African cities and how tradition lives on through sound and dance.",
     image: img2,
     slug: "urban-beats-rural-roots",
+    category: "documentary",
     date: "2025-02-05",
   },
   {
@@ -32,6 +34,7 @@ const fallbackDocumentaryData = [
     description: "From kente to ankara, this documentary weaves through the fabrics that tell Africa's story.",
     image: img3,
     slug: "threads-of-identity",
+    category: "documentary",
     date: "2025-03-18",
   },
   {
@@ -40,6 +43,7 @@ const fallbackDocumentaryData = [
     description: "A powerful exposé on underrepresented African communities reclaiming their space and voice.",
     image: img4,
     slug: "fighting-silence",
+    category: "documentary",
     date: "2025-04-12",
   },
   {
@@ -48,6 +52,7 @@ const fallbackDocumentaryData = [
     description: "A breathtaking visual tribute to Africa’s spiritual sites, rituals, and sacred natural wonders.",
     image: img5,
     slug: "sacred-landscapes",
+    category: "documentary",
     date: "2025-05-03",
   },
   {
@@ -56,6 +61,7 @@ const fallbackDocumentaryData = [
     description: "Spotlighting African women leaders past and present who shaped history and inspire change.",
     image: img6,
     slug: "heroines-of-the-homeland",
+    category: "documentary",
     date: "2025-06-07",
   },
 ];
@@ -64,7 +70,6 @@ const Documentary = () => {
   const [documentaryContent, setDocumentaryContent] = useState([]);
 
   useEffect(() => {
-    // Replace this with a fetch from your backend in the future
     setDocumentaryContent(fallbackDocumentaryData);
   }, []);
 
@@ -88,7 +93,7 @@ const Documentary = () => {
 
   return (
     <section className="bg-gradient-to-br from-white to-gray-100 text-gray-800">
-      {/* Hero Section (Same as Lifestyle) */}
+      {/* Hero Section */}
       <div className="relative text-white">
         {/* Mobile */}
         <div className="md:hidden relative h-72 w-full">
@@ -117,85 +122,96 @@ const Documentary = () => {
         </div>
       </div>
 
-     {/* Content Section */}
-<div className="py-16 px-4 sm:px-6 lg:px-24">
-  <motion.h2
-    className="text-2xl sm:text-3xl font-bold text-center text-black mb-12"
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-  >
-    Documentary In Writings
-  </motion.h2>
-
-  {/* Desktop Layout */}
-  <div className="hidden md:block space-y-12">
-    {documentaryContent.map((item, index) => (
-      <motion.div
-        key={item.id}
-        className={`flex items-center gap-6 ${
-          index % 2 === 1 ? "flex-row-reverse" : ""
-        }`}
-        variants={cardVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <Link
-          to={`/documentary/${item.slug}`}
-          className="w-1/2 block overflow-hidden rounded-lg shadow-lg group"
+      {/* Content Section */}
+      <div className="py-16 px-4 sm:px-6 lg:px-24">
+        <motion.h2
+          className="text-2xl sm:text-3xl font-bold text-center text-black mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <motion.img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-            whileHover={{ scale: 1.03 }}
-          />
-        </Link>
-        <div className="w-1/2">
-          <p className="text-xs text-gray-500 mb-1">Published: {formatDate(item.date)}</p>
-          <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-          <p className="text-sm text-gray-700 mb-4">{item.description}</p>
-          <Link
-            to={`/documentary/${item.slug}`}
-            className="text-blue-600 hover:underline font-medium"
-          >
-            Read More →
-          </Link>
+          Documentary In Writings
+        </motion.h2>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:block space-y-12">
+          {documentaryContent.map((item, index) => (
+            <motion.div
+              key={item.id}
+              className={`flex items-center gap-6 ${
+                index % 2 === 1 ? "flex-row-reverse" : ""
+              }`}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Link
+                to={`/${item.category}/${item.slug}`}
+                className="w-1/2 block overflow-hidden rounded-lg shadow-lg group"
+              >
+                <motion.img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  whileHover={{ scale: 1.03 }}
+                />
+              </Link>
+              <div className="w-1/2">
+                <p className="text-xs text-gray-500 mb-1">
+                  Published: {formatDate(item.date)}
+                </p>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-700 mb-4">{item.description}</p>
+                <Link
+                  to={`/${item.category}/${item.slug}`}
+                  className="text-blue-600 hover:underline font-medium"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </motion.div>
-    ))}
-  </div>
 
-  {/* Mobile Layout */}
-  <div className="md:hidden grid gap-10">
-    {documentaryContent.map((item) => (
-      <motion.div
-        key={item.id}
-        className="bg-white rounded-xl shadow-md overflow-hidden"
-        variants={cardVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <Link to={`/documentary/${item.slug}`}>
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-48 object-cover"
-          />
-          <div className="p-4">
-            <p className="text-xs text-gray-500 mb-1">Published: {formatDate(item.date)}</p>
-            <h3 className="text-lg font-bold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-sm text-gray-600 mb-3">{item.description}</p>
-            <span className="text-rose-600 font-semibold text-sm">Read Full Story →</span>
-          </div>
-        </Link>
-      </motion.div>
-    ))}
-  </div>
-</div>
-
+        {/* Mobile Layout */}
+        <div className="md:hidden grid gap-10">
+          {documentaryContent.map((item) => (
+            <motion.div
+              key={item.id}
+              className="bg-white rounded-xl shadow-md overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Link to={`/${item.category}/${item.slug}`}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <p className="text-xs text-gray-500 mb-1">
+                    Published: {formatDate(item.date)}
+                  </p>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    {item.description}
+                  </p>
+                  <span className="text-rose-600 font-semibold text-sm">
+                    Read Full Story →
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import img1 from "../../../assets/images/podcast/img1.jpg";
@@ -11,38 +11,38 @@ const fallbackCultureData = [
   {
     id: 1,
     title: "Preserving Ancestral Traditions Through Art",
-    description:
-      "Discover how African artists are using visual and performance art to preserve their heritage, tell stories of resilience, and pass culture down through generations.",
+    description: "Discover how African artists are using visual and performance art...",
     image: img1,
     slug: "preserving-ancestral-traditions",
     date: "2024-12-10",
+    category: "culture",
   },
   {
     id: 2,
     title: "The Rhythm of Resistance: Cultural Dances Reimagined",
-    description:
-      "Traditional dances aren't just art — they're acts of resistance and identity. See how young creatives are reviving and reshaping cultural dances in a modern world.",
+    description: "Traditional dances aren't just art — they're acts of resistance...",
     image: img2,
     slug: "cultural-dances-reimagined",
     date: "2025-01-22",
+    category: "culture",
   },
   {
     id: 3,
     title: "Fashion as a Cultural Archive",
-    description:
-      "Explore how indigenous fabrics, patterns, and garments tell the complex story of identity, colonization, and pride across African societies.",
+    description: "Explore how indigenous fabrics, patterns, and garments...",
     image: img3,
     slug: "fashion-cultural-archive",
     date: "2025-02-11",
+    category: "culture",
   },
   {
     id: 4,
     title: "Language Revival: Keeping Indigenous Tongues Alive",
-    description:
-      "Languages hold worlds. Meet the activists and educators leading a movement to document and teach endangered African languages.",
+    description: "Languages hold worlds. Meet the activists and educators...",
     image: img4,
     slug: "language-revival",
     date: "2025-03-05",
+    category: "culture",
   },
 ];
 
@@ -123,7 +123,7 @@ const Culture = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Link to={`/culture/${item.slug}`}>
+              <Link to={`/${item.category}/${item.slug}`}>
                 <div className="overflow-hidden">
                   <motion.img
                     src={item.image}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -16,6 +16,7 @@ const fallbackLifestyleData = [
       "Explore timeless self-care practices rooted in African wellness traditions — from herbal baths to grounding routines.",
     image: img1,
     slug: "wellness-rituals-mind-body",
+    category: "lifestyle",
     date: "2025-03-12",
   },
   {
@@ -25,6 +26,7 @@ const fallbackLifestyleData = [
       "Infuse your home and lifestyle with textures, colors, and crafts that celebrate African heritage in contemporary ways.",
     image: img2,
     slug: "modern-living-cultural-flair",
+    category: "lifestyle",
     date: "2025-04-05",
   },
   {
@@ -34,6 +36,7 @@ const fallbackLifestyleData = [
       "Meet African designers prioritizing sustainability, community, and bold cultural storytelling in their collections.",
     image: img3,
     slug: "conscious-fashion-style",
+    category: "lifestyle",
     date: "2025-05-15",
   },
   {
@@ -43,6 +46,7 @@ const fallbackLifestyleData = [
       "Reclaim your time and reconnect with what matters through ancestral teachings about rhythm and balance.",
     image: img4,
     slug: "art-of-slow-living",
+    category: "lifestyle",
     date: "2025-06-01",
   },
 ];
@@ -124,7 +128,7 @@ const Lifestyle = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Link to={`/lifestyle/${item.slug}`}>
+              <Link to={`/${item.category}/${item.slug}`}>
                 <div className="overflow-hidden">
                   <motion.img
                     src={item.image}

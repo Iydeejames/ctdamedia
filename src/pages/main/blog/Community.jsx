@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import img1 from "../../../assets/images/community-page/img1.png";
@@ -14,6 +14,7 @@ const fallbackCommunityData = [
       "Meet the next generation of community activists making bold strides in education, food security, and public safety.",
     image: img1,
     slug: "youth-leading-change",
+    category: "community",
     date: "2025-05-12",
   },
   {
@@ -23,6 +24,7 @@ const fallbackCommunityData = [
       "Grassroots mental wellness initiatives are creating safe spaces for dialogue and healing across communities.",
     image: img2,
     slug: "mental-health-circles",
+    category: "community",
     date: "2025-05-28",
   },
   {
@@ -32,6 +34,7 @@ const fallbackCommunityData = [
       "Discover how abandoned lots are becoming green hubs of nutrition, sustainability, and community pride.",
     image: img3,
     slug: "urban-gardens-community",
+    category: "community",
     date: "2025-06-07",
   },
   {
@@ -41,6 +44,7 @@ const fallbackCommunityData = [
       "From refugee camps to remote villages, football is uniting people, breaking divides, and building peace.",
     image: img4,
     slug: "football-for-unity",
+    category: "community",
     date: "2025-06-15",
   },
 ];
@@ -91,52 +95,48 @@ const Community = () => {
       </div>
 
       {/* Community Stories */}
-{/* Community Card Section */}
-<div className="px-4 sm:px-8 lg:px-24 py-20 bg-white">
-  {/* Section Title */}
-  <div className="text-center mb-12">
-    <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
-      Voices That Build Us
-    </h2>
-  </div>
-
-  {/* Cards Grid */}
-  <div className="grid gap-10 md:grid-cols-2">
-    {communityContent.map((item) => (
-      <div
-        key={item.id}
-        className="bg-green-50  overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col"
-      >
-        <div className="h-52 overflow-hidden">
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          />
+      <div className="px-4 sm:px-8 lg:px-24 py-20 bg-white">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-2">
+            Voices That Build Us
+          </h2>
         </div>
-        <div className="p-6 flex flex-col justify-between flex-grow">
-          <div>
-            <span className="text-xs uppercase font-semibold text-red-900 bg-red-200 px-3 py-1 rounded-full inline-block mb-3">
-              {formatDate(item.date)}
-            </span>
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-              {item.title}
-            </h3>
-            <p className="text-sm text-gray-700 mb-4">{item.description}</p>
-          </div>
-          <Link
-            to={`/community/${item.slug}`}
-            className="text-gray-900 text-sm font-semibold hover:underline inline-flex items-center group mt-auto"
-          >
-            Read Full Story
-            <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
+
+        <div className="grid gap-10 md:grid-cols-2">
+          {communityContent.map((item) => (
+            <div
+              key={item.id}
+              className="bg-green-50 overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col"
+            >
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="p-6 flex flex-col justify-between flex-grow">
+                <div>
+                  <span className="text-xs uppercase font-semibold text-red-900 bg-red-200 px-3 py-1 rounded-full inline-block mb-3">
+                    {formatDate(item.date)}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-700 mb-4">{item.description}</p>
+                </div>
+                <Link
+                  to={`/${item.category}/${item.slug}`}
+                  className="text-gray-900 text-sm font-semibold hover:underline inline-flex items-center group mt-auto"
+                >
+                  Read Full Story
+                  <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
-
     </section>
   );
 };
