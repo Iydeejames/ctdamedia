@@ -159,27 +159,29 @@ const Services = () => {
 
       {/* CTA Section */}
       <div className="mt-20 text-center space-y-5">
-        <h3 className="text-xl font-semibold text-gray-800">
-          Need Help Getting Started?
-        </h3>
-        <div className="flex flex-wrap justify-center gap-4 mt-4">
-          {[
-            { label: "Subscribe for Weekly Insights", to: "/subscribe" },
-            { label: "Book Your Strategy Call", to: "/contact" },
-            { label: "Join Our Next Webinar", to: "/webinars" },
-            { label: "Get Featured on CTDA Media", to: "/contact" },
-          ].map((btn, i) => (
-            <Link
-              key={i}
-              to={btn.to}
-              className="w-[220px] text-center bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-800 transition"
-            >
-              {btn.label}
-            </Link>
-          ))}
-        </div>
+  <h3 className="text-md md:text-lg font-semibold text-gray-800">
+    Need Help Getting Started?
+  </h3>
+  <div className="flex flex-wrap justify-center gap-4 mt-4">
+    {[
+      { label: "Subscribe for Weekly Insights", to: "/subscribe" },
+      { label: "Book Your Strategy Call", to: "/contact" },
+      { label: "Join Our Next Webinar", to: "/webinars" },
+      { label: "Get Featured on CTDA Media", to: "/contact" },
+    ].map((btn, i) => (
+      <Link
+        key={i}
+        to={btn.to}
+        className="w-[220px] text-center bg-gray-800 text-white px-4 py-2 rounded-md text-xs md:text-base text-sm md:text-sm hover:bg-red-800 transition"
+      >
+        {btn.label}
+      </Link>
+    ))}
+  </div>
+</div>
+
       </div>
-    </div>
+
   );
 };
 
