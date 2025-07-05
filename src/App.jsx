@@ -1,4 +1,3 @@
-// App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import PropTypes from "prop-types";
@@ -19,8 +18,7 @@ import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact";
 import Search from "./pages/main/Search";
-import FullPost from "./pages/main/FullPost";
-import NewsDetail from "./pages/NewsDetail";
+import NewsDetail from "./pages/FullPost";
 
 // Layouts
 import MainLayout from "./layouts/MainLayout";
@@ -36,6 +34,13 @@ import Analytics from "./pages/admin/pages/Analytics";
 import Users from "./pages/admin/pages/Users";
 import Settings from "./pages/admin/pages/Settings";
 
+// Auth Page
+import Login from "./pages/admin/auth/Login";
+import Signup from "./pages/admin/auth/Signup";
+import ForgotPassword from "./pages/admin/auth/ForgotPassword";
+
+
+//layout wrapper (not used, just demo)
 const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
@@ -54,7 +59,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public/Main Site Layout */}
+
+        {/* ========== AUTH ROUTES ========== */}
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/signup" element={<Signup />} />
+        <Route path="/admin/forgot-password" element={<ForgotPassword />} />
+
+        {/* ========== PUBLIC ROUTES ========== */}
         <Route element={<MainLayout />}>
           <Route index element={<LandingPage />} />
           <Route path="/music" element={<Music />} />
@@ -64,16 +75,14 @@ function App() {
           <Route path="/lifestyle" element={<Lifestyle />} />
           <Route path="/scene" element={<Scene />} />
           <Route path="/community" element={<Community />} />
+          <Route path="/documentary" element={<Documentary />} />
           <Route path="/podcasts" element={<Podcasts />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/:category/:slug" element={<FullPost />} />
           <Route path="/post/:slug" element={<NewsDetail />} />
 
-
-
-          {/* Blog Routes */}
+          {/* Blog routes */}
           <Route path="/blog/music" element={<Music />} />
           <Route path="/blog/newsletter" element={<Newsletter />} />
           <Route path="/blog/culture" element={<Culture />} />
@@ -85,7 +94,7 @@ function App() {
           <Route path="/blog/documentary" element={<Documentary />} />
         </Route>
 
-        {/* Admin Layout */}
+        {/* ========== ADMIN ROUTES (Dashboard) ========== */}
         <Route path="/dashboard" element={<AdminLayout><Dashboard /></AdminLayout>} />
         <Route path="/posts/blog" element={<AdminLayout><Blog /></AdminLayout>} />
         <Route path="/admin/podcasts" element={<AdminLayout><PodcastsAdmin /></AdminLayout>} />
@@ -94,6 +103,7 @@ function App() {
         <Route path="/admin/analytics" element={<AdminLayout><Analytics /></AdminLayout>} />
         <Route path="/admin/users" element={<AdminLayout><Users /></AdminLayout>} />
         <Route path="/admin/settings" element={<AdminLayout><Settings /></AdminLayout>} />
+
       </Routes>
     </Router>
   );

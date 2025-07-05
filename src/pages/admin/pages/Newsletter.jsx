@@ -31,6 +31,7 @@ const Newsletter = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
 
+  //PLACEHOLDER LINK
   const API_URL = "http://localhost:3000/api/newsletter";
 
   useEffect(() => {

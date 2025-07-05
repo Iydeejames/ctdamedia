@@ -1,272 +1,288 @@
-import { useState, useEffect } from "react";
-import ReactQuill, { Quill } from "react-quill";
-import TurndownService from "turndown";
-import ImageResize from "quill-image-resize-module-react";
-import "react-quill/dist/quill.snow.css";
-import img12 from "../../../../assets/images/hero-page/img12.jpg";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import EditorJS from "@editorjs/editorjs";
+import Header from "@editorjs/header";
+import List from "@editorjs/list";
+import Paragraph from "@editorjs/paragraph";
+import ImageTool from "@editorjs/image";
+import Quote from "@editorjs/quote";
+import CodeTool from "@editorjs/code";
+import Embed from "@editorjs/embed";
+import LinkTool from "@editorjs/link";
+import { draftToMarkdown } from "markdown-draft-js";
+import ReactMarkdown from "react-markdown";
+import moment from "moment";
 
-const API_BASE = "https://ctda-api.onrender.com/api";
-
-Quill.register("modules/imageResize", ImageResize);
-
-const modules = {
-  toolbar: {
-    container: [
-      [{ header: [1, 2, 3, false] }],
-      ["bold", "italic", "underline", "strike"],
-      [{ list: "ordered" }, { list: "bullet" }],
-      ["link", "image"],
-      ["clean"],
-    ],
-    handlers: {
-      image: imageHandler,
-    },
-  },
-  imageResize: {
-    parchment: Quill.import("parchment"),
-  },
-};
-
-function imageHandler() {
-  const input = document.createElement("input");
-  input.setAttribute("type", "file");
-  input.setAttribute("accept", "image/*");
-  input.click();
-  input.onchange = () => {
-    const file = input.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64 = reader.result;
-        const range = this.quill.getSelection();
-        this.quill.insertEmbed(range.index, "image", base64);
-        this.quill.setSelection(range.index + 1);
-        this.quill.insertText(range.index + 1, "\n");
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-}
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "list",
-  "bullet",
-  "link",
-  "image",
+const categoriesList = [
+  "Business",
+  "Recent Release",
+  "Culture",
+  "Spotlight",
+  "Scene",
+  "Community",
+  "Lifestyle",
+  "Sports",
+  "Documentary",
 ];
 
-export default function  Blog() {
-  const [posts, setPosts] = useState([
-    // Sample card so admin sees something instantly
-    {
-      id: "sample",
-      title: "Spotlight on Black Innovators",
-      description: "Celebrating excellence and achievement.",
-      date: "2025-07-01",
-      image: img12,
-      content: "This is a placeholder post content for Blog.",
-    },
-  ]);
+const POSTS_PER_PAGE = 4;
 
-  const [form, setForm] = useState({
-    id: null,
-    title: "",
-    description: "",
-    date: "",
-    image: "",
-    content: "",
-  });
+const Blog = () => {
+  const editorInstance = useRef(null);
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [displayImage, setDisplayImage] = useState("");
+  const [tags, setTags] = useState([]);
+  const [tagInput, setTagInput] = useState("");
+  const [status, setStatus] = useState("Draft");
+  const [posts, setPosts] = useState([]);
+  const [isSaving, setIsSaving] = useState(false);
+  const [previewPost, setPreviewPost] = useState(null);
+  const [editId, setEditId] = useState(null);
+  const [page, setPage] = useState(1);
 
-  const [isEditing, setIsEditing] = useState(false);
+  //Placeholder linkssssssssssssssssssss
+  const API_URL = "http://localhost:3000/api/blogs";
 
-  useEffect(() => {
-    fetch(`${API_BASE}/posts`)
-      .then((res) => res.json())
-      .then((data) => {
-        const blogPosts = data.filter(
-          (p) => p.category?.toLowerCase() === "blog"
-        );
-        setPosts((prev) => [...blogPosts, ...prev]);
-      })
-      .catch(() => {});
-  }, []);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const preview = URL.createObjectURL(file);
-      setForm({ ...form, image: preview });
+  const initEditor = () => {
+    if (!editorInstance.current) {
+      editorInstance.current = new EditorJS({
+        holder: "editorjs",
+        placeholder: "Input article contents here...",
+        tools: {
+          header: Header,
+          list: List,
+          paragraph: Paragraph,
+          quote: Quote,
+          code: CodeTool,
+          embed: Embed,
+          linkTool: {
+            class: LinkTool,
+            config: { endpoint: "http://localhost:3000/api/fetchUrl" },
+          },
+          image: {
+            class: ImageTool,
+            config: { endpoints: { byFile: "http://localhost:3000/api/upload" } },
+          },
+        },
+        autofocus: true,
+        onChange: autoSaveDraft,
+      });
     }
   };
 
-  const handleContentChange = (value) => {
-    setForm({ ...form, content: value });
+  useEffect(() => {
+    initEditor();
+    fetchPosts();
+    const saved = localStorage.getItem("draftPost");
+    if (saved) {
+      const { title, category, displayImage, tags, status } = JSON.parse(saved);
+      setTitle(title || "");
+      setCategory(category || "");
+      setDisplayImage(displayImage || "");
+      setTags(tags || []);
+      setStatus(status || "Draft");
+    }
+  }, []);
+
+  const autoSaveDraft = () => {
+    localStorage.setItem(
+      "draftPost",
+      JSON.stringify({ title, category, tags, displayImage, status })
+    );
   };
 
-  const handleSubmit = async (e) => {
-    
+  const fetchPosts = async () => {
+    try {
+      const res = await axios.get(API_URL);
+      setPosts(res.data);
+    } catch (err) {
+      console.error("Failed to fetch posts:", err);
+    }
+  };
+
+  const cropImage = (imageDataURL) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const img = new Image();
+    canvas.width = 300;
+    canvas.height = 300;
+    return new Promise((resolve) => {
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 300, 300);
+        resolve(canvas.toDataURL("image/jpeg"));
+      };
+      img.src = imageDataURL;
+    });
+  };
+
+  const handleImageDrop = async (e) => {
     e.preventDefault();
-
-    const method = isEditing ? "PUT" : "POST";
-    const url = isEditing
-      ? `${API_BASE}/posts/${form.id}`
-      : `${API_BASE}/posts`;
-
-    const newPost = { ...form, category: "Blog" };
-
-    const res = await fetch(url, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newPost),
-    });
-
-    const result = await res.json();
-    const updated = isEditing
-      ? posts.map((p) => (p.id === form.id ? result : p))
-      : [result, ...posts];
-
-    setPosts(updated);
-    setForm({
-      id: null,
-      title: "",
-      description: "",
-      date: "",
-      image: "",
-      content: "",
-    });
-    setIsEditing(false);
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+      const cropped = await cropImage(reader.result);
+      setDisplayImage(cropped);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleEdit = (post) => {
-    setForm(post);
-    setIsEditing(true);
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+      const cropped = await cropImage(reader.result);
+      setDisplayImage(cropped);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const handleDelete = async (id) => {
-    await fetch(`${API_BASE}/posts/${id}`, { method: "DELETE" });
-    const updated = posts.filter((p) => p.id !== id);
-    setPosts(updated);
+  const handleTagAdd = () => {
+    if (tagInput.trim() && !tags.includes(tagInput.trim())) {
+      setTags([...tags, tagInput.trim()]);
+      setTagInput("");
+    }
   };
+
+  const handleTagRemove = (tag) => {
+    setTags(tags.filter((t) => t !== tag));
+  };
+
+  const handleSave = async () => {
+    if (!title || !category || !displayImage) return alert("All fields are required");
+
+    try {
+      setIsSaving(true);
+      const output = await editorInstance.current.save();
+      const draftData = {
+        blocks: output.blocks.map((block) => ({
+          type: block.type,
+          text:
+            block.data.text ||
+            block.data.caption ||
+            block.data.items?.join("\n") ||
+            block.data.code ||
+            block.data.url ||
+            block.data.embed ||
+            "",
+        })),
+      };
+
+      const markdown = draftToMarkdown(draftData);
+      const firstParagraph = output.blocks.find((b) => b.type === "paragraph");
+      const shortDescription = firstParagraph?.data.text?.slice(0, 200) || "No description";
+
+      const postData = {
+        title,
+        category,
+        tags,
+        status,
+        displayImage,
+        content: markdown,
+        description: shortDescription,
+        timestamp: new Date().toISOString(),
+      };
+
+      let res;
+      if (editId) {
+        res = await axios.put(`${API_URL}/${editId}`, postData);
+        setPosts(posts.map((p) => (p._id === editId ? res.data : p)));
+        setEditId(null);
+      } else {
+        res = await axios.post(API_URL, postData);
+        setPosts([res.data, ...posts]);
+      }
+
+      setTitle("");
+      setCategory("");
+      setTags([]);
+      setTagInput("");
+      setDisplayImage("");
+      setStatus("Draft");
+      editorInstance.current.clear();
+      localStorage.removeItem("draftPost");
+      alert("Post saved!");
+    } catch {
+      alert("Save error");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  const paginatedPosts = posts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6">
-      <h2 className="text-2xl pt-20 sm:text-3xl font-bold mb-6 text-green-800">
-      Blog Admin Dashboard
-      </h2>
+    <div className="bg-white mt-20 min-h-screen px-4 py-10">
+      <div className="grid lg:grid-cols-2 gap-10">
+        <div className="bg-green-700 p-6  border" onDrop={handleImageDrop} onDragOver={(e) => e.preventDefault()}>
+          <h2 className="text-xl font-bold text-white mb-3">Create or Edit Post</h2>
+          <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" className="w-full mb-2 p-2 border rounded" />
+          <select value={category} onChange={(e) => setCategory(e.target.value)} className="w-full mb-2 bg-white p-2 border rounded">
+            <option value="">Select Category</option>
+            {categoriesList.map((cat) => <option key={cat}>{cat}</option>)}
+          </select>
+          <input type="file" accept="image/*" onChange={handleImageChange} className="mb-2 text-white " />
+          {displayImage && <img src={displayImage} className="w-32 h-32 rounded object-cover mb-2" />}
 
-      {/* FORM */}
-      <form
-        onSubmit={handleSubmit}
-        className="bg-green-50 border border-green-300 p-4 rounded-sm shadow-md mb-8 space-y-4"
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input
-            type="text"
-            name="title"
-            placeholder="Post Title"
-            value={form.title}
-            onChange={handleChange}
-            className="border p-2 rounded text-sm"
-            required
-          />
-
-<div className="col-span-full">
-  <div className="flex items-center space-x-4">
-    <label className="cursor-pointer bg-white border text-green-700 px-8 py-2  text-sm hover:bg-green-100 transition">
-      Add Image
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleImageUpload}
-        className="hidden"
-      />
-    </label>
-    {form.image && (
-      <img
-        src={form.image}
-        alt="Preview"
-        className="h-20 w-auto rounded shadow"
-      />
-    )}
-  </div>
-</div>
-
-          <textarea
-            name="description"
-            placeholder="Short Description"
-            value={form.description}
-            onChange={handleChange}
-            className="border p-2 rounded text-sm col-span-full"
-            required
-          />
-        </div>
-
-        <div className=" bg-white">
-          <label className="block font-semibold mb-1 bg-green-50 text-green-700 text-sm">
-            Full Article Content
-          </label>
-          <ReactQuill
-            value={form.content}
-            onChange={handleContentChange}
-            theme="snow"
-            modules={modules}
-            formats={formats}
-            placeholder="Write full content here..."
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="bg-red-700 text-white px-3 py-2  text-xs hover:bg-green-800 mt-4"
-        >
-          {isEditing ? "Update" : "Add"} Post
-        </button>
-      </form>
-
-      {/* POSTS - Compact Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {posts.map((post) => (
-          <div
-            key={post.id}
-            className="bg-white border shadow-sm overflow-hidden text-sm"
-          >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="w-full h-28 object-cover"
-            />
-            <div className="p-2">
-              <h3 className="font-semibold text-green-900 line-clamp-2 text-xs">
-                {post.title}
-              </h3>
-              <p className="text-[11px] text-gray-500 mb-1">{post.date}</p>
-              <p className="text-[12px] text-gray-700 line-clamp-2">
-                {post.description}
-              </p>
-              <div className="mt-2 flex justify-between text-[12px] text-green-700">
-                <button onClick={() => handleEdit(post)} className="underline">
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(post.id)}
-                  className="text-red-600 underline"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
+          <div className="flex items-center mb-2">
+            <input value={tagInput} onChange={(e) => setTagInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleTagAdd()} placeholder="Add tag" className="flex-1 p-2 border rounded mr-2" />
+            <button onClick={handleTagAdd} className="bg-red-500 text-white px-3 py-1 rounded">Add</button>
           </div>
-        ))}
+          <div className="flex flex-wrap gap-2 mb-2">
+            {tags.map((tag) => (
+              <span key={tag} className="bg-green-200 px-2 py-1 rounded-full text-sm">
+                {tag} <button onClick={() => handleTagRemove(tag)} className="ml-1 text-red-600">×</button>
+              </span>
+            ))}
+          </div>
+
+          <select value={status} onChange={(e) => setStatus(e.target.value)} className="w-full mb-2 p-2 bg-white border rounded">
+            <option>Draft</option>
+            <option>Published</option>
+          </select>
+
+          <div id="editorjs" className="border bg-white p-3 rounded min-h-[250px] mb-3" />
+          <button onClick={handleSave} className="bg-red-500 text-white w-full py-2 rounded">
+            {editId ? "Update Post" : isSaving ? "Saving..." : "Publish Post"}
+          </button>
+        </div>
+
+        <div>
+          <h2 className="text-xl font-bold mb-4 text-green-700">Blog Posts</h2>
+          <div className="space-y-4">
+            {paginatedPosts.map((post) => (
+              <div key={post._id} className="p-4 border rounded-lg">
+                <img src={post.displayImage} className="w-full h-40 object-cover rounded mb-2" />
+                <h3 className="font-bold text-lg text-green-700">{post.title}</h3>
+                <p className="text-sm text-gray-500">{post.category} • {moment(post.timestamp).fromNow()} • <span className={`font-semibold ${post.status === 'Published' ? 'text-green-700' : 'text-yellow-600'}`}>{post.status}</span></p>
+                <p className="text-sm text-gray-700 mt-1">{post.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center gap-2 mt-4">
+            {[...Array(totalPages)].map((_, i) => (
+              <button key={i} onClick={() => setPage(i + 1)} className={`px-3 py-1 rounded ${page === i + 1 ? 'bg-green-600 text-white' : 'bg-white border'}`}>{i + 1}</button>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {previewPost && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white max-w-2xl w-full p-6 rounded-lg relative">
+            <button onClick={() => setPreviewPost(null)} className="absolute top-2 right-2 text-xl text-red-600">×</button>
+            <img src={previewPost.displayImage} className="w-full h-64 object-cover rounded mb-4" />
+            <h3 className="text-2xl font-bold text-green-800 mb-1">{previewPost.title}</h3>
+            <p className="text-sm text-gray-500 mb-3">{previewPost.category} • {moment(previewPost.timestamp).fromNow()}</p>
+            <ReactMarkdown className="prose max-w-none">{previewPost.content}</ReactMarkdown>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Blog;

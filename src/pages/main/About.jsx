@@ -89,7 +89,7 @@ const About = () => {
           >
             <h1 className="text-3xl font-extrabold mb-2">About CTDA Media</h1>
             <p className="text-base leading-snug">
-              We're a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
+              We are a dynamic media company blending African heritage and global perspectives. We tell stories that celebrate identity, inspire thought, and build community.
             </p>
           </motion.div>
         </div>

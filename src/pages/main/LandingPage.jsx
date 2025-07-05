@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   FaYoutube,
@@ -32,6 +33,18 @@ import img27 from "../../assets/images/hero-page/img27.png";
 
 const LandingPage = () => {
 
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/blogs")
+      .then(res => {
+        setPosts(res.data.filter(p => p.status === "Published"));
+      })
+      .catch(err => {
+        console.error("Failed to fetch blog posts", err);
+        setPosts([]); // fallback to empty if request fails
+      }); }, []);
   
   const mobileCategories = [
     { text: "Music", link: "/music", image: img },
@@ -184,6 +197,13 @@ const LandingPage = () => {
   ];
   
 
+  const getSectionData = (categoryName, fallbackData) => {
+    const filtered = posts.filter(p => p.category === categoryName);
+    return filtered.length > 0 ? filtered : fallbackData;
+  };
+  
+
+
 // 2. Scroll trigger for popup
 const [email, setEmail] = useState("");
 const [showPopup, setShowPopup] = useState(false);
@@ -233,8 +253,9 @@ const renderSection = (title, data, isGrid) => (
     <h2 className="text-xl font-bold mb-4">{title}</h2>
     <div className={`${isGrid ? "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" : "flex flex-col gap-4"}`}>
       {data.map((item, index) => (
+
         <Link
-          to={`/${item.category}/${item.slug}`}
+        to={`/${item.category.toLowerCase()}/${item.slug}`}
           key={index}
           className={`${
             isGrid
@@ -398,11 +419,12 @@ const renderSection = (title, data, isGrid) => (
         </div>
       </section>
 
-      {renderSection("Recent Releases", recentReleases, true)}
-      {renderSection("Business", business, false)}
-      {renderSection("Sports", sports, true)}
-      {renderSection("Culture", culture, false)}
-      {renderSection("Spotlight", spotlight, true)}
+      {renderSection("Recent Releases", getSectionData("Recent Release", recentReleases), true)}
+{renderSection("Business", getSectionData("Business", business), false)}
+{renderSection("Sports", getSectionData("Sports", sports), true)}
+{renderSection("Culture", getSectionData("Culture", culture), false)}
+{renderSection("Spotlight", getSectionData("Spotlight", spotlight), true)}
+
 
       <section className="py-16">
         <div className="container mx-auto px-4 text-center">
