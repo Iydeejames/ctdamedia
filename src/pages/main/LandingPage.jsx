@@ -407,7 +407,7 @@ const renderSection = (title, data, isGrid) => (
 
 
            {/* Category Cards (Mobile) */}
-<div className="space-y-2 px-8">
+<div className="space-y-2 px-8 mb-6">
   {mobileCategories.map((cat, i) => (
     <Link
       to={cat.link}
