@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import LandingPage from "./pages/main/LandingPage";
 import Footer from "./components/reusables/Footer";
 import Header from "./components/reusables/Header";
+import ScrollToTop from "./components/reusables/ScrollToTop";
 import Music from "./pages/main/blog/Music";
 import Culture from "./pages/main/blog/Culture";
 import Spotlight from "./pages/main/blog/Spotlight";
@@ -39,7 +40,7 @@ import Login from "./pages/admin/auth/Login";
 import Signup from "./pages/admin/auth/Signup";
 import ForgotPassword from "./pages/admin/auth/ForgotPassword";
 
-// Optional: Layout Wrapper (not currently used)
+// Optional layout wrapper (not currently used)
 const Layout = ({ children }) => (
   <div className="flex flex-col min-h-screen">
     <Header />
@@ -55,6 +56,9 @@ Layout.propTypes = {
 function App() {
   return (
     <Router>
+      {/* Scroll to top on every route change */}
+      <ScrollToTop />
+
       <Routes>
 
         {/* ========== AUTH ROUTES ========== */}
