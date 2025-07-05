@@ -406,13 +406,13 @@ const renderSection = (title, data, isGrid) => (
       </section>
 
 
-           {/* Category Cards (Mobile) */}
-<div className="space-y-2 px-8 mb-6">
+{/* Category Cards (Mobile Only) */}
+<div className="block sm:hidden space-y-2 px-4 mb-6">
   {mobileCategories.map((cat, i) => (
     <Link
       to={cat.link}
       key={i}
-      className="relative block h-16 overflow-hidden"
+      className="relative block h-16 overflow-hidden rounded"
     >
       <img
         src={cat.image}
@@ -420,11 +420,12 @@ const renderSection = (title, data, isGrid) => (
         className="h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-        <span className="text-white font-bold text-lg">{cat.text}</span>
+        <span className="text-white font-bold text-sm">{cat.text}</span>
       </div>
     </Link>
   ))}
 </div>
+
 
 {renderSection("Recent Releases", getSectionData("recent-releases", recentReleases), true)}
 {renderSection("Business", getSectionData("business", business), false)}
