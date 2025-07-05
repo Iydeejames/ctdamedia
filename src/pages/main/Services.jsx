@@ -121,7 +121,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-white shadow-sm rounded-xl p-6 md:p-10 border border-gray-200"
+            className="bg-white shadow-sm rounded-xl p-6 md:p-10 border border-gray-300"
           >
             <h2 className="text-2xl font-semibold mb-2 text-gray-900">
               {service.headline}
@@ -136,7 +136,7 @@ const Services = () => {
               ))}
             </ul>
 
-            <div className="bg-green-700 text-white rounded-md p-4 mb-4">
+            <div className="bg-green-700 text-white rounded-sm p-4 mb-4">
               <p className="text-sm font-semibold mb-2">Pricing:</p>
               <ul className="text-sm space-y-1">
                 {service.pricing.map((price, idx) => (
