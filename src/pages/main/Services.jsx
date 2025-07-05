@@ -136,7 +136,7 @@ const Services = () => {
               ))}
             </ul>
 
-            <div className="bg-green-200 text-gray-800 rounded-md p-4 mb-4">
+            <div className="bg-green-700 text-white rounded-md p-4 mb-4">
               <p className="text-sm font-semibold mb-2">Pricing:</p>
               <ul className="text-sm space-y-1">
                 {service.pricing.map((price, idx) => (
