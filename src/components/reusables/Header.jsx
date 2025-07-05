@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import {
   FaBars,
   FaTimes,
@@ -14,7 +14,7 @@ import logo from "../../assets/images/logo.jpg";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [blogDropdownOpen, setBlogDropdownOpen] = useState(false);
-  const [navigatingTo, setNavigatingTo] = useState(null); // for delayed navigation
+  const [ setNavigatingTo] = useState(null); // for delayed navigation
 
   const blogPages = [
     'Lifestyle',
@@ -76,7 +76,7 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 font-semibold uppercase tracking-wide relative">
           <a href="/" className="hover:text-red-500">HOME</a>
-          <a href="/about" className="hover:text-red-500">About CTDA</a>
+          <a href="/about" className="hover:text-red-500">About</a>
           <a href="/services" className="hover:text-red-500">Services</a>
 
 
@@ -160,7 +160,7 @@ const Header = () => {
             {/* Nav Items */}
             <nav className="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-wide">
               <button onClick={() => handleNavigation('/')} className="text-left hover:text-red-400">HOME</button>
-              <button onClick={() => handleNavigation('/about')} className="text-left hover:text-red-400">ABOUT CTDA</button>
+              <button onClick={() => handleNavigation('/about')} className="text-left hover:text-red-400">ABOUT </button>
               <button onClick={() => handleNavigation('/services')} className="text-left hover:text-red-400">SERVICES</button>
 
 
