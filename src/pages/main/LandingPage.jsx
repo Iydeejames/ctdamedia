@@ -324,7 +324,7 @@ const renderSection = (title, data, isGrid) => (
 {/* Mobile View: New UI Design */}
 <section className="lg:hidden px-0 mt-0  space-y-6">
       {/* Main Hero Image */}
-      <div className="lg:w-3/4 relative rounded overflow-hidden h-[550px] ">
+      <div className="lg:w-3/4 relative  overflow-hidden h-[550px] ">
   <img
     src={img4}
     alt="CTDA Media"
