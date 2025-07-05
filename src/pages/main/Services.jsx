@@ -109,7 +109,7 @@ const services = [
 const Services = () => {
   return (
     <div className="bg-gray-50 pt-24 pb-16 px-4 sm:px-6 lg:px-16 text-gray-800">
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800">
+      <h1 className="text-2xl md:text-3xl font-bold text-center mb-12 text-green-800">
         What We Offer at CTDA Media
       </h1>
 
