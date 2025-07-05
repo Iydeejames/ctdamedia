@@ -123,7 +123,7 @@ const Services = () => {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="bg-white shadow-sm rounded-xl p-6 md:p-10 border border-gray-300"
           >
-            <h2 className="text-2xl font-semibold mb-2 text-gray-900">
+            <h2 className="text-xl font-semibold mb-2 text-gray-900">
               {service.headline}
             </h2>
             <p className="text-gray-700 text-sm md:text-base mb-4">
