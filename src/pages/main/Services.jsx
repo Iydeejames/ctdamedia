@@ -172,7 +172,7 @@ const Services = () => {
       <Link
         key={i}
         to={btn.to}
-        className="w-[220px] text-center bg-green-200 text-gray-800 px-4 py-2 rounded-md text-xs md:text-base text-sm md:text-sm hover:bg-green-300 transition"
+        className="w-[220px] text-center bg-gray-800 text-white px-4 py-2 rounded-md text-xs md:text-base text-sm md:text-sm hover:bg-gray-600 transition"
       >
         {btn.label}
       </Link>
