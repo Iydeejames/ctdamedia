@@ -17,6 +17,7 @@ import Community from "./pages/main/blog/Community";
 import Documentary from "./pages/main/blog/Documentary";
 import Podcasts from "./pages/main/Podcasts";
 import About from "./pages/main/About";
+import Services from "./pages/main/Services";
 import Contact from "./pages/main/Contact";
 import Search from "./pages/main/Search";
 import NewsDetail from "./pages/FullPost";
@@ -79,6 +80,7 @@ function App() {
           <Route path="/documentary" element={<Documentary />} />
           <Route path="/podcasts" element={<Podcasts />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
           <Route path="/:category/:slug" element={<NewsDetail />} />

@@ -77,6 +77,8 @@ const Header = () => {
         <nav className="hidden lg:flex items-center space-x-6 font-semibold uppercase tracking-wide relative">
           <a href="/" className="hover:text-red-500">HOME</a>
           <a href="/about" className="hover:text-red-500">About CTDA</a>
+          <a href="/services" className="hover:text-red-500">Services</a>
+
 
           <div className="relative">
             <button
@@ -159,6 +161,8 @@ const Header = () => {
             <nav className="flex flex-col space-y-4 text-sm font-semibold uppercase tracking-wide">
               <button onClick={() => handleNavigation('/')} className="text-left hover:text-red-400">HOME</button>
               <button onClick={() => handleNavigation('/about')} className="text-left hover:text-red-400">ABOUT CTDA</button>
+              <button onClick={() => handleNavigation('/services')} className="text-left hover:text-red-400">SERVICES</button>
+
 
               {/* Blog Dropdown */}
               <div>
